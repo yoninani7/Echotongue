@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECHOTONGUE - Official Site</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -42,22 +47,22 @@
             box-sizing: border-box;
         }
 
-        body { 
+        body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: var(--font-body);
             overflow-x: hidden;
             /* Simulating the particle background */
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+            background-image:
+                radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 2px),
+                radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 3px);
             background-size: 550px 550px, 350px 350px, 250px 250px;
             background-position: 0 0, 40px 60px, 130px 270px;
             scroll-behavior: smooth;
             padding-top: var(--header-height);
         }
- 
+
         /* --- FIXED TRANSPARENT NAVIGATION BAR --- */
         nav {
             display: flex;
@@ -68,8 +73,10 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background-color: transparent; /* Fully transparent by default */
-            backdrop-filter: none; /* No blur initially */
+            background-color: transparent;
+            /* Fully transparent by default */
+            backdrop-filter: none;
+            /* No blur initially */
             -webkit-backdrop-filter: none;
             transition: all 0.3s ease;
             height: var(--header-height);
@@ -78,8 +85,10 @@
         nav.scrolled {
             height: var(--header-shrink-height);
             padding: 1rem 5%;
-            background-color: rgba(5, 5, 5, 0.95); /* Dark background when scrolled */
-            backdrop-filter: blur(10px); /* Blur effect when scrolled */
+            background-color: rgba(5, 5, 5, 0.95);
+            /* Dark background when scrolled */
+            backdrop-filter: blur(10px);
+            /* Blur effect when scrolled */
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
             border-bottom: 1px solid rgba(255, 51, 51, 0.2);
@@ -283,10 +292,9 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 0 10%;
+            justify-content: center; 
             position: relative;
-            background: 
+            background:
                 radial-gradient(ellipse at 20% 30%, rgba(0, 0, 0, 0.5) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 70%, rgb(0, 0, 0) 0%, transparent 50%),
                 radial-gradient(ellipse at 40% 50%, rgba(104, 3, 3, 0.719) 0%, transparent 60%),
@@ -309,18 +317,18 @@
             position: relative;
             display: flex;
             justify-content: center;
-            height: 70%; 
+            height: 85%;
         }
 
         .book-img {
-            width: 100%;
+            width: 70%;
             max-width: 450px;
             border-radius: 5px;
             box-shadow: 0 0 60px rgba(255, 51, 51, 0.3);
             transform: rotateY(-5deg);
             transition: transform 0.3s ease;
         }
-        
+
         .book-wrapper:hover .book-img {
             transform: rotateY(0deg) scale(1.02);
         }
@@ -335,10 +343,10 @@
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             clip-path: polygon(100% 0, 100% 100%, 50% 85%, 0 100%, 0 0);
             padding-bottom: 15px;
-            z-index: 1000;
+            z-index: 100;
         }
 
         /* Right Side: Content */
@@ -447,13 +455,30 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
-            40% {transform: translateX(-50%) translateY(-10px);}
-            60% {transform: translateX(-50%) translateY(-5px);}
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
         }
 
         /* --- REST OF THE PAGE STYLES --- */
-        h1, h2, h3, h4, h5 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
             font-family: 'Cinzel', serif;
             font-weight: 700;
             color: var(--text-white);
@@ -524,15 +549,15 @@
             width: 100%;
             max-width: 600px;
             border-radius: 10px;
-            box-shadow: 
-                var(--shadow), 
+            box-shadow:
+                var(--shadow),
                 0 0 50px rgba(192, 0, 0, 0.3),
                 20px 20px 40px rgba(0, 0, 0, 0.5);
             border: 10px solid var(--primary-black);
             position: relative;
             z-index: 2;
         }
-        
+
         .book-spine {
             position: absolute;
             top: 0;
@@ -736,7 +761,7 @@
         .magic-visual {
             position: relative;
             height: 500px;
-            background: radial-gradient(circle, rgba(192,0,0,0.1) 0%, rgba(10,10,10,0) 70%);
+            background: radial-gradient(circle, rgba(192, 0, 0, 0.1) 0%, rgba(10, 10, 10, 0) 70%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -746,7 +771,7 @@
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            background: radial-gradient(circle, var(--primary-red) 0%, rgba(192,0,0,0.1) 70%);
+            background: radial-gradient(circle, var(--primary-red) 0%, rgba(192, 0, 0, 0.1) 70%);
             position: relative;
             animation: pulse 4s infinite alternate;
             box-shadow: 0 0 100px rgba(192, 0, 0, 0.5);
@@ -757,6 +782,7 @@
                 transform: scale(1);
                 box-shadow: 0 0 100px rgba(192, 0, 0, 0.5);
             }
+
             100% {
                 transform: scale(1.05);
                 box-shadow: 0 0 150px rgba(192, 0, 0, 0.7);
@@ -1218,29 +1244,33 @@
 
         /* Responsive Design */
         @media (max-width: 1200px) {
-            .hero-container, .preview-container, .magic-container, .author-container {
+
+            .hero-container,
+            .preview-container,
+            .magic-container,
+            .author-container {
                 grid-template-columns: 1fr;
                 gap: 60px;
             }
-            
+
             .book-cover-3d {
                 text-align: center;
             }
-            
+
             .story-timeline::before {
                 left: 30px;
             }
-            
+
             .timeline-item {
                 width: calc(100% - 80px);
                 left: 80px !important;
             }
-            
+
             .timeline-item:nth-child(odd) .timeline-content::after,
             .timeline-item:nth-child(even) .timeline-content::after {
                 left: -10px;
             }
-            
+
             .timeline-item:nth-child(odd) .timeline-marker,
             .timeline-item:nth-child(even) .timeline-marker {
                 left: -58px;
@@ -1251,36 +1281,37 @@
             .footer-container {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .hero h1 {
                 font-size: 3rem;
             }
-            
-            .nav-links, .btn-nav {
+
+            .nav-links,
+            .btn-nav {
                 display: none;
             }
-            
+
             .mobile-menu-btn {
                 display: flex;
             }
-            
+
             .section-title {
                 font-size: 2.5rem;
             }
-            
+
             .dialects-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .cta-group {
                 flex-direction: column;
             }
-            
+
             .hero-content {
                 align-items: center;
                 text-align: center;
             }
-            
+
             .hero p.synopsis {
                 margin: 0 auto;
             }
@@ -1290,33 +1321,33 @@
             .hero h1 {
                 font-size: 2.8rem;
             }
-            
+
             .mobile-nav a {
                 font-size: 1.6rem;
             }
-            
+
             .mobile-close-btn {
                 top: 20px;
                 right: 20px;
             }
-            
+
             .order-form-container {
                 padding: 30px;
             }
-            
+
             .form-row {
                 grid-template-columns: 1fr;
             }
-            
+
             .newsletter-form {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .newsletter-form input {
                 border-radius: 4px;
             }
-            
+
             .newsletter-form button {
                 border-radius: 4px;
                 width: 100%;
@@ -1327,42 +1358,45 @@
             .footer-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .hero h1 {
                 font-size: 2.2rem;
             }
-            
+
             .section-title {
                 font-size: 2rem;
             }
-            
-            .planets-grid, .characters-container, .contact-methods {
+
+            .planets-grid,
+            .characters-container,
+            .contact-methods {
                 grid-template-columns: 1fr;
             }
-            
+
             .contact-card {
                 padding: 30px 20px;
             }
-            
+
             .author-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .author-img {
                 max-width: 300px;
                 margin: 0 auto;
             }
-            
+
             .logo {
                 font-size: 1.5rem;
             }
-            
+
             .logo i {
                 font-size: 1.3rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Fixed TRANSPARENT Navigation Bar -->
     <nav id="main-nav">
@@ -1378,7 +1412,7 @@
             <li><a href="#contact">Get Your Copy</a></li>
         </ul>
         <button class="btn-nav"><i class="fas fa-shopping-cart"></i> Buy Now</button>
-        
+
         <!-- Mobile Menu Button - Hidden on desktop -->
         <button class="mobile-menu-btn" id="mobile-menu-btn">
             <i class="fas fa-bars"></i>
@@ -1408,7 +1442,7 @@
     <!-- Hero Section -->
     <header class="hero" id="home">
         <div class="hero-container">
-            
+
             <div class="book-wrapper">
                 <div class="badge"><i class="fas fa-star"></i> First Edition</div>
                 <img src="assets/frontbook.png" alt="Echotongue Book Cover" class="book-img">
@@ -1418,11 +1452,12 @@
                 <div class="status">
                     <i class="fas fa-sun"></i> AVAILABLE NOW
                 </div>
-                
+
                 <h1>ECHOTONGUE</h1>
-                
+
                 <p class="synopsis">
-                    In a corrupted universe of thirty-two planets and magic-infused dialects, survival becomes a question of escape or extinction.
+                    In a corrupted universe of thirty-two planets and magic-infused dialects, survival becomes a
+                    question of escape or extinction.
                 </p>
 
                 <div class="cta-group">
@@ -1466,8 +1501,7 @@
             <div class="book-cover-3d">
                 <div class="book-spine"></div>
                 <div class="book-pages"></div>
-                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                    alt="Echotongue Book Cover" class="cover-3d">
+                <img src="assets/bookreflect.png" alt="Echotongue Book Cover" class="cover-3d">
             </div>
             <div class="preview-content">
                 <h2 class="section-title">Limited Edition</h2>
@@ -1486,7 +1520,7 @@
         </div>
     </section>
 
-    
+
     <!-- Universe Section -->
     <section class="universe" id="universe">
         <div class="container universe-content">
@@ -1749,14 +1783,14 @@
 
     <script>
         // Navigation and scroll functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const nav = document.getElementById('main-nav');
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileNav = document.getElementById('mobile-nav');
             const mobileCloseBtn = document.getElementById('mobile-close-btn');
             const scrollTopBtn = document.getElementById('scroll-top');
             const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
-            
+
             // Handle scroll effects
             function handleScroll() {
                 // Navbar scroll effect - becomes solid when scrolled past hero
@@ -1765,7 +1799,7 @@
                 } else {
                     nav.classList.remove('scrolled');
                 }
-                
+
                 // Scroll to top button
                 if (window.scrollY > 500) {
                     scrollTopBtn.classList.add('visible');
@@ -1773,31 +1807,31 @@
                     scrollTopBtn.classList.remove('visible');
                 }
             }
-            
+
             // Mobile menu functions
             function openMobileNav() {
                 mobileNav.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
-            
+
             function closeMobileNav() {
                 mobileNav.classList.remove('active');
                 document.body.style.overflow = '';
             }
-            
+
             // Smooth scrolling for navigation links
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
                     if (href.startsWith('#')) {
                         e.preventDefault();
                         const targetId = href.substring(1);
                         const targetElement = document.getElementById(targetId);
-                        
+
                         if (targetElement) {
                             // Close mobile menu if open
                             closeMobileNav();
-                            
+
                             // Scroll to target
                             window.scrollTo({
                                 top: targetElement.offsetTop - 80,
@@ -1807,7 +1841,7 @@
                     }
                 });
             });
-            
+
             // Scroll to top button
             scrollTopBtn.addEventListener('click', () => {
                 window.scrollTo({
@@ -1815,33 +1849,33 @@
                     behavior: 'smooth'
                 });
             });
-            
+
             // Scroll down button
             document.querySelector('.scroll-down').addEventListener('click', scrollToContent);
-            
+
             // Parallax effect for book
             document.addEventListener('mousemove', (e) => {
                 const x = (window.innerWidth - e.pageX) / 50;
                 const y = (window.innerHeight - e.pageY) / 50;
-                
+
                 const book = document.querySelector('.book-img');
-                if(book) {
+                if (book) {
                     book.style.transform = `rotateY(-5deg) translateX(${x}px) translateY(${y}px)`;
                 }
             });
-            
+
             // Mobile menu event listeners
             mobileMenuBtn.addEventListener('click', openMobileNav);
             mobileCloseBtn.addEventListener('click', closeMobileNav);
-            
+
             // Close mobile menu when clicking on a link
             document.querySelectorAll('.mobile-nav a').forEach(link => {
                 link.addEventListener('click', closeMobileNav);
             });
-            
+
             // Initial scroll check
             handleScroll();
-            
+
             // Listen for scroll events
             window.addEventListener('scroll', handleScroll);
         });
@@ -1870,8 +1904,7 @@
         const characters = [
             { id: 1, name: "Lydia Nightshade", role: "Protagonist", description: "A linguist with the rare ability to speak all thirty-two magical dialects. Hunted by the Universal Council for her connection to an ancient prophecy.", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
             { id: 2, name: "Kaelen Stormrider", role: "Companion", description: "Former Council guard who defected after discovering their true agenda. Expert combatant with knowledge of Council operations.", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { id: 3, name: "Seraphina Vex", role: "Companion", description: "Tech-savvy smuggler from the underworld of Aethelgard. Provides transportation and hacking skills to bypass Council security.", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { id: 4, name: "Councilor Vorlag", role: "Antagonist", description: "Head of the Universal Council's enforcement division. Will stop at nothing to capture Lydia and harness her abilities for Council control.", image: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+          { id: 3, name: "Councilor Vorlag", role: "Antagonist", description: "Head of the Universal Council's enforcement division. Will stop at nothing to capture Lydia and harness her abilities for Council control.", image: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
         ];
 
         const dialects = [
@@ -2244,4 +2277,5 @@
         }
     </script>
 </body>
+
 </html>
