@@ -20,7 +20,7 @@
     <style>
         /* --- CSS VARIABLES & RESET --- */
         :root {
-            --primary-red: #ff3333;
+            --primary-red: #c91313c9;
             --dark-red: #b30000;
             --bg-color: #050505;
             --text-color: #e0e0e0;
@@ -124,28 +124,25 @@
 
         .nav-links a {
             color: #aaa;
+            
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
             padding: 5px 0;
+            font-family: var(--font-body);
         }
 
         .nav-links a:hover {
+            background-color: rgba(99, 99, 99, 0.5);
+            padding: 8px 5px;
+            border-radius: 10px;
             color: white;
+            transition: ease-in-out 0.3s;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-red), var(--dark-red));
-            transition: width 0.3s ease;
-        }
+        
 
         .nav-links a:hover::after {
             width: 100%;
@@ -286,21 +283,33 @@
             background-color: rgba(255, 51, 51, 0.1);
             transform: rotate(90deg);
         }
-
+ 
         /* --- HERO SECTION (FROM FIRST CODE) --- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center; 
-            position: relative;
-            background:
-                radial-gradient(ellipse at 20% 30%, rgba(0, 0, 0, 0.5) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgb(0, 0, 0) 0%, transparent 50%),
-                radial-gradient(ellipse at 40% 50%, rgba(104, 3, 3, 0.719) 0%, transparent 60%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><text x="50%" y="50%" text-anchor="middle" dy=".3em" font-family="monospace" font-size="14">θλψαγ</text></svg>'),
-                linear-gradient(135deg, #100505 0%, #130707 50%, #000000 100%);
-            overflow: hidden;
+        .hero::before {
+            content: '';
+            top: 0;
+            width: 100%;
+            height: 100%; 
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, #eee, rgb(209, 40, 40)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgb(255, 36, 36)),
+                radial-gradient(1px 1px at 90px 40px, #fff, rgb(223, 0, 0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            opacity: 0.5;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
         }
 
         .hero-container {
@@ -310,6 +319,8 @@
             align-items: center;
             width: 100%;
             max-width: 1200px;
+            margin: 0 auto;
+
         }
 
         /* Left Side: Book Cover */
@@ -335,18 +346,18 @@
 
         .badge {
             position: absolute;
-            top: -15px;
-            right: 0;
+            bottom: -25px;
             background-color: var(--primary-red);
             color: white;
             padding: 5px 15px;
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            clip-path: polygon(100% 0, 100% 100%, 50% 85%, 0 100%, 0 0);
-            padding-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+            padding: 10px;
             z-index: 100;
+            margin: 0 auto;
+            border-radius: 10px;
         }
 
         /* Right Side: Content */
@@ -445,7 +456,7 @@
         /* Scroll Down Indicator */
         .scroll-down {
             position: absolute;
-            bottom: 30px;
+            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
             color: #666;
@@ -1210,10 +1221,10 @@
         /* Scroll to Top Button */
         .scroll-top {
             position: fixed;
-            bottom: 30px;
+            bottom: 10px;
             right: 30px;
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             background-color: var(--primary-red);
             border-radius: 50%;
             display: flex;
@@ -1394,6 +1405,7 @@
                 font-size: 1.3rem;
             }
         }
+      
     </style>
 </head>
 
@@ -1440,7 +1452,7 @@
     </button>
 
     <!-- Hero Section -->
-    <header class="hero" id="home">
+    <header class="hero" id="home"  >
         <div class="hero-container">
 
             <div class="book-wrapper">
@@ -1904,7 +1916,7 @@
         const characters = [
             { id: 1, name: "Lydia Nightshade", role: "Protagonist", description: "A linguist with the rare ability to speak all thirty-two magical dialects. Hunted by the Universal Council for her connection to an ancient prophecy.", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
             { id: 2, name: "Kaelen Stormrider", role: "Companion", description: "Former Council guard who defected after discovering their true agenda. Expert combatant with knowledge of Council operations.", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-          { id: 3, name: "Councilor Vorlag", role: "Antagonist", description: "Head of the Universal Council's enforcement division. Will stop at nothing to capture Lydia and harness her abilities for Council control.", image: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+            { id: 3, name: "Councilor Vorlag", role: "Antagonist", description: "Head of the Universal Council's enforcement division. Will stop at nothing to capture Lydia and harness her abilities for Council control.", image: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
         ];
 
         const dialects = [
