@@ -31,7 +31,9 @@
             --text-white: #fff;
             --gold: #d4af37;
             --transition: all 0.3s ease;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --header-height: 80px;
+            --header-shrink-height: 70px;
         }
 
         * {
@@ -40,7 +42,7 @@
             box-sizing: border-box;
         }
 
-        body {
+        body { 
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: var(--font-body);
@@ -53,65 +55,79 @@
             background-size: 550px 550px, 350px 350px, 250px 250px;
             background-position: 0 0, 40px 60px, 130px 270px;
             scroll-behavior: smooth;
+            padding-top: var(--header-height);
+        }
+ 
+        /* --- FIXED TRANSPARENT NAVIGATION BAR --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: transparent; /* Fully transparent by default */
+            backdrop-filter: none; /* No blur initially */
+            -webkit-backdrop-filter: none;
+            transition: all 0.3s ease;
+            height: var(--header-height);
         }
 
-        
+        nav.scrolled {
+            height: var(--header-shrink-height);
+            padding: 1rem 5%;
+            background-color: rgba(5, 5, 5, 0.95); /* Dark background when scrolled */
+            backdrop-filter: blur(10px); /* Blur effect when scrolled */
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(255, 51, 51, 0.2);
+        }
 
-        /* Logo */
         .logo {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--text-white);
-            font-family: 'Cinzel', serif;
-            letter-spacing: 3px;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
             display: flex;
             align-items: center;
-            transition: var(--transition);
+            gap: 10px;
+            color: white;
             text-decoration: none;
+            transition: var(--transition);
         }
 
         .logo:hover {
             transform: scale(1.05);
         }
 
-        .logo span:first-child {
-            color: var(--text-white);
-        }
-
-        .logo span:last-child {
+        .logo i {
             color: var(--primary-red);
+            font-size: 1.6rem;
         }
 
-        .logo-icon {
-            margin-right: 12px;
-            color: var(--primary-red);
-            font-size: 2.2rem;
-            filter: drop-shadow(0 0 8px rgba(192, 0, 0, 0.4));
-        }
-
-        /* Desktop Navigation */
-        .desktop-nav ul {
-            display: flex;
+        .nav-links {
             list-style: none;
-            gap: 40px;
+            display: flex;
+            gap: 30px;
         }
 
-        .desktop-nav a {
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 8px 0;
-            position: relative;
-            transition: var(--transition);
-            letter-spacing: 0.5px;
+        .nav-links a {
             color: #aaa;
             text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
         }
 
-        .desktop-nav a:hover {
-            color: var(--primary-red);
+        .nav-links a:hover {
+            color: white;
         }
 
-        .desktop-nav a::before {
+        .nav-links a::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -119,27 +135,39 @@
             width: 0;
             height: 2px;
             background: linear-gradient(90deg, var(--primary-red), var(--dark-red));
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: width 0.3s ease;
         }
 
-        .desktop-nav a:hover::before {
+        .nav-links a:hover::after {
             width: 100%;
         }
 
-        .desktop-nav a.active {
-            color: var(--primary-red);
+        .btn-nav {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
 
-        .desktop-nav a.active::before {
-            width: 100%;
+        .btn-nav:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 51, 51, 0.3);
         }
 
-        /* Mobile Menu Button */
+        /* Mobile Menu Button - Hidden on desktop, only shows on mobile */
         .mobile-menu-btn {
             display: none;
             width: 50px;
             height: 50px;
-            background-color: rgba(192, 0, 0, 0.1);
+            background-color: rgba(255, 51, 51, 0.1);
             border-radius: 50%;
             border: none;
             cursor: pointer;
@@ -152,18 +180,18 @@
         }
 
         .mobile-menu-btn:hover {
-            background-color: rgba(192, 0, 0, 0.3);
+            background-color: rgba(255, 51, 51, 0.3);
             transform: rotate(90deg);
         }
 
-        /* Mobile Navigation */
+        /* Mobile Navigation - Hidden by default */
         .mobile-nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: rgba(10, 10, 10, 0.98);
+            background-color: rgba(5, 5, 5, 0.98);
             z-index: 999;
             display: flex;
             flex-direction: column;
@@ -246,7 +274,7 @@
 
         .mobile-close-btn:hover {
             color: var(--primary-red);
-            background-color: rgba(192, 0, 0, 0.1);
+            background-color: rgba(255, 51, 51, 0.1);
             transform: rotate(90deg);
         }
 
@@ -265,7 +293,6 @@
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><text x="50%" y="50%" text-anchor="middle" dy=".3em" font-family="monospace" font-size="14">θλψαγ</text></svg>'),
                 linear-gradient(135deg, #100505 0%, #130707 50%, #000000 100%);
             overflow: hidden;
-            padding-top: 120px;
         }
 
         .hero-container {
@@ -282,13 +309,12 @@
             position: relative;
             display: flex;
             justify-content: center;
-            height: 60%;
-            width: auto;
+            height: 70%; 
         }
 
         .book-img {
             width: 100%;
-            max-width: 350px;
+            max-width: 450px;
             border-radius: 5px;
             box-shadow: 0 0 60px rgba(255, 51, 51, 0.3);
             transform: rotateY(-5deg);
@@ -506,7 +532,7 @@
             position: relative;
             z-index: 2;
         }
-
+        
         .book-spine {
             position: absolute;
             top: 0;
@@ -1230,16 +1256,12 @@
                 font-size: 3rem;
             }
             
-            .desktop-nav {
+            .nav-links, .btn-nav {
                 display: none;
             }
             
             .mobile-menu-btn {
                 display: flex;
-            }
-            
-            .header-container {
-                padding: 0 30px;
             }
             
             .section-title {
@@ -1267,10 +1289,6 @@
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.8rem;
-            }
-            
-            .header-container {
-                padding: 0 20px;
             }
             
             .mobile-nav a {
@@ -1336,29 +1354,64 @@
             }
             
             .logo {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
             
-            .logo-icon {
-                font-size: 1.8rem;
+            .logo i {
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
-    
+    <!-- Fixed TRANSPARENT Navigation Bar -->
+    <nav id="main-nav">
+        <a href="#home" class="logo">
+            <i class="fas fa-book-open"></i> ECHOTONGUE
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#universe">Universe</a></li>
+            <li><a href="#characters">Characters</a></li>
+            <li><a href="#magic">Magic System</a></li>
+            <li><a href="#story">Story</a></li>
+            <li><a href="#contact">Get Your Copy</a></li>
+        </ul>
+        <button class="btn-nav"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+        
+        <!-- Mobile Menu Button - Hidden on desktop -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Navigation - Hidden by default -->
+    <div class="mobile-nav" id="mobile-nav">
+        <button class="mobile-close-btn" id="mobile-close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#universe">Universe</a></li>
+            <li><a href="#characters">Characters</a></li>
+            <li><a href="#magic">Magic System</a></li>
+            <li><a href="#story">Story</a></li>
+            <li><a href="#contact">Get Your Copy</a></li>
+        </ul>
+    </div>
+
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scroll-top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- Hero Section (From First Code) -->
+    <!-- Hero Section -->
     <header class="hero" id="home">
         <div class="hero-container">
             
             <div class="book-wrapper">
-                <div class="badge"><i class="fas fa-star"></i> Bestseller</div>
-                <img src="assets/bookfront.png" alt="Echotongue Book Cover" class="book-img">
+                <div class="badge"><i class="fas fa-star"></i> First Edition</div>
+                <img src="assets/frontbook.png" alt="Echotongue Book Cover" class="book-img">
             </div>
 
             <div class="hero-content">
@@ -1405,34 +1458,43 @@
         </div>
     </header>
 
+    <!-- REMOVED THE DUPLICATE NAV HERE -->
+
     <!-- Book Preview -->
     <section class="book-preview" id="preview">
         <div class="container preview-container">
             <div class="book-cover-3d">
                 <div class="book-spine"></div>
                 <div class="book-pages"></div>
-                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Echotongue Book Cover" class="cover-3d">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                    alt="Echotongue Book Cover" class="cover-3d">
             </div>
             <div class="preview-content">
                 <h2 class="section-title">Limited Edition</h2>
-                <p><strong>Echotongue</strong> is not just a book—it's an experience. This limited edition features premium materials and exclusive content not available anywhere else.</p>
-                
-                
+                <p><strong>Echotongue</strong> is not just a book—it's an experience. This limited edition features
+                    premium materials and exclusive content not available anywhere else.</p>
+
+
                 <div style="margin-top: 40px;">
                     <h3>Inside the Book</h3>
-                    <p>Each copy contains 576 pages of immersive storytelling, including 32 full-page illustrations of each planet, a glossary of magical dialects, and hidden codes that unlock online content.</p>
-                    <p>The book itself is a work of art, with metallic red page edges, ribbon bookmark, and archival-quality paper that will last for generations.</p>
+                    <p>Each copy contains 576 pages of immersive storytelling, including 32 full-page illustrations of
+                        each planet, a glossary of magical dialects, and hidden codes that unlock online content.</p>
+                    <p>The book itself is a work of art, with metallic red page edges, ribbon bookmark, and
+                        archival-quality paper that will last for generations.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    
     <!-- Universe Section -->
     <section class="universe" id="universe">
         <div class="container universe-content">
             <h2 class="section-title">The Thirty-Two Planets</h2>
-            <p class="universe-description">Explore the diverse worlds of the Echotongue universe. Each planet has its own unique environment, culture, and magical dialect. Hover over each planet to discover its secrets.</p>
-            
+            <p class="universe-description">Explore the diverse worlds of the Echotongue universe. Each planet has its
+                own unique environment, culture, and magical dialect. Hover over each planet to discover its secrets.
+            </p>
+
             <div class="planets-grid" id="planets-grid">
                 <!-- Planets will be generated by JavaScript -->
             </div>
@@ -1457,9 +1519,12 @@
             </div>
             <div class="magic-content">
                 <h2 class="section-title">Magic-Infused Dialects</h2>
-                <p>In the Echotongue universe, language is power. Each planet has developed its own dialect infused with magical properties. Those who can master these languages can manipulate reality, control elements, and even alter minds.</p>
-                <p>Lydia Nightshade possesses a rare gift: the ability to speak all thirty-two dialects. This makes her both invaluable and dangerous to the powers that rule the universe.</p>
-                
+                <p>In the Echotongue universe, language is power. Each planet has developed its own dialect infused with
+                    magical properties. Those who can master these languages can manipulate reality, control elements,
+                    and even alter minds.</p>
+                <p>Lydia Nightshade possesses a rare gift: the ability to speak all thirty-two dialects. This makes her
+                    both invaluable and dangerous to the powers that rule the universe.</p>
+
                 <div class="dialects-grid" id="dialects-grid">
                     <!-- Dialects will be generated by JavaScript -->
                 </div>
@@ -1471,8 +1536,10 @@
     <section class="story" id="story">
         <div class="container">
             <h2 class="section-title">Story Timeline</h2>
-            <p class="story-description">Echotongue follows Lydia Nightshade's journey across the thirty-two planets as she uncovers the truth about her past, her unique abilities, and the dark secrets of the Universal Council.</p>
-            
+            <p class="story-description">Echotongue follows Lydia Nightshade's journey across the thirty-two planets as
+                she uncovers the truth about her past, her unique abilities, and the dark secrets of the Universal
+                Council.</p>
+
             <div class="story-timeline" id="story-timeline">
                 <!-- Timeline items will be generated by JavaScript -->
             </div>
@@ -1483,15 +1550,18 @@
     <section class="contact" id="contact">
         <div class="container contact-container">
             <h2 class="section-title">Get Your Copy</h2>
-            <p class="contact-description">Echotongue is available through direct order only. We do not sell through online retailers to maintain the quality and exclusivity of our limited edition. Contact us using any of the methods below to place your order.</p>
-            
+            <p class="contact-description">Echotongue is available through direct order only. We do not sell through
+                online retailers to maintain the quality and exclusivity of our limited edition. Contact us using any of
+                the methods below to place your order.</p>
+
             <div class="contact-methods">
                 <div class="contact-card">
                     <div class="contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3 class="contact-title">Email Order</h3>
-                    <p>Send us an email with your order details. We'll respond within 24 hours with pricing, shipping information, and payment options.</p>
+                    <p>Send us an email with your order details. We'll respond within 24 hours with pricing, shipping
+                        information, and payment options.</p>
                     <div class="contact-details">
                         <div class="contact-detail">
                             <i class="fas fa-at"></i>
@@ -1499,13 +1569,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="contact-card">
                     <div class="contact-icon">
                         <i class="fas fa-phone"></i>
                     </div>
                     <h3 class="contact-title">Phone Orders</h3>
-                    <p>Call our dedicated order line to speak with a representative who can assist you with your purchase and answer any questions.</p>
+                    <p>Call our dedicated order line to speak with a representative who can assist you with your
+                        purchase and answer any questions.</p>
                     <div class="contact-details">
                         <div class="contact-detail">
                             <i class="fas fa-phone-alt"></i>
@@ -1517,13 +1588,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="contact-card">
                     <div class="contact-icon">
                         <i class="fas fa-store"></i>
                     </div>
                     <h3 class="contact-title">Partner Bookstores</h3>
-                    <p>Echotongue is available at select independent bookstores. Contact us for a list of partner stores in your area.</p>
+                    <p>Echotongue is available at select independent bookstores. Contact us for a list of partner stores
+                        in your area.</p>
                     <div class="contact-details">
                         <div class="contact-detail">
                             <i class="fas fa-map-marker-alt"></i>
@@ -1532,7 +1604,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Order Form -->
             <div class="order-form-container">
                 <h3 class="form-title">Order Inquiry Form</h3>
@@ -1547,7 +1619,7 @@
                             <input type="email" id="email" name="email" required>
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
@@ -1567,19 +1639,21 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="address">Shipping Address *</label>
                         <textarea id="address" name="address" rows="3" required></textarea>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="message">Additional Notes</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Any special requests, gift messages, or questions..."></textarea>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Any special requests, gift messages, or questions..."></textarea>
                     </div>
-                    
+
                     <div class="form-group" style="text-align: center;">
-                        <button type="submit" class="btn" style="width: 100%; max-width: 300px;">Submit Order Inquiry</button>
+                        <button type="submit" class="btn" style="width: 100%; max-width: 300px;">Submit Order
+                            Inquiry</button>
                     </div>
                 </form>
             </div>
@@ -1590,13 +1664,19 @@
     <section class="author">
         <div class="container author-container">
             <div class="author-img">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Author S.E. Blackwood">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Author S.E. Blackwood">
             </div>
             <div class="author-info">
                 <h2>About the Author</h2>
-                <p class="author-bio"><strong>S.E. Blackwood</strong> is an award-winning speculative fiction author known for intricate world-building and complex characters. With a background in linguistics and mythology, Blackwood creates universes where language itself becomes a source of power and danger.</p>
-                <p class="author-bio">Echotongue is the culmination of seven years of research and writing, drawing inspiration from diverse mythologies, language structures, and the eternal human quest for truth in the face of overwhelming power.</p>
-                
+                <p class="author-bio"><strong>S.E. Blackwood</strong> is an award-winning speculative fiction author
+                    known for intricate world-building and complex characters. With a background in linguistics and
+                    mythology, Blackwood creates universes where language itself becomes a source of power and danger.
+                </p>
+                <p class="author-bio">Echotongue is the culmination of seven years of research and writing, drawing
+                    inspiration from diverse mythologies, language structures, and the eternal human quest for truth in
+                    the face of overwhelming power.</p>
+
                 <div class="author-social">
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1611,8 +1691,9 @@
     <section class="newsletter">
         <div class="container newsletter-container">
             <h2>Join the Echotongue Community</h2>
-            <p>Subscribe to receive exclusive content, behind-the-scenes insights, and updates about the Echotongue series.</p>
-            
+            <p>Subscribe to receive exclusive content, behind-the-scenes insights, and updates about the Echotongue
+                series.</p>
+
             <form class="newsletter-form" id="newsletter-form">
                 <input type="email" placeholder="Enter your email address" required>
                 <button type="submit" class="btn">Subscribe</button>
@@ -1626,7 +1707,8 @@
             <div class="footer-container">
                 <div class="footer-col">
                     <h3>Echotongue</h3>
-                    <p>The epic space fantasy novel by S.E. Blackwood. Journey across thirty-two planets in a universe where language is power and betrayal is inevitable.</p>
+                    <p>The epic space fantasy novel by S.E. Blackwood. Journey across thirty-two planets in a universe
+                        where language is power and betrayal is inevitable.</p>
                 </div>
                 <div class="footer-col">
                     <h3>Explore</h3>
@@ -1659,11 +1741,119 @@
             </div>
             <div class="copyright">
                 <p>&copy; 2024 S.E. Blackwood. Echotongue is a work of fiction. All rights reserved.</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;">Website designed exclusively for the Echotongue novel.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Website designed exclusively for the Echotongue novel.
+                </p>
             </div>
         </div>
     </footer>
 
+    <script>
+        // Navigation and scroll functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.getElementById('main-nav');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            const mobileCloseBtn = document.getElementById('mobile-close-btn');
+            const scrollTopBtn = document.getElementById('scroll-top');
+            const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
+            
+            // Handle scroll effects
+            function handleScroll() {
+                // Navbar scroll effect - becomes solid when scrolled past hero
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+                
+                // Scroll to top button
+                if (window.scrollY > 500) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            }
+            
+            // Mobile menu functions
+            function openMobileNav() {
+                mobileNav.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileNav() {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Smooth scrolling for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            // Close mobile menu if open
+                            closeMobileNav();
+                            
+                            // Scroll to target
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Scroll to top button
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Scroll down button
+            document.querySelector('.scroll-down').addEventListener('click', scrollToContent);
+            
+            // Parallax effect for book
+            document.addEventListener('mousemove', (e) => {
+                const x = (window.innerWidth - e.pageX) / 50;
+                const y = (window.innerHeight - e.pageY) / 50;
+                
+                const book = document.querySelector('.book-img');
+                if(book) {
+                    book.style.transform = `rotateY(-5deg) translateX(${x}px) translateY(${y}px)`;
+                }
+            });
+            
+            // Mobile menu event listeners
+            mobileMenuBtn.addEventListener('click', openMobileNav);
+            mobileCloseBtn.addEventListener('click', closeMobileNav);
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.mobile-nav a').forEach(link => {
+                link.addEventListener('click', closeMobileNav);
+            });
+            
+            // Initial scroll check
+            handleScroll();
+            
+            // Listen for scroll events
+            window.addEventListener('scroll', handleScroll);
+        });
+
+        // Scroll to content function
+        function scrollToContent() {
+            window.scrollBy({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        }
+    </script>
     <script>
         // Data
         const planets = [
@@ -1676,14 +1866,14 @@
             { id: 7, name: "Auroria", type: "Aurora World", description: "Northern lights contain magical energy harvested by the Council." },
             { id: 8, name: "Pyros", type: "Volcanic World", description: "Molten landscapes house fire-elementals who speak in heat waves." }
         ];
-        
+
         const characters = [
             { id: 1, name: "Lydia Nightshade", role: "Protagonist", description: "A linguist with the rare ability to speak all thirty-two magical dialects. Hunted by the Universal Council for her connection to an ancient prophecy.", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
             { id: 2, name: "Kaelen Stormrider", role: "Companion", description: "Former Council guard who defected after discovering their true agenda. Expert combatant with knowledge of Council operations.", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
             { id: 3, name: "Seraphina Vex", role: "Companion", description: "Tech-savvy smuggler from the underworld of Aethelgard. Provides transportation and hacking skills to bypass Council security.", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
             { id: 4, name: "Councilor Vorlag", role: "Antagonist", description: "Head of the Universal Council's enforcement division. Will stop at nothing to capture Lydia and harness her abilities for Council control.", image: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
         ];
-        
+
         const dialects = [
             { name: "Veridian", power: "Control flora and natural elements" },
             { name: "Kaelish", power: "Manipulate sand and stone" },
@@ -1694,7 +1884,7 @@
             { name: "Aurorian", power: "Light and energy manipulation" },
             { name: "Pyrian", power: "Fire and heat control" }
         ];
-        
+
         const timelineEvents = [
             { title: "The Awakening", description: "Lydia discovers her ability to understand all thirty-two dialects during a diplomatic incident on Veridia Prime." },
             { title: "First Betrayal", description: "Lydia's family reveals their connection to the Council and attempts to capture her for her abilities." },
@@ -1717,14 +1907,14 @@
         const navLinks = document.querySelectorAll('a[href^="#"]');
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             renderPlanets();
             renderCharacters();
             renderDialects();
             renderTimeline();
             setupEventListeners();
             setupScrollEffects();
-            
+
             // Initial scroll check
             handleScroll();
         });
@@ -1733,9 +1923,9 @@
         function renderPlanets() {
             const planetsGrid = document.getElementById('planets-grid');
             if (!planetsGrid) return;
-            
+
             planetsGrid.innerHTML = '';
-            
+
             planets.forEach(planet => {
                 const planetCard = document.createElement('div');
                 planetCard.className = 'planet-card';
@@ -1748,13 +1938,13 @@
                 planetsGrid.appendChild(planetCard);
             });
         }
-        
+
         function renderCharacters() {
             const charactersContainer = document.getElementById('characters-container');
             if (!charactersContainer) return;
-            
+
             charactersContainer.innerHTML = '';
-            
+
             characters.forEach(character => {
                 const characterCard = document.createElement('div');
                 characterCard.className = 'character-card';
@@ -1771,13 +1961,13 @@
                 charactersContainer.appendChild(characterCard);
             });
         }
-        
+
         function renderDialects() {
             const dialectsGrid = document.getElementById('dialects-grid');
             if (!dialectsGrid) return;
-            
+
             dialectsGrid.innerHTML = '';
-            
+
             dialects.forEach(dialect => {
                 const dialectItem = document.createElement('div');
                 dialectItem.className = 'dialect-item';
@@ -1788,13 +1978,13 @@
                 dialectsGrid.appendChild(dialectItem);
             });
         }
-        
+
         function renderTimeline() {
             const storyTimeline = document.getElementById('story-timeline');
             if (!storyTimeline) return;
-            
+
             storyTimeline.innerHTML = '';
-            
+
             timelineEvents.forEach((event, index) => {
                 const timelineItem = document.createElement('div');
                 timelineItem.className = 'timeline-item';
@@ -1815,30 +2005,30 @@
             if (mobileMenuBtn) {
                 mobileMenuBtn.addEventListener('click', openMobileNav);
             }
-            
+
             // Mobile menu close
             if (mobileCloseBtn) {
                 mobileCloseBtn.addEventListener('click', closeMobileNav);
             }
-            
+
             // Close mobile nav when clicking a link
             document.querySelectorAll('.mobile-nav a').forEach(link => {
                 link.addEventListener('click', closeMobileNav);
             });
-            
+
             // Newsletter form submission
             if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
+                newsletterForm.addEventListener('submit', function (e) {
                     e.preventDefault();
                     const email = this.querySelector('input').value;
                     showNotification(`Thank you for subscribing with ${email}!`);
                     this.reset();
                 });
             }
-            
+
             // Order form submission
             if (orderForm) {
-                orderForm.addEventListener('submit', function(e) {
+                orderForm.addEventListener('submit', function (e) {
                     e.preventDefault();
                     const name = this.querySelector('#name').value;
                     const email = this.querySelector('#email').value;
@@ -1846,7 +2036,7 @@
                     this.reset();
                 });
             }
-            
+
             // Scroll to top button
             if (scrollTopBtn) {
                 scrollTopBtn.addEventListener('click', () => {
@@ -1856,19 +2046,19 @@
                     });
                 });
             }
-            
+
             // Smooth scrolling for anchor links
             navLinks.forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
                     if (href === '#') return;
-                    
+
                     e.preventDefault();
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
                         // Update active nav link
                         updateActiveNavLink(this);
-                        
+
                         // Scroll to element
                         window.scrollTo({
                             top: targetElement.offsetTop - 90,
@@ -1877,20 +2067,20 @@
                     }
                 });
             });
-            
+
             // Window scroll events
             window.addEventListener('scroll', handleScroll);
-            
+
             // Scroll down button
             document.querySelector('.scroll-down').addEventListener('click', scrollToContent);
-            
+
             // Parallax effect on mouse move for book
             document.addEventListener('mousemove', (e) => {
                 const x = (window.innerWidth - e.pageX) / 50;
                 const y = (window.innerHeight - e.pageY) / 50;
-                
+
                 const book = document.querySelector('.book-img');
-                if(book) {
+                if (book) {
                     book.style.transform = `rotateY(-5deg) translateX(${x}px) translateY(${y}px)`;
                 }
             });
@@ -1909,7 +2099,7 @@
                         }
                     });
                 }, { threshold: 0.3 });
-                
+
                 timelineItems.forEach(item => {
                     item.style.opacity = '0';
                     item.style.transform = 'translateY(30px)';
@@ -1928,7 +2118,7 @@
             } else {
                 header.classList.remove('scrolled');
             }
-            
+
             // Scroll to top button
             if (scrollTopBtn) {
                 if (window.scrollY > 500) {
@@ -1937,7 +2127,7 @@
                     scrollTopBtn.classList.remove('visible');
                 }
             }
-            
+
             // Update active nav link
             if (!scrollTimeout) {
                 scrollTimeout = setTimeout(() => {
@@ -1952,7 +2142,7 @@
             mobileNav.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-        
+
         function closeMobileNav() {
             mobileNav.classList.remove('active');
             document.body.style.overflow = '';
@@ -1962,7 +2152,7 @@
         function updateActiveNavLink(clickedLink = null) {
             const sections = document.querySelectorAll('section[id], header[id]');
             const scrollPosition = window.scrollY + 100;
-            
+
             // If a link was clicked, use that
             if (clickedLink) {
                 document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(link => {
@@ -1971,19 +2161,19 @@
                 clickedLink.classList.add('active');
                 return;
             }
-            
+
             // Otherwise, find the current section
             let currentSection = '';
-            
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.offsetHeight;
-                
+
                 if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                     currentSection = section.id;
                 }
             });
-            
+
             // Update active states
             document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(link => {
                 link.classList.remove('active');
@@ -2021,9 +2211,9 @@
                 font-weight: 600;
                 border-left: 5px solid var(--primary-red);
             `;
-            
+
             document.body.appendChild(notification);
-            
+
             // Add CSS for notification animations
             if (!document.querySelector('#notification-styles')) {
                 const style = document.createElement('style');
@@ -2041,7 +2231,7 @@
                 `;
                 document.head.appendChild(style);
             }
-            
+
             // Remove notification after 4 seconds
             setTimeout(() => {
                 notification.style.animation = 'slideOut 0.3s ease';
