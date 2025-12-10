@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxian Chronicles - Lydia Nightshade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #8B0000;
+            --dark-red: #5A0000;
+            --light-red: #A52A2A;
+            --black: #111111;
+            --dark-gray: #222222;
+            --medium-gray: #333333;
+            --light-gray: #444444;
+            --text-color: #E0E0E0;
+            --text-light: #F0F0F0;
+            --accent-gold: #D4AF37;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--black);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: var(--dark-gray);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid var(--primary-red);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-red);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-red);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1400px;
+            margin: 120px auto 40px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+        }
+
+        /* Table of Contents */
+        .toc-container {
+            background-color: var(--dark-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--light-gray);
+        }
+
+        .toc-title {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light-gray);
+            font-family: 'Cinzel', serif;
+        }
+
+        .toc-list {
+            list-style: none;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .toc-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .toc-list::-webkit-scrollbar-track {
+            background: var(--medium-gray);
+        }
+
+        .toc-list::-webkit-scrollbar-thumb {
+            background: var(--primary-red);
+            border-radius: 3px;
+        }
+
+        .toc-item {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .toc-item:hover {
+            border-left-color: var(--primary-red);
+            background-color: rgba(139, 0, 0, 0.1);
+        }
+
+        .toc-item.active {
+            border-left-color: var(--primary-red);
+            background-color: rgba(139, 0, 0, 0.15);
+        }
+
+        .toc-item a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: block;
+            padding: 0.3rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        .toc-item a:hover {
+            color: var(--primary-red);
+        }
+
+        .toc-item.active a {
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        .chapter-num {
+            color: var(--accent-gold);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Book Content */
+        .book-container {
+            background-color: var(--dark-gray);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--light-gray);
+            min-height: 80vh;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .page-title {
+            color: var(--primary-red);
+            font-size: 1.8rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .page-navigation {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background-color: var(--medium-gray);
+            color: var(--text-color);
+            border: 1px solid var(--light-gray);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-red);
+            color: var(--text-light);
+            border-color: var(--primary-red);
+        }
+
+        .page-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .page-content h1 {
+            color: var(--primary-red);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-red);
+            padding-bottom: 1rem;
+        }
+
+        .page-content h2 {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            margin: 1.5rem 0 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .page-content h3 {
+            color: var(--light-red);
+            font-size: 1.5rem;
+            margin: 1.2rem 0 0.8rem;
+        }
+
+        .page-content p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .character-name {
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .dialogue {
+            margin-left: 2rem;
+            font-style: italic;
+            border-left: 2px solid var(--light-red);
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .action {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        /* About Section */
+        .about-container {
+            background-color: var(--dark-gray);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--light-gray);
+        }
+
+        .about-title {
+            color: var(--primary-red);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Cinzel', serif;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 0.5rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .author-info, .book-info {
+            background-color: var(--medium-gray);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .info-title {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 2px solid var(--primary-red);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        .copyright {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                margin-top: 100px;
+            }
+            
+            .toc-container {
+                position: static;
+                margin-bottom: 1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .main-container {
+                margin-top: 140px;
+                padding: 0 10px;
+            }
+            
+            .book-container {
+                padding: 1.5rem;
+            }
+            
+            .page-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Character Badges */
+        .character-badge {
+            display: inline-block;
+            background-color: var(--dark-red);
+            color: var(--text-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin: 0.5rem;
+            border: 1px solid var(--primary-red);
+        }
+
+        /* Highlight Quotes */
+        .quote {
+            background-color: rgba(139, 0, 0, 0.1);
+            border-left: 4px solid var(--primary-red);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote-author {
+            text-align: right;
+            margin-top: 0.5rem;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">Galaxian<span>Chronicles</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#read">Read Book</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#characters">Characters</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Table of Contents -->
+        <aside class="toc-container">
+            <h2 class="toc-title">Table of Contents</h2>
+            <ul class="toc-list" id="tocList">
+                <!-- Table of contents will be generated by JavaScript -->
+            </ul>
+        </aside>
+
+        <!-- Book Content -->
+        <main class="book-container">
+            <div class="page-header">
+                <h1 class="page-title" id="currentPageTitle">About the Author</h1>
+                <div class="page-navigation">
+                    <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i> Previous</button>
+                    <button class="nav-btn" id="nextBtn">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="page-content fade-in" id="pageContent">
+                <!-- Page content will be loaded by JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-container" id="about">
+        <h2 class="about-title">About the Book & Author</h2>
+        <div class="about-content">
+            <div class="author-info">
+                <h3 class="info-title">About the Author</h3>
+                <p>This book was written by a young author who discovered their passion for writing through the encouragement of an English teacher and supportive parents. The author began writing at a young age, publishing a poem in 'Once Upon a Dream' and even writing songs as early as age four.</p>
+                <p>The author's journey reflects how teachers can change lives and how small beginnings can lead to significant achievements, much like the quote from Percy Jackson they cherish: <em>"even the small tides can make big tsunamis."</em></p>
+            </div>
+            <div class="book-info">
+                <h3 class="info-title">About the Story</h3>
+                <p><strong>Galaxian Chronicles</strong> follows the adventures of Lydia Nightshade, Alex Gardener, and Felix Darth as they navigate a universe of magical planets, ancient prophecies, and cosmic dangers.</p>
+                <p>The story explores themes of identity, friendship, and destiny across multiple worlds, featuring the mysterious Zureyan Tablets, the Galaxian Council, and the eternal struggle between cosmic forces.</p>
+                <div class="character-badges">
+                    <span class="character-badge">Lydia Nightshade</span>
+                    <span class="character-badge">Alex Gardener</span>
+                    <span class="character-badge">Felix Darth</span>
+                    <span class="character-badge">Galaxian Council</span>
+                    <span class="character-badge">Zureyan Tablets</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Galaxian Chronicles</div>
+            <p class="copyright">© 2024 Galaxian Chronicles. All rights reserved. This is a fan showcase website.</p>
+            <p class="copyright">Original work from the provided PDF content.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Book data extracted from the PDF
+        const bookData = [
+            {
+                id: 1,
+                title: "About the Author",
+                content: `<p>I could not have written this book if it weren't for my English teacher and my parents.</p>
+                <p>Never had I looked into my future and decided that I would want to be a writer one day, and if I did, I most certainly did not decide I would want to do it as an under-aged child. But during my last years of primary school, my English teacher gave me insight of what I could potentially be when I was older. I loved writing essays and editing my work, and when I realized I had the equipment to do that on real paper, I took my opportunity.</p>
+                <p>Then, of course, my parents are a major factor in my writing of this book. They hadn't published books themselves, but they had plentiful knowledge, and they led me through the right way in writing.</p>
+                <p>My process while making this book was slow, I will admit, due to my work from school. But, I had surprised myself when I finished writing the draft of this book in under three months.</p>
+                <div class="quote">
+                    "even the small tides can make big tsunamis"
+                    <div class="quote-author">- Percy Jackson</div>
+                </div>`
+            },
+            {
+                id: 2,
+                title: "EIGHTEEN - Lydia Nightshade",
+                content: `<p class="dialogue">'It took us a while to get here?' I repeated incredulously, looking back and forth between Felix and Alex.</p>
+                <p>They wouldn't reply, so, as stern as I could, I stood up and said, <span class="dialogue">'Alex Darth Gardener and Felix Mayone Darth. Answer right this second!'</span></p>
+                <p>At the sound of their names, Alex and Felix shot their heads upwards, eyes bulging in shock.</p>
+                <p class="dialogue">'Who told you?' Alex asked, just as Felix opened his mouth.</p>
+                <p>I folded my arms.</p>
+                <p class="dialogue">'A trustworthy lieutenant,' (Illia), 'Now, answer my question. What happened whilst I was asleep?'</p>
+                <p>Again, they looked sheepishly at the floor. A minute passed, and Alex said, <span class="dialogue">'I may or may have slightly crashed the ship on an asteroid.'</span></p>
+                <p class="dialogue">'You crashed the ship on an asteroid?'</span></p>
+                <p class="dialogue">'Did you not hear the part where I said slightly?'</p>
+                <p class="action">I sighed and rolled my eyes.</p>
+                <p class="dialogue">'Where?' I asked.</p>
+                <p class="dialogue">'Just on the left side of the ship. A small dent, unnoticeable. But we're at Ludor?'</p>
+                <p class="action">Both of them nodded.</p>
+                <p class="dialogue">'What are we waiting for, then?'</p>`
+            },
+            {
+                id: 3,
+                title: "ONE - Lydia Nightshade",
+                content: `<p>Space has always been kind of magical to me. There's something comforting about how quiet it is up there, no arguments, no chores, no pretending. The moon especially I loved how it gave off this soft white glow, like it was trying to be the sun's gentler cousin.</p>
+                <p>I'm <span class="character-name">Lydia Nightshade</span>. My parents died when I was a baby at least, that's what Aunt Silena always said. A plane crash, she claimed. But that never felt true. I don't remember much, just faint images, blurry faces with kind eyes leaning over me. Faces that didn't match the story she told. Silena acted like they had never existed. Like I came from nowhere and belonged to no one.</p>
+                <p>It's hard to describe her. She wasn't cruel in the obvious, movie-villain way. She was more like a rulebook come to life. Everything had to be perfect: my clothes, my posture, my behavior. At home, she was cold and bossy, but once we stepped outside, she turned sugary sweet. Smiles, compliments, polite small talk... total fakery. People thought she was lovely. They didn't see the version I lived with.</p>
+                <p>She never cooked or cleaned. Said it wasn't 'ladylike'. That job landed on me. I had lists of chores every day, and if I missed something - even just forgot to sweep behind the dresser - she'd give me this awful silent treatment that lasted for hours, and ended with a lot of shouting she held back.</p>`
+            },
+            {
+                id: 4,
+                title: "TWO - Alex Gardener",
+                content: `<p class="dialogue">'No, Jade, you can't take my spathus,' I told her.</p>
+                <p>Her face crumbled like a bread roll left out too long - it was so tight I thought they might be so much more than anything. She squeezed her eyes shut, clearly preparing to summon all six years of theatrical experience into one catastrophic tantrum.</p>
+                <p>Bracing for impact, I leaned forward and held her gently by the shoulders. <span class="dialogue">'Look, Jade. I wouldn't mind if you borrowed my spathus. If you were my age. You're six. Six.'</span></p>
+                <p>I thought I'd nailed it and diffused the bomb. But may the Beyond correct me.</p>
+                <p>Jade took my hands and launched them back at me like I'd insulted her ancestors. <span class="dialogue">'You are only seven years older than me! You are hurt! It's not fair you get to hold a spathus!'</span></p>
+                <p class="action">And with that, she stormed out of the infirmary like she was wielding one herself.</p>
+                <p class="action">I sighed again. Way deeper this time. Girls.</p>
+                <p>I shuffled off the sick-bed with all the grace of a collapsing tent. My knees gave up halfway, and down I went.</p>
+                <p>Lucky Nurse Diana caught me before I face-planted towards the floor.</p>`
+            },
+            {
+                id: 5,
+                title: "THREE - Lydia Nightshade",
+                content: `<p>Every morning, I'd wake up and wish it was a dream, that I was still nine, that May had never been born. But every morning, the sound of shuffling feet and muffled crying from Aunt and Uncle's room reminded me it wasn't.</p>
+                <p>I'd walk into the kitchen with that same stubborn hope, passing Avern on the way. I'd try to catch his eye - just once - and wait for him to stop fussing with the fridge or the cutlery and look at me properly. Really look. But he never did.</p>
+                <p>So, I got dressed without Avern to tease me and made breakfast without Avern to help me. Walked to school without Avern's lopsided grin by my side.</p>
+                <p>Even on weekends, when I could wake late and linger in pajamas, the table was bare - no beans and toast. No eggs. No salad. No trace of Avern's usual touch. I cooked for myself, ate alone - sometimes while Silena and Avern rushed past, scolding me for not waiting or not sharing, like I was the selfish one.</p>
+                <p>One day, I stopped hoping he'd look my way. Stopped waiting for a word, a glance, anything. It doesn't matter now. At least, not anymore.</p>
+                <p>I'm thirteen. No more 'wishing on stars'. No more childish expectations of caretaking from someone who'd rather serve a criminal than the girl standing right in front of him.</p>`
+            },
+            {
+                id: 6,
+                title: "FOUR - Felix Darth",
+                content: `<p>I had to pretend like nothing happened as I stepped out of the infirmary.</p>
+                <p>Every muscle in my face worked overtime. Smile at Dean Jele. Partner up with Omar Saïd in Draconis class. Start a totally not awkward conversation with Illia Nore, all the things I normally did without thinking, but now had to manually rehearse inside my head.</p>
+                <p>But pretending didn't help. Everyone already knew something was wrong.</p>
+                <p class="dialogue">'Something's off,' Illia said, mid-sentence. Her brows dipped. 'You're acting weird. You don't act weird.'</p>
+                <p>I felt heat crawling up my neck. <span class="dialogue">'I - I'm okay,'</span> I said, eyes glued to the ground.</p>
+                <p class="dialogue">'There it is again! You never stutter. The Felix I know doesn't stutter.'</p>
+                <p class="dialogue">'The Felix you know?'</span> I snapped, faster than I meant to. <span class="dialogue">'I've only met you. I barely know you!'</span></p>
+                <p>As soon as the words left my mouth, I wished I could shove them back in.</p>
+                <p class="dialogue">'Oh,' she said, voice tightening, 'you don't know me? Fine then! Maybe I should see to Alex Gardener instead!'</span> Her face reddened immediately. <span class="dialogue">'Not in that sense!'</span> she added, flustered, before stomping away.</p>`
+            },
+            {
+                id: 7,
+                title: "Acknowledgments",
+                content: `<p>I owe my gratitude to a few individuals for helping me write this book. As an under-age child, I didn't expect to be writing a book, and if it weren't for these people, I wouldn't have succeeded.</p>
+                <p>Firstly, I would like to thank my parents and family friends who have supported me throughout my writing journey, offering guidance on what to look out for and what to avoid. Even when I didn't have the thought of writing a book, they told me valuable information that is in these very pages. My family, thank you all so much for helping me write a book I never even dreamt of publishing.</p>
+                <p>I cannot forget about my teacher, who is the reason I started writing in the first place. He was my form teacher in my sixth year at primary school, and he was perhaps the best teacher. He was really funny during lessons, and he made sure none of us had fallen asleep. Not only that, but he made sure we learned something new at the end of the day. My teacher was amusing at all times, and he made it easy to learn. His specialty was English, and I loved every bit of the lessons he would teach us. He also happens to be one of the only people to whom I gave a WIP (work in progress) of my book during my last weeks of school. Thank you so much for being a main factor of moulding my dreams.</p>
+                <p>Lastly, I would like to thank Writer Cosmos for helping me publish this book. Special thanks to Janet, who was eager to accept my father's request for a publisher.</p>`
+            }
+        ];
+
+        // Current page index
+        let currentPageIndex = 0;
+
+        // DOM elements
+        const tocList = document.getElementById('tocList');
+        const pageContent = document.getElementById('pageContent');
+        const currentPageTitle = document.getElementById('currentPageTitle');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        // Initialize table of contents
+        function initializeTOC() {
+            bookData.forEach((page, index) => {
+                const li = document.createElement('li');
+                li.className = 'toc-item';
+                if (index === currentPageIndex) li.classList.add('active');
+                
+                const a = document.createElement('a');
+                a.href = '#';
+                a.innerHTML = `<span class="chapter-num">${page.title.split(' - ')[0]}</span> ${page.title.split(' - ')[1] || page.title}`;
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    loadPage(index);
+                    updateActiveTOCItem(index);
+                    updateActiveNavLink('#read');
+                });
+                
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+        }
+
+        // Load a specific page
+        function loadPage(index) {
+            if (index < 0 || index >= bookData.length) return;
+            
+            currentPageIndex = index;
+            const page = bookData[index];
+            
+            // Update page title and content
+            currentPageTitle.textContent = page.title;
+            pageContent.innerHTML = page.content;
+            pageContent.classList.add('fade-in');
+            
+            // Update buttons state
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === bookData.length - 1;
+            
+            // Scroll to top of content
+            pageContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Remove animation class after animation completes
+            setTimeout(() => {
+                pageContent.classList.remove('fade-in');
+            }, 500);
+            
+            // Update URL hash
+            window.location.hash = `page-${index + 1}`;
+        }
+
+        // Update active TOC item
+        function updateActiveTOCItem(index) {
+            const tocItems = document.querySelectorAll('.toc-item');
+            tocItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // Update active navigation link
+        function updateActiveNavLink(hash) {
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === hash) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Navigation event listeners
+        prevBtn.addEventListener('click', () => {
+            if (currentPageIndex > 0) {
+                loadPage(currentPageIndex - 1);
+                updateActiveTOCItem(currentPageIndex);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPageIndex < bookData.length - 1) {
+                loadPage(currentPageIndex + 1);
+                updateActiveTOCItem(currentPageIndex);
+            }
+        });
+
+        // Navigation links event listeners
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = link.getAttribute('href');
+                
+                updateActiveNavLink(target);
+                
+                if (target === '#home') {
+                    loadPage(0);
+                    updateActiveTOCItem(0);
+                } else if (target === '#read') {
+                    // Already on read page, do nothing
+                } else if (target === '#about') {
+                    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+                } else if (target === '#characters') {
+                    // For simplicity, load page with character introduction
+                    loadPage(2); // Lydia's introduction page
+                    updateActiveTOCItem(2);
+                }
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && currentPageIndex > 0) {
+                loadPage(currentPageIndex - 1);
+                updateActiveTOCItem(currentPageIndex);
+            } else if (e.key === 'ArrowRight' && currentPageIndex < bookData.length - 1) {
+                loadPage(currentPageIndex + 1);
+                updateActiveTOCItem(currentPageIndex);
+            }
+        });
+
+        // Check URL hash on load
+        window.addEventListener('load', () => {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#page-')) {
+                const pageNum = parseInt(hash.replace('#page-', '')) - 1;
+                if (pageNum >= 0 && pageNum < bookData.length) {
+                    loadPage(pageNum);
+                    updateActiveTOCItem(pageNum);
+                }
+            } else {
+                loadPage(0);
+                updateActiveTOCItem(0);
+            }
+            
+            // Initialize TOC
+            initializeTOC();
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#page-')) {
+                const pageNum = parseInt(hash.replace('#page-', '')) - 1;
+                if (pageNum >= 0 && pageNum < bookData.length) {
+                    loadPage(pageNum);
+                    updateActiveTOCItem(pageNum);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
