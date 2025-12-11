@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECHOTONGUE Chapter Map | Hermona Zeleke</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f0f1a;
+            color: #e8e8e8;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        
+        .header p {
+            color: #8a8a9a;
+            font-size: 1.1rem;
+        }
+        
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background: transparent;
+            border: 1px solid #2a2a3a;
+            color: #8a8a9a;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .tab-btn:hover {
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+        
+        .tab-btn.active {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+        
+        /* Chapter Grid */
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        
+        .chapter-card {
+            background: #1a1a2a;
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid #2a2a3a;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chapter-card:hover {
+            border-color: #3a3a4a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .chapter-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .chapter-pov {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        
+        .chapter-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: #e8e8e8;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        
+        /* Part Dividers */
+        .part-divider {
+            text-align: center;
+            margin: 50px 0;
+            position: relative;
+        }
+        
+        .part-divider h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: #d4af37;
+            display: inline-block;
+            padding: 0 20px;
+            background: #0f0f1a;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .part-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #2a2a3a;
+            z-index: 0;
+        }
+        
+        /* Part Summary */
+        .part-summary {
+            background: rgba(26, 26, 42, 0.8);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-left: 3px solid #d4af37;
+        }
+        
+        .part-summary h3 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .part-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .meta-label {
+            font-size: 0.8rem;
+            color: #8a8a9a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .meta-value {
+            font-size: 1.2rem;
+            color: #e8e8e8;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #2a2a3a;
+            margin-top: 60px;
+            color: #8a8a9a;
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .tab-btn {
+                white-space: nowrap;
+            }
+        }
+        
+        /* Simple Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .chapter-card {
+            animation: fadeIn 0.3s ease forwards;
+            animation-delay: calc(var(--order) * 0.05s);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Chapter Map</h1>
+            <p>Navigate the structure of ECHOTONGUE without spoilers</p>
+        </div>
+        
+        <!-- Part One -->
+        <div class="part-divider">
+            <h2>Part One: Foundation</h2>
+        </div>
+        
+        <div class="part-summary">
+            <h3>The Beginning of the Journey</h3>
+            <p>Fourteen chapters establishing characters and setting the story in motion.</p>
+            <div class="part-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Chapters</div>
+                    <div class="meta-value">14</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">POV Characters</div>
+                    <div class="meta-value">3</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Pages</div>
+                    <div class="meta-value">1-90</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-pov="all">All Chapters</button>
+            <button class="tab-btn" data-pov="lydia">Lydia's Chapters</button>
+            <button class="tab-btn" data-pov="alex">Alex's Chapters</button>
+            <button class="tab-btn" data-pov="felix">Felix's Chapters</button>
+        </div>
+        
+        <div class="chapter-grid" id="part1-chapters">
+            <!-- Chapters will be inserted by JavaScript -->
+        </div>
+        
+        <!-- Part Two -->
+        <div class="part-divider">
+            <h2>Part Two: Expansion</h2>
+        </div>
+        
+        <div class="part-summary">
+            <h3>The Journey Continues</h3>
+            <p>Fifteen chapters as the story expands to new locations and perspectives.</p>
+            <div class="part-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Chapters</div>
+                    <div class="meta-value">15</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">POV Characters</div>
+                    <div class="meta-value">2</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Pages</div>
+                    <div class="meta-value">93-167</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chapter-grid" id="part2-chapters">
+            <!-- Chapters will be inserted by JavaScript -->
+        </div>
+        
+        <!-- Part Three -->
+        <div class="part-divider">
+            <h2>Part Three: Resolution</h2>
+        </div>
+        
+        <div class="part-summary">
+            <h3>Building Toward Conclusion</h3>
+            <p>Fifteen chapters bringing the story toward its current point (preview).</p>
+            <div class="part-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Chapters</div>
+                    <div class="meta-value">15</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">POV Characters</div>
+                    <div class="meta-value">3</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Pages</div>
+                    <div class="meta-value">168-212</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chapter-grid" id="part3-chapters">
+            <!-- Chapters will be inserted by JavaScript -->
+        </div>
+        
+        <div class="footer">
+            <p>ECHOTONGUE: The Zureyan Tablets by Hermona Zeleke</p>
+            <p>This map contains only chapter structure information. No plot details revealed.</p>
+            <p>© 2025 | Preview pages 1-212</p>
+        </div>
+    </div>
+    
+    <script>
+        // Chapter data from the table of contents (pages 3-5)
+        const chapters = {
+            part1: [
+                { number: 1, title: "Lydia Nightshade", pov: "lydia", page: 1 },
+                { number: 2, title: "Alex Gardener", pov: "alex", page: 6 },
+                { number: 3, title: "Lydia Nightshade", pov: "lydia", page: 12 },
+                { number: 4, title: "Felix Darth", pov: "felix", page: 19 },
+                { number: 5, title: "Lydia Nightshade", pov: "lydia", page: 25 },
+                { number: 6, title: "Alex Gardener", pov: "alex", page: 33 },
+                { number: 7, title: "Lydia Nightshade", pov: "lydia", page: 40 },
+                { number: 8, title: "Felix Darth", pov: "felix", page: 47 },
+                { number: 9, title: "Lydia Nightshade", pov: "lydia", page: 51 },
+                { number: 10, title: "Alex Gardener", pov: "alex", page: 59 },
+                { number: 11, title: "Lydia Nightshade", pov: "lydia", page: 65 },
+                { number: 12, title: "Felix Darth", pov: "felix", page: 76 },
+                { number: 13, title: "Lydia Nightshade", pov: "lydia", page: 81 },
+                { number: 14, title: "Alex Gardener", pov: "alex", page: 91 }
+            ],
+            part2: [
+                { number: 15, title: "Lydia Nightshade", pov: "lydia", page: 93 },
+                { number: 16, title: "Lydia Nightshade", pov: "lydia", page: 105 },
+                { number: 17, title: "Lydia Nightshade", pov: "lydia", page: 110 },
+                { number: 18, title: "Lydia Nightshade", pov: "lydia", page: 116 },
+                { number: 19, title: "Lydia Nightshade", pov: "lydia", page: 118 },
+                { number: 20, title: "Lydia Nightshade", pov: "lydia", page: 124 },
+                { number: 21, title: "Alex Gardener", pov: "alex", page: 129 },
+                { number: 22, title: "Alex Gardener", pov: "alex", page: 134 },
+                { number: 23, title: "Lydia Nightshade", pov: "lydia", page: 137 },
+                { number: 24, title: "Alex Gardener", pov: "alex", page: 141 },
+                { number: 25, title: "Alex Gardener", pov: "alex", page: 143 },
+                { number: 26, title: "Alex Gardener", pov: "alex", page: 145 },
+                { number: 27, title: "Lydia Nightshade", pov: "lydia", page: 153 },
+                { number: 28, title: "Lydia Nightshade", pov: "lydia", page: 156 },
+                { number: 29, title: "Lydia Nightshade", pov: "lydia", page: 161 }
+            ],
+            part3: [
+                { number: 30, title: "Lydia Nightshade", pov: "lydia", page: 168 },
+                { number: 31, title: "Felix Darth", pov: "felix", page: 171 },
+                { number: 32, title: "Felix Darth", pov: "felix", page: 177 },
+                { number: 33, title: "Lydia Nightshade", pov: "lydia", page: 190 },
+                { number: 34, title: "Lydia Nightshade", pov: "lydia", page: 195 },
+                { number: 35, title: "Lydia Nightshade", pov: "lydia", page: 201 },
+                { number: 36, title: "Lydia Nightshade", pov: "lydia", page: 205 },
+                { number: 37, title: "Lydia Nightshade", pov: "lydia", page: 209 },
+                { number: 38, title: "Lydia Nightshade", pov: "lydia", page: 214 },
+                { number: 39, title: "Lydia Nightshade", pov: "lydia", page: 218 },
+                { number: 40, title: "Alex Gardener", pov: "alex", page: 224 },
+                { number: 41, title: "Alex Gardener", pov: "alex", page: 227 },
+                { number: 42, title: "Lydia Nightshade", pov: "lydia", page: 238 },
+                { number: 43, title: "Lydia Nightshade", pov: "lydia", page: 242 },
+                { number: 44, title: "Lydia Nightshade", pov: "lydia", page: 245 }
+            ]
+        };
+        
+        // POV color mapping
+        const povColors = {
+            lydia: "#d4af37", // gold
+            alex: "#4a6fa5",  // blue
+            felix: "#20b2aa"  // teal
+        };
+        
+        // POV full names
+        const povNames = {
+            lydia: "Lydia Nightshade",
+            alex: "Alex Gardener",
+            felix: "Felix Darth"
+        };
+        
+        // Render chapters for a part
+        function renderChapters(partId, chaptersArray) {
+            const container = document.getElementById(partId);
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            chaptersArray.forEach((chapter, index) => {
+                const card = document.createElement('div');
+                card.className = 'chapter-card';
+                card.style.setProperty('--order', index);
+                card.dataset.pov = chapter.pov;
+                
+                card.innerHTML = `
+                    <div class="chapter-number">${chapter.number}</div>
+                    <div class="chapter-pov" style="border-left: 3px solid ${povColors[chapter.pov]}">
+                        ${povNames[chapter.pov]}
+                    </div>
+                    <div class="chapter-title">Chapter ${chapter.number}</div>
+                    <div style="color: #8a8a9a; font-size: 0.9rem; margin-top: 10px;">
+                        Page ${chapter.page}
+                    </div>
+                    <div style="color: #6a6a7a; font-size: 0.85rem; margin-top: 5px;">
+                        ${getPOVDescription(chapter.pov)}
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+        
+        // Get POV description
+        function getPOVDescription(pov) {
+            const descriptions = {
+                lydia: "Main protagonist's perspective",
+                alex: "Warrior's perspective",
+                felix: "Strategist's perspective"
+            };
+            return descriptions[pov] || "Character perspective";
+        }
+        
+        // Filter chapters by POV
+        function filterChapters(pov) {
+            const allCards = document.querySelectorAll('.chapter-card');
+            
+            allCards.forEach(card => {
+                if (pov === 'all' || card.dataset.pov === pov) {
+                    card.style.display = 'block';
+                    // Add slight delay for animation
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render all chapters
+            renderChapters('part1-chapters', chapters.part1);
+            renderChapters('part2-chapters', chapters.part2);
+            renderChapters('part3-chapters', chapters.part3);
+            
+            // Setup tab filtering
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active state
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Filter chapters
+                    const pov = button.dataset.pov;
+                    filterChapters(pov);
+                });
+            });
+            
+            // Add subtle hover effects
+            const cards = document.querySelectorAll('.chapter-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const pov = card.dataset.pov;
+                    card.style.borderColor = povColors[pov];
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.borderColor = '#2a2a3a';
+                });
+            });
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                const activeTab = document.querySelector('.tab-btn.active');
+                const tabs = Array.from(tabButtons);
+                const currentIndex = tabs.indexOf(activeTab);
+                
+                if (e.key === 'ArrowRight') {
+                    const nextIndex = (currentIndex + 1) % tabs.length;
+                    tabs[nextIndex].click();
+                    tabs[nextIndex].focus();
+                } else if (e.key === 'ArrowLeft') {
+                    const prevIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+                    tabs[prevIndex].click();
+                    tabs[prevIndex].focus();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
