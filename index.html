@@ -728,7 +728,7 @@
         }
 
         .character-img {
-            height: 400px;
+            height: 100px;
             overflow: hidden;
             position: relative;
         }
@@ -2079,8 +2079,7 @@
                 characterCard.className = 'character-card';
                 characterCard.innerHTML = `
                     <div class="character-img">
-                        <div class="character-role-badge">${character.role}</div>
-                        <img src="${character.image}" alt="${character.name}" loading="lazy">
+                        <div class="character-role-badge">${character.role}</div> 
                     </div>
                     <div class="character-info">
                         <h3 class="character-name">${character.name}</h3>
