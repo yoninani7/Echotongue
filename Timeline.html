@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECHOTONGUE Timeline | Hermona Zeleke</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0a0e17;
+            --secondary-dark: #121826;
+            --accent-gold: #d4af37;
+            --accent-silver: #c0c0c0;
+            --accent-blue: #4a6fa5;
+            --accent-red: #8b0000;
+            --text-light: #f0f0f0;
+            --text-muted: #b0b0b0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .timeline-header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(rgba(10, 14, 23, 0.9), rgba(10, 14, 23, 0.7)), url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .timeline-header h1 {
+            font-size: 2.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Timeline */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 100px;
+            padding: 40px 0;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent-gold), var(--accent-blue));
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 80px;
+            width: 50%;
+            padding-right: 30px;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            padding-left: 30px;
+            padding-right: 0;
+        }
+        
+        .timeline-item-content {
+            background-color: var(--secondary-dark);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .timeline-item-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent-gold);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-item-content {
+            text-align: left;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-item-content {
+            text-align: right;
+        }
+        
+        .timeline-item-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            z-index: 2;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-item-content::before {
+            right: -40px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-item-content::before {
+            left: -40px;
+        }
+        
+        .timeline-part {
+            position: relative;
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            font-family: 'Cinzel', serif;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-part {
+            float: right;
+        }
+        
+        .timeline-item-content h3 {
+            color: var(--accent-silver);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-item-content p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-dark);
+            border: 4px solid var(--accent-gold);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-marker {
+            right: -20px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-marker {
+            left: -20px;
+        }
+        
+        .timeline-hint {
+            font-style: italic;
+            color: rgba(192, 192, 192, 0.7);
+            font-size: 0.9rem;
+            border-left: 2px solid var(--accent-blue);
+            padding-left: 10px;
+            margin-top: 10px;
+        }
+        
+        /* Spoiler Warning */
+        .spoiler-warning {
+            background-color: rgba(139, 0, 0, 0.2);
+            border: 1px solid var(--accent-red);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .spoiler-warning h3 {
+            color: var(--accent-red);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .spoiler-warning p {
+            color: var(--text-muted);
+        }
+        
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent-gold);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 30px auto;
+            border: 2px solid var(--accent-gold);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-button:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #070a12;
+            padding: 40px 0 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer-content p {
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                margin-left: 0;
+                padding-left: 50px;
+            }
+            
+            .timeline-item-content {
+                text-align: left !important;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-item-content::before,
+            .timeline-item:nth-child(even) .timeline-item-content::before {
+                left: -30px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-marker,
+            .timeline-item:nth-child(even) .timeline-marker {
+                left: 0;
+                right: auto;
+            }
+            
+            .timeline-part {
+                float: none !important;
+                margin-bottom: 15px;
+            }
+            
+            .timeline-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="timeline-header">
+        <div class="container">
+            <h1>ECHOTONGUE Timeline</h1>
+            <p>Follow the journey through key events without spoilers. This timeline only covers what's revealed in the story preview.</p>
+        </div>
+    </div>
+    
+    <!-- Spoiler Warning -->
+    <div class="container">
+        <div class="spoiler-warning">
+            <h3><i class="fas fa-exclamation-triangle"></i> SPOILER WARNING</h3>
+            <p>This timeline contains only events from the preview pages (1-212). No plot twists, outcomes, or major revelations beyond the initial chapters are shown.</p>
+        </div>
+    </div>
+    
+    <!-- Timeline -->
+    <div class="container">
+        <div class="timeline-container">
+            
+            <!-- PART ONE -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <span class="timeline-part">PART ONE: Beginnings</span>
+                    <h3>Lydia's Life in Riverside</h3>
+                    <p>Lydia Nightshade lives with her aunt and uncle, feeling increasingly invisible after the birth of her cousin May. She attends Riverside Academy where she faces challenges both at home and school.</p>
+                    <div class="timeline-hint">A seemingly ordinary life with hidden depths</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <h3>The School Incident</h3>
+                    <p>A confrontation with teachers leads to unexpected consequences at Riverside Academy, forcing Lydia to discover abilities she never knew she had.</p>
+                    <div class="timeline-hint">Sometimes the truth reveals itself in flames</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <h3>The Forest Journey</h3>
+                    <p>Lydia's uncle takes her on a trip to the forest she's always wanted to visit, but the excursion takes an unexpected turn when they encounter something ancient and dangerous.</p>
+                    <div class="timeline-hint">Not all family outings go as planned</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <h3>Arrival in Adrestia</h3>
+                    <p>After the forest incident, Lydia finds herself in a place unlike any she's known - Adrestia, a hidden sanctuary where she meets Alex and Felix who introduce her to a world beyond her imagination.</p>
+                    <div class="timeline-hint">A new world reveals itself</div>
+                </div>
+            </div>
+            
+            <!-- PART TWO -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <span class="timeline-part">PART TWO: Discovery</span>
+                    <h3>Learning the Truth</h3>
+                    <p>Lydia learns about the Galaxian universe, the thirty-two planets, and the system of magic called "tongues." She discovers she's not who she thought she was.</p>
+                    <div class="timeline-hint">Identity is more complex than it appears</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <h3>The Council Meeting Plan</h3>
+                    <p>Alex, Felix, and Lydia learn about an important Galaxian Council meeting happening on Ludor. They decide to sneak away from Adrestia to attend and learn what the Councillors are discussing.</p>
+                    <div class="timeline-hint">Some meetings are too important to miss</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <h3>Journey to Ludor</h3>
+                    <p>The trio takes the Aegis spaceship to travel to Ludor, navigating challenges along the way as they make their first interplanetary journey.</p>
+                    <div class="timeline-hint">Space travel isn't as smooth as it seems</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <h3>Galaxian Council</h3>
+                    <p>They manage to infiltrate the Council meeting and overhear discussions about important discoveries, including mention of the Zureyan Tablets.</p>
+                    <div class="timeline-hint">Eavesdropping on the most powerful comes with risks</div>
+                </div>
+            </div>
+            
+            <!-- PART THREE -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <span class="timeline-part">PART THREE: Consequences</span>
+                    <h3>Unexpected Detour</h3>
+                    <p>After the Council meeting, the trio faces complications that force them to make an unplanned stop on a different planet, extending their journey beyond what they anticipated.</p>
+                    <div class="timeline-hint">Not all destinations are planned</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <h3>Seeking Help</h3>
+                    <p>To continue their journey home, they need to repair their ship, which leads them to seek assistance from an unexpected source with the skills they need.</p>
+                    <div class="timeline-hint">Sometimes help comes from unexpected places</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <h3>Unraveling Mysteries</h3>
+                    <p>As they work on their return journey, Lydia begins to piece together clues about her past and the true nature of events that have shaped her life.</p>
+                    <div class="timeline-hint">The past is never truly forgotten</div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-question"></i>
+                </div>
+                <div class="timeline-item-content">
+                    <h3>Preparing for What's Next</h3>
+                    <p>With new revelations and tools at their disposal, the trio prepares for the next phase of their journey, aware that greater challenges likely await them.</p>
+                    <div class="timeline-hint">Every ending is a new beginning</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Main Site</a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p><strong>ECHOTONGUE: The Zureyan Tablets</strong> by Hermona Zeleke</p>
+                <p>Timeline created from preview pages only. No spoilers for unrevealed plot points.</p>
+                <p>© 2025 Hermona Zeleke. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Add animation to timeline items as they scroll into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Apply initial styles and observe each timeline item
+        document.querySelectorAll('.timeline-item-content').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            item.style.transitionDelay = (index * 0.1) + 's';
+            
+            observer.observe(item);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
