@@ -605,13 +605,13 @@
             border-radius: 2px 0 0 2px;
         }
 
-        /* Universe Section */
-        .universe {
+        /* about Section */
+        .about {
             background-color: var(--primary-black);
             position: relative;
         }
 
-        .universe::before {
+        .about::before {
             content: '';
             position: absolute;
             top: 0;
@@ -625,12 +625,12 @@
             z-index: 0;
         }
 
-        .universe-content {
+        .about-content {
             position: relative;
             z-index: 1;
         }
 
-        .universe-description {
+        .about-description {
             max-width: 1000px;
             margin: 0 auto 60px;
             font-size: 1.2rem;
@@ -1445,17 +1445,16 @@
             gap: 50px;
         }
 
-        .book-cover {
-            flex: 1;
-            position: relative;
+        .book-cover {  
+            padding: 10px;
+            margin: 0 auto;
         }
 
         .book-cover-img {
             width: 100%;
             max-width: 400px;
             border-radius: 5px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transform: perspective(1000px) rotateY(-10deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
             transition: transform 0.5s ease;
         }
 
@@ -1519,7 +1518,7 @@
         <a href="#home" class="cinzel"> ECHOTONGUE </a>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#universe">Universe</a></li>
+            <li><a href="#about">About the book</a></li>
             <li><a href="#characters">Characters</a></li>
             <li><a href="#magic">Magic System</a></li>
             <li><a href="#story">Story</a></li>
@@ -1538,9 +1537,8 @@
         </button>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#universe">Universe</a></li>
-            <li><a href="#characters">Characters</a></li>
-            <li><a href="#magic">Magic System</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#characters">Characters</a></li> 
             <li><a href="#story">Story</a></li>
             <li><a href="#contact">Get Your Copy</a></li>
         </ul>
@@ -1611,7 +1609,7 @@
 
             <div class="book-content">
                 <div class="book-cover">
-                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                    <img src="assets/about.png"
                         alt="ECHOTONGUE Book Cover" class="book-cover-img">
                 </div>
 
@@ -1650,11 +1648,11 @@
 
 
 
-    <!-- Universe Section -->
-    <section class="universe" id="universe">
-        <div class="container universe-content">
+    <!-- about Section -->
+    <section class="about" id="about">
+        <div class="container about-content">
             <h2 class="section-title">The Thirty-Two Planets</h2>
-            <p class="universe-description">Explore the diverse worlds of the Echotongue universe. Each planet has its
+            <p class="about-description">Explore the diverse worlds of the Echotongue universe. Each planet has its
                 own unique environment, culture, and magical dialect. Hover over each planet to discover its secrets.
             </p>
             <div class="planets-grid" id="planets-grid">
@@ -1876,9 +1874,8 @@
                     <h3>Explore</h3>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#universe">The Universe</a></li>
-                        <li><a href="#characters">Characters</a></li>
-                        <li><a href="#magic">Magic System</a></li>
+                        <li><a href="#about">About the book </a></li>
+                        <li><a href="#characters">Characters</a></li> 
                         <li><a href="#story">Story</a></li>
                     </ul>
                 </div>
