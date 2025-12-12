@@ -21,6 +21,7 @@
         /* --- CSS VARIABLES & RESET --- */
         :root {
             --primary-red: #c91313c9;
+            
             --dark-red: #b30000;
             --bg-color: #050505;
             --text-color: #e0e0e0;
@@ -33,7 +34,7 @@
             --gray: #333;
             --light-gray: #444;
             --text-light: #ddd;
-            --text-white: #fff;
+            --text-white:  #fff;
             --gold: #d4af37;
             --transition: all 0.3s ease;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -146,32 +147,52 @@
         }
 
         .btn-nav {
-        -webkit-clip-path: none;
-  clip-path: polygon(
-    15px 0, 100% 0, 
-    100% calc(100% - 15px), 
-    calc(100% - 15px) 100%, 
-    0 100%, 0 15px
-  );
-            background-color: #b91c1c;
-            /* Deep Red matching the book spine */
-            color: #ffffff;
-            padding: 9px 22px;
-            border: none;
-            font-family: 'Cinzel', serif;
-            /* Assuming you use a serif font for headers */
-            font-weight: 700;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; 
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: radial-gradient(100% 120% at 50% 0%,
+                    #9c232c 0%,
+                    #500D11 100%);  
+            font-family: 'Cinzel', serif; 
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #FDF5E6; 
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border: none; 
+            box-shadow:
+                inset 0 2px 10px rgba(255, 60, 60, 0.2), 
+                inset 0 0 20px rgba(0, 0, 0, 0.5), 
+                0 10px 20px rgba(0, 0, 0, 0.4); 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
-            transition: all 0.3s ease;
+        }
+ 
+        .btn-nav:hover {
+            background: radial-gradient(100% 120% at 50% 0%,
+                    #5e1217 0%,
+                    #6D1117 100%);
 
+            transform: translateY(-4px);
+
+ 
         }
 
-        .btn-nav:hover {
-            background-color: var(--dark-red);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 51, 51, 0.3);
+        /* --- Active: The Press --- */
+        .btn-nav:active {
+            transform: translateY(1px);
+            background: #3e0a0d;
+            /* Very dark */
+            border: none;
+            color: rgba(253, 245, 230, 0.7);
+
+            box-shadow:
+                inset 0 5px 15px rgba(0, 0, 0, 0.8),
+                0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         /* Mobile Menu Button - Hidden on desktop, only shows on mobile */
@@ -355,7 +376,9 @@
         .badge {
             position: absolute;
             bottom: -25px;
-            background-color: var(--primary-red);
+             background: radial-gradient(100% 120% at 50% 0%,
+                    #a10e18ea 0%,
+                    #b10a1549 100%);  
             color: white;
             padding: 5px 15px;
             font-size: 0.8rem;
@@ -411,8 +434,10 @@
 
         .btn {
             display: inline-block;
-            padding: 15px 30px;
-            background-color: var(--primary-red);
+            padding: 15px 20px;
+            background:radial-gradient(100% 120% at 50% 0%,
+                    #a10e18ea 0%,
+                    #b10a1549 100%);  
             color: white;
             border: none;
             border-radius: 5px;
@@ -435,7 +460,7 @@
         }
 
         .btn-outline {
-            background-color: transparent;
+            background: transparent;
             border: 2px solid var(--primary-red);
             color: var(--text-light);
         }
@@ -1445,7 +1470,7 @@
             gap: 50px;
         }
 
-        .book-cover {  
+        .book-cover {
             padding: 10px;
             margin: 0 auto;
         }
@@ -1454,7 +1479,7 @@
             width: 100%;
             max-width: 400px;
             border-radius: 5px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             transition: transform 0.5s ease;
         }
 
@@ -1488,7 +1513,7 @@
             background-color: rgba(0, 0, 0, 0.3);
             padding: 15px;
             border-radius: 5px;
-            border-left: 3px solid var(--accent-gold);
+            border-left: 3px solid rgb(97, 3, 3);
         }
 
         .detail-item h4 {
@@ -1520,9 +1545,9 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About the book</a></li>
             <li><a href="#characters">Characters</a></li>
-            <li><a href="#magic">Magic System</a></li>
-            <li><a href="#story">Story</a></li>
-            <li><a href="#contact">Get Your Copy</a></li>
+            <li><a href="#story">Story Timeline</a></li>
+
+            <li><a href="#story">Chapter map</a></li>
         </ul>
         <button class="btn-nav"><i class="fas fa-book-open"></i> &nbsp; Purchase Book</button>
         <!-- Mobile Menu Button - Hidden on desktop -->
@@ -1538,9 +1563,8 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#characters">Characters</a></li> 
+            <li><a href="#characters">Characters</a></li>
             <li><a href="#story">Story</a></li>
-            <li><a href="#contact">Get Your Copy</a></li>
         </ul>
     </div>
     <!-- Scroll to Top Button -->
@@ -1558,8 +1582,7 @@
                 <div class="status">
                     <i class="fas fa-sun"></i> AVAILABLE NOW
                 </div>
-                <h1 class="glitch-title" data-text="ECHOTONGUE"
-                    style="margin-bottom: 0px; ">ECHOTONGUE</h1>
+                <h1 class="glitch-title" data-text="ECHOTONGUE" style="margin-bottom: 0px; ">ECHOTONGUE</h1>
                 <div
                     style="font-family:  Arial, Helvetica, sans-serif; letter-spacing: 2px; text-shadow: 0px 0px 10px #b300009d;">
                     THE ZUREYAN TABLETS </div>
@@ -1599,7 +1622,7 @@
     </header>
 
     <!-- About Book Section -->
-    <section class="about-book" id="about" style="background-image: url(assets/leaves.png);">
+    <div class="about-book" id="about" margin-top="70px" >
         <div class="container">
             <div class="asection-title">
                 <h1 class="section-title">About the Book</h1>
@@ -1609,8 +1632,7 @@
 
             <div class="book-content">
                 <div class="book-cover">
-                    <img src="assets/about.png"
-                        alt="ECHOTONGUE Book Cover" class="book-cover-img">
+                    <img src="assets/about.png" alt="ECHOTONGUE Book Cover" class="book-cover-img">
                 </div>
 
                 <div class="book-info">
@@ -1626,58 +1648,56 @@
                     <div class="book-details">
                         <div class="detail-item">
                             <h4>Genre</h4>
-                            <p>Fantasy / Science Fiction</p>
-                        </div>
-                        <div class="detail-item">
-                            <h4>Pages</h4>
-                            <p>238 (Formatted Preview)</p>
+                            <p>Young Adult Fantasy / Science Fiction</p>
                         </div>
                         <div class="detail-item">
                             <h4>Themes</h4>
-                            <p>Identity, Magic, Adventure</p>
+                            <p>Identity, Magic, Friendship, Betrayal</p>
                         </div>
                         <div class="detail-item">
                             <h4>Setting</h4>
-                            <p>Multi-planetary Universe</p>
+                            <p>Earth & 32 Galaxian Planets</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Pages</h4>
+                            <p>200+ pages</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
 
 
-    <!-- about Section -->
+      <!-- Universe Section --> 
     <section class="about" id="about">
         <div class="container about-content">
-            <h2 class="section-title">The Thirty-Two Planets</h2>
-            <p class="about-description">Explore the diverse worlds of the Echotongue universe. Each planet has its
-                own unique environment, culture, and magical dialect. Hover over each planet to discover its secrets.
+            <h2 class="section-title">The Galaxian Universe</h2>
+            <p class="about-description">Explore the key worlds of the Echotongue universe. Each planet has its own unique environment, culture, and magical dialect. The story spans across multiple celestial realms in a universe of thirty-two planets.
             </p>
             <div class="planets-grid" id="planets-grid">
                 <!-- Planets will be generated by JavaScript -->
             </div>
         </div>
     </section>
+    
+
     <!-- Book Preview -->
-    <section class="book-preview" id="preview" style="background-image: url(assets/leaves.png);">
+   <section class="book-preview" id="preview" style="background-image: url(assets/leaves.png);">
         <div class="container preview-container">
             <div class="book-cover-3d">
                 <div class="book-spine"></div>
                 <div class="book-pages"></div>
-                <img src="assets/frontalbook.png" alt="Echotongue Book Cover" class="cover-3d">
+                <img src="assets/front.png" alt="Echotongue Book Cover" class="cover-3d">
             </div>
             <div class="preview-content">
-                <h2 class="section-title">Limited Edition</h2>
-                <p><strong>Echotongue</strong> is not just a book—it's an experience. This limited edition features
-                    premium materials and exclusive content not available anywhere else.</p>
+                <h2 class="section-title">First Edition Features</h2>
+                <p><strong>Echotongue</strong> is not just a book—it's an immersive experience into a universe where language is power. This edition contains exclusive content drawn directly from the rich world of the thirty-two planets.</p>
                 <div style="margin-top: 40px;">
-                    <h3>Inside the Book</h3>
-                    <p>Each copy contains 576 pages of immersive storytelling, including 32 full-page illustrations of
-                        each planet, a glossary of magical dialects, and hidden codes that unlock online content.</p>
-                    <p>The book itself is a work of art, with metallic red page edges, ribbon bookmark, and
-                        archival-quality paper that will last for generations.</p>
+                    <h3>Inside the World</h3>
+                    <p>The story unfolds across 200+ pages of immersive storytelling, featuring intricate world-building with detailed magical systems, diverse planetary cultures, and complex character relationships.</p>
+                    <p>Readers will journey through Earth, Adrestia, Ludor, Aster, and beyond, discovering ancient prophecies, corrupt councils, and the mysterious power of Echotongue itself.</p>
                 </div>
             </div>
         </div>
@@ -1875,7 +1895,7 @@
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About the book </a></li>
-                        <li><a href="#characters">Characters</a></li> 
+                        <li><a href="#characters">Characters</a></li>
                         <li><a href="#story">Story</a></li>
                     </ul>
                 </div>
@@ -1997,16 +2017,16 @@
         }
     </script>
     <script>
-        // Data
-        const planets = [
-            { id: 1, name: "Veridia Prime", type: "Forest World", description: "Lush jungle planet with sentient flora and the birthplace of Lydia Nightshade." },
-            { id: 2, name: "Kaelos", type: "Desert World", description: "Ancient ruins buried beneath shifting sands hold secrets of the first language." },
-            { id: 3, name: "Aethelgard", type: "Floating Cities", description: "The seat of the Universal Council, where politics and power converge." },
-            { id: 4, name: "Xylos", type: "Crystal World", description: "Geodesic structures amplify magical dialects to dangerous levels." },
-            { id: 5, name: "Chronos", type: "Temporal Anomaly", description: "Time flows differently here, home to historians who record universal events." },
-            { id: 6, name: "Moros", type: "Shadow World", description: "Perpetually dark planet where light-draining creatures lurk in the void." },
-            { id: 7, name: "Auroria", type: "Aurora World", description: "Northern lights contain magical energy harvested by the Council." },
-            { id: 8, name: "Pyros", type: "Volcanic World", description: "Molten landscapes house fire-elementals who speak in heat waves." }
+        // Data  
+         const planets = [
+            { id: 1, name: "Adrestia", type: "Hidden Earth Planet", description: "A 'planet' embedded within Earth itself, home to Galaxians with magical abilities. The main setting where Lydia discovers her powers." },
+            { id: 2, name: "Ludor", type: "Council World", description: "Home of the Galaxian Council headquarters. A planet of luxury and political power where Lydia, Alex, and Felix sneak to eavesdrop on secret meetings." },
+            { id: 3, name: "Aster", type: "Goldilocks Planet", description: "A balanced planet with futuristic cities. The trio crash-lands here after their ship is damaged by an asteroid." },
+            { id: 4, name: "Earth (Man)", type: "Mortal World", description: "The only planet without magical tongues. Home to regular humans, though some like Lydia discover they're actually Galaxians." },
+            { id: 5, name: "Ingero", type: "Underworld", description: "The banished planet in the Void where evil souls are sent. Home to Ignisos creatures who cannot pass Adrestian borders." },
+            { id: 6, name: "Maxima", type: "Giant World", description: "What humans call Jupiter. A massive planet mentioned in Galaxian astronomy." },
+            { id: 7, name: "Onus", type: "Red World", description: "Known to humans as Mars. Source of Sand Dust used in spaceship repairs." },
+            { id: 8, name: "Santurnatis", type: "Ringed World", description: "The original name for Saturn. Source of Santurnatian gold used in advanced technology." }
         ];
         const characters = [
             { id: 1, name: "Lydia Nightshade", role: "Protagonist", description: "A linguist with the rare ability to speak all thirty-two magical dialects. Hunted by the Universal Council for her connection to an ancient prophecy.", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
