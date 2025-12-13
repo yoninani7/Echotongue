@@ -21,7 +21,7 @@
         /* --- CSS VARIABLES & RESET --- */
         :root {
             --primary-red: #c91313c9;
-            
+
             --dark-red: #b30000;
             --bg-color: #050505;
             --text-color: #e0e0e0;
@@ -34,7 +34,7 @@
             --gray: #333;
             --light-gray: #444;
             --text-light: #ddd;
-            --text-white:  #fff;
+            --text-white: #fff;
             --gold: #d4af37;
             --transition: all 0.3s ease;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -150,28 +150,28 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            position: relative; 
+            position: relative;
             padding: 10px 12px;
             border-radius: 10px;
             background: radial-gradient(100% 120% at 50% 0%,
                     #df0211 0%,
-                    #500D11 100%);  
-            font-family: 'Cinzel', serif; 
+                    #500D11 100%);
+            font-family: 'Cinzel', serif;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #FDF5E6; 
+            color: #FDF5E6;
             text-transform: uppercase;
             letter-spacing: 2px;
             text-decoration: none;
-            border: none; 
+            border: none;
             box-shadow:
-                inset 0 2px 10px rgba(255, 60, 60, 0.2), 
-                inset 0 0 20px rgba(0, 0, 0, 0.5), 
-                0 10px 20px rgba(0, 0, 0, 0.4); 
+                inset 0 2px 10px rgba(255, 60, 60, 0.2),
+                inset 0 0 20px rgba(0, 0, 0, 0.5),
+                0 10px 20px rgba(0, 0, 0, 0.4);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
         }
- 
+
         .btn-nav:hover {
             background: radial-gradient(100% 120% at 50% 0%,
                     #df0211af 0%,
@@ -179,7 +179,7 @@
 
             transform: translateY(-4px);
 
- 
+
         }
 
         /* --- Active: The Press --- */
@@ -376,9 +376,9 @@
         .badge {
             position: absolute;
             bottom: -25px;
-              background:radial-gradient(100% 120% at 50% 0%,
+            background: radial-gradient(100% 120% at 50% 0%,
                     #df0211 0%,
-                    #b10a1549 100%); 
+                    #b10a1549 100%);
             color: white;
             padding: 5px 15px;
             font-size: 0.8rem;
@@ -435,9 +435,9 @@
         .btn {
             display: inline-block;
             padding: 15px 20px;
-            background:radial-gradient(100% 120% at 50% 0%,
+            background: radial-gradient(100% 120% at 50% 0%,
                     #df0211 0%,
-                    #b10a1549 100%);  
+                    #b10a1549 100%);
             color: white;
             border: none;
             border-radius: 5px;
@@ -803,30 +803,12 @@
 
         .magic-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
             align-items: center;
         }
 
-        .magic-visual {
-            position: relative;
-            height: 500px;
-            background: radial-gradient(circle, rgba(192, 0, 0, 0.1) 0%, rgba(10, 10, 10, 0) 70%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .magic-orb {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--primary-red) 0%, rgba(192, 0, 0, 0.1) 70%);
-            position: relative;
-            animation: pulse 4s infinite alternate;
-            box-shadow: 0 0 100px rgba(192, 0, 0, 0.5);
-        }
-
+         
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -1128,8 +1110,10 @@
         .author-social a {
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            background-color: var(--gray);
+            text-decoration: none;
+            border-radius: 10px;
+            background-color: rgb(32, 31, 31);
+            color: rgb(202, 2, 2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1137,7 +1121,6 @@
         }
 
         .author-social a:hover {
-            background-color: var(--primary-red);
             transform: translateY(-5px);
         }
 
@@ -1531,6 +1514,156 @@
             text-align: center;
             font-size: 15px;
         }
+
+       :root {
+    /* Primary deep red for the radar sweep and blips */
+    --radar-color: #b30000; 
+    /* A darker tone for the grid lines */
+    --grid-color: #4d0000; 
+    /* The background color of the radar display */
+    --display-bg-color: #0d0d0d;
+}
+
+.radar-scan {
+    width: 400px;
+    height: 400px;
+    border: 4px solid #333;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    /* Use the dark background color */
+    background-color: var(--display-bg-color);
+
+    /* VISUAL UPGRADE: Complex looking grid using only CSS Gradients (High Performance) */ 
+    background-image: 
+        /* Concentric circles */
+        repeating-radial-gradient(transparent 0,
+            transparent 49px,
+            var(--grid-color) 50px),
+        /* Vertical line */
+        linear-gradient(to right,
+            transparent 50%,
+            var(--grid-color) 50%,
+            var(--grid-color) calc(50% + 1px),
+            transparent calc(50% + 1px)),
+        /* Horizontal line */
+        linear-gradient(to bottom,
+            transparent 50%,
+            var(--grid-color) 50%,
+            var(--grid-color) calc(50% + 1px),
+            transparent calc(50% + 1px));
+
+    /* Outer glow for hardware realism */
+    box-shadow:
+        0 0 0 1px #000,
+        0 0 20px rgba(0, 0, 0, 0.8),
+        inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.radar-beam {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+
+    /* VISUAL UPGRADE: Conic gradient for a perfect sweep tail */
+    background: conic-gradient(from 0deg,
+            transparent 0deg,
+            transparent 270deg,
+            /* Semi-transparent tail */
+            rgba(133, 4, 4, 0.6) 360deg,
+            /* Solid color for the leading edge */
+            var(--radar-color) 30deg);
+
+    /* PERFORMANCE: Promote to composite layer */
+    will-change: transform;
+    transform: translateZ(0);
+    animation: scan 6s linear infinite;
+}
+
+/* Optional: A center dot to anchor the eye */
+.radar-scan::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    /* Use the primary radar color */
+    background: var(--radar-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--radar-color);
+    z-index: 10;
+}
+
+.blip {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    /* Use a bright color for the blip itself (could also be var(--radar-color)) */
+    background: #fff;
+    border-radius: 50%;
+    /* Glow effect using the primary color */
+    box-shadow: 0 0 8px var(--radar-color), 0 0 15px var(--radar-color);
+    opacity: 0;
+    will-change: opacity;
+}
+
+/* Coordinate positioning (unchanged) */
+.b1 {
+    top: 30%;
+    left: 60%;
+    animation: pulse 4s infinite 0.8s;
+}
+
+.b2 {
+    top: 70%;
+    left: 30%;
+    animation: pulse 4s infinite 2.4s;
+}
+
+.b3 {
+    top: 20%;
+    left: 40%;
+    animation: pulse 4s infinite 3.5s;
+}
+
+/* Keyframes (unchanged) */
+@keyframes scan {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+
+    /* Fast appearance when beam hits */
+    10% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    /* Slow decay (phosphor effect) */
+    40% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
     </style>
 </head>
 
@@ -1592,7 +1725,7 @@
                 </p>
                 <div class="cta-group">
                     <a href="#contact" class="btn">
-                        <i class="fas fa-lock"></i> Unlock  Now
+                        <i class="fas fa-lock"></i> Unlock Now
                     </a>
                     <a href="#preview" class="btn btn-outline">
                         Read Free Sample
@@ -1622,7 +1755,7 @@
     </header>
 
     <!-- About Book Section -->
-    <div class="about-book" id="about" margin-top="70px" >
+    <div class="about-book" id="about" margin-top="70px">
         <div class="container">
             <div class="asection-title">
                 <h1 class="section-title">About the Book</h1>
@@ -1670,21 +1803,23 @@
 
 
 
-      <!-- Universe Section --> 
+    <!-- Universe Section -->
     <section class="about" id="about">
         <div class="container about-content">
             <h2 class="section-title">The Galaxian Universe</h2>
-            <p class="about-description">Explore the key worlds of the Echotongue universe. Each planet has its own unique environment, culture, and magical dialect. The story spans across multiple celestial realms in a universe of thirty-two planets.
+            <p class="about-description">Explore the key worlds of the Echotongue universe. Each planet has its own
+                unique environment, culture, and magical dialect. The story spans across multiple celestial realms in a
+                universe of thirty-two planets.
             </p>
             <div class="planets-grid" id="planets-grid">
                 <!-- Planets will be generated by JavaScript -->
             </div>
         </div>
     </section>
-    
+
 
     <!-- Book Preview -->
-   <section class="book-preview" id="preview" style="background-image: url(assets/leaves.png);">
+    <section class="book-preview" id="preview" style="background-image: url(assets/leaves.png);">
         <div class="container preview-container">
             <div class="book-cover-3d">
                 <div class="book-spine"></div>
@@ -1693,23 +1828,30 @@
             </div>
             <div class="preview-content">
                 <h2 class="section-title">First Edition Features</h2>
-                <p><strong>Echotongue</strong> is not just a book—it's an immersive experience into a universe where language is power. This edition contains exclusive content drawn directly from the rich world of the thirty-two planets.</p>
+                <p><strong>Echotongue</strong> is not just a book—it's an immersive experience into a universe where
+                    language is power. This edition contains exclusive content drawn directly from the rich world of the
+                    thirty-two planets.</p>
                 <div style="margin-top: 40px;">
                     <h3>Inside the World</h3>
-                    <p>The story unfolds across 200+ pages of immersive storytelling, featuring intricate world-building with detailed magical systems, diverse planetary cultures, and remarkable character relationships.</p>
-                    <p>Readers will journey through Earth, Adrestia, Ludor, Aster, and beyond, discovering ancient prophecies, corrupt councils, and the mysterious power of Echotongue itself.</p>
+                    <p>The story unfolds across 200+ pages of immersive storytelling, featuring intricate world-building
+                        with detailed magical systems, diverse planetary cultures, and remarkable character
+                        relationships.</p>
+                    <p>Readers will journey through Earth, Adrestia, Ludor, Aster, and beyond, discovering ancient
+                        prophecies, corrupt councils, and the mysterious power of Echotongue itself.</p>
                 </div>
             </div>
         </div>
     </section>
     <!-- Magic System -->
     <section class="magic" id="magic">
-        <div class="container magic-container">
-            <div class="magic-visual">
-                <div class="magic-orb"></div>
+        <div class="container magic-container"> 
+            <div class="radar-scan">
+                <div class="radar-beam"></div>
+                <div class="blip b1"></div>
+                <div class="blip b2"></div>
+                <div class="blip b3"></div>
             </div>
 
-            
             <div class="magic-content">
                 <h2 class="section-title">Magic-Infused Dialects</h2>
                 <p>In the Echotongue universe, language is power. Each planet has developed its own dialect infused with
@@ -1723,7 +1865,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Characters Section -->
     <section class="characters" id="characters" style="background-image: url(assets/leaves.png);">
         <div class="container">
@@ -1852,8 +1994,7 @@
     <section class="author" style="background-image: url(assets/leaves.png);">
         <div class="container author-container">
             <div class="author-img">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="Author S.E. Blackwood">
+                <img src="assets/author.png" alt="Author S.E. Blackwood">
             </div>
             <div class="author-info">
                 <h2>About the Author</h2>
@@ -1867,7 +2008,7 @@
                 <div class="author-social">
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-goodreads"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
                     <a href="#"><i class="fas fa-globe"></i></a>
                 </div>
             </div>
@@ -2022,7 +2163,7 @@
     </script>
     <script>
         // Data  
-         const planets = [
+        const planets = [
             { id: 1, name: "Adrestia", type: "Hidden Earth Planet", description: "A 'planet' embedded within Earth itself, home to Galaxians with magical abilities. The main setting where Lydia discovers her powers." },
             { id: 2, name: "Ludor", type: "Council World", description: "Home of the Galaxian Council headquarters. A planet of luxury and political power where Lydia, Alex, and Felix sneak to eavesdrop on secret meetings." },
             { id: 3, name: "Aster", type: "Goldilocks Planet", description: "A balanced planet with futuristic cities. The trio crash-lands here after their ship is damaged by an asteroid." },
