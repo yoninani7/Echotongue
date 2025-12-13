@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECHOTONGUE - The Zureyan Tablets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-red: #c91313c9;
+            --dark-red: #b30000;
+            --bg-color: #050505;
+            --text-color: #e0e0e0;
+            --font-heading: 'Orbitron', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+            --elegant-black: #0a0a0a;
+            --dark-black: #000;
+            --light-black: #1a1a1a;
+            --medium-black: #111;
+            --gray: #333;
+            --light-gray: #444;
+            --text-light: #ddd;
+            --text-white: #fff;
+            --gold: #d4af37;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --header-height: 80px;
+            --header-shrink-height: 70px;
+            --mystery-blue: #0a2a5a;
+            --ancient-gold: #b8860b;
+            --magic-purple: #4b0082;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 2px),
+                radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 3px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            scroll-behavior: smooth;
+            padding-top: var(--header-height);
+        }
+
+        /* --- FIXED TRANSPARENT NAVIGATION BAR --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            transition: all 0.3s ease;
+            height: var(--header-height);
+        }
+
+        nav.scrolled {
+            height: var(--header-shrink-height);
+            padding: 1rem 5%;
+            background-color: rgba(5, 5, 5, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(255, 51, 51, 0.2);
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            color: var(--primary-red);
+            font-size: 1.6rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+            font-family: var(--font-body);
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(99, 99, 99, 0.5);
+            padding: 8px 5px;
+            border-radius: 10px;
+            color: white;
+            transition: ease-in-out 0.3s;
+        }
+
+        .btn-nav {
+            -webkit-clip-path: none;
+            clip-path: polygon(
+                15px 0, 100% 0, 
+                100% calc(100% - 15px), 
+                calc(100% - 15px) 100%, 
+                0 100%, 0 15px
+            );
+            background-color: #b91c1c;
+            color: #ffffff;
+            padding: 9px 22px;
+            border: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 51, 51, 0.3);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 51, 51, 0.1);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--text-white);
+            font-size: 1.5rem;
+            z-index: 1001;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(5, 5, 5, 0.98);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(-100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            visibility: hidden;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .mobile-nav.active {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- NEW MYSTERY ELEMENTS --- */
+        .mystery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 60%, rgba(185, 28, 28, 0.05) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .glowing-text {
+            text-shadow: 0 0 10px rgba(185, 28, 28, 0.3), 0 0 20px rgba(185, 28, 28, 0.2);
+        }
+
+        .fragment {
+            position: absolute;
+            background: rgba(185, 28, 28, 0.1);
+            border: 1px solid rgba(185, 28, 28, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .ancient-border {
+            position: relative;
+            border: 2px solid transparent;
+            background: linear-gradient(var(--dark-black), var(--dark-black)) padding-box,
+                        linear-gradient(45deg, var(--ancient-gold), var(--primary-red), var(--magic-purple)) border-box;
+            border-radius: 10px;
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal-on-scroll.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, #eee, rgb(209, 40, 40)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgb(255, 36, 36)),
+                radial-gradient(1px 1px at 90px 40px, #fff, rgb(223, 0, 0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            opacity: 0.3;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100vh;
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            height: 430px;
+            width: 90%;
+            top: -50px;
+        }
+
+        .book-img {
+            width: 80%;
+            max-width: 450px;
+            border-radius: 5px;
+            box-shadow: 0 0 60px rgba(255, 51, 51, 0.3);
+            transform: rotateY(-5deg);
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+        }
+
+        .book-wrapper:hover .book-img {
+            transform: rotateY(0deg) scale(1.02);
+        }
+
+        .badge {
+            position: absolute;
+            bottom: -25px;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            z-index: 100;
+            margin: 0 auto;
+            border-radius: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(185, 28, 28, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(185, 28, 28, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(185, 28, 28, 0); }
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: -50px;
+        }
+
+        .status {
+            color: var(--primary-red);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+        }
+
+        .hero p.synopsis {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            max-width: 90%;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: 'Cinzel', serif;
+            text-decoration: none;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(192, 0, 0, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-red);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-red);
+            color: var(--text-white);
+        }
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .stars {
+            color: var(--primary-red);
+        }
+
+        .divider {
+            height: 15px;
+            width: 1px;
+            background-color: #444;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #666;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* --- NEW MYSTERY SECTIONS --- */
+        .mystery-section {
+            position: relative;
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--dark-black) 0%, var(--mystery-blue) 100%);
+            overflow: hidden;
+        }
+
+        .mystery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(185, 28, 28, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(184, 134, 11, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .tablet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .tablet-card {
+            background: rgba(10, 10, 10, 0.7);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(184, 134, 11, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tablet-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(184, 134, 11, 0.1) 100%);
+            z-index: 1;
+        }
+
+        .tablet-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(184, 134, 11, 0.2);
+            border-color: var(--ancient-gold);
+        }
+
+        .tablet-icon {
+            font-size: 3rem;
+            color: var(--ancient-gold);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tablet-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: rgba(184, 134, 11, 0.3);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+        }
+
+        .riddle-section {
+            background: linear-gradient(180deg, var(--mystery-blue) 0%, var(--magic-purple) 100%);
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .riddle-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .riddle-box {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 60px 40px;
+            margin-top: 40px;
+            border: 2px solid rgba(75, 0, 130, 0.5);
+            box-shadow: 0 20px 60px rgba(75, 0, 130, 0.3);
+            position: relative;
+        }
+
+        .riddle-box::before {
+            content: '?';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--magic-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            font-family: 'Cinzel', serif;
+        }
+
+        .riddle-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #ddd;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .reveal-btn {
+            background: transparent;
+            border: 2px solid var(--magic-purple);
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .reveal-btn:hover {
+            background: var(--magic-purple);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .hidden-text {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .hidden-text.revealed {
+            opacity: 1;
+            height: auto;
+            margin-top: 30px;
+        }
+
+        /* --- EXISTING SECTIONS ENHANCED --- */
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background-color: var(--primary-red);
+        }
+
+        .planets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .planet-card {
+            background-color: var(--light-black);
+            border-radius: 10px;
+            padding: 35px 30px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .planet-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            border-color: var(--primary-red);
+            box-shadow: 0 20px 40px rgba(192, 0, 0, 0.3);
+        }
+
+        .characters-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .character-card {
+            background-color: var(--medium-black);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .character-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(192, 0, 0, 0.3);
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1200px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .btn-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .planets-grid,
+            .characters-container,
+            .tablet-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cinzel {
+            font-family: 'Cinzel Decorative', serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .glitch-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 65px;
+            position: relative;
+            background: linear-gradient(45deg, #fff, var(--primary-red), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed Navigation -->
+    <nav id="main-nav">
+        <a href="#home" class="cinzel">ECHOTONGUE</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#mystery">The Mystery</a></li>
+            <li><a href="#planets">The Worlds</a></li>
+            <li><a href="#characters">The Characters</a></li>
+            <li><a href="#tablets">The Tablets</a></li>
+            <li><a href="#riddle">The Riddle</a></li>
+            <li><a href="#contact">Get Your Copy</a></li>
+        </ul>
+        <button class="btn-nav"><i class="fas fa-book-open"></i> &nbsp; Purchase</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <button class="mobile-close-btn" id="mobile-close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#mystery">The Mystery</a></li>
+            <li><a href="#planets">The Worlds</a></li>
+            <li><a href="#characters">The Characters</a></li>
+            <li><a href="#tablets">The Tablets</a></li>
+            <li><a href="#riddle">The Riddle</a></li>
+            <li><a href="#contact">Get Your Copy</a></li>
+        </ul>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="mystery-overlay"></div>
+        <!-- Floating Fragments -->
+        <div class="fragment" style="width: 100px; height: 100px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="fragment" style="width: 60px; height: 60px; top: 60%; left: 85%; animation-delay: 2s;"></div>
+        <div class="fragment" style="width: 80px; height: 80px; top: 80%; left: 15%; animation-delay: 4s;"></div>
+        
+        <div class="hero-container">
+            <div class="book-wrapper">
+                <div class="badge"><i class="fas fa-star"></i> Limited First Edition</div>
+                <img src="assets/bookreflect.png" alt="Echotongue Book Cover" class="book-img">
+            </div>
+            <div class="hero-content">
+                <div class="status">
+                    <i class="fas fa-fire"></i> THE SECRET AWAITS
+                </div>
+                <h1 class="glitch-title" data-text="ECHOTONGUE">ECHOTONGUE</h1>
+                <div style="font-family: Arial, Helvetica, sans-serif; letter-spacing: 2px; color: var(--ancient-gold); font-size: 1.2rem;">
+                    THE ZUREYAN TABLETS
+                </div>
+                <p class="synopsis">
+                    What if everything you knew about yourself was a carefully constructed lie? When an ordinary school day erupts in inexplicable flames, thirteen-year-old Lydia Nightshade discovers she possesses impossible abilities. Thrust into a hidden world where language is power and planets hold ancient secrets, she must unravel the mystery of her origins while evading forces that would kill to control her awakening power.
+                </p>
+                <div class="cta-group">
+                    <a href="#contact" class="btn">
+                        <i class="fas fa-lock"></i> Unlock the Mystery
+                    </a>
+                    <a href="#mystery" class="btn btn-outline">
+                        <i class="fas fa-eye"></i> Begin the Journey
+                    </a>
+                </div>
+                <div class="social-proof">
+                    <div class="rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span style="margin-left: 8px;">"A masterpiece of modern fantasy"</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="sales">
+                        Author: <strong>HERMONA ZELEKE</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down" onclick="scrollToContent()">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <!-- The Mystery Section -->
+    <section class="mystery-section" id="mystery">
+        <div class="mystery-overlay"></div>
+        <div class="container">
+            <h2 class="section-title glowing-text">The Awakening</h2>
+            <p class="about-description reveal-on-scroll">
+                There are thirty-two known worlds in the universe. Thirty-one of them are hidden from human eyes. One girl is about to discover she doesn't belong to any of them.
+            </p>
+            
+            <div class="planets-grid">
+                <div class="planet-card ancient-border reveal-on-scroll">
+                    <h3>The Hidden Truth</h3>
+                    <p>Lydia Nightshade lived an ordinary life until the fire spoke through her. Now she's learning that "human" was just a disguise—and her real identity is a secret worth killing for.</p>
+                </div>
+                <div class="planet-card ancient-border reveal-on-scroll">
+                    <h3>The Forbidden Language</h3>
+                    <p>In a universe where words hold power, Echotongue is the most dangerous language of all. Spoken only in legends, it can reshape reality—or destroy it.</p>
+                </div>
+                <div class="planet-card ancient-border reveal-on-scroll">
+                    <h3>The Ancient Council</h3>
+                    <p>Eight powerful beings govern the thirty-two worlds from shadows. They maintain order through secrets, lies, and ancient laws that were meant to be forgotten.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Worlds Section -->
+    <section class="about" id="planets">
+        <div class="container about-content">
+            <h2 class="section-title">The Thirty-Two Worlds</h2>
+            <p class="about-description reveal-on-scroll">
+                Each world holds its own secrets, its own magic, and its own truth. Some are whispered about in legends. Others are hidden in plain sight.
+            </p>
+            <div class="planets-grid" id="planets-grid">
+                <!-- Planets will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section class="characters" id="characters" style="background: linear-gradient(180deg, var(--medium-black) 0%, var(--dark-black) 100%);">
+        <div class="container">
+            <h2 class="section-title">Those Who Walk Between Worlds</h2>
+            <p class="about-description reveal-on-scroll">
+                In a universe of secrets, trust is the rarest currency. These are the souls who will determine the fate of all thirty-two worlds.
+            </p>
+            <div class="characters-container" id="characters-container">
+                <!-- Characters will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- The Tablets Section -->
+    <section class="mystery-section" id="tablets">
+        <div class="container">
+            <h2 class="section-title glowing-text">The Zureyan Tablets</h2>
+            <p class="about-description reveal-on-scroll">
+                Three ancient stones. One contains the forgotten past. One records the hidden present. One reveals the impossible future. All three have been lost for millennia. Until now.
+            </p>
+            
+            <div class="tablet-grid">
+                <div class="tablet-card reveal-on-scroll">
+                    <div class="tablet-number">I</div>
+                    <div class="tablet-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>The Past Tablet</h3>
+                    <p>Contains truths about the creation of the thirty-two worlds that were meant to be erased from existence. What really happened at the beginning of everything?</p>
+                </div>
+                <div class="tablet-card reveal-on-scroll">
+                    <div class="tablet-number">II</div>
+                    <div class="tablet-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>The Present Tablet</h3>
+                    <p>Reveals the hidden connections between all living beings across worlds. Who is really pulling the strings in the Galactic Council?</p>
+                </div>
+                <div class="tablet-card reveal-on-scroll">
+                    <div class="tablet-number">III</div>
+                    <div class="tablet-icon">
+                        <i class="fas fa-crystal-ball"></i>
+                    </div>
+                    <h3>The Future Tablet</h3>
+                    <p>Shows the destiny that awaits all thirty-two worlds. Will there be unity or destruction? The answer is written in a language no one fully understands.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Riddle Section -->
+    <section class="riddle-section" id="riddle">
+        <div class="container riddle-container">
+            <h2 class="section-title glowing-text">The Ancient Riddle</h2>
+            <p class="about-description reveal-on-scroll">
+                Before the Tablets were lost, their keeper left behind a riddle. Solve it, and you'll understand why Echotongue must never be fully awakened.
+            </p>
+            
+            <div class="riddle-box reveal-on-scroll">
+                <p class="riddle-text">
+                    "I am spoken but never heard, written but never read. I build worlds and tear them down. I am the first secret and the last truth. The wise fear me, the foolish seek me, and the powerful would destroy the universe to control me. What am I?"
+                </p>
+                <button class="reveal-btn" id="riddle-reveal-btn">Reveal the Answer</button>
+                <div class="hidden-text" id="riddle-answer">
+                    <p style="font-size: 1.5rem; color: var(--ancient-gold); margin-top: 20px; font-weight: bold;">
+                        ECHOTONGUE
+                    </p>
+                    <p style="margin-top: 15px; font-style: italic;">
+                        The first and final language. The power that created the thirty-two worlds and the only power that can unmake them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact" style="background: var(--dark-black); padding: 120px 0;">
+        <div class="container contact-container">
+            <h2 class="section-title">Begin Your Journey</h2>
+            <p class="contact-description reveal-on-scroll">
+                The first edition of Echotongue includes exclusive content not available anywhere else. Each copy is numbered and contains hidden symbols that reveal additional secrets when viewed under special conditions.
+            </p>
+            
+            <div class="order-form-container ancient-border reveal-on-scroll">
+                <h3 class="form-title">Unlock the Mystery</h3>
+                <form id="order-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your true name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Celestial Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.cosmos">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message to the Beyond</label>
+                        <textarea id="message" name="message" rows="4" placeholder="What secrets do you seek? What mysteries call to you?"></textarea>
+                    </div>
+                    
+                    <div class="form-group" style="text-align: center;">
+                        <button type="submit" class="btn" style="width: 100%; max-width: 300px; font-size: 1.1rem;">
+                            <i class="fas fa-key"></i> Unlock Your Copy
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="contact-methods reveal-on-scroll" style="margin-top: 80px;">
+                <div class="contact-card ancient-border">
+                    <div class="contact-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3 class="contact-title">First Edition Features</h3>
+                    <ul style="text-align: left; padding-left: 20px;">
+                        <li>Numbered and signed by the author</li>
+                        <li>Hidden UV-reactive symbols</li>
+                        <li>Exclusive map of the thirty-two worlds</li>
+                        <li>Glossary of ancient tongues</li>
+                        <li>Secret online content access</li>
+                    </ul>
+                </div>
+                <div class="contact-card ancient-border">
+                    <div class="contact-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="contact-title">Celestial Delivery</h3>
+                    <p>Each book is wrapped in ancient-style parchment and sealed with wax bearing the symbol of the Zureyan Tablets. Delivery includes a mystery gift related to the story.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="author" style="background: linear-gradient(180deg, var(--dark-black) 0%, var(--medium-black) 100%); padding: 100px 0;">
+        <div class="container author-container" style="display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: center;">
+            <div class="author-img ancient-border reveal-on-scroll">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Hermona Zeleke">
+            </div>
+            <div class="author-info">
+                <h2>The Oracle</h2>
+                <p class="author-bio reveal-on-scroll">
+                    <strong>Hermona Zeleke</strong> began hearing the whispers of other worlds at a young age. Her first published poem appeared in 'Once Upon a Dream' when she was just ten years old. At four, she wrote her first song—a melody that her entire school performed.
+                </p>
+                <p class="author-bio reveal-on-scroll">
+                    Echotongue: The Zureyan Tablets represents her journey into the deepest mysteries of language, power, and identity. Written in under three months while balancing schoolwork, this novel is proof that the greatest stories come from listening to the voices others cannot hear.
+                </p>
+                <div class="author-social reveal-on-scroll">
+                    <a href="#" class="ancient-border" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(185, 28, 28, 0.1);"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="ancient-border" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(185, 28, 28, 0.1);"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="ancient-border" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(185, 28, 28, 0.1);"><i class="fab fa-goodreads"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--dark-black); padding: 80px 0 30px; position: relative;">
+        <div class="mystery-overlay"></div>
+        <div class="container">
+            <div class="footer-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 50px;">
+                <div class="footer-col">
+                    <h3>ECHOTONGUE</h3>
+                    <p>A journey across thirty-two worlds where every word holds power and every secret could change everything.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>The Journey</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">The Awakening</a></li>
+                        <li><a href="#mystery">The Mystery</a></li>
+                        <li><a href="#planets">The Worlds</a></li>
+                        <li><a href="#tablets">The Tablets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Secrets</h3>
+                    <ul class="footer-links">
+                        <li><a href="#riddle">The Riddle</a></li>
+                        <li><a href="#characters">The Characters</a></li>
+                        <li><a href="#">The Languages</a></li>
+                        <li><a href="#">The Beyond</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Order Your Copy</a></li>
+                        <li><a href="#">Join the Circle</a></li>
+                        <li><a href="#">Decode the Symbols</a></li>
+                        <li><a href="#">Contact the Oracle</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright" style="text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p>&copy; 2025 Hermona Zeleke. All worlds reserved.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: var(--ancient-gold);">
+                    ISBN(PB): 979-8-89604-275-4 | ISBN(HB): 979-8-89604-276-1
+                </p>
+                <p style="margin-top: 10px; font-size: 0.7rem; color: #666;">
+                    This is a work of fiction. Any resemblance to actual worlds, planets, or beings living in hidden dimensions is purely coincidental. Probably.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced data with mystery
+        const planets = [
+            { id: 1, name: "Adrestia", type: "The Hidden World", description: "A realm within Earth where magic breathes. The sanctuary where lost souls find their true nature." },
+            { id: 2, name: "Ludor", type: "The Council's Seat", description: "Where power gathers in marble halls. Decisions made here ripple across all thirty-two worlds." },
+            { id: 3, name: "Aster", type: "The Balance", description: "Neither ancient nor modern, neither cruel nor kind. The perfect middle ground where secrets can hide in plain sight." },
+            { id: 4, name: "Earth", type: "The Veiled World", description: "Where humans live unaware of the cosmic tapestry surrounding them. Or so the Council believes." },
+            { id: 5, name: "Ingero", type: "The Silent Void", description: "A whispered name. A place not found on any map. Where failed creations and broken promises reside." },
+            { id: 6, name: "???", type: "Unknown", description: "Thirty-two worlds are recorded. But legends speak of a thirty-third. A world that chose to forget itself." },
+            { id: 7, name: "The Beyond", type: "The Origin", description: "Not a planet, but the space between all things. Where the first word was spoken and the last will be heard." },
+            { id: 8, name: "Your Imagination", type: "The Truest World", description: "Every reader discovers their own secret world within these pages. What will you find?" }
+        ];
+
+        const characters = [
+            { id: 1, name: "Lydia Nightshade", role: "The Awakened", description: "She thought she was human. She was wrong. Now she must discover what she truly is before her power destroys everything—or saves it." },
+            { id: 2, name: "Alex Gardener", role: "The Warrior's Son", description: "Born to power but raised in shadows. His loyalty will be tested when ancient secrets threaten everything he knows." },
+            { id: 3, name: "Felix Darth", role: "The Keeper of Truths", description: "He remembers what others forget. In a universe of lies, his memory is both weapon and burden." },
+            { id: 4, name: "The Beyond", role: "The First Voice", description: "It created everything. It watches everything. And for the first time in eons, it has chosen to speak." }
+        ];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create floating fragments
+            createFragments();
+            
+            // Initialize sections
+            renderPlanets();
+            renderCharacters();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Set up scroll reveals
+            setupScrollReveals();
+            
+            // Initial scroll check
+            handleScroll();
+        });
+
+        function createFragments() {
+            const hero = document.querySelector('.hero');
+            for (let i = 0; i < 8; i++) {
+                const fragment = document.createElement('div');
+                fragment.className = 'fragment';
+                fragment.style.width = `${20 + Math.random() * 60}px`;
+                fragment.style.height = fragment.style.width;
+                fragment.style.top = `${Math.random() * 100}%`;
+                fragment.style.left = `${Math.random() * 100}%`;
+                fragment.style.animationDelay = `${Math.random() * 6}s`;
+                fragment.style.opacity = 0.1 + Math.random() * 0.2;
+                hero.appendChild(fragment);
+            }
+        }
+
+        function renderPlanets() {
+            const planetsGrid = document.getElementById('planets-grid');
+            if (!planetsGrid) return;
+            planetsGrid.innerHTML = '';
+            planets.forEach(planet => {
+                const planetCard = document.createElement('div');
+                planetCard.className = 'planet-card ancient-border reveal-on-scroll';
+                planetCard.innerHTML = `
+                    <div style="position: absolute; top: 15px; right: 15px; font-size: 3rem; color: var(--primary-red); opacity: 0.2; font-family: 'Cinzel', serif;">${planet.id}</div>
+                    <h3 style="margin-bottom: 15px; color: var(--ancient-gold);">${planet.name}</h3>
+                    <div style="color: var(--primary-red); font-size: 0.9rem; margin-bottom: 15px; font-weight: 600;">${planet.type}</div>
+                    <p>${planet.description}</p>
+                `;
+                planetsGrid.appendChild(planetCard);
+            });
+        }
+
+        function renderCharacters() {
+            const charactersContainer = document.getElementById('characters-container');
+            if (!charactersContainer) return;
+            charactersContainer.innerHTML = '';
+            characters.forEach(character => {
+                const characterCard = document.createElement('div');
+                characterCard.className = 'character-card ancient-border reveal-on-scroll';
+                characterCard.innerHTML = `
+                    <div style="height: 200px; background: linear-gradient(45deg, var(--dark-black), var(--mystery-blue)); position: relative;">
+                        <div style="position: absolute; top: 20px; left: 20px; background-color: var(--primary-red); color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">${character.role}</div>
+                    </div>
+                    <div style="padding: 30px; flex-grow: 1;">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: var(--text-white);">${character.name}</h3>
+                        <p>${character.description}</p>
+                    </div>
+                `;
+                charactersContainer.appendChild(characterCard);
+            });
+        }
+
+        function setupEventListeners() {
+            // Mobile menu
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            const mobileCloseBtn = document.getElementById('mobile-close-btn');
+            const scrollTopBtn = document.getElementById('scroll-top');
+            
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => mobileNav.classList.add('active'));
+            if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', () => mobileNav.classList.remove('active'));
+            
+            // Riddle reveal
+            const riddleBtn = document.getElementById('riddle-reveal-btn');
+            const riddleAnswer = document.getElementById('riddle-answer');
+            if (riddleBtn) {
+                riddleBtn.addEventListener('click', () => {
+                    riddleAnswer.classList.toggle('revealed');
+                    riddleBtn.textContent = riddleAnswer.classList.contains('revealed') ? 'Hide the Answer' : 'Reveal the Answer';
+                });
+            }
+            
+            // Form submission
+            const orderForm = document.getElementById('order-form');
+            if (orderForm) {
+                orderForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = this.querySelector('#name').value;
+                    showNotification(`The journey begins, ${name}. Your message has been sent to the Beyond. Prepare for wonders.`);
+                    this.reset();
+                });
+            }
+            
+            // Scroll to top
+            if (scrollTopBtn) {
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // Smooth scrolling for nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        mobileNav.classList.remove('active');
+                        // Scroll to target
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Window scroll
+            window.addEventListener('scroll', handleScroll);
+            
+            // Scroll down button
+            document.querySelector('.scroll-down').addEventListener('click', scrollToContent);
+            
+            // Glitch title effect
+            const glitchTitle = document.querySelector('.glitch-title');
+            if (glitchTitle) {
+                glitchTitle.addEventListener('mouseover', () => {
+                    const originalText = glitchTitle.getAttribute('data-text');
+                    let iterations = 0;
+                    const runes = "!@#$%^&*()";
+                    const interval = setInterval(() => {
+                        glitchTitle.innerText = originalText
+                            .split("")
+                            .map((letter, index) => index < iterations ? originalText[index] : runes[Math.floor(Math.random() * runes.length)])
+                            .join("");
+                        if (iterations >= originalText.length) clearInterval(interval);
+                        iterations += 1/3;
+                    }, 30);
+                });
+            }
+        }
+
+        function setupScrollReveals() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        }
+
+        function handleScroll() {
+            const nav = document.getElementById('main-nav');
+            const scrollTopBtn = document.getElementById('scroll-top');
+            
+            // Nav effect
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            // Scroll to top button
+            if (scrollTopBtn) {
+                if (window.scrollY > 500) {
+                    scrollTopBtn.style.opacity = '1';
+                    scrollTopBtn.style.visibility = 'visible';
+                    scrollTopBtn.style.transform = 'translateY(0)';
+                } else {
+                    scrollTopBtn.style.opacity = '0';
+                    scrollTopBtn.style.visibility = 'hidden';
+                    scrollTopBtn.style.transform = 'translateY(20px)';
+                }
+            }
+        }
+
+        function scrollToContent() {
+            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 120px;
+                right: 20px;
+                background: linear-gradient(45deg, var(--dark-black), var(--mystery-blue));
+                color: white;
+                padding: 20px 30px;
+                border-radius: 5px;
+                z-index: 1002;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+                animation: slideIn 0.3s ease;
+                max-width: 400px;
+                font-weight: 600;
+                border-left: 5px solid var(--ancient-gold);
+                border: 1px solid rgba(184, 134, 11, 0.3);
+            `;
+            document.body.appendChild(notification);
+            
+            // Remove after 4 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 4000);
+            
+            // Add animation styles if not present
+            if (!document.querySelector('#notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notification-styles';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+    </script>
+</body>
+
+</html>
