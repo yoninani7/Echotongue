@@ -513,16 +513,7 @@
             });
             // Scroll down button
             document.querySelector('.scroll-down').addEventListener('click', scrollToContent);
-            // Parallax effect for book
-            document.addEventListener('mousemove', (e) => {
-                const x = (window.innerWidth - e.pageX) / 50;
-                const y = (window.innerHeight - e.pageY) / 50;
-                const book = document.querySelector('.book-img');
-                if (book) {
-                    book.style.transform = `rotateY(-5deg) translateX(${x}px) translateY(${y}px)`;
-                }
-            });
-            // Mobile menu event listeners
+                 // Mobile menu event listeners
             mobileMenuBtn.addEventListener('click', openMobileNav);
             mobileCloseBtn.addEventListener('click', closeMobileNav);
             // Close mobile menu when clicking on a link
@@ -732,15 +723,7 @@
             window.addEventListener('scroll', handleScroll);
             // Scroll down button
             document.querySelector('.scroll-down').addEventListener('click', scrollToContent);
-            // Parallax effect on mouse move for book
-            document.addEventListener('mousemove', (e) => {
-                const x = (window.innerWidth - e.pageX) / 50;
-                const y = (window.innerHeight - e.pageY) / 50;
-                const book = document.querySelector('.book-img');
-                if (book) {
-                    book.style.transform = `rotateY(-5deg) translateX(${x}px) translateY(${y}px)`;
-                }
-            });
+           
         }
         // Scroll effects
         function setupScrollEffects() {
