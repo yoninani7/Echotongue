@@ -1648,3 +1648,46 @@
             border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
             margin: 40px 0;
         }
+         /* World Section */
+        .world { 
+             background-image: url("../leaves.png");
+        }
+        
+        .world-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+
+
+        }
+        
+        .world-item {
+            background-color: rgba(151, 151, 151, 0.089);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .world-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+        }
+        
+        .world-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }      
+         
+         #worldtitled::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background-color: red;
+        }
