@@ -22,10 +22,7 @@
             --color-surface-white: rgba(146, 136, 136, 0.2);  
             --color-muted-text: #666666;  
             
-            /* POV Colors - Matching the first design */
-            --pov-lydia: #d4af37; /* Gold - matching original */
-            --pov-alex: #4a6fa5;  /* Blue - matching original */
-            --pov-felix: #20b2aa; /* Teal - matching original */
+      
 
             /* Typography */
             --font-serif: 'Cinzel', serif;
@@ -44,7 +41,11 @@
             line-height: 1.6;
             min-height: 100vh;
         }
-        
+        #main-nav{
+           background-color:  rgba(5, 5, 5, 0.95);
+           padding-bottom: 0px;
+           padding-top: 0px;
+        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -138,14 +139,14 @@
             right: 15px;
             font-family: 'Cinzel', serif;
             font-size: 1.5rem;
-            color: rgba(212, 175, 55, 0.3);
+            color: rgb(214, 214, 214);
         }
         
         .chapter-pov {
             display: inline-block;
             padding: 4px 10px;
             background: rgba(212, 175, 55, 0.1);
-            color: #d43737;
+            color: #afaeae;
             border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 600;
@@ -197,14 +198,14 @@
             padding: 20px;
             margin-bottom: 40px;
             border-left: 7px solid transparent;
-border-image: linear-gradient(to bottom,transparent ,#ff0000, transparent) 6; 
+            border-image: linear-gradient(to bottom,transparent ,#ff0000, transparent) 6; 
         }
         
         .part-summary h3 {
             font-family: 'Cinzel', serif;
             color: #d7d7d79d ;
             margin-bottom: 15px;
-            font-weight: 700;
+            font-weight: 700; 
             
         }
         
@@ -212,7 +213,7 @@ border-image: linear-gradient(to bottom,transparent ,#ff0000, transparent) 6;
             display: flex;
             gap: 30px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 20px;flex: 1;
         }
         
         .meta-item {
@@ -296,7 +297,7 @@ border-image: linear-gradient(to bottom,transparent ,#ff0000, transparent) 6;
         </a> -->
         <a href="index.html" class="cinzel"> ECHOTONGUE </a>
         <ul class="nav-links">
-            <li><a href="index.html #home">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="index.html #about">About the book</a></li>
             <li><a href="index.html #characters">Characters</a></li>
             <li><a href="index.html #story">Story Timeline</a></li> 
@@ -482,9 +483,9 @@ border-image: linear-gradient(to bottom,transparent ,#ff0000, transparent) 6;
         
         // POV color mapping (matching original design)
         const povColors = {
-            lydia: "#d4af37", // gold
-            alex: "#4a6fa5",  // blue
-            felix: "#20b2aa"  // teal
+            lydia: "red", // gold
+            alex: "yellow",   
+            felix: "green"  // teal
         };
         
         // POV full names
