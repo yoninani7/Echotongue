@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECHOTONGUE Chapter Map | Hermona Zeleke</title>
+    <title>ECHOTONGUE - Chapter Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="assets/echologo.png" sizes="32x32" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/echologo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style> 
+        :root {
+            --color-primary-gold: #b1afab; 
+            --color-text-dark: #b1afab;  
+            --color-surface-white: rgba(146, 136, 136, 0.2);  
+            --color-muted-text: #666666;  
+            
+            /* POV Colors - Matching the first design */
+            --pov-lydia: #d4af37; /* Gold - matching original */
+            --pov-alex: #4a6fa5;  /* Blue - matching original */
+            --pov-felix: #20b2aa; /* Teal - matching original */
+
+            /* Typography */
+            --font-serif: 'Cinzel', serif;
+            --font-sans: 'Raleway', sans-serif;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -14,50 +39,42 @@
         }
         
         body {
-            font-family: 'Inter', sans-serif;
-            background: #0f0f1a;
-            color: #e8e8e8;
+            font-family: var(--font-sans); 
+            color: var(--color-text-dark);
             line-height: 1.6;
             min-height: 100vh;
-            padding: 20px;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-        }
-        
-        /* Header */
+            padding: 40px 20px 40px;
+        } 
+        /* Header - Chapter Map */
         .header {
-            text-align: center;
-            padding: 40px 0;
-            margin-bottom: 30px;
+            text-align: center; 
             position: relative;
         }
         
         .header::after {
             content: '';
-            position: absolute;
+            position: absolute; 
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 100px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            background: linear-gradient(90deg, transparent, red, transparent);
+            margin-bottom: -20px;
         }
         
         .header h1 {
             font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: #d4af37;
-            margin-bottom: 10px;
-            font-weight: 400;
+            font-size: 1.3rem;
+            color: #b7b7b7; 
+            font-weight: 700;
         }
-        
-        .header p {
-            color: #8a8a9a;
-            font-size: 1.1rem;
-        }
+         
         
         /* Navigation Tabs */
         .tabs {
@@ -69,26 +86,26 @@
         }
         
         .tab-btn {
-            padding: 12px 25px;
-            background: transparent;
-            border: 1px solid #2a2a3a;
-            color: #8a8a9a;
-            border-radius: 6px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+    padding: 12px 25px;
+    background: radial-gradient(100% 120% at 50% 0%, #df0211 0%, #500D11 100%);
+    color: #fdfdfd;
+    border-radius: 6px;
+    border: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 14px;  
+    letter-spacing: 0.7px; 
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
         
-        .tab-btn:hover {
-            border-color: #d4af37;
-            color: #d4af37;
+        .tab-btn:hover { 
+            color: gray;
         }
         
         .tab-btn.active {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: #d4af37;
-            color: #d4af37;
+            background: rgba(212, 175, 55, 0.1); 
+            color:  #ece8e895;
         }
         
         /* Chapter Grid */
@@ -100,7 +117,7 @@
         }
         
         .chapter-card {
-            background: #1a1a2a;
+            background: var(--color-surface-white);
             border-radius: 8px;
             padding: 25px;
             border: 1px solid #2a2a3a;
@@ -128,7 +145,7 @@
             display: inline-block;
             padding: 4px 10px;
             background: rgba(212, 175, 55, 0.1);
-            color: #d4af37;
+            color: #d43737;
             border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 600;
@@ -147,17 +164,17 @@
         /* Part Dividers */
         .part-divider {
             text-align: center;
-            margin: 50px 0;
+            margin-top: 40px;
             position: relative;
         }
         
         .part-divider h2 {
             font-family: 'Cinzel', serif;
             font-size: 1.8rem;
-            color: #d4af37;
+            color: #b8b6b6;
             display: inline-block;
             padding: 0 20px;
-            background: #0f0f1a;
+            background: transparent;
             position: relative;
             z-index: 1;
         }
@@ -169,24 +186,26 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: #2a2a3a;
+            background: #531b1b;
             z-index: 0;
         }
         
         /* Part Summary */
         .part-summary {
-            background: rgba(26, 26, 42, 0.8);
+            background:var(--color-surface-white);
             border-radius: 8px;
-            padding: 30px;
+            padding: 20px;
             margin-bottom: 40px;
-            border-left: 3px solid #d4af37;
+            border-left: 7px solid transparent;
+border-image: linear-gradient(to bottom,transparent ,#ff0000, transparent) 6; 
         }
         
         .part-summary h3 {
             font-family: 'Cinzel', serif;
-            color: #d4af37;
+            color: #d7d7d79d ;
             margin-bottom: 15px;
-            font-weight: 400;
+            font-weight: 700;
+            
         }
         
         .part-meta {
@@ -197,8 +216,9 @@
         }
         
         .meta-item {
-            display: flex;
+            display: flex;   /* Each item takes equal space */
             flex-direction: column;
+            flex: 1;
         }
         
         .meta-label {
@@ -215,23 +235,15 @@
             font-weight: 600;
         }
         
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #2a2a3a;
-            margin-top: 60px;
-            color: #8a8a9a;
-            font-size: 0.9rem;
-        }
-        
-        .footer a {
-            color: #d4af37;
-            text-decoration: none;
-        }
+     
+          
         
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 80px 15px 30px;
+            }
+            
             .header h1 {
                 font-size: 2rem;
             }
@@ -249,9 +261,21 @@
             .tab-btn {
                 white-space: nowrap;
             }
+            
+            .nav-links, .btn-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            #main-nav {
+                padding: 15px 20px;
+            }
         }
         
-        /* Simple Animations */
+        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -265,10 +289,46 @@
     </style>
 </head>
 <body>
+   <!-- Fixed TRANSPARENT Navigation Bar -->
+    <nav id="main-nav">
+        <!-- <a href="#home" class="logo">
+            <i class="fas fa-book-open"></i> ECHOTONGUE
+        </a> -->
+        <a href="index.html" class="cinzel"> ECHOTONGUE </a>
+        <ul class="nav-links">
+            <li><a href="index.html #home">Home</a></li>
+            <li><a href="index.html #about">About the book</a></li>
+            <li><a href="index.html #characters">Characters</a></li>
+            <li><a href="index.html #story">Story Timeline</a></li> 
+            <li><a href="chaptermap.html">Chapter map</a></li>
+        </ul>
+        <button class="btn-nav"><i class="fas fa-book-open"></i> &nbsp; Purchase Book</button>
+        <!-- Mobile Menu Button - Hidden on desktop -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    <!-- Mobile Navigation - Hidden by default -->
+    <div class="mobile-nav" id="mobile-nav">
+        <button class="mobile-close-btn" id="mobile-close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+           <li><a href="index.html #home">Home</a></li>
+            <li><a href="index.html #about">About the book</a></li>
+            <li><a href="index.html #characters">Characters</a></li>
+            <li><a href="index.html #story">Story Timeline</a></li> 
+            <li><a href="chaptermap.html">Chapter map</a></li>
+        </ul>
+    </div>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </button> 
+
     <div class="container">
         <div class="header">
-            <h1>Chapter Map</h1>
-            <p>Navigate the structure of ECHOTONGUE without spoilers</p>
+            <h1>Chapter Map and Main Character's Perspective Overview</h1> 
         </div>
         
         <!-- Part One -->
@@ -362,11 +422,7 @@
             <!-- Chapters will be inserted by JavaScript -->
         </div>
         
-        <div class="footer">
-            <p>ECHOTONGUE: The Zureyan Tablets by Hermona Zeleke</p>
-            <p>This map contains only chapter structure information. No plot details revealed.</p>
-            <p>© 2025 | Preview pages 1-212</p>
-        </div>
+         
     </div>
     
     <script>
@@ -424,7 +480,7 @@
             ]
         };
         
-        // POV color mapping
+        // POV color mapping (matching original design)
         const povColors = {
             lydia: "#d4af37", // gold
             alex: "#4a6fa5",  // blue
@@ -499,7 +555,54 @@
             });
         }
         
-        // Initialize
+        // Mobile navigation functionality
+        function initMobileNav() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileCloseBtn = document.getElementById('mobile-close-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            if (mobileMenuBtn && mobileCloseBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileNav.classList.add('active');
+                });
+                
+                mobileCloseBtn.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                });
+                
+                // Close mobile nav when clicking on a link
+                const mobileLinks = mobileNav.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileNav.classList.remove('active');
+                    });
+                });
+            }
+        }
+        
+        // Scroll to top functionality
+        function initScrollTop() {
+            const scrollTopBtn = document.getElementById('scroll-top');
+            
+            if (scrollTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        scrollTopBtn.style.display = 'flex';
+                    } else {
+                        scrollTopBtn.style.display = 'none';
+                    }
+                });
+                
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+        
+        // Initialize everything
         document.addEventListener('DOMContentLoaded', () => {
             // Render all chapters
             renderChapters('part1-chapters', chapters.part1);
@@ -533,7 +636,7 @@
                 });
             });
             
-            // Add keyboard navigation
+            // Add keyboard navigation for tabs
             document.addEventListener('keydown', (e) => {
                 const activeTab = document.querySelector('.tab-btn.active');
                 const tabs = Array.from(tabButtons);
@@ -549,6 +652,10 @@
                     tabs[prevIndex].focus();
                 }
             });
+            
+            // Initialize mobile nav and scroll top
+            initMobileNav();
+            initScrollTop();
         });
     </script>
 </body>
