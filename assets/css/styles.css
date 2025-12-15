@@ -837,13 +837,7 @@
             width: 45%;
         }
 
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 55%;
-        }
+        
 
         .timeline-content {
             background-color: var(--medium-black);
