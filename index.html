@@ -83,7 +83,7 @@
                     <a href="#contact" class="btn">
                         <i class="fas fa-lock"></i> Unlock Now
                     </a>
-                    <a href="#preview" class="btn btn-outline">
+                    <a  class="btn btn-outline" id="open-sample-modal">
                         Read Free Sample
                     </a>
                 </div>
@@ -110,6 +110,22 @@
         </div>
     </header>
 
+      
+<div id="sample-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h4>Echotongue - Chapter 1: The Whispers of Xylos</h4>
+                <div class="modal-text-content">
+                    <p>The scent of ozone and synthetic spices hung heavy in the air of Xylos Prime's lower districts, a familiar perfume of desperation and ambition. Lydia Nightshade pulled the hood of her cloak tighter, the crimson lining a stark contrast to the shadowy alleyways she navigated. Every flickering neon sign, every hushed conversation in the myriad magic-infused dialects, felt like a potential trap. Or perhaps, a clue.</p>
+                    <p>Her past was a mosaic of shattered memories, sharp-edged and incomplete. A name, Nightshade. A whisper of forgotten power. A persistent, aching void where her childhood should have been. The universal governments, she knew, considered her a rogue element, a ghost in the vast cosmic machine. But why? What truth did they fear she would uncover?</p>
+                    <p>A sudden cacophony of sirens pierced the night, their wails cutting through the urban din. Enforcers. Their distinctive hover-crafts, black and menacing, swept through the avenues above. Lydia pressed herself against a grimy wall, her hand instinctively going to the hilt of the vibro-knife hidden beneath her cloak. She was alone, as she always was, in a galaxy that hunted her for reasons she couldn't fully comprehend.</p>
+                    <p>A shadowed figure detached itself from the deeper darkness of an alcove ahead. "Looking for something, Nightshade?" The voice was a low growl, laced with the metallic tang of the Veridian dialect—a language known for its ability to subtly disorient. Lydia's head swam for a brief moment, but she fought through it, her own Echotongue resisting the intrusion.</p>
+                    <p>"Only answers," Lydia replied, her voice steady, though her heart hammered against her ribs. She couldn't see their face, but the silhouette was massive, imposing. A monster, perhaps, reawakened by the very unrest she embodied.</p>
+                    <p>"Answers are expensive in this universe," the figure rumbled, taking a step forward. The air crackled with nascent magic. "Especially for those who aren't supposed to ask."</p>
+                    <p class="read-more-prompt">...[End of Sample. Purchase the book to read more!]...</p>
+                </div>
+            </div>
+        </div>
     <!-- About Book Section -->
     <div class="about-book" id="about" style=" margin-top:50px;">
         <div class="container">
@@ -162,7 +178,7 @@
         <div class="container">
             <center>
             <div class="section-title">
-                <h1 style="font-size: 39px;" id="worldtitled">The World of ECHOTONGUE</h1>
+                <h1 style="font-size: 39px;" id="worldtitled">What awaits you in echotongue</h1>
                 <p style="font-size: 16px;">Explore the unique elements of this interplanetary universe</p>
             </div>
             </center>
@@ -921,6 +937,40 @@
                 iterations += 1 / 3;
             }, 30);
         });
+
+        
+    // ------------------------------------------
+    // 2. Sample Chapter Modal Functionality
+    // ------------------------------------------
+    const modal = document.getElementById('sample-modal');
+    const btn = document.getElementById('open-sample-modal');
+    const span = document.getElementsByClassName('close-button')[0];
+
+    if (modal && btn && span) {
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            console.log('Sample modal opened.');
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+            console.log('Sample modal closed via close button.');
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                console.log('Sample modal closed via outside click.');
+            }
+        }
+    }
+
     </script>
 </body>
 
