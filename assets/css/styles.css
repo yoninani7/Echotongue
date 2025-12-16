@@ -1685,3 +1685,170 @@
             height: 4px;
             background-color: red;
         }
+
+        
+/* Sample Section and Modal */
+ 
+ /* --- THE MODAL BACKDROP --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    
+    background-color:rgba(27, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    
+    padding-top: 10vh;
+}
+
+/* --- THE MODAL CONTENT (The 'Page') --- */
+.modal-content {
+    background-color: #0d0d0d;
+    color: var(--color-text-light, #F0F0F0);
+    
+    margin: 10vh auto;
+    
+    /* Slightly less padding around the edges */
+    padding: var(--spacing-xl, 2rem) var(--spacing-xxl, 2.5rem); 
+    
+    width: 90%;
+    max-width: 900px; 
+    
+    border: 1px solid var(--color-border-subtle, #333333); 
+    border-radius: 4px;
+    
+    /* NEW: Prominent Shadow for a professional, lifted look */
+  box-shadow: 0 10px 40px rgba(255, 0, 0, 0.7);
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* --- MODAL TITLE (Chapter Header) --- */
+.modal-content h4 {
+    /* Color: Max contrast red */
+    color: var(--color-accent-red, #ff0000); /* Using a brighter, pure orange-red */
+    
+    text-align: center;
+    font-weight: 400; /* Lighter weight for high elegance */
+    
+    /* Removing default margins and using padding for better control of the pseudo-elements */
+    margin: 0;
+    padding: 1.5rem 0; /* Adding vertical padding */
+    
+    /* Increased size and tracking */
+    font-size: 2.5rem; /* Larger for a stunning look */
+    letter-spacing: 8px; /* High cinematic tracking */
+    
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    
+    /* Intense Cinematic Glow (Stronger effect) */
+    text-shadow: 
+        0 0 15px #bd0707, /* Stronger central glow */
+        0 0 25px rgba(255, 0, 0, 0.548); /* Wider ambient glow */
+    
+    line-height: 1.2;
+    position: relative; /* Essential for positioning the elegant line elements */
+}
+
+/* --- ELEGANT FRAMING LINES (New Addition) --- */
+
+/* Line Above the Title */
+.modal-content h4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%; /* Starts 10% in */
+    width: 80%; /* Spans 80% of the container width */
+    height: 1px;
+    background: linear-gradient(to right, 
+        transparent 0%, 
+        var(--color-accent-red, #ff0000) 20%, 
+        var(--color-accent-red, #ff0000) 80%, 
+        transparent 100%);
+    opacity: 0.5; /* Subtle visibility */
+}
+
+/* Line Below the Title */
+.modal-content h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%; /* Slightly shorter line below */
+    width: 70%;
+    height: 1px;
+    background-color: var(--color-accent-red, #ff0000);
+    opacity: 0.3; /* More subtle line below */
+}
+
+/* --- TEXT CONTENT (The Body of the Book) --- */
+.modal-text-content p {
+    color: var(--color-text-medium, #C0C0C0); 
+    font-size: 1.05rem; 
+    line-height: 1.6; 
+    margin-bottom: var(--spacing-lg, 1.5rem); 
+    text-indent: 2.5rem; 
+    font-family: 'Georgia', serif;
+}
+
+/* --- NEW: Professional Drop Cap for the First Letter of the First Paragraph --- */
+.modal-text-content p:first-of-type::first-letter {
+    float: left;
+    
+    /* Large font size */
+    font-size: 4.5rem; 
+    
+    /* Color matching the accent */
+    color: var(--color-accent-red, #f00909); 
+    
+    /* Drop cap specific margins to push text correctly */
+    line-height: 1;
+    margin-right: 0.15em;
+    margin-top: 0.05em; 
+    
+    /* Bold, striking font */
+    font-weight: 700;
+    
+    /* Optional: Small shadow for a debossed look */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure the first paragraph doesn't have an indent */
+.modal-text-content p:first-of-type {
+    text-indent: 0;
+}
+
+
+/* --- END OF SAMPLE PROMPT --- */
+.read-more-prompt {
+    text-align: center;
+    font-weight: 400;
+    color: var(--color-accent-red, #ff0000);
+    
+    padding-top: var(--spacing-lg, 1.5rem); 
+    margin-top: var(--spacing-xl, 2rem);
+    border-top: 1px dashed var(--color-border-subtle, #333333); 
+    
+    font-size: 0.95rem;
+}
+
+/* --- CLOSE BUTTON --- */
+.close-button {
+    color: var(--color-text-light, #F0F0F0);
+    float: right;
+    font-size: 32px;
+    font-weight: 300; 
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--color-accent-red, #E74C3C);
+    text-decoration: none;
+    cursor: pointer;
+}
