@@ -15,7 +15,7 @@
     --light-gray: #444;
     --text-light: #ddd;
     --text-white: #fff;
-    --gold: #d4af37;
+    --gold: rgb(223, 222, 222);
     --transition: all 0.3s ease;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     --header-height: 80px;
@@ -567,8 +567,7 @@ section {
     box-shadow:
         var(--shadow),
         0 0 50px rgba(192, 0, 0, 0.3),
-        20px 20px 40px rgba(0, 0, 0, 0.5);
-    border: 10px solid var(--primary-black);
+        20px 20px 40px rgba(0, 0, 0, 0.5); 
     position: relative;
     z-index: 2;
 }
@@ -597,7 +596,7 @@ section {
 
 /* about Section */
 .about {
-    background-color: var(--primary-black);
+    background-color: var(--elegant-black);
     position: relative;
 }
 
@@ -768,7 +767,7 @@ section {
 
 /* Magic System */
 .magic {
-    background-color: var(--primary-black);
+    background-color: var(--elegant-black);
     position: relative;
 }
 
@@ -930,7 +929,7 @@ section {
 .form-group textarea {
     width: 100%;
     padding: 15px 20px;
-    background-color: var(--primary-black);
+    background-color: var(--elegant-black);
     border: 1px solid var(--gray);
     border-radius: 4px;
     color: var(--text-white);
@@ -1011,7 +1010,7 @@ section {
 
 /* Newsletter */
 .newsletter {
-    background-color: var(--primary-black);
+    background-color: var(--elegant-black);
     text-align: center;
 }
 
@@ -1160,164 +1159,7 @@ footer::before {
     transform: translateY(-5px) scale(1.1);
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-
-    .hero-container,
-    .preview-container,
-    .magic-container,
-    .author-container {
-        grid-template-columns: 1fr;
-        gap: 60px;
-    }
-
-    .book-cover-3d {
-        text-align: center;
-    }
-
-    .story-timeline::before {
-        left: 30px;
-    }
-
-    .timeline-item {
-        width: calc(100% - 80px);
-        left: 80px !important;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content::after,
-    .timeline-item:nth-child(even) .timeline-content::after {
-        left: -10px;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-marker,
-    .timeline-item:nth-child(even) .timeline-marker {
-        left: -58px;
-    }
-}
-
-@media (max-width: 992px) {
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    .nav-links,
-    .btn-nav {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: flex;
-    }
-
-    .section-title {
-        font-size: 2.5rem;
-    }
-
-    .dialects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .cta-group {
-        flex-direction: column;
-    }
-
-    .hero-content {
-        align-items: center;
-        text-align: center;
-    }
-
-    .hero p.synopsis {
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.8rem;
-    }
-
-    .mobile-nav a {
-        font-size: 1.6rem;
-    }
-
-    .mobile-close-btn {
-        top: 20px;
-        right: 20px;
-    }
-
-    .order-form-container {
-        padding: 30px;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .newsletter-form {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .newsletter-form input {
-        border-radius: 4px;
-    }
-
-    .newsletter-form button {
-        border-radius: 4px;
-        width: 100%;
-    }
-}
-
-@media (max-width: 576px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .planets-grid,
-    .characters-container,
-    .contact-methods {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-card {
-        padding: 30px 20px;
-    }
-
-    .author-container {
-        grid-template-columns: 1fr;
-    }
-
-    .author-img {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
-    .author-quote {
-        padding: 20px;
-        font-size: 1.1rem;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-    }
-
-    .logo i {
-        font-size: 1.3rem;
-    }
-}
-
+/* Cinzel Styles */
 .cinzel {
     font-family: 'Cinzel Decorative', serif;
     font-weight: 900;
@@ -1332,10 +1174,7 @@ footer::before {
     font-size: 65px;
 }
 
-/* About Book Section */
-.about-book {
-    background-color: var(--secondary-dark);
-}
+/* About Book Section */ 
 
 .book-content {
     display: flex;
@@ -1367,12 +1206,12 @@ footer::before {
 .book-info h3 {
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: var(--accent-silver);
+    color: var(--text-light);
 }
 
 .book-info p {
     margin-bottom: 20px;
-    color: var(--text-muted);
+    color: #aaa;
 }
 
 .book-details {
@@ -1383,14 +1222,21 @@ footer::before {
 }
 
 .detail-item {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(53, 51, 51, 0.185);
     padding: 15px;
     border-radius: 5px;
     border-left: 3px solid rgb(97, 3, 3);
 }
+.detail-item:hover {
+    background-color: rgba(85, 83, 83, 0.185);
+    transform: scale(1.05);
+    transition: all 0.4s ease;
+    
+    border-right: 3px solid rgb(97, 3, 3);
+}
 
 .detail-item h4 {
-    color: var(--accent-gold);
+    color: var(--gold);
     font-size: 1.1rem;
     margin-bottom: 5px;
 }
@@ -1557,8 +1403,7 @@ footer::before {
 
 .author-quote {
     font-size: 1.2rem;
-    color: var(--accent-cyan);
-    font-style: italic;
+    color: silver; 
     padding: 20px;
     border-left: 4px solid transparent;
     border-image: linear-gradient(to bottom, #b40000c4, #4d0101) 1;
@@ -1569,7 +1414,7 @@ footer::before {
 
 /* World Section */
 .world {
-    background-image: url("../leaves.png");
+    background-color: var(--elegant-black);
 }
 
 .world-content {
@@ -1591,12 +1436,12 @@ footer::before {
 
 .world-item:hover {
     transform: translateY(-10px);
-    border-color: var(--accent-gold);
+    border-color: var(--gold);
 }
 
 .world-icon {
     font-size: 2.5rem;
-    color: var(--accent-gold);
+    color: var(--gold);
     margin-bottom: 20px;
 }
 
@@ -1781,4 +1626,445 @@ footer::before {
     color: var(--color-accent-red, #E74C3C);
     text-decoration: none;
     cursor: pointer;
+}
+
+/* ========== RESPONSIVE FIXES ONLY ========== */
+
+/* Large Screens */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+        padding: 0 15px;
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .book-wrapper {
+        top: 0;
+        height: 350px;
+    }
+}
+
+/* Tablet & Medium Screens */
+@media (max-width: 992px) {
+    body {
+        padding-top: var(--header-shrink-height);
+    }
+    
+    nav {
+        padding: 1rem 4%;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+        height: auto;
+        min-height: auto;
+        padding: 60px 0;
+    }
+    
+    .book-wrapper {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        height: 300px;
+        top: 0;
+    }
+    
+    .hero-content {
+        margin-top: 0;
+        align-items: center;
+    }
+    
+    .hero p.synopsis {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .cta-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .preview-container,
+    .magic-container,
+    .author-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .book-cover-3d {
+        left: 0;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .author-container {
+        text-align: center;
+    }
+    
+    .author-img {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .author-social {
+        justify-content: center;
+    }
+    
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .planets-grid,
+    .characters-container,
+    .contact-methods {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form input {
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    
+    .newsletter-form button {
+        border-radius: 4px;
+        width: 100%;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .nav-links,
+    .btn-nav {
+        display: none;
+    }
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 70px;
+        --header-shrink-height: 60px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .book-wrapper {
+        height: 250px;
+    }
+    
+    .book-img {
+        width: 90%;
+    }
+    
+    .cta-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .btn,
+    .btn-outline {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    .social-proof {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .divider {
+        display: none;
+    }
+    
+    .cover-3d {
+        max-width: 300px;
+    }
+    
+    .radar-scan {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        margin: 5vh auto;
+    }
+    
+    .modal-content h4 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+        padding: 1rem 0;
+    }
+    
+    .modal-text-content p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .modal-text-content p:first-of-type::first-letter {
+        font-size: 3.5rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .order-form-container {
+        padding: 30px 20px;
+    }
+    
+    .contact-card {
+        padding: 30px 20px;
+    }
+    
+    .world-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .dialects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .scroll-down {
+        display: none;
+    }
+    
+    .mobile-nav a {
+        font-size: 1.6rem;
+    }
+    
+    .mobile-nav li {
+        margin: 20px 0;
+    }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p.synopsis {
+        font-size: 1rem;
+    }
+    
+    .status {
+        font-size: 0.8rem;
+    }
+    
+    .book-wrapper {
+        height: 200px;
+    }
+    
+    .planets-grid,
+    .characters-container,
+    .contact-methods,
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .planet-card,
+    .character-card {
+        padding: 25px 20px;
+    }
+    
+    .character-img {
+        height: 150px;
+    }
+    
+    .character-role-badge {
+        left: 20px;
+        right: 20px;
+    }
+    
+    .mobile-nav a {
+        font-size: 1.4rem;
+        padding: 8px 15px;
+    }
+    
+    .mobile-nav li {
+        margin: 15px 0;
+    }
+    
+    .cover-3d {
+        max-width: 250px;
+    }
+    
+    .radar-scan {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .glitch-title {
+        font-size: 2.5rem;
+    }
+    
+    .author-info h2 {
+        font-size: 2rem;
+    }
+    
+    .author-bio {
+        font-size: 1rem;
+    }
+    
+    .contact-detail {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-detail i {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    
+    .footer-col {
+        text-align: center;
+    }
+    
+    .footer-col h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .scroll-top {
+        right: 20px;
+        bottom: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .book-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 375px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .book-wrapper {
+        height: 180px;
+    }
+    
+    .btn,
+    .btn-outline {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .mobile-nav a {
+        font-size: 1.2rem;
+    }
+    
+    .modal-content h4 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .modal-text-content p:first-of-type::first-letter {
+        font-size: 3rem;
+    }
+    
+    .radar-scan {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .logo i {
+        font-size: 1.3rem;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero-container {
+        height: auto;
+        min-height: 100vh;
+        padding: 40px 0;
+    }
+    
+    .book-wrapper {
+        height: 200px;
+    }
+    
+    nav {
+        height: 60px;
+    }
+    
+    body {
+        padding-top: 60px;
+    }
+    
+    .mobile-nav {
+        overflow-y: auto;
+    }
+    
+    .mobile-nav ul {
+        padding: 20px 0;
+    }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .hero-container {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Make images responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Make form elements responsive */
+input, select, textarea {
+    max-width: 100%;
 }
