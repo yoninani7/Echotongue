@@ -27,7 +27,7 @@
             --ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--void);
@@ -48,18 +48,7 @@
             z-index: -1;
         }
 
-        /* Custom Cursor for Luxury Feel */
-        #cursor {
-            position: fixed;
-            width: 8px; height: 8px;
-            background: white;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 1000;
-            mix-blend-mode: difference;
-            transition: transform 0.2s;
-        }
-
+         
         /* --- THE RIFTS --- */
         .container {
             display: flex;
@@ -112,7 +101,7 @@
 
         .title {
             font-family: var(--f-title);
-            font-size: 2.5vw;
+            font-size: 3.5vw;
             color: rgba(255,255,255,0.4);
             text-transform: uppercase;
             transition: all 0.6s var(--ease);
@@ -228,8 +217,7 @@
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scroll-top">
         <i class="fas fa-chevron-up"></i>
-    </button> 
-    <div id="cursor"></div>
+    </button>  
     <div class="aura"></div>
     <div class="echo-text">ECHOTONGUE</div>
 
@@ -237,7 +225,7 @@
         <a href="#" class="rift">
             <span class="label">Distribution</span>
             <h2 class="title">Amazon</h2>
-            <div class="buy-btn">ACCESS FILAMENT</div>
+            <div class="buy-btn">Buy book on Amazon now</div>
         </a>
 
         <a href="#" class="rift premium">
@@ -259,18 +247,6 @@
         </a>
     </main>
  
-    <script>
-        const cursor = document.getElementById('cursor');
-        
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        document.querySelectorAll('.rift').forEach(item => {
-            item.addEventListener('mouseenter', () => cursor.style.transform = 'scale(4)');
-            item.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
-        });
-    </script>
+     
 </body>
 </html>
