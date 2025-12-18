@@ -61,6 +61,7 @@ nav {
     -webkit-backdrop-filter: none;
     transition: all 0.3s ease;
     height: var(--header-height);
+    
 }
 
 nav.scrolled {
@@ -109,9 +110,11 @@ nav.scrolled {
     font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.3s;
-    position: relative;
-    padding: 5px 0;
-    font-family: var(--font-body);
+    position: relative; 
+    font-family: var(--font-body);  
+     text-align: center; 
+    list-style-type: none;  
+    padding: 0; /* Remove default padding */
 }
 
 .nav-links a:hover {
@@ -139,6 +142,7 @@ nav.scrolled {
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
+    text-align: center;
     
 }
 
@@ -1155,6 +1159,7 @@ footer::before {
 
 .footer-links li {
     margin-bottom: 15px;
+    
 }
 
 .footer-links a {
@@ -2078,10 +2083,7 @@ footer::before {
         min-height: 100vh;
         padding: 40px 0;
     }
-    
-    .book-wrapper {
-        height: 200px;
-    }
+     
     
     nav {
         height: 60px;
