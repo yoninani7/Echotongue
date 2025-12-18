@@ -21,6 +21,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
      
+    <style> 
+ 
+
+        .nav-links a {
+            display: block;  
+            text-decoration: none;
+        }
+ 
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            z-index: 1;
+            min-width: auto;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown a {
+            padding: 12px 16px;
+        }
+
+        .dropdown a:hover {
+            background-color: #575757;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,13 +60,26 @@
             <i class="fas fa-book-open"></i> ECHOTONGUE
         </a> -->
         <a href="index.html" class="cinzel"> ECHOTONGUE </a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#about">About the book</a></li>
-            <li><a href="#characters">Characters</a></li>
-            <li><a href="Timeline.html">Story Timeline</a></li> 
-            <li><a href="chaptermap.html">Chapter map</a></li>
-        </ul>
+         <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="#about">About the book</a>
+            <div class="dropdown">
+                <a href="#world">What’s inside?</a>
+                <a href="#universe">The universe</a>
+                <a href="#preview">Edition features</a>
+            </div>
+        </li>
+        <li>
+            <a href="#magic">Dialects</a>
+            <div class="dropdown">
+                <a href="#characters">Characters</a>
+                <a href="#author">Author</a>
+            </div>
+        </li>
+        <li><a href="Timeline.html">Story Timeline</a></li>
+        <li><a href="chaptermap.html">Chapter map</a></li>
+    </ul>
         <a href="purchasebook.html" class="btn-nav"><i class="fas fa-book-open"></i> &nbsp; Purchase Book</a>
         <!-- Mobile Menu Button - Hidden on desktop -->
         <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -63,6 +106,11 @@
     <button class="scroll-top" id="scroll-top">
         <i class="fas fa-chevron-up"></i>
     </button> 
+
+    
+    <!-- Custom Cursor Elements -->  
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div> 
 
     <!-- Hero Section -->
     <header class="hero" id="home">
@@ -236,7 +284,7 @@
     </section>
 
     <!-- Universe Section -->
-    <section class="about" id="about">
+    <section class="about" id="universe">
         <div class="container about-content">
             <h2 class="section-title">The Galaxian Universe</h2>
             <p class="about-description">Explore the key worlds of the Echotongue universe. Each planet has its own
@@ -248,8 +296,7 @@
             </div>
         </div>
     </section>
-
-
+ 
     <!-- Book Preview -->
     <section class="book-preview" id="preview" style="background-image: url(assets/leaves.png);">
         <div class="container preview-container">
@@ -358,7 +405,7 @@
             </div>
         </div>
 
-        <div class="order-form-wrapper">
+        <!-- <div class="order-form-wrapper">
             <div class="form-header">
                 <h3 class="form-title">Order Inquiry Form</h3>
                 <p>Submit your details and our team will contact you within 24 hours.</p>
@@ -407,11 +454,11 @@
 
                 </div>
             </form>
-        </div>
+        </div> -->
     </div>
 </section>
     <!-- Author Section -->
-    <section class="author" style="background-image: url(assets/leaves.png);">
+    <section class="author" id="author" style="background-image: url(assets/leaves.png);">
         <div class="container author-container">
             <div class="author-img">
                 <img src="assets/author.png" alt="Author S.E. Blackwood">
@@ -980,7 +1027,24 @@
             };
         }
     };
-    
+    // --- CUSTOM CURSOR LOGIC ---
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            // Dot follows instantly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            // Outline follows with slight delay (animation in CSS)
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 1000, fill: "forwards" });
+        });
 </script>
 </body>
 
