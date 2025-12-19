@@ -101,8 +101,9 @@ nav.scrolled {
     transition: color 0.3s ease;
 }
 
-.nav-links li:hover>a {
-    color: var(--text-main);
+.nav-links li:hover { 
+    background: rgba(102, 100, 100, 0.1); 
+    color: white;
 }
 
 /* --- DROPDOWN --- */
@@ -440,6 +441,7 @@ h1 {
     line-height: 1.6;
     font-size: 1.1rem;
     max-width: 90%;
+    font-family: var(--font-body);
 }
 
 .cta-group {
@@ -732,14 +734,20 @@ section {
     right: 30px;
     font-size: 3.5rem;
     font-family: 'Cinzel', serif;
-    color: var(--primary-red);
+    
+    background: linear-gradient(145deg, #df0211 10%, #ad0712 90%);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
     opacity: 0.2;
     font-weight: 900;
     transition: 0.5s ease;
 }
 
 .planet-card:hover .planet-number {
-    opacity: 0.4;
+    opacity: 0.4; 
+    background: linear-gradient(145deg, #df0211 10%, #5c1015 90%);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
     transform: scale(1.2) translateY(10px);
 }
 
@@ -835,12 +843,12 @@ section {
     position: absolute;
     top: 20px;
     left: 40px;
-    right: 40px;
-    background-color: var(--primary-red);
-    align-items: center;
+    right: 40px; 
+background: linear-gradient(to bottom, #c00410 10%, #5c1015 90%);   
+ align-items: center;
     text-align: center;
     color: var(--text-white);
-    padding: 8px 15px;
+    padding: 8px 10px;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -915,7 +923,7 @@ section {
 
 /* Contact Section - Professional Custom Design */
 .contact {
-    padding: 120px 20px;
+    padding:30px 0px;
     color: #ffffff;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
@@ -929,11 +937,11 @@ section {
 
 .contact-description {
     max-width: 850px;
-    margin: 0 auto 80px;
+    margin: 0 auto ;
     font-size: 1.15rem;
     line-height: 1.8;
     color: #999999;
-    text-align: center;
+    text-align: center; 
 }
 
 /* Contact Methods - Card Layout */
@@ -941,7 +949,8 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    margin-bottom: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .contact-card {
@@ -956,7 +965,7 @@ section {
 
 .contact-card:hover {
     transform: translateY(-10px);
-    border-color: #c00000;
+    border-color: #750606af;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -1575,13 +1584,15 @@ footer::before {
 }
 
 .author-quote {
+
     font-size: 1.2rem;
     color: silver;
     padding: 20px;
-    border-left: 4px solid transparent;
+    border-left: 4px solid transparent ; 
     border-image: linear-gradient(to bottom, #b40000c4, #4d0101) 1;
-    background: rgba(70, 70, 71, 0.5);
-    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    background: rgba(70, 70, 71, 0.5); 
+border-top-right-radius: 20px;
+border-bottom-right-radius: 20px;
     margin: 40px 0;
 }
 
