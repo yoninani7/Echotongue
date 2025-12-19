@@ -274,21 +274,47 @@
 
         /* Container Layout */
         .h_gallery_layout {
-
             display: flex;
             align-items: center;
-            /* Centers items vertically to reduce height feel */
+            /* Center items vertically */
             justify-content: center;
-            gap: 50px;
-            background: #ffffff;
-            border-radius: 12px;
+            gap: 30px;
+            /* Reduced gap for a more compact layout */
+            background: rgba(255, 255, 255, 0.911);
+            /* Slightly more opaque for a softer look */
+            border-radius: 16px;
+            /* Slightly increased border-radius for a modern touch */
             margin: 20px auto;
-            padding: 30px;
-            /* Reduced vertical padding */
-            max-width: 1000px;
-            border: 1px solid #f0f0f0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            padding: 40px;
+            /* Increased horizontal padding */
+            max-width: 90%;
+            /* More flexible max-width */
+            border: 1px solid #e0e0e0;
+            /* Softer border color */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            /* Deeper shadow for better depth */
             text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            /* Adding a hover effect */
+        }
+
+        .h_gallery_layout:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            cursor: NONE;
+
+        }
+ 
+
+        @media (max-width: 600px) {
+            .h_gallery_layout {
+                flex-direction: column;
+                /* Stack items on small screens */
+                gap: 20px;
+                /* Increase gap for small screens */
+                padding: 20px;
+                /* Adjust padding for smaller screens */
+            }
         }
 
         /* Image Section */
@@ -451,7 +477,7 @@
     <div class="cursor-outline"></div>
 
 
-    <a href="#stores" class="h_gallery_layout" style="margin-top: 20px;">
+    <a href="#stores" class="h_gallery_layout" style="margin-top: 20px; ">
 
         <div class="h_visual_side">
             <div class="h_image_frame">
@@ -483,6 +509,7 @@
         </div>
 
     </a>
+    
     <a href="#stores" style="text-decoration: none;">
         <h3 class="section-title" id="stores" style="margin-top: 20px; font-size: 1.8rem;">Now available on &nbsp;&nbsp;
             <i class="fas fa-arrow-down"></i>
@@ -508,16 +535,15 @@
     </div>
 
     <div class="container" style="margin-top: 30px;">
-        <a href="https://www.amazon.co.uk/dp/B0FQXX1F9B/ref" target="_blank" class="rift">
-            <img src="assets/amazon.png" style="width: 200px;">
+        <a href="https://www.everand.com/book/925094085/Echotongue-The-Zureyan-Tablets" target="_blank" class="rift">
+            <img src="assets/everand.png" style="width: 200px;">
             <span class="label">Global delivery</span>
             <div class="buy-btn">Buy book on Everand </div>
-        </a>
-        <a href="#" target="_blank" class="rift">
-            <img src="" alt="">
-            <span class="label">Direct Origin</span>
-            <h2 class="title">Partner <br> bookstores</h2>
-            <div class="buy-btn">Visit book store </div>
+        </a> 
+        <a href="https://www.walmart.com/ip/Echotongue-The-Zureyan-Tablets-Paperback-9798896042938/18356422505?classType=REGULAR" target="_blank" class="rift">
+            <img src="assets/waterstones.png" style="width: 200px;">
+            <span class="label">UK/ International</span>
+            <div class="buy-btn">Buy book on Waterstones </div>
         </a>
         <a href="https://www.waterstones.com/author/hermona-n-zeleke/10239986" target="_blank" class="rift">
             <img src="assets/waterstones.png" style="width: 200px;">
@@ -525,182 +551,198 @@
             <div class="buy-btn">Buy book on Waterstones </div>
         </a>
     </div>
-<section>
-    <!-- Review Section -->
-    <div class="r_review-section">
-        <div class="r_container">
-            <!-- Content -->
-            <div class="r_review-content">
-                <!-- Left: Reviews Display -->
-                <div class="r_reviews-display">
-                    <div class="r_display-header">
-                        <h2 class="r_display-title">Words of the Wise</h2>
-                        <div class="r_review-count"> Reviews</div>
-                    </div>
-
-                    <!-- Review Cards -->
-                    <div class="r_review-cards">
-                        <!-- Review 1 -->
-                        <article class="r_review-card">
-                            <div class="r_review-card-content">
-                                <div class="r_review-header">
-                                    <div class="r_reviewer-info">
-                                        <div class="r_reviewer-avatar">MS</div>
-                                        <div class="r_reviewer-details">
-                                            <h4>Mr Sami</h4>
-                                            <div class="r_review-date">October 23, 2025</div>
-                                        </div>
-                                    </div>
-                                    <div class="r_review-rating">★★★★★</div>
-                                </div>
-
-                                <p class="r_review-text">
-                                    A great book for anyone who loves reading this is an incredible and inspirational
-                                    book. I appreciate those who are the authors, especially very young children. Thank
-                                    you
-                                    very much.
-                                </p>
-
-                                <div class="r_review-meta">
-                                    <button class="r_action-btn">
-                                        <i class="fas fa-book-open"></i> Format: Paperback
-                                    </button>
-                                    <div class="r_review-verified" style="float: right;">
-                                        <i class="fas fa-check-circle"></i> Verified Purchase
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Review 2 -->
-
-                        <article class="r_review-card">
-                            <div class="r_review-card-content">
-                                <div class="r_review-header">
-                                    <div class="r_reviewer-info">
-                                        <div class="r_reviewer-avatar">Y</div>
-                                        <div class="r_reviewer-details">
-                                            <h4>Yodit</h4>
-                                            <div class="r_review-date">November 8, 2025</div>
-                                        </div>
-                                    </div>
-                                    <div class="r_review-rating">★★★★★</div>
-                                </div>
-
-                                <p class="r_review-text">
-                                    Echotongue: The Zureyan Tablets is an extraordinary fantasy adventure that showcases
-                                    the creativity and talent of a young author. The book stands out for its imaginative
-                                    world-building, engaging characters, and suspenseful narrative.
-
-                                    What’s most impressive is the natural dialogue and smooth pacing, rare qualities for
-                                    such a young writer. This story is not only a great read for children but also for
-                                    adults who appreciate fresh, inventive storytelling. Overall, it’s a testament to
-                                    youthful creativity and a highly recommended read for fans of fantasy and adventure.
-                                </p>
-
-                                <div class="r_review-meta">
-                                    <div class="r_review-actions">
-                                        <button class="r_action-btn">
-                                            <i class="fas fa-book-open"></i> Format: Hardcover
-                                        </button>
-                                    </div>
-                                    <div class="r_review-verified">
-                                        <i class="fas fa-check-circle"></i> Verified Purchase
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Review 3 -->
-                        <article class="r_review-card">
-                            <div class="r_review-card-content">
-                                <div class="r_review-header">
-                                    <div class="r_reviewer-info">
-                                        <div class="r_reviewer-avatar">AC</div>
-                                        <div class="r_reviewer-details">
-                                            <h4>Amazon Customer</h4>
-                                            <div class="r_review-date">November 4, 2025</div>
-                                        </div>
-                                    </div>
-                                    <div class="r_review-rating">★★★★★</div>
-                                </div>
-
-                                <p class="r_review-text">
-                                    I can’t believe the eleven years old girl write such an imaginable book. It is very
-                                    interesting and very difficult to stop reading. I can’t wait to read the next book
-                                    from her.
-                                </p>
-
-                                <div class="r_review-meta">
-                                    <button class="r_action-btn">
-                                        <i class="fas fa-book-open"></i> Format: Kindle Edition
-                                    </button>
-                                    <div class="r_review-verified" style="float: right;">
-                                        <i class="fas fa-check-circle"></i> Verified Reader
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- Right: Review Form -->
-                <div class="r_review-form-container">
-                    <div class="r_form-header">
-                        <div class="r_form-icon">
-                            <i class="fas fa-pen-nib"></i>
+    <section>
+        <!-- Review Section -->
+        <div class="r_review-section">
+            <div class="r_container">
+                <!-- Content -->
+                <div class="r_review-content">
+                    <!-- Left: Reviews Display -->
+                    <div class="r_reviews-display">
+                        <div class="r_display-header">
+                            <h2 class="r_display-title">Words of the Wise</h2>
+                            <div class="r_review-count"> Reviews</div>
                         </div>
-                        <h2 class="r_form-title">Share Your Thoughts</h2>
-                        <p class="r_form-subtitle">
-                            Your perspective matters. Share your experience with this book—what moved you, what
-                            surprised you, what stayed with you.
-                        </p>
+
+                        <!-- Review Cards -->
+                        <div class="r_review-cards">
+                            <!-- Review 1 -->
+                            <article class="r_review-card">
+                                <div class="r_review-card-content">
+                                    <div class="r_review-header">
+                                        <div class="r_reviewer-info">
+                                            <div class="r_reviewer-avatar">MS</div>
+                                            <div class="r_reviewer-details">
+                                                <h4>Mr Sami</h4>
+                                                <div class="r_review-date">October 23, 2025</div>
+                                            </div>
+                                        </div>
+                                        <div class="r_review-rating">★★★★★</div>
+                                    </div>
+
+                                    <p class="r_review-text">
+                                        A great book for anyone who loves reading this is an incredible and
+                                        inspirational
+                                        book. I appreciate those who are the authors, especially very young children.
+                                        Thank
+                                        you
+                                        very much.
+                                    </p>
+
+                                    <div class="r_review-meta">
+                                        <button class="r_action-btn">
+                                            <i class="fas fa-book-open"></i> Format: Paperback
+                                        </button>
+                                        <div class="r_review-verified" style="float: right;">
+                                            <i class="fas fa-check-circle"></i> Verified Purchase
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Review 2 -->
+
+                            <article class="r_review-card">
+                                <div class="r_review-card-content">
+                                    <div class="r_review-header">
+                                        <div class="r_reviewer-info">
+                                            <div class="r_reviewer-avatar">Y</div>
+                                            <div class="r_reviewer-details">
+                                                <h4>Yodit</h4>
+                                                <div class="r_review-date">November 8, 2025</div>
+                                            </div>
+                                        </div>
+                                        <div class="r_review-rating">★★★★★</div>
+                                    </div>
+
+                                    <p class="r_review-text">
+                                        Echotongue: The Zureyan Tablets is an extraordinary fantasy adventure that
+                                        showcases
+                                        the creativity and talent of a young author. The book stands out for its
+                                        imaginative
+                                        world-building, engaging characters, and suspenseful narrative.
+
+                                        What’s most impressive is the natural dialogue and smooth pacing, rare qualities
+                                        for
+                                        such a young writer. This story is not only a great read for children but also
+                                        for
+                                        adults who appreciate fresh, inventive storytelling. Overall, it’s a testament
+                                        to
+                                        youthful creativity and a highly recommended read for fans of fantasy and
+                                        adventure.
+                                    </p>
+
+                                    <div class="r_review-meta">
+                                        <div class="r_review-actions">
+                                            <button class="r_action-btn">
+                                                <i class="fas fa-book-open"></i> Format: Hardcover
+                                            </button>
+                                        </div>
+                                        <div class="r_review-verified">
+                                            <i class="fas fa-check-circle"></i> Verified Purchase
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Review 3 -->
+                            <article class="r_review-card">
+                                <div class="r_review-card-content">
+                                    <div class="r_review-header">
+                                        <div class="r_reviewer-info">
+                                            <div class="r_reviewer-avatar">AC</div>
+                                            <div class="r_reviewer-details">
+                                                <h4>Amazon Customer</h4>
+                                                <div class="r_review-date">November 4, 2025</div>
+                                            </div>
+                                        </div>
+                                        <div class="r_review-rating">★★★★★</div>
+                                    </div>
+
+                                    <p class="r_review-text">
+                                        I can’t believe the eleven years old girl write such an imaginable book. It is
+                                        very
+                                        interesting and very difficult to stop reading. I can’t wait to read the next
+                                        book
+                                        from her.
+                                    </p>
+
+                                    <div class="r_review-meta">
+                                        <button class="r_action-btn">
+                                            <i class="fas fa-book-open"></i> Format: Kindle Edition
+                                        </button>
+                                        <div class="r_review-verified" style="float: right;">
+                                            <i class="fas fa-check-circle"></i> Verified Reader
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
                     </div>
 
-                    <!-- Form - Configure action for your email handler -->
+                    <!-- Right: Review Form -->
+                    <div class="r_review-form-container">
+                        <div class="r_form-header">
+                            <div class="r_form-icon">
+                                <i class="fas fa-pen-nib"></i>
+                            </div>
+                            <h2 class="r_form-title">Share Your Thoughts</h2>
+                            <p class="r_form-subtitle">
+                                Your perspective matters. Share your experience with this book—what moved you, what
+                                surprised you, what stayed with you.
+                            </p>
+                        </div>
 
-                    <form target="_blank" action="https://formsubmit.co/yonsbreak7@gmail.com" method="POST">
-    
-    <div class="r_form-group">
-        <label class="r_form-label" for="r_reviewTitle">Your name <strong style="color: red;">*</strong></label>
-        <input type="text" id="r_reviewTitle" name="r_reviewTitle" class="r_form-input" placeholder="Enter your name" required>
-    </div>
+                        <!-- Form - Configure action for your email handler -->
 
-    <div class="r_form-group">
-        <label class="r_form-label" for="r_reviewText">Your Review <strong style="color: red;">*</strong></label>
-        <textarea id="r_reviewText" name="r_reviewText" class="r_form-textarea" style="resize: none;" placeholder="Share your honest thoughts..." required></textarea>
-    </div>
+                        <form target="_blank" action="https://formsubmit.co/yonsbreak7@gmail.com" method="POST">
 
-    <label class="r_form-label">Your Rating <strong style="color: red;">*</strong></label>
-    <div class="r_rating-container">
-        <div class="r_star-rating" id="r_starRating">
-            <span class="r_star" data-value="5">☆</span>
-            <span class="r_star" data-value="4">☆</span>
-            <span class="r_star" data-value="3">☆</span>
-            <span class="r_star" data-value="2">☆</span>
-            <span class="r_star" data-value="1">☆</span>
-        </div>
-        <input type="hidden" id="r_rating" name="r_rating" value="" required>
-        <div class="r_rating-hint">I am watching you ! <i class="fa-solid fa-face-grin-beam" style="color: rgba(253, 253, 253, 0.863);"></i></div>
-    </div>
+                            <div class="r_form-group">
+                                <label class="r_form-label" for="r_reviewTitle">Your name <strong
+                                        style="color: red;">*</strong></label>
+                                <input type="text" id="r_reviewTitle" name="r_reviewTitle" class="r_form-input"
+                                    placeholder="Enter your name" required>
+                            </div>
 
-    <div class="r_submit-container">
-        <button type="submit" class="r_submit-btn" id="r_submitBtn">
-            <i class="fas fa-paperclip" style="font-size:24px;"></i> Publish your review
-        </button>
-    </div>
-    
-</form>
-                    <!-- Loading State -->
-                    <div class="r_loading" id="r_loading">
-                        <div class="r_loader"></div>
-                        <p>Preparing your review for email...</p>
+                            <div class="r_form-group">
+                                <label class="r_form-label" for="r_reviewText">Your Review <strong
+                                        style="color: red;">*</strong></label>
+                                <textarea id="r_reviewText" name="r_reviewText" class="r_form-textarea"
+                                    style="resize: none;" placeholder="Share your honest thoughts..."
+                                    required></textarea>
+                            </div>
+
+                            <label class="r_form-label">Your Rating <strong style="color: red;">*</strong></label>
+                            <div class="r_rating-container">
+                                <div class="r_star-rating" id="r_starRating">
+                                    <span class="r_star" data-value="5">☆</span>
+                                    <span class="r_star" data-value="4">☆</span>
+                                    <span class="r_star" data-value="3">☆</span>
+                                    <span class="r_star" data-value="2">☆</span>
+                                    <span class="r_star" data-value="1">☆</span>
+                                </div>
+                                <input type="hidden" id="r_rating" name="r_rating" value="" required>
+                                <div class="r_rating-hint">I am watching you ! <i class="fa-solid fa-face-grin-beam"
+                                        style="color: rgba(253, 253, 253, 0.863);"></i></div>
+                            </div>
+
+                            <div class="r_submit-container">
+                                <button type="submit" class="r_submit-btn" id="r_submitBtn">
+                                    <i class="fas fa-paperclip" style="font-size:24px;"></i> Publish your review
+                                </button>
+                            </div>
+
+                        </form>
+                        <!-- Loading State -->
+                        <div class="r_loading" id="r_loading">
+                            <div class="r_loader"></div>
+                            <p>Preparing your review for email...</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
     <!-- Email Submission Modal -->
     <div class="r_email-modal" id="r_emailModal">
         <div class="r_modal-content">
