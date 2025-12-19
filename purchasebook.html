@@ -504,7 +504,7 @@
             <img src="assets/waterstones.png" style="width: 200px;">
             <span class="label">UK/ International</span>
             <div class="buy-btn">Buy book on Waterstones </div>
-        </a> 
+        </a>
     </div>
 
     <div class="container" style="margin-top: 30px;">
@@ -523,9 +523,9 @@
             <img src="assets/waterstones.png" style="width: 200px;">
             <span class="label">UK/ International</span>
             <div class="buy-btn">Buy book on Waterstones </div>
-        </a> 
+        </a>
     </div>
-
+<section>
     <!-- Review Section -->
     <div class="r_review-section">
         <div class="r_container">
@@ -541,7 +541,7 @@
                     <!-- Review Cards -->
                     <div class="r_review-cards">
                         <!-- Review 1 -->
-                          <article class="r_review-card">
+                        <article class="r_review-card">
                             <div class="r_review-card-content">
                                 <div class="r_review-header">
                                     <div class="r_reviewer-info">
@@ -573,7 +573,7 @@
                         </article>
 
                         <!-- Review 2 -->
-                       
+
                         <article class="r_review-card">
                             <div class="r_review-card-content">
                                 <div class="r_review-header">
@@ -658,46 +658,39 @@
                     </div>
 
                     <!-- Form - Configure action for your email handler -->
-                    <form id="r_reviewForm" action="mailto:your-email@example.com" method="POST" enctype="text/plain"
-                        target="_blank">
 
+                    <form target="_blank" action="https://formsubmit.co/yonsbreak7@gmail.com" method="POST">
+    
+    <div class="r_form-group">
+        <label class="r_form-label" for="r_reviewTitle">Your name <strong style="color: red;">*</strong></label>
+        <input type="text" id="r_reviewTitle" name="r_reviewTitle" class="r_form-input" placeholder="Enter your name" required>
+    </div>
 
-                        <div class="r_form-group">
-                            <label class="r_form-label" for="r_reviewTitle">Full name <strong
-                                    style="color: red;">*</strong></label>
-                            <input type="text" id="r_reviewTitle" name="r_reviewTitle" class="r_form-input"
-                                placeholder="Enter your name" required>
-                        </div> 
-                        <div class="r_form-group">
-                            <label class="r_form-label" for="r_reviewText">Your Review <strong
-                                    style="color: red;">*</strong></label>
-                            <textarea id="r_reviewText" name="r_reviewText" class="r_form-textarea" style="  resize: none;"
-                                placeholder="What did you like most about the book? Would you recommend this book? Why? What was your favorite part?  Share your honest thoughts..."
-                                required></textarea>
-                        </div>
-                        <!-- Star Rating -->
-                       <label class="r_form-label" for="r_reviewTitle">Your Rating <strong
-                                    style="color: red;">*</strong></label>
-                        <div class="r_rating-container"> 
-                            <div class="r_star-rating" id="r_starRating">
-                                <span class="r_star" data-value="5">☆</span>
-                                <span class="r_star" data-value="4">☆</span>
-                                <span class="r_star" data-value="3">☆</span>
-                                <span class="r_star" data-value="2">☆</span>
-                                <span class="r_star" data-value="1">☆</span>
-                            </div>
-                            <input type="hidden" id="r_rating" name="r_rating" value="0" required>
-                            <div class="r_rating-hint">I am watching you ! <i class="fa-solid fa-face-grin-beam"
-                                    style="color: rgba(253, 253, 253, 0.863);"></i></div>
-                        </div>
+    <div class="r_form-group">
+        <label class="r_form-label" for="r_reviewText">Your Review <strong style="color: red;">*</strong></label>
+        <textarea id="r_reviewText" name="r_reviewText" class="r_form-textarea" style="resize: none;" placeholder="Share your honest thoughts..." required></textarea>
+    </div>
 
-                        <div class="r_submit-container">
-                            <button type="submit" class="r_submit-btn" id="r_submitBtn">
-                                <i class="fas fa-paperclip" style="font-size:24px;"></i> Publish your review
-                            </button>
-                        </div>
-                    </form>
+    <label class="r_form-label">Your Rating <strong style="color: red;">*</strong></label>
+    <div class="r_rating-container">
+        <div class="r_star-rating" id="r_starRating">
+            <span class="r_star" data-value="5">☆</span>
+            <span class="r_star" data-value="4">☆</span>
+            <span class="r_star" data-value="3">☆</span>
+            <span class="r_star" data-value="2">☆</span>
+            <span class="r_star" data-value="1">☆</span>
+        </div>
+        <input type="hidden" id="r_rating" name="r_rating" value="" required>
+        <div class="r_rating-hint">I am watching you ! <i class="fa-solid fa-face-grin-beam" style="color: rgba(253, 253, 253, 0.863);"></i></div>
+    </div>
 
+    <div class="r_submit-container">
+        <button type="submit" class="r_submit-btn" id="r_submitBtn">
+            <i class="fas fa-paperclip" style="font-size:24px;"></i> Publish your review
+        </button>
+    </div>
+    
+</form>
                     <!-- Loading State -->
                     <div class="r_loading" id="r_loading">
                         <div class="r_loader"></div>
@@ -707,7 +700,7 @@
             </div>
         </div>
     </div>
-
+</section>
     <!-- Email Submission Modal -->
     <div class="r_email-modal" id="r_emailModal">
         <div class="r_modal-content">
