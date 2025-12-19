@@ -1,133 +1,89 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECHOTONGUE - Official Site</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link rel="icon" href="assets/echologo.png" sizes="32x32" type="image/x-icon">
-      <link rel="apple-touch-icon" sizes="180x180" href="assets/echologo.png">
+    <link rel="icon" href="assets/echologo.png" sizes="32x32" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/echologo.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&display=swap"
         rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
-     
-    <style> 
- 
-/* Parent list item needs relative positioning */
-.nav-links li {
-    position: relative;
-    list-style: none;
-}
 
-.nav-links a {
-    display: block;  
-    text-decoration: none;
-    color: white; /* Added for visibility */ 
-}
 
-/* Improved Dropdown */
-.dropdown {
-    display: block; /* Use opacity/visibility for transitions instead of display: none */
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    top: 100%; /* Ensures it starts exactly at the bottom of the parent */
-    left: 0;
-    background-color: #333;
-    z-index: 10;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease; /* Adds a smooth fade-in effect */
-    transform: translateY(10px); /* Subtle slide-up effect */
-}
-
-/* Hover State */
-.nav-links li:hover .dropdown {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.dropdown a {
-    padding: 12px 16px;
-    white-space: nowrap; /* Prevents text wrapping in the dropdown */
-    border-bottom: 1px solid #444; /* Subtle separation */
-}
-
-.dropdown a:last-child {
-    border-bottom: none;
-}
-
-.dropdown a:hover {
-    background-color: #575757;
-}
-    </style>
 </head>
 
 <body>
     <!-- Fixed TRANSPARENT Navigation Bar -->
     <nav id="main-nav">
-        <!-- <a href="#home" class="logo">
-            <i class="fas fa-book-open"></i> ECHOTONGUE
-        </a> -->
-        <a href="index.html" class="cinzel"> ECHOTONGUE </a>
-         <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li>
-            <a>About</a>
-            <div class="dropdown">
-                <a href="#about">About the book</a>
-                <a href="#world">What’s inside?</a>
-                <a href="#universe">The universe</a>
-                <a href="#preview">Edition features</a>
-                <a href="#magic">Dialects</a>
-            </div>
-        </li> 
-        <li><a href="#author">Author</a></li> 
-        <li><a href="Timeline.html">Story Timeline</a></li>
-        <li><a href="chaptermap.html">Chapter map</a></li>
-    </ul>
-        <a href="purchasebook.html" class="btn-nav"><i class="fas fa-book-open"></i> &nbsp; Purchase Book</a>
-        <!-- Mobile Menu Button - Hidden on desktop -->
-        <button class="mobile-menu-btn" id="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </button>
+        <a href="index.html" class="cinzel">ECHOTONGUE</a>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="has-dropdown">
+                <a href="javascript:void(0)">About <i class="fas fa-chevron-down"
+                        style="font-size: 0.5rem; margin-left: 5px;"></i></a>
+                <div class="dropdown">
+                    <a href="#about">About the book</a>
+                    <a href="#world">What’s inside?</a>
+                    <a href="#universe">The universe</a>
+                    <a href="#preview">Edition features</a>
+                    <a href="#magic">Dialects</a>
+                    <a href="#characters"> Main Characters</a>
+                </div>
+            </li>
+            <li><a href="#author">Author</a></li>
+            <li><a href="Timeline.html">Timeline</a></li>
+            <li><a href="chaptermap.html">Chapter Map</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="purchasebook.html" class="btn-nav">
+                <i class="fas fa-book-open"></i> <span>Purchase Book</span>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </nav>
     <!-- Mobile Navigation - Hidden by default -->
-<div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;">
-    <button type="button" class="mobile-close-btn" id="mobile-close-btn" aria-label="Close Menu">
-        <i class="fas fa-times"></i>
-    </button>
-    
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#about">About the book</a></li>
-        <li><a href="#characters">Characters</a></li>
-        <li><a href="#story">Story</a></li>
-        <br>
-        <li ><a href="purchasebook.html" class="btn-nav"style="color: white; font-family:  'Cinzel', serif;">Purchase Book now !</a></li>
-    </ul>
-</div>
- 
+    <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;">
+        <button type="button" class="mobile-close-btn" id="mobile-close-btn" aria-label="Close Menu">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About the book</a></li>
+            <li><a href="#characters">Characters</a></li>
+            <li><a href="#story">Story</a></li>
+            <br>
+            <li><a href="purchasebook.html" class="btn-nav"
+                    style="color: white; font-family:  'Cinzel', serif;">Purchase Book now !</a></li>
+        </ul>
+    </div>
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scroll-top">
         <i class="fas fa-chevron-up"></i>
-    </button> 
+    </button>
 
-    
-    <!-- Custom Cursor Elements -->  
+
+    <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div> 
+    <div class="cursor-outline"></div>
 
     <!-- Hero Section -->
     <header class="hero" id="home">
@@ -136,11 +92,11 @@
                 <div class="badge"><i class="fas fa-star"></i> First Edition</div>
                 <img src="assets/bookreflect.png" alt="Echotongue Book Cover" class="book-img">
             </div>
-            <div class="hero-content">
+            <div class="hero-content" style="z-index: 10;">
                 <div class="status">
                     <i class="fas fa-sun"></i> AVAILABLE NOW
                 </div>
-                <h1 class="glitch-title" data-text="ECHOTONGUE" style="margin-bottom: 0px; ">ECHOTONGUE</h1>
+                <h1 class="glitch-title" data-text="ECHOTONGUE" style="margin-bottom: 0px; z-index: 10;">ECHOTONGUE</h1>
                 <div
                     style="font-family:  Arial, Helvetica, sans-serif; letter-spacing: 2px; text-shadow: 0px 0px 10px #b300009d;">
                     THE ZUREYAN TABLETS </div>
@@ -152,7 +108,7 @@
                     <a href="#contact" class="btn">
                         <i class="fas fa-lock"></i> Unlock Now
                     </a>
-                    <a  class="btn btn-outline" id="open-sample-modal">
+                    <a class="btn btn-outline" id="open-sample-modal">
                         Read Free Sample
                     </a>
                 </div>
@@ -164,7 +120,7 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                        </span>
+                        </span> &nbsp;
                         5/5 Rating
                     </div>
                     <div class="divider"></div>
@@ -174,30 +130,42 @@
                 </div>
             </div>
         </div>
-        <div class="scroll-down" onclick="scrollToContent()">
+        <div class="scroll-down" onclick="scrollToContent()" style="z-index: 10;">
             <i class="fas fa-chevron-down"></i>
         </div>
-    </header> 
-<div id="sample-modal" class="modal">
-            <div class="modal-content">
-                <!-- <span class="close-button">&times;</span> -->
-               <h4>Echotongue: The Zureyan Tablets - Chapter 1  </h4>
-        <div class="modal-text-content">
-            <p>Space has always been kind of magical to me. There's something comforting about how quiet it is up there, no arguments, no chores, no pretending. The moon especially - I loved how it gave off this soft white glow, like it was trying to be the sun's gentler cousin.</p>
-            
-            <p>I'm Lydia Nightshade. My parents died when I was a baby... at least, that's what Aunt Silena always said. A plane crash, she claimed. But that never felt true. I don't remember much, just faint images, blurry faces with kind eyes leaning over me. Faces that didn't match the story she told. Silena acted like they had never existed. Like I came from nowhere and belonged to no one.</p>
-            
-            <p>It's hard to describe her. She wasn't cruel in the obvious, movie-villain way. She was more like a rulebook come to life. Everything had to be perfect: my clothes, my posture, my behavior. At home, she was cold and bossy, but once we stepped outside, she turned sugary sweet. Smiles, compliments, polite small talk... total fakery. People thought she was lovely. They didn't see the version I lived with.</p>
-            
-            <a style="color: rgb(255, 255, 255); align-items: center;" href="purchasebook.html">...[Continue reading to follow Lydia's journey from  Riverside Academy to the mystical world of Adrestia...]</a>
+    </header>
+    <div id="sample-modal" class="modal">
+        <div class="modal-content">
+            <!-- <span class="close-button">&times;</span> -->
+            <h4>Echotongue: The Zureyan Tablets - Chapter 1 </h4>
+            <div class="modal-text-content">
+                <p>Space has always been kind of magical to me. There's something comforting about how quiet it is up
+                    there, no arguments, no chores, no pretending. The moon especially - I loved how it gave off this
+                    soft white glow, like it was trying to be the sun's gentler cousin.</p>
+
+                <p>I'm Lydia Nightshade. My parents died when I was a baby... at least, that's what Aunt Silena always
+                    said. A plane crash, she claimed. But that never felt true. I don't remember much, just faint
+                    images, blurry faces with kind eyes leaning over me. Faces that didn't match the story she told.
+                    Silena acted like they had never existed. Like I came from nowhere and belonged to no one.</p>
+
+                <p>It's hard to describe her. She wasn't cruel in the obvious, movie-villain way. She was more like a
+                    rulebook come to life. Everything had to be perfect: my clothes, my posture, my behavior. At home,
+                    she was cold and bossy, but once we stepped outside, she turned sugary sweet. Smiles, compliments,
+                    polite small talk... total fakery. People thought she was lovely. They didn't see the version I
+                    lived with.</p>
+
+                <a style="color: rgb(255, 255, 255); align-items: center;" href="purchasebook.html">...[Continue reading
+                    to follow Lydia's journey from Riverside Academy to the mystical world of Adrestia...]</a>
             </div>
-        </div></div>
+        </div>
+    </div>
     <!-- About Book Section -->
     <div class="about-book" id="about" style=" margin-top:50px;">
         <div class="container">
             <div class="asection-title">
                 <h1 class="section-title">About the Book</h1>
-                <h3 style="font-weight: 500;">Discover the epic tale that spans across planets, blending fantasy and science fiction in a unique
+                <h3 style="font-weight: 500;">Discover the epic tale that spans across planets, blending fantasy and
+                    science fiction in a unique
                     universe.</h3>
             </div>
 
@@ -223,7 +191,7 @@
                         </div>
                         <div class="detail-item">
                             <h4>Themes</h4>
-                            <p>Identity, Magic, Friendship, Betrayal</p>
+                            <p>Identity, Magic, Friendship, Betrayal</p>--primary-red
                         </div>
                         <div class="detail-item">
                             <h4>Setting</h4>
@@ -239,14 +207,14 @@
         </div>
     </div>
 
-   <!-- World Section -->
+    <!-- World Section -->
     <section class="world" id="world">
         <div class="container">
             <center>
-            <div class="section-title">
-                <h1 style="font-size: 39px;" id="worldtitled">What awaits you in echotongue</h1>
-                <p style="font-size: 16px;">Explore the unique elements of this interplanetary universe</p>
-            </div>
+                <div class="section-title">
+                    <h1 style="font-size: 39px;" id="worldtitled">What awaits you in echotongue</h1>
+                    <p style="font-size: 16px;">Explore the unique elements of this interplanetary universe</p>
+                </div>
             </center>
             <div class="world-content">
                 <div class="world-item">
@@ -254,55 +222,61 @@
                         <i class="fas fa-globe-americas"></i>
                     </div>
                     <h3>Adrestia</h3>
-                    <p>The only "planet" in the Universe that exists on Earth itself, hidden from mortal eyes. A sanctuary for Galaxians and a training ground for young heroes.</p>
+                    <p>The only "planet" in the Universe that exists on Earth itself, hidden from mortal eyes. A
+                        sanctuary for Galaxians and a training ground for young heroes.</p>
                 </div>
-                
+
                 <div class="world-item">
                     <div class="world-icon">
                         <i class="fas fa-language"></i>
                     </div>
                     <h3>Tongues</h3>
-                    <p>Ancient languages that channel magic. Each planet has its own tongue, with words that can manipulate elements, create spells, and unlock hidden powers.</p>
+                    <p>Ancient languages that channel magic. Each planet has its own tongue, with words that can
+                        manipulate elements, create spells, and unlock hidden powers.</p>
                 </div>
-                
+
                 <div class="world-item">
                     <div class="world-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Galaxian Council</h3>
-                    <p>The governing body of the known Universe, consisting of eight Councillors who oversee the thirty-two planets and maintain order across galaxies.</p>
+                    <p>The governing body of the known Universe, consisting of eight Councillors who oversee the
+                        thirty-two planets and maintain order across galaxies.</p>
                 </div>
-                
+
                 <div class="world-item">
                     <div class="world-icon">
                         <i class="fas fa-tablet-alt"></i>
                     </div>
                     <h3>Zureyan Tablets</h3>
-                    <p>Ancient stone tablets that hold the secrets of the Universe's past, present, and future. Their discovery could change the balance of power across all planets.</p>
+                    <p>Ancient stone tablets that hold the secrets of the Universe's past, present, and future. Their
+                        discovery could change the balance of power across all planets.</p>
                 </div>
-                
+
                 <div class="world-item">
                     <div class="world-icon">
-                        <i class="fas fa-horse"></i>
+                        <i class="fas fa-horse" ></i>
                     </div>
                     <h3>Galaxian Creatures</h3>
-                    <p>Magical beings from across the planets, from Pegasus that can fly through space to dangerous creatures like the Taurconis that require specific methods to defeat.</p>
+                    <p>Magical beings from across the planets, from Pegasus that can fly through space to dangerous
+                        creatures like the Taurconis that require specific methods to defeat.</p>
                 </div>
-                
+
                 <div class="world-item">
                     <div class="world-icon">
-                        <i class="fas fa-rocket"></i>
+                        <i class="fas fa-rocket" ></i>
                     </div>
                     <h3>Interplanetary Travel</h3>
-                    <p>Advanced spacecraft that can travel between planets in minutes, not years. The Aegis is one such ship that plays a crucial role in the story.</p>
+                    <p>Advanced spacecraft that can travel between planets in minutes, not years. The Aegis is one such
+                        ship that plays a crucial role in the story.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Universe Section -->
-    <section class="about" id="universe">
-            <div class="background-image"></div>
+    <div class="about" id="universe">
+        <div class="background-image"></div>
         <div class="container about-content">
             <h2 class="section-title">The Galaxian Universe</h2>
             <p class="about-description">Explore the key worlds of the Echotongue universe. Each planet has its own
@@ -314,8 +288,8 @@
                 <!-- Planets will be generated by JavaScript -->
             </div>
         </div>
-    </section>
- 
+    </div>
+
     <!-- Book Preview -->
     <section class="book-preview" id="preview" style="background-image: url(assets/leaves.png);">
         <div class="container preview-container">
@@ -371,7 +345,7 @@
                 </div>
             </div>
         </div>
-    </section> 
+    </section>
     <!-- Characters Section -->
     <section class="characters" id="characters" style="background-image: url(assets/leaves.png);">
         <div class="container">
@@ -380,51 +354,53 @@
                 <!-- Characters will be generated by JavaScript -->
             </div>
         </div>
-    </section> 
- <section class="contact" id="contact">
-    <div class="container contact-container">
-        <header class="contact-header"> 
-            <h2 class="section-title">Secure Your Copy</h2>
-            <p class="contact-description">Echotongue is a limited edition release. To maintain the integrity of each volume, we fulfill orders directly or through our curated list of independent partners.</p>
-        </header>
+    </section>
+    <section class="contact" id="contact">
+        <div class="container contact-container">
+            <header class="contact-header">
+                <h2 class="section-title">Secure Your Copy</h2>
+                <p class="contact-description">Echotongue is a limited edition release. To maintain the integrity of
+                    each volume, we fulfill orders directly or through our curated list of independent partners.</p>
+            </header>
 
-        <div class="contact-methods">
-            <div class="contact-card">
-                <div class="card-content">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope-open-text"></i>
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <div class="card-content">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <h3 class="contact-title">Digital Inquiry</h3>
+                        <p>Direct correspondence for pricing and secure payment links.</p>
+                        <a href="mailto:orders@echotongue.com" target="_blank" class="contact-link"
+                            style="text-decoration: none; color: white;">orders@echotongue.com</a>
                     </div>
-                    <h3 class="contact-title">Digital Inquiry</h3>
-                    <p>Direct correspondence for pricing and secure payment links.</p>
-                    <a href="mailto:orders@echotongue.com" target="_blank" class="contact-link" style="text-decoration: none; color: white;">orders@echotongue.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="card-content">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-volume"></i>
+                        </div>
+                        <h3 class="contact-title">Personal Service</h3>
+                        <p>Speak with our concierge for bulk orders and expedited shipping.</p>
+                        <span class="contact-link">(555) 321-ECHO</span><br>
+                        <small class="hours">Mon-Fri: 9am-6pm EST</small>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="card-content">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3 class="contact-title">Local Partners</h3>
+                        <p>Discover Echotongue at 45+ premier independent bookstores.</p>
+                        <span class="contact-link">Locate a Store</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="contact-card">
-                <div class="card-content">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-volume"></i>
-                    </div>
-                    <h3 class="contact-title">Personal Service</h3>
-                    <p>Speak with our concierge for bulk orders and expedited shipping.</p>
-                    <span class="contact-link">(555) 321-ECHO</span><br>
-                    <small class="hours">Mon-Fri: 9am-6pm EST</small>
-                </div>
-            </div>
-
-            <div class="contact-card">
-                <div class="card-content">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3 class="contact-title">Local Partners</h3>
-                    <p>Discover Echotongue at 45+ premier independent bookstores.</p>
-                    <span class="contact-link">Locate a Store</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- <div class="order-form-wrapper">
+            <!-- <div class="order-form-wrapper">
             <div class="form-header">
                 <h3 class="form-title">Order Inquiry Form</h3>
                 <p>Submit your details and our team will contact you within 24 hours.</p>
@@ -474,8 +450,8 @@
                 </div>
             </form>
         </div> -->
-    </div>
-</section>
+        </div>
+    </section>
     <!-- Author Section -->
     <section class="author" id="author" style="background-image: url(assets/leaves.png);">
         <div class="container author-container">
@@ -498,12 +474,13 @@
                         passion for storytelling. The book represents her fascination with cosmic mysteries, ancient
                         legends, and the journey of self-discovery.</p>
 
-                    
+
 
                     <p>Hermona credits her parents and teachers for supporting her creative journey and hopes her story
                         will inspire other young writers to pursue their dreams.</p>
-                        <div class="author-quote">
-                        <strong> "Even the small tides can make big tsunamis."</strong> - A favorite quote from Percy Jackson that
+                    <div class="author-quote">
+                        <strong> "Even the small tides can make big tsunamis."</strong> - A favorite quote from Percy
+                        Jackson that
                         inspires Hermona's writing philosophy.
                     </div>
                 </div>
@@ -635,7 +612,7 @@
             });
             // Scroll down button
             document.querySelector('.scroll-down').addEventListener('click', scrollToContent);
-                 // Mobile menu event listeners
+            // Mobile menu event listeners
             mobileMenuBtn.addEventListener('click', openMobileNav);
             mobileCloseBtn.addEventListener('click', closeMobileNav);
             // Close mobile menu when clicking on a link
@@ -665,7 +642,8 @@
             { id: 5, name: "Ingero", type: "Underworld", description: "The banished planet in the Void where evil souls are sent. Home to Ignisos creatures who cannot pass Adrestian borders." },
             { id: 6, name: "Maxima", type: "Giant World", description: "What humans call Jupiter. A massive planet mentioned in Galaxian astronomy." },
             { id: 7, name: "Onus", type: "Red World", description: "Known to humans as Mars. Source of Sand Dust used in spaceship repairs." },
-            { id: 8, name: "Santurnatis", type: "Ringed World", description: "The original name for Saturn. Source of Santurnatian gold used in advanced technology." }
+            { id: 8, name: "Santurnatis", type: "Ringed World", description: "The original name for Saturn. Source of Santurnatian gold used in advanced technology." },
+            { id: "+", name: "And much more", type: "+++", description: "More planets will unravel as you go deeper into the universe." }
         ];
         const characters = [
             { id: 1, name: "Lydia Nightshade", role: "Protagonist", description: "A thirteen-year-old who discovers she possesses mysterious powers after a school incident. She's brave, resourceful, and on a journey to discover her true identity and origins across the planets.", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
@@ -707,7 +685,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             renderPlanets();
             renderCharacters();
-            renderDialects(); 
+            renderDialects();
             setupEventListeners();
             setupScrollEffects();
             // Initial scroll check
@@ -726,6 +704,7 @@
                     <div style="width:20%; height:30px; color:white;"> <hr> </div>
                     <h3 class="planet-name">${planet.name}</h3>
                     <div class="planet-type">${planet.type}</div>
+                    <br>
                     <p>${planet.description}</p>
                 `;
                 planetsGrid.appendChild(planetCard);
@@ -764,7 +743,7 @@
                 dialectsGrid.appendChild(dialectItem);
             });
         }
-        
+
         // Event Listeners
         function setupEventListeners() {
             // Mobile menu toggle
@@ -829,7 +808,7 @@
             window.addEventListener('scroll', handleScroll);
             // Scroll down button
             document.querySelector('.scroll-down').addEventListener('click', scrollToContent);
-           
+
         }
         // Scroll effects
         function setupScrollEffects() {
@@ -972,85 +951,99 @@
     </script>
     <script>
         const glitchTitle = document.querySelector('.glitch-title');
-        const runes = "!@#$%^&*()"; // Random characters for glitch effect
+        const runes = "!@#$%^&*()_+{}:<>?";
+        let interval = null;
+
         glitchTitle.addEventListener('mouseover', () => {
-            const originalText = glitchTitle.getAttribute('data-text');
+            const originalText = glitchTitle.dataset.text; // Cleaner way to get data attributes
             let iterations = 0;
-            const interval = setInterval(() => {
+
+            // Clear any existing interval to prevent overlapping animations
+            clearInterval(interval);
+
+            interval = setInterval(() => {
                 glitchTitle.innerText = originalText
                     .split("")
-                    .map((letter, index) => index < iterations ? originalText[index] : runes[Math.floor(Math.random() * runes.length)])
+                    .map((letter, index) => {
+                        if (index < iterations) {
+                            return originalText[index];
+                        }
+                        return runes[Math.floor(Math.random() * runes.length)];
+                    })
                     .join("");
+
                 if (iterations >= originalText.length) {
                     clearInterval(interval);
                 }
+
+                // Controls the speed of the "reveal"
                 iterations += 1 / 3;
             }, 30);
         });
 
-        
-    // ------------------------------------------
-    // 2. Sample Chapter Modal Functionality
-    // ------------------------------------------
-    const modal = document.getElementById('sample-modal');
-    const btn = document.getElementById('open-sample-modal');
-    const span = document.getElementsByClassName('close-button') ;
 
-    if (modal && btn && span) {
-        // When the user clicks the button, open the modal 
-        btn.onclick = function() {
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling background
-            console.log('Sample modal opened.');
-        }
+        // ------------------------------------------
+        // 2. Sample Chapter Modal Functionality
+        // ------------------------------------------
+        const modal = document.getElementById('sample-modal');
+        const btn = document.getElementById('open-sample-modal');
+        const span = document.getElementsByClassName('close-button');
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-            console.log('Sample modal closed via close button.');
-        }
+        if (modal && btn && span) {
+            // When the user clicks the button, open the modal 
+            btn.onclick = function () {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling background
+                console.log('Sample modal opened.');
+            }
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
                 modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                console.log('Sample modal closed via outside click.');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+                console.log('Sample modal closed via close button.');
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    console.log('Sample modal closed via outside click.');
+                }
             }
         }
-    }
 
     </script>
     <script>
-    // This function will run as soon as the page loads
-    window.onload = function() {
-        var nav = document.getElementById('mobile-nav');
-        var closeBtn = document.getElementById('mobile-close-btn');
-        
-        // We find your 'Open' button - change the ID if yours is different!
-        var openBtn = document.getElementById('mobile-open-btn'); 
+        // This function will run as soon as the page loads
+        window.onload = function () {
+            var nav = document.getElementById('mobile-nav');
+            var closeBtn = document.getElementById('mobile-close-btn');
 
-        if (closeBtn) {
-            closeBtn.onclick = function(e) {
-                e.preventDefault(); // Prevent page refresh
-                nav.classList.remove('is-open');
-                console.log("Close button clicked"); // Check your browser console!
-            };
-        }
+            // We find your 'Open' button - change the ID if yours is different!
+            var openBtn = document.getElementById('mobile-open-btn');
 
-        if (openBtn) {
-            openBtn.onclick = function(e) {
-                e.preventDefault();
-                nav.classList.add('is-open');
-                console.log("Open button clicked");
-            };
-        }
-    };
-    // --- CUSTOM CURSOR LOGIC ---
+            if (closeBtn) {
+                closeBtn.onclick = function (e) {
+                    e.preventDefault(); // Prevent page refresh
+                    nav.classList.remove('is-open');
+                    console.log("Close button clicked"); // Check your browser console!
+                };
+            }
+
+            if (openBtn) {
+                openBtn.onclick = function (e) {
+                    e.preventDefault();
+                    nav.classList.add('is-open');
+                    console.log("Open button clicked");
+                };
+            }
+        };
+        // --- CUSTOM CURSOR LOGIC ---
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
-        
+
         window.addEventListener('mousemove', (e) => {
             const posX = e.clientX;
             const posY = e.clientY;
@@ -1065,7 +1058,7 @@
                 top: `${posY}px`
             }, { duration: 1000, fill: "forwards" });
         });
-</script>
+    </script>
 </body>
 
 </html>
