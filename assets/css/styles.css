@@ -1837,9 +1837,23 @@ border-bottom-right-radius: 20px;
 
 /* Screens */
 @media (max-width: 1000px) {
-    .book-cover-img {
-        display: none;
+     
+    .book-content {
+        flex-direction: column; /* Stacks image on TOP of book-info */
+        align-items: center;    /* Centers items horizontally */
+        text-align: center;     /* Optional: centers the text below the image */
     }
+
+    .book-cover {
+        margin-bottom: 5px;    /* Adds space between image and text */
+    }
+
+    .book-cover-img {
+        max-width: 250px;       /* Shortens the size as requested */
+        margin: 0 auto;         /* Ensures it is centered */
+    }
+
+    
 }
 
 /* Tablet & Medium Screens */
