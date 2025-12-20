@@ -61,7 +61,7 @@ nav {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 92%;
+    width: 96%;
     max-width: 1400px;
     height: 65px;
     z-index: 1000;
@@ -73,7 +73,7 @@ nav {
 /* Scrolled State */
 nav.scrolled {
     top: 15px;
-    width: 90%;
+     width: 96%;
     border-radius: 100px;
     background: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(15px) saturate(150%);
@@ -273,12 +273,13 @@ nav.scrolled {
 .mobile-nav a {
     font-size: 1.8rem;
     font-weight: 600;
-    padding: 10px 20px;
+    padding: 10px 45px;
     position: relative;
     transition: var(--transition);
     display: inline-block;
     color: #aaa;
     text-decoration: none;
+
 }
 
 .mobile-nav a:hover,
@@ -305,8 +306,8 @@ nav.scrolled {
 
 .mobile-close-btn {
     position: absolute;
-    top: 30px;
-    right: 15px;
+    top:100px;
+    right: 9%;
     background: none;
     border: none;
     color: var(--text-white);
