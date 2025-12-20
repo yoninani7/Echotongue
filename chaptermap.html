@@ -30,27 +30,16 @@
       
 
             /* Typography */
-            --font-serif: 'Cinzel', serif;
-            --font-sans: 'Raleway', sans-serif;
+            --font-serif: 'Cinzel', serif; 
         }
         
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box; 
         }
         
-        body {
-            font-family: var(--font-sans); 
-            color: var(--color-text-dark);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        #main-nav{
-           background-color:  rgba(5, 5, 5, 0.95);
-           padding-bottom: 0px;
-           padding-top: 0px;
-        }
+      
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -295,47 +284,57 @@
     </style>
 </head>
 <body>
-    <!-- Fixed TRANSPARENT Navigation Bar -->
+       <!-- Fixed TRANSPARENT Navigation Bar -->
     <nav id="main-nav">
-        <!-- <a href="#home" class="logo">
-            <i class="fas fa-book-open"></i> ECHOTONGUE
-        </a> -->
-        <a href="index.html" class="cinzel"> ECHOTONGUE </a>
-        <ul class="nav-links">
+        <a href="index.html" class="cinzel">ECHOTONGUE</a>
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html #about">About the book</a></li>
-            <li><a href="index.html #characters">Characters</a></li>
-            <li><a href="Timeline.html">Story Timeline</a></li>
-
-            <li><a href="chaptermap.html">Chapter map</a></li>
+            <li class="has-dropdown">
+                <a href="javascript:void(0)">About <i class="fas fa-chevron-down" style="font-size: 0.9rem; "></i></a>
+                <div class="dropdown">
+                    <a href="index.html #about">About the book</a>
+                    <a href="index.html #world">What’s inside?</a>
+                    <a href="index.html #universe">The universe</a>
+                    <a href="index.html #preview">Edition features</a>
+                    <a href="index.html #magic">Dialects</a>
+                    <a href="index.html #characters"> Main Characters</a>
+                </div>
+            </li>
+            <li><a href="index.html #author">Author</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="Timeline.html">Timeline</a></li>
+            <li><a href="chaptermap.html">Chapter Map</a></li>
         </ul>
-        <a href="purchasebook.html" class="btn-nav"><i class="fas fa-book-open"></i> &nbsp; Purchase Book</a>
-        <!-- Mobile Menu Button - Hidden on desktop -->
-        <button class="mobile-menu-btn" id="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </button>
+        <div class="nav-actions">
+            <a href="purchasebook.html" class="btn-nav">
+                <i class="fas fa-book-open"></i> <span >Purchase Book</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </nav>
     <!-- Mobile Navigation - Hidden by default -->
-    <div class="mobile-nav" id="mobile-nav">
-        <button class="mobile-close-btn" id="mobile-close-btn">
-            <i class="fas fa-times"></i>
-        </button>
+    <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;"> 
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html #about">About the book</a></li>
-            <li><a href="index.html #characters">Characters</a></li>
-            <li><a href="index.html #story">Story</a></li>
+            <li><a href="index.html #about">About the book</a></li> 
+            <li><a href="index.html #author">Author</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="Timeline.html">Timeline</a></li>
+            <li><a href="chaptermap.html">Chapter Map</a></li>
+            <br>
+            <li><a href="purchasebook.html" class="btn-nav" style="color: white;"> <i class="fas fa-book-open"></i> Purchase Book</a></li>
         </ul>
     </div>
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scroll-top">
         <i class="fas fa-chevron-up"></i>
-    </button> 
-    
-    
-    <!-- Custom Cursor Elements -->  
+    </button>
+    <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div> 
+    <div class="cursor-outline"></div>
+
 
     <div class="container">
         <div class="header">
@@ -687,5 +686,7 @@
             }, { duration: 1000, fill: "forwards" });
         });
     </script>
+    
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
