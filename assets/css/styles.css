@@ -64,7 +64,7 @@ nav {
     width: 96%;
     max-width: 1400px;
     height: 65px;
-    z-index: 1000;
+    z-index: 800;
     transition: all 0.5s var(--ease-out);
     background: transparent;
 
@@ -190,6 +190,7 @@ nav.scrolled {
     font-size: 1.2rem;
     cursor: pointer;
     margin-left: 15px;
+    z-index: 1000;
 }
 
 @media (max-width: 1024px) {
@@ -226,7 +227,6 @@ nav.scrolled {
     transition: var(--transition);
     color: var(--text-white);
     font-size: 1.5rem;
-    z-index: 1001;
 }
 
 .mobile-menu-btn:hover {
@@ -253,6 +253,7 @@ nav.scrolled {
     visibility: hidden;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+    z-index: 1000;
 }
 
 .mobile-nav.active {
@@ -268,6 +269,7 @@ nav.scrolled {
 
 .mobile-nav li {
     margin: 25px 0;
+    margin-top: 20px;
 }
 
 .mobile-nav a {
