@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author's Thoughts | Hermona N. Zeleke</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8b5a2b;
+            --secondary-color: #d4a76a;
+            --accent-color: #7d3c1c;
+            --light-bg: #f9f5f0;
+            --card-bg: #ffffff;
+            --text-dark: #2c1810;
+            --text-light: #6b4d3a;
+            --text-muted: #a08c7a;
+            --border-color: #e8dfd6;
+            --shadow: 0 10px 30px rgba(139, 90, 43, 0.08);
+            --shadow-hover: 0 15px 40px rgba(139, 90, 43, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header with decorative elements */
+        .authors-thoughts {
+            padding: 100px 20px 80px; 
+            position: relative;
+        }
+
+        .authors-thoughts::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 167, 106, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(125, 60, 28, 0.05) 0%, transparent 20%),
+                linear-gradient(45deg, rgba(249, 245, 240, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Decorative corner elements */
+        .corner-decoration {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .corner-top-left {
+            top: -50px;
+            left: -50px;
+            border-top: 2px solid var(--primary-color);
+            border-left: 2px solid var(--primary-color);
+        }
+
+        .corner-bottom-right {
+            bottom: -50px;
+            right: -50px;
+            border-bottom: 2px solid var(--primary-color);
+            border-right: 2px solid var(--primary-color);
+        }
+
+        /* Main container */
+        .thoughts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced header */
+        .thoughts-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 40px 10px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .thoughts-header::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid rgba(139, 90, 43, 0.1);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .author-name {
+            font-family: 'Crimson Text', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .author-name::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+        }
+
+        .author-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .author-bio {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Enhanced timeline */
+        .timeline-line {
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, 
+                transparent 0%,
+                var(--secondary-color) 10%,
+                var(--primary-color) 50%,
+                var(--secondary-color) 90%,
+                transparent 100%);
+            z-index: 0;
+        }
+
+        /* Enhanced thought entries */
+        .thoughts-feed {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .thought-entry {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+            opacity: 1;
+            transform: translateY(0);
+            transition: var(--transition);
+        }
+
+        .thought-entry:hover {
+            transform: translateX(10px);
+        }
+
+        /* Enhanced timeline dots */
+        .timeline-dot {
+            width: 22px;
+            height: 22px;
+            background: var(--card-bg);
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            left: 32px;
+            top: 15px;
+            z-index: 2;
+            transition: var(--transition);
+            box-shadow: 0 0 0 4px rgba(139, 90, 43, 0.1);
+        }
+
+        .thought-entry:hover .timeline-dot {
+            transform: scale(1.2);
+            background: var(--primary-color);
+            box-shadow: 0 0 0 6px rgba(139, 90, 43, 0.15);
+        }
+
+        /* Enhanced thought content */
+        .thought-content {
+            flex: 1;
+            margin-left: 80px;
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .thought-content:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: var(--secondary-color);
+        }
+
+        .thought-content::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+
+        /* Enhanced date styling */
+        .thought-date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .date-badge {
+            background: rgba(139, 90, 43, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Enhanced thought text */
+        .thought-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .thought-text::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 4rem;
+            color: var(--secondary-color);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        /* Enhanced category tags */
+        .thought-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(212, 167, 106, 0.1);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            border: 1px solid rgba(139, 90, 43, 0.2);
+            transition: var(--transition);
+        }
+
+        .thought-entry:hover .thought-category {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced new indicator */
+        .new-indicator {
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(139, 90, 43, 0.3);
+            z-index: 3;
+        }
+ 
+
+        /* Enhanced footer */
+        .author-footer {
+            text-align: center;
+            margin-top: 100px;
+            padding: 50px 20px 30px;
+            position: relative;
+        }
+
+        .author-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 25px 0;
+        }
+
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+            background: white;
+            box-shadow: var(--shadow);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+
+        /* Scroll indicator (always visible) */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--border-color);
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .scroll-indicator:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--secondary-color);
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .thoughts-container {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .authors-thoughts {
+                padding: 60px 15px 40px;
+            }
+
+            .author-name {
+                font-size: 2.5rem;
+            }
+
+            .timeline-line {
+                left: 25px;
+            }
+
+            .timeline-dot {
+                left: 17px;
+            }
+
+            .thought-content {
+                margin-left: 50px;
+                padding: 25px;
+            }
+
+            .thought-text {
+                font-size: 1.2rem;
+            }
+
+           
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .author-name {
+                font-size: 2rem;
+            }
+
+            .thought-content {
+                margin-left: 40px;
+                padding: 20px;
+            }
+
+            .thought-text {
+                font-size: 1.1rem;
+                padding-left: 15px;
+            }
+
+            .thought-text::before {
+                font-size: 3rem;
+            }
+        }
+
+        /* Signature */
+        .author-signature {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            opacity: 0.3;
+            text-align: center;
+            margin-top: 50px;
+            letter-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative corners -->
+    <div class="corner-decoration corner-top-left"></div>
+    <div class="corner-decoration corner-bottom-right"></div>
+
+    <!-- Author's Thoughts Feed -->
+    <section class="authors-thoughts">
+        <div class="thoughts-container">
+            <!-- Header -->
+            <div class="thoughts-header">
+                <h1 class="author-name">Author's Corner</h1>
+                <div class="author-title">Author of "The Whispering Pages"</div>
+                <p class="author-bio">
+                    Sharing glimpses from the writing desk, moments of inspiration, and reflections on the creative journey. 
+                    Each thought is a snapshot from the quiet hours where stories are born.
+                </p>
+            </div>
+
+            
+
+            <!-- Timeline Line -->
+            <div class="timeline-line"></div>
+
+            <!-- Thoughts Feed -->
+            <div class="thoughts-feed">
+                <!-- Thought 1 -->
+                <div class="thought-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="thought-content">
+                        <span class="new-indicator">Latest</span>
+                        <div class="thought-date">
+                            <span class="date-badge"><i class="far fa-clock"></i> Today, 2:47 PM</span>
+                        </div>
+                        <p class="thought-text">
+                            Just wrote a scene where the protagonist finds the hidden library. There's something magical about describing old books—the smell of aged paper, the crackle of spines, the weight of centuries in your hands.
+                        </p>
+                        <span class="thought-category"><i class="fas fa-pen-nib"></i> Writing Update</span>
+                    </div>
+                </div>
+
+                <!-- Thought 2 -->
+                <div class="thought-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="thought-content">
+                        <div class="thought-date">
+                            <span class="date-badge"><i class="far fa-clock"></i> Yesterday, 9:13 PM</span>
+                        </div>
+                        <p class="thought-text">
+                            The rain outside matches the mood of Chapter 14 perfectly. Sometimes weather becomes an unplanned character in the story, setting the tone without me even trying.
+                        </p>
+                        <span class="thought-category"><i class="fas fa-cloud-rain"></i> Atmosphere</span>
+                    </div>
+                </div>
+
+                <!-- Thought 3 -->
+                <div class="thought-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="thought-content">
+                        <div class="thought-date">
+                            <span class="date-badge"><i class="far fa-clock"></i> April 5, 10:22 AM</span>
+                        </div>
+                        <p class="thought-text">
+                            Deleted 2,000 words today. They weren't bad words, just not the right words. There's a strange satisfaction in cutting what doesn't serve the story.
+                        </p>
+                        <span class="thought-category"><i class="fas fa-cut"></i> Editing Process</span>
+                    </div>
+                </div>
+
+                <!-- Thought 4 -->
+                <div class="thought-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="thought-content">
+                        <div class="thought-date">
+                            <span class="date-badge"><i class="far fa-clock"></i> April 3, 3:45 PM</span>
+                        </div>
+                        <p class="thought-text">
+                            Made myself tea three times today and forgot to drink each one. When the writing is flowing, everything else fades away—even basic needs like hydration.
+                        </p>
+                        <span class="thought-category"><i class="fas fa-mug-hot"></i> Writing Life</span>
+                    </div>
+                </div>
+
+                <!-- Thought 5 -->
+                <div class="thought-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="thought-content">
+                        <div class="thought-date">
+                            <span class="date-badge"><i class="far fa-clock"></i> April 1, 8:30 AM</span>
+                        </div>
+                        <p class="thought-text">
+                            Starting a new chapter feels like standing at the edge of a forest you've never entered. You know there are paths inside, but you have to find them one step at a time.
+                        </p>
+                        <span class="thought-category"><i class="fas fa-seedling"></i> Beginnings</span>
+                    </div>
+                </div>
+
+                <!-- Thought 6 -->
+                <div class="thought-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="thought-content">
+                        <div class="thought-date">
+                            <span class="date-badge"><i class="far fa-clock"></i> March 28, 6:15 PM</span>
+                        </div>
+                        <p class="thought-text">
+                            The side character I created for one scene has decided she wants a bigger role. Characters really do take on lives of their own sometimes.
+                        </p>
+                        <span class="thought-category"><i class="fas fa-user-edit"></i> Character Development</span>
+                    </div>
+                </div>
+
+                <!-- Thought 7 -->
+                <div class="thought-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="thought-content">
+                        <div class="thought-date">
+                            <span class="date-badge"><i class="far fa-clock"></i> March 25, 11:05 AM</span>
+                        </div>
+                        <p class="thought-text">
+                            Found the perfect word today after searching for twenty minutes. It was worth every second—that one right word can make an entire paragraph sing.
+                        </p>
+                        <span class="thought-category"><i class="fas fa-search"></i> Word Craft</span>
+                    </div>
+                </div>
+
+                <!-- Thought 8 -->
+                <div class="thought-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="thought-content">
+                        <div class="thought-date">
+                            <span class="date-badge"><i class="far fa-clock"></i> March 22, 4:30 PM</span>
+                        </div>
+                        <p class="thought-text">
+                            Sometimes I think writing is just listening—listening to the characters, to the story that wants to be told, to the quiet voice that knows the way.
+                        </p>
+                        <span class="thought-category"><i class="fas fa-ear-listen"></i> Reflection</span>
+                    </div>
+                </div>
+
+                <!-- Thought 9 -->
+                <div class="thought-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="thought-content">
+                        <div class="thought-date">
+                            <span class="date-badge"><i class="far fa-clock"></i> March 20, 9:00 AM</span>
+                        </div>
+                        <p class="thought-text">
+                            The morning light through my study window is just right for writing. There's a particular quality to early light that feels full of possibility.
+                        </p>
+                        <span class="thought-category"><i class="fas fa-sun"></i> Morning Ritual</span>
+                    </div>
+                </div>
+
+                <!-- Thought 10 -->
+                <div class="thought-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="thought-content">
+                        <div class="thought-date">
+                            <span class="date-badge"><i class="far fa-clock"></i> March 18, 7:45 PM</span>
+                        </div>
+                        <p class="thought-text">
+                            Just realized I've been writing the same theme in different ways for three books now. I suppose we all have our obsessions that find their way onto the page.
+                        </p>
+                        <span class="thought-category"><i class="fas fa-brain"></i> Recurring Themes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Author signature -->
+            <div class="author-signature">E.V.</div>
+
+            <!-- Footer -->
+            <div class="author-footer">
+                <div class="footer-links">
+                    <a href="#" class="footer-link">
+                        <i class="fas fa-book-open"></i> Read Excerpt
+                    </a>
+                    <a href="#" class="footer-link">
+                        <i class="fas fa-user-circle"></i> About Eleanor
+                    </a>
+                    <a href="#" class="footer-link">
+                        <i class="fas fa-envelope"></i> Newsletter
+                    </a>
+                    <a href="#" class="footer-link">
+                        <i class="fas fa-book"></i> All Publications
+                    </a>
+                </div>
+                <p class="copyright">
+                    © 2024 Eleanor Vance. All thoughts are original writings.<br>
+                    Updated weekly from the quiet corners of the study.
+                </p>
+            </div>
+        </div>
+
+        <!-- Scroll to Top Button -->
+        <div class="scroll-indicator" id="scrollToTop">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollToTop = document.getElementById('scrollToTop');
+            
+            // Show/hide scroll to top button
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTop.style.opacity = '1';
+                    scrollToTop.style.visibility = 'visible';
+                } else {
+                    scrollToTop.style.opacity = '0';
+                    scrollToTop.style.visibility = 'hidden';
+                }
+            });
+            
+            // Scroll to top functionality
+            scrollToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Add subtle hover effects to all thought entries
+            const thoughtEntries = document.querySelectorAll('.thought-entry');
+            
+            thoughtEntries.forEach(entry => {
+                entry.addEventListener('mouseenter', function() {
+                    const content = this.querySelector('.thought-content');
+                    content.style.transform = 'translateX(5px)';
+                });
+                
+                entry.addEventListener('mouseleave', function() {
+                    const content = this.querySelector('.thought-content');
+                    content.style.transform = '';
+                });
+                
+                // Click animation
+                entry.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'A') return;
+                    
+                    this.style.transform = 'scale(0.99)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                    
+                    // Mark as read
+                    const newIndicator = this.querySelector('.new-indicator');
+                    if (newIndicator) {
+                        newIndicator.style.opacity = '0.5';
+                        newIndicator.textContent = 'READ';
+                        setTimeout(() => {
+                            newIndicator.style.display = 'none';
+                        }, 1000);
+                    }
+                });
+            });
+            
+            // Initialize scroll button
+            scrollToTop.style.transition = 'all 0.3s ease';
+        });
+    </script>
+</body>
+</html>
