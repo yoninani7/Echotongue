@@ -173,7 +173,7 @@ nav.scrolled {
     transition: all 0.2s ease;
     text-decoration: none;
     text-align: center;
-
+    display: inline-flex;align-items: center;
 }
 
 .btn-nav:hover {
