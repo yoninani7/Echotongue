@@ -479,3 +479,5 @@ function handleTimelineProgress() {
 window.addEventListener('scroll', handleTimelineProgress);
 // Also run it on load to catch current position
 window.addEventListener('load', handleTimelineProgress);
+
+ 
