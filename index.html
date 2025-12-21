@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Fixed TRANSPARENT Navigation Bar -->
     <nav id="main-nav">
@@ -45,7 +47,7 @@
         </ul>
         <div class="nav-actions">
             <a href="purchasebook.html" class="btn-nav">
-                <i class="fas fa-book-open"></i> &nbsp;&nbsp; <span>  Purchase Book</span>
+                <i class="fas fa-book-open"></i> &nbsp;&nbsp; <span> Purchase Book</span>
             </a>
             <button class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -53,16 +55,17 @@
         </div>
     </nav>
     <!-- Mobile Navigation - Hidden by default -->
-    <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;"> 
+    <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;">
         <ul>
-           <li><a href="index.html">Home</a></li>
-            <li><a href="#about">About the book</a></li> 
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About the book</a></li>
             <li><a href="#author">Author</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
             <br>
-            <li><a href="purchasebook.html" class="btn-nav" style="color: white;"> <i class="fas fa-book-open"></i> Purchase Book</a></li>
+            <li><a href="purchasebook.html" class="btn-nav" style="color: white;"> <i class="fas fa-book-open"></i>
+                    Purchase Book</a></li>
         </ul>
     </div>
     <!-- Scroll to Top Button -->
@@ -73,7 +76,7 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    
+
     <!-- Hero Section -->
     <header class="hero" id="home">
         <div class="hero-container">
@@ -124,26 +127,64 @@
         </div>
     </header>
     <div id="sample-modal" class="modal">
-        <div class="modal-content">
-            <div style="color: white; font-size: 40px; position: fixed; right: 50px; top: 20px; cursor: pointer; z-index: 1000;"
-                id="closemode">&times;</div>
-            <!-- <span class="close-button">&times;</span> -->
-            <h4>Echotongue: The Zureyan Tablets - Chapter 1 </h4>
-            <div class="modal-text-content">
-                <p>Space has always been kind of magical to me. There's something comforting about how quiet it is up
-                    there, no arguments, no chores, no pretending. The moon especially - I loved how it gave off this
-                    soft white glow, like it was trying to be the sun's gentler cousin.</p>
-                <p>I'm Lydia Nightshade. My parents died when I was a baby... at least, that's what Aunt Silena always
-                    said. A plane crash, she claimed. But that never felt true. I don't remember much, just faint
-                    images, blurry faces with kind eyes leaning over me. Faces that didn't match the story she told.
-                    Silena acted like they had never existed. Like I came from nowhere and belonged to no one.</p>
-                <p>It's hard to describe her. She wasn't cruel in the obvious, movie-villain way. She was more like a
-                    rulebook come to life. Everything had to be perfect: my clothes, my posture, my behavior. At home,
-                    she was cold and bossy, but once we stepped outside, she turned sugary sweet. Smiles, compliments,
-                    polite small talk... total fakery. People thought she was lovely. They didn't see the version I
-                    lived with.</p>
-                <a style="color: rgb(255, 255, 255); align-items: center;" href="purchasebook.html">...[Continue reading
-                    to follow Lydia's journey from Riverside Academy to the mystical world of Adrestia...]</a>
+        <div class="modal-overlay-texture"></div>
+
+        <div class="modal-container">
+            <button id="closemode" class="close-btn" aria-label="Close Preview">&times;</button>
+
+            <div class="modal-content">
+                <div class="frame-corner top-left"></div>
+                <div class="frame-corner top-right"></div>
+                <div class="frame-corner bottom-left"></div>
+                <div class="frame-corner bottom-right"></div>
+
+                <header class="book-header">
+                    <p class="series-subtitle">An Exclusive Sneak Peek</p>
+                    <h2 class="book-title">Echotongue</h2>
+                    <div class="title-separator">
+                        <span class="line"></span>
+                        <span class="diamond"></span>
+                        <span class="line"></span>
+                    </div>
+                    <h3 class="chapter-title">The Zureyan Tablets From chapter 2 : Page 8 ...</h3> 
+                </header>
+
+                <article class="manuscript-body">
+                    <!-- Your new cliffhanger content starts here -->
+                    <p class="prose"><strong style="font-family: 'Cinzel Decorative',serif; font-size: 50px;">I</strong>
+                        was about to reply when that same howl tore through the forest again — low,
+                        ancient... wrong.</p>
+
+                    <p class="prose">My gaze snapped to the window-wall beside me, and I frowned.</p>
+
+                    <p class="prose">‘That goddamn beast hasn’t moved for days,’ Felix muttered, eyes narrowed at the
+                        tree line.</p>
+
+                    <p class="prose">I was wondering the same thing.</p>
+
+                    <p class="prose">‘I’ve been trying to convince Eseus to send a troop out,’ I said quietly. ‘Our
+                        border’s strong, but...’ I trailed off.</p>
+
+                    <p class="prose">Felix shook his head before I could finish. ‘Eseus is right to hold back. That
+                        thing’s dangerous—we don’t know what it is. We can’t risk sending children to vanish into fog to
+                        satisfy curiosity. Even the eldest, even the powerful,’ he paused, looking at me as I opened my
+                        mouth to argue, then added, ‘not even them.’</p>
+
+                    <p class="prose">I closed my mouth. I let the silence settle.</p>
+
+                    <p class="prose">Through the glass, the woods stretched endlessly, blank and pulsing with something
+                        hidden.</p>
+
+                    <p class="prose emphasis">Something bad was coming to Adrestia.</p> 
+                    <p class="prose emphasis">Something very bad.</p>
+
+
+
+                    <!-- Your new cliffhanger content ends here -->
+                </article>
+                <a href="purchasebook.html" class="premium-cta">
+                    <span class="cta-text">Continue Reading</span>
+                </a>
             </div>
         </div>
     </div>
@@ -242,8 +283,8 @@
                         creatures like the Taurconis that require specific methods to defeat.</p>
                 </div>
                 <div class="world-item">
-                    <div class="world-icon">
-                        <i class="fas fa-rocket"></i>
+                    <div class="world-icon" style="  animation: float 0.6s ease-in-out infinite; " >
+                        <i class="fas fa-rocket" ></i>
                     </div>
                     <h3>Interplanetary Travel</h3>
                     <p>Advanced spacecraft that can travel between planets in minutes, not years. The Aegis is one such
@@ -452,8 +493,7 @@
                 <div class="author-social">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a> 
                 </div>
             </div>
         </div>
@@ -482,10 +522,12 @@
                 <div class="footer-col">
                     <h3>Explore</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="#about">About the book </a></li>
-                        <li><a href="#characters">Characters</a></li>
-                        <li><a href="#story">Story</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="Timeline.html">Timeline</a></li>
+                        <li><a href="chaptermap.html">Chapter Map</a></li>
+                        <li><a href="purchasebook.html">Buy book</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -501,8 +543,7 @@
                     <ul class="footer-links">
                         <li><a href="#">Telegram</a></li>
                         <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Whatsapp</a></li>
-                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Whatsapp</a></li> 
                     </ul>
                 </div>
             </div>
@@ -511,10 +552,11 @@
                     reserved.</p>
                 <p style="margin-top: 10px; font-size: 0.8rem;"> <strong>ISBN(PB):</strong> 979-8-89604-275-4 &nbsp; |
                     &nbsp; <strong>ISBN(HB): </strong> 979-8-89604-276-1</p>
-                <p> Designed by <a>Yonatan Kassahun</a></p>
+                <p> Designed by <a style="font-family: 'Cinzel Decorative', serif; font-weight: 800;">Yonatan Kassahun</a></p>
             </div>
         </div>
     </footer>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
