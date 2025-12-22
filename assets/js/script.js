@@ -476,8 +476,14 @@ function handleTimelineProgress() {
 }
 
 // Listen for scroll events
-window.addEventListener('scroll', handleTimelineProgress);
-// Also run it on load to catch current position
-window.addEventListener('load', handleTimelineProgress);
+// window.addEventListener('scroll', handleTimelineProgress);
+// // Also run it on load to catch current position
+// window.addEventListener('load', handleTimelineProgress);
 
- 
+//  function revealSpoiler(element) {
+//     // Add the 'revealed' class to trigger CSS transitions
+//     if (!element.classList.contains('revealed')) {
+//         element.classList.add('revealed');
+         
+//     }
+// }
