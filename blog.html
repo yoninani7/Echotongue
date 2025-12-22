@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
- 
+
     <style>
         :root {
             --primary-color: #c91313c9;
@@ -38,33 +38,10 @@
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
         }
 
-        
+
 
         body {
-            background-color: var(--bg-color, #0a0a0b);
-            /* Added fallback color */
-            color: var(--text-color);
-            font-family: var(--font-body);
-            min-height: 100vh;
-            overflow-x: hidden;
-
-            /* Denser Starfield Effect */
-            background-image:
-                radial-gradient(1px 1px at 20px 30px, #fff, rgba(0, 0, 0, 0)),
-                radial-gradient(1px 1px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
-                radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
-                radial-gradient(2px 2px at 10px 40px, #fff, rgba(0, 0, 0, 0)),
-                radial-gradient(1px 1px at 130px 80px, #fff, rgba(0, 0, 0, 0)),
-                radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0, 0, 0, 0)),
-                /* Original Layers for backward compatibility */
-                radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 3px),
-                radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 2px),
-                radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 3px);
-
-            /* Matching the sizes for the new layers */
-            background-size: 200px 200px, 150px 150px, 300px 300px, 250px 250px, 400px 400px, 350px 350px, 550px 550px, 350px 350px, 250px 250px;
-            background-position: 0 0, 20px 30px, 130px 270px, 70px 100px, 0 0, 40px 60px, 0 0, 40px 60px, 130px 270px;
-
+            background-image: url(assets/leaves.png);
             scroll-behavior: smooth;
             animation: twinkle 10s infinite secondary;
         }
@@ -85,6 +62,7 @@
         .authors-thoughts {
             position: relative;
             min-height: 100vh;
+            margin-top: 20px;
         }
 
         /* Main container */
@@ -98,34 +76,43 @@
         .thoughts-header {
             text-align: center;
             margin-bottom: 40px;
-            padding: 20px 80px;
-            background-image: url(assets/leaves.png);
+            padding: 20px 20px;
+            background: linear-gradient(160deg, #161616, #0a0a0a);
+            color: #e0e0e0; 
             border-radius: 20px;
-            box-shadow: rgb(110, 110, 110) 0 0 10px 0px;
+            box-shadow: rgb(110, 110, 110) 0 0 0px 0px;
             border: 1px solid rgba(14, 2, 2, 0.753);
             position: relative;
             z-index: 2;
         }
 
+        .liner {
+            content: ' ';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background-color: var(--primary-red);
+        }
+
         .author-name {
-            font-family: 'Cinzel', serif;
+            font-family: var(--font-body);
             font-size: 1.9rem;
-            font-weight: 700;
-            text-decoration: underline;
-            text-underline-offset: 10px;
-            text-decoration-thickness: 1px;
+            font-weight: 650;
             color: rgb(240, 236, 236);
             margin-bottom: 18px;
             line-height: 0.9;
 
         }
 
+
         .author-bio {
             font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: rgba(255, 255, 255, 0.884);
             max-width: 900px;
-            margin: 0 auto;
             line-height: 1.8;
+            margin: 0 auto;
         }
 
         /* Timeline Container */
@@ -157,10 +144,9 @@
                     /* Dark Goldenrod */
                     #800404,
                     /* Deep Burgundy */
-                    #990909,  #990909,  #990909,  #990909,
+                    #990909, #990909, #990909, #990909,
                     /* Blood Red */
-                    white 
-                );
+                    white);
             box-shadow: 0 0 15px #990909;
             z-index: 2;
             height: 0%;
@@ -216,8 +202,8 @@
             transform: rotate(45deg);
             width: 14px;
             height: 14px;
-            background: var(--card-bg);
-            border: 2px solid var(--primary-color);
+            background: rgb(248, 246, 246);
+            border: 2px solid red;
             z-index: 3;
             transition: var(--transition);
         }
@@ -226,16 +212,17 @@
             content: '';
             position: absolute;
             inset: 3px;
-            background: var(--primary-color);
+            background: red;
             opacity: 0.2;
+            border-radius: 100%;
             transition: var(--transition);
         }
 
         /* Timeline dot glow effect on hover */
         .thought-entry:hover .timeline-dot {
             transform: rotate(135deg) scale(1.3);
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 4px rgba(139, 90, 43, 0.1),
+            border-color: rgb(167, 0, 0);
+            box-shadow: 0 0 0 4px rgba(192, 187, 183, 0.1),
                 0 0 0 8px rgba(139, 90, 43, 0.05);
         }
 
@@ -258,40 +245,54 @@
         /* Container for the thought box */
         .thought-content {
             position: relative;
-            background-color: var(--light-black);
-            border: 1px solid #f2e9e4;
-            /* Matches the soft border in the image */
+            /* Professional Deep Charcoal Gradient */
+            background: linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: #e0e0e0;
+
+            /* Muted Bronze/Gold Border */
+            border: 1px solid #4a453e;
             border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            padding: 24px;
+
+            /* Layered shadows for depth */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+            /* Clean typography */
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* The Smooth Arrow */
         .thought-content::before {
             content: '';
             position: absolute;
-            left: -8px;
-            /* Adjust based on size */
+            left: -9px;
             top: 30px;
-            /* Vertical position */
             width: 16px;
             height: 16px;
-            background: inherit;
-            /* Matches the white background of the box */
-            border-left: 1px solid #f2e9e4;
-            /* Matches the box border */
-            border-bottom: 1px solid #f2e9e4;
 
-            /* This creates the smooth "point" */
+            /* Matches the top-section color of the gradient */
+            background: #1a1a1a;
+
+            border-left: 1px solid #4a453e;
+            border-bottom: 1px solid #4a453e;
+
+            /* Creates the smooth "point" */
             transform: rotate(45deg);
-            border-bottom-left-radius: 3px;
-            /* Smooths the tip of the arrow */
+            border-bottom-left-radius: 4px;
+
+            /* Ensures it sits behind text but above shadows */
+            z-index: 1;
         }
 
-
-        /* Very subtle hover effect on thought content */
+        /* Hover Effect */
         .thought-content:hover {
-            box-shadow: 0 10px 30px rgba(139, 90, 43, 0.12);
+            border-color: #ac0202;
+            /* Highlights the border to a richer gold */
+            transform: translateX(4px);
+            /* Subtle shift to indicate interactivity */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
         /* Date styling */
@@ -536,7 +537,10 @@
             }
         }
 
-      
+        #main-nav {
+
+            background: rgba(10, 10, 10, 0.8);
+        }
     </style>
 </head>
 
@@ -563,8 +567,8 @@
             <li><a href="chaptermap.html">Chapter Map</a></li>
         </ul>
         <div class="nav-actions">
-              <a href="purchasebook.html" class="btn-nav">
-                <i class="fas fa-book-open"></i> &nbsp;&nbsp; <span>  Purchase Book</span>
+            <a href="purchasebook.html" class="btn-nav">
+                <i class="fas fa-book-open"></i> &nbsp;&nbsp; <span> Purchase Book</span>
             </a>
             <button class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -572,16 +576,17 @@
         </div>
     </nav>
     <!-- Mobile Navigation - Hidden by default -->
-    <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;"> 
+    <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html #about">About the book</a></li> 
+            <li><a href="index.html #about">About the book</a></li>
             <li><a href="index.html #author">Author</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
             <br>
-            <li><a href="purchasebook.html" class="btn-nav" style="color: white;"> <i class="fas fa-book-open"></i> Purchase Book</a></li>
+            <li><a href="purchasebook.html" class="btn-nav" style="color: white;"> <i class="fas fa-book-open"></i>
+                    Purchase Book</a></li>
         </ul>
     </div>
     <!-- Scroll to Top Button -->
@@ -595,11 +600,12 @@
 
 
     <!-- Author's Thoughts Feed -->
-    <section class="authors-thoughts">
+    <div class="authors-thoughts">
         <div class="thoughts-container">
             <!-- Header -->
             <div class="thoughts-header">
                 <h1 class="author-name">Author's Corner</h1>
+                <div class="liner"></div><br>
                 <p class="author-bio">
                     Sharing glimpses from the writing desk, moments of inspiration, and reflections on the creative
                     journey. <br>
@@ -614,39 +620,34 @@
                 <div class="thoughts-feed" id="thoughtsFeed"></div>
             </div>
         </div>
-    </section>
+    </div>
     <script>
         // Thoughts data
         const thoughtsData = [
             {
                 date: "Today, 2:47 PM",
-                text: "Just wrote a scene where the protagonist finds the hidden library. There's something magical about describing old books—the smell of aged paper, the crackle of spines.",
+                text: "Just finished a scene in a hidden library. 📚✨ Honestly, I could practically smell the aged paper and dust while typing. There’s something so haunting about rooms full of forgotten secrets... can’t wait for you guys to step inside. ",
                 isNew: true
             },
             {
                 date: "Yesterday, 9:13 PM",
-                text: "The rain outside matches the mood of Chapter 14 perfectly. Sometimes weather becomes an unplanned character in the story.",
-
+                text: "It’s pouring outside, which is the perfect vibe for this chapter. 🌧️ Sometimes the weather just knows exactly what the story needs. This book is getting a lot darker than I originally planned, but I’m kind of loving it. 🖤",
             },
             {
                 date: "April 5, 10:22 AM",
-                text: "Deleted 2,000 words today. They weren't bad words, just not the right words. There's satisfaction in cutting what doesn't serve the story.",
-
+                text: "Ugh, the 'delete' key was my best friend today. Axed 2,000 words. ✍️✂️ It’s painful to cut that much, but if it doesn't make the world of Aster feel real, it has to go. Quality over quantity, right?",
             },
             {
                 date: "April 3, 3:45 PM",
-                text: "Made myself tea three times and forgot to drink each one. When the writing flows, everything else fades away.",
-
+                text: "Update: I’ve made three cups of tea and forgotten to drink every single one. ☕️ I got so lost in a dialogue sequence that the real world just kind of... stopped existing. Writing is a trip, man.",
             },
             {
                 date: "April 1, 8:30 AM",
-                text: "Starting a new chapter feels like standing at the edge of a forest. You know there are paths inside, but find them one step at a time.",
-
+                text: "Starting a brand new chapter today! 🌲 It feels like standing at the edge of a deep, foggy forest. I know there are paths hidden in there, but I have to find them one step at a time. Here goes nothing! 🤞",
             },
             {
                 date: "March 28, 6:15 PM",
-                text: "The side character I created for one scene has decided she wants a bigger role. Characters really do take on lives of their own sometimes.",
-
+                text: "Funny how characters work—a side character I wrote for one tiny scene just decided they actually deserve a starring role. 🤷‍♂️ I’m officially no longer the boss of this book; the characters are definitely in charge now.",
             }
         ];
         // Render thoughts with staggered animation
