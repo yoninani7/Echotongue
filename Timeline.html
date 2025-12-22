@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,60 +32,56 @@
             --text-light: #f0f0f0;
             --text-muted: #b0b0b0;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-         #main-nav{
-           background-color:  rgba(5, 5, 5, 0.95);
-           padding-bottom: 0px;
-           padding-top: 0px;
+
+        #main-nav {
+    background: rgba(10, 10, 10, 0.8);
+            padding-bottom: 0px;
+            padding-top: 0px;
         }
-        body { 
+
+        body {
             background-image: url(assets/leaves.png);
             color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
             padding-top: 80px;
         }
-        
-        h1, h2, h3, h4 {
+
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Cinzel', serif;
             font-weight: 700;
             letter-spacing: 1px;
         }
-        
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Header */
-        .timeline-header {
-            text-align: center;
-            padding: 30px 0;
-             background-size: cover;
-            background-position: center; 
-            border-bottom: 1px solid rgba(255, 0, 0, 0.185);
+
+         
+        .liner {
+            content: ' ';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background-color: var(--primary-red);
         }
-        
-        .timeline-header h1 {
-            font-size: 2.8rem;
-            color: var(--accent-silver);
-            margin-bottom: 10px;
-        }
-        
-        .timeline-header p {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-        
+
+         
+
         /* Timeline */
         .timeline-container {
             position: relative;
@@ -93,7 +90,7 @@
             padding: 40px 0;
             margin-top: 10px;
         }
-        
+
         .timeline-container::before {
             content: '';
             position: absolute;
@@ -103,9 +100,9 @@
             width: 4px;
             background: linear-gradient(to bottom, var(--accent-silver), var(--accent-red));
             transform: translateX(-50%);
-            z-index: 1;
+            z-index: 0;
         }
-        
+
         .timeline-item {
             position: relative;
             margin-bottom: 80px;
@@ -113,15 +110,16 @@
             padding-right: 30px;
             box-sizing: border-box;
         }
-        
+
         .timeline-item:nth-child(even) {
             margin-left: 50%;
             padding-left: 30px;
             padding-right: 0;
         }
-        
+
         .timeline-item-content {
-            background-color: var(--medium-black);
+            
+            background: linear-gradient(160deg, #161616, #0a0a0a);
             border-radius: 10px;
             padding: 25px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
@@ -129,21 +127,21 @@
             border: 1px solid rgba(99, 99, 99, 0.801);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .timeline-item-content:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border-color: var(--accent-red);
         }
-        
+
         .timeline-item:nth-child(even) .timeline-item-content {
             text-align: left;
         }
-        
+
         .timeline-item:nth-child(odd) .timeline-item-content {
             text-align: right;
         }
-        
+
         .timeline-item-content::before {
             content: '';
             position: absolute;
@@ -154,43 +152,43 @@
             border-radius: 50%;
             z-index: 2;
         }
-        
+
         .timeline-item:nth-child(odd) .timeline-item-content::before {
             right: -40px;
         }
-        
+
         .timeline-item:nth-child(even) .timeline-item-content::before {
             left: -40px;
         }
-        
-        .timeline-part { 
-            position:  absolute;
+
+        .timeline-part {
+            position: absolute;
             left: 0px;
             background-color: rgba(212, 55, 55, 0.1);
             padding: 10px 30px;
             border-radius: 5px;
-            display: inline-block; 
+            display: inline-block;
             font-weight: 600;
             color: var(--accent-silver);
             font-family: 'Cinzel', serif;
         }
-        
+
         .timeline-item:nth-child(odd) .timeline-part {
-            float: left; 
+            float: left;
         }
-        
+
         .timeline-item-content h3 {
             color: var(--accent-silver);
             font-size: 1.5rem;
             margin-bottom: 10px;
             margin-top: 40px;
         }
-        
+
         .timeline-item-content p {
             color: var(--text-muted);
             margin-bottom: 15px;
         }
-        
+
         .timeline-marker {
             position: absolute;
             top: 20px;
@@ -206,15 +204,15 @@
             color: var(--accent-silver);
             font-size: 1.2rem;
         }
-        
+
         .timeline-item:nth-child(odd) .timeline-marker {
             right: -20px;
         }
-        
+
         .timeline-item:nth-child(even) .timeline-marker {
             left: -20px;
         }
-        
+
         .timeline-hint {
             font-style: italic;
             color: rgba(192, 192, 192, 0.7);
@@ -224,62 +222,63 @@
             margin-top: 10px;
             background-color: rgba(124, 8, 8, 0.048);
         }
-        
-        /* Spoiler Warning */
+
         .spoiler-warning {
-            padding: 12px 25px;
-    background: radial-gradient(100% 120% at 50% 0%, #df02115d 0%, #500D11 100%);
-    color: #fdfdfd;
-    border-radius: 6px;
-    border: none;
-    font-family: 'Cinzel', serif;
-    font-weight: 900;
-    font-size: 14px;  
-    letter-spacing: 0.7px; 
-    cursor: pointer;
-    transition: all 0.2s ease;
+            padding: 20px;
+            background: rgba(80, 13, 17, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(223, 2, 17, 0.3);
+            border-bottom: 3px solid #aaaaaa;
+            /* Accented left border */
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 10px;
         }
-        
-      .spoiler-warning h3 {
-    padding: 12px 25px;
-    background: radial-gradient(100% 120% at 50% 0%, #df02118a 0%, #500d11b4 100%);
-    color: #fdfdfd;
-    border-radius: 6px;
-    border: none;
-    font-family: 'Cinzel', serif;
-    font-weight: 900;
-    font-size: 18px;  
-    letter-spacing: 0.7px; 
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
+
+        .spoiler-warning:hover {
+            background: rgba(124, 3, 11, 0.4);
+            padding-left: 17px;
+            /* Slight shift effect */
+        }
+
+        .spoiler-warning h3 {
+            color: #fdfdfd;
+            font-size: 16px;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+        }
+
         .spoiler-warning p {
-            color: var(--text-muted);
-    text-align: center;
+            color: #b0b0b0;
+            font-size: 12px;
+            margin: 0;
         }
-        
+
         /* Back Button */
         .back-button {
-              padding: 12px 18px;
-    background: radial-gradient(100% 120% at 50% 0%, #df0211 0%, #500D11 100%);
-    color: #fdfdfd;
-    border-radius: 6px;
-    border: none;
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.7px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
+            padding: 12px 18px;
+            background: radial-gradient(100% 120% at 50% 0%, #df0211 0%, #500D11 100%);
+            color: #fdfdfd;
+            border-radius: 6px;
+            border: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
         }
-        
+
         .back-button:hover {
             background-color: var(--accent-silver);
             color: var(--primary-white);
         }
-        
+
         /* Footer */
         footer {
             background-color: #070a12;
@@ -288,63 +287,62 @@
             text-align: center;
             margin-top: 60px;
         }
-        
+
         .footer-content p {
             color: var(--text-muted);
             margin-bottom: 10px;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .timeline-container::before {
                 left: 20px;
             }
-            
+
             .timeline-item {
                 width: 100%;
                 padding-left: 50px;
                 padding-right: 0;
             }
-            
+
             .timeline-item:nth-child(even) {
                 margin-left: 0;
                 padding-left: 50px;
             }
-            
+
             .timeline-item-content {
                 text-align: left !important;
             }
-            
+
             .timeline-item:nth-child(odd) .timeline-item-content::before,
             .timeline-item:nth-child(even) .timeline-item-content::before {
                 left: -30px;
                 right: auto;
             }
-            
+
             .timeline-item:nth-child(odd) .timeline-marker,
             .timeline-item:nth-child(even) .timeline-marker {
                 left: 0;
                 right: auto;
             }
-            
+
             .timeline-part {
                 float: none !important;
                 margin-bottom: 15px;
             }
+
             
-            .timeline-header h1 {
-                font-size: 2.2rem;
-            }
         }
+
         /* Header - Chapter Map */
         .header {
-            text-align: center; 
+            text-align: center;
             position: relative;
         }
-        
+
         .header::after {
             content: '';
-            position: absolute; 
+            position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
@@ -353,17 +351,66 @@
             background: linear-gradient(90deg, transparent, red, transparent);
             margin-bottom: -20px;
         }
-        
+
         .header h1 {
             font-family: 'Cinzel', serif;
             font-size: 1.3rem;
-            color: #b7b7b7; 
+            color: #b7b7b7;
             font-weight: 700;
+        }
+
+        .storyfather {
+            margin-top: 20px;
+        }
+
+        .story-header {
+           text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 20px;
+            background: linear-gradient(160deg, #161616, #0a0a0a);
+            color: #e0e0e0; 
+            border-radius: 20px;
+            box-shadow: rgb(110, 110, 110) 0 0 0px 0px;
+            border: 1px solid rgba(14, 2, 2, 0.753);
+            position: relative;
+            z-index: 2;
+ 
+            max-width: 1100px;
+            border-radius: 20px;
+             margin: 0 auto;
+        }
+
+        .liner {
+            content: ' ';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background-color: var(--primary-red);
+        }
+
+        .story-name {
+            font-family: var(--font-body);
+            font-size: 1.9rem;
+            font-weight: 650;
+            color: rgb(240, 236, 236);
+            margin-bottom: 18px;
+            line-height: 0.9;
+
+        }
+         .story-bio {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: rgba(255, 255, 255, 0.884);
+            max-width: 900px;  
+            line-height: 1.8; 
+            margin: 0 auto; 
         }
     </style>
 </head>
+
 <body>
-<!-- Fixed TRANSPARENT Navigation Bar -->
+    <!-- Fixed TRANSPARENT Navigation Bar -->
     <nav id="main-nav">
         <a href="index.html" class="cinzel">ECHOTONGUE</a>
         <ul class="nav-links" id="nav-links">
@@ -385,8 +432,8 @@
             <li><a href="chaptermap.html">Chapter Map</a></li>
         </ul>
         <div class="nav-actions">
-              <a href="purchasebook.html" class="btn-nav">
-                <i class="fas fa-book-open"></i> &nbsp;&nbsp; <span>  Purchase Book</span>
+            <a href="purchasebook.html" class="btn-nav">
+                <i class="fas fa-book-open"></i> &nbsp;&nbsp; <span> Purchase Book</span>
             </a>
             <button class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -394,16 +441,17 @@
         </div>
     </nav>
     <!-- Mobile Navigation - Hidden by default -->
-    <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;"> 
+    <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html #about">About the book</a></li> 
+            <li><a href="index.html #about">About the book</a></li>
             <li><a href="index.html #author">Author</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
             <br>
-            <li><a href="purchasebook.html" class="btn-nav" style="color: white;"> <i class="fas fa-book-open"></i> Purchase Book</a></li>
+            <li><a href="purchasebook.html" class="btn-nav" style="color: white;"> <i class="fas fa-book-open"></i>
+                    Purchase Book</a></li>
         </ul>
     </div>
     <!-- Scroll to Top Button -->
@@ -412,74 +460,90 @@
     </button>
     <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div> 
+    <div class="cursor-outline"></div>
+
+
 
     <!-- Header -->
-    <div class="timeline-header">
-        <div class="container">
-            <h1>The story timeline</h1>
-            <p>Follow the journey through key events without spoilers. This timeline only covers what's revealed in the story preview.</p>
+    <div class="storyfather">
+
+        <div class="story-header">
+            <h1 class="story-name">The story timeline</h1>
+            <div class="liner"></div><br>
+            <p class="story-bio">
+                Follow the journey through key events without spoilers. <br> This timeline only covers what's revealed
+                in
+                the
+                story preview.
+            </p>
         </div>
     </div>
-    
+
     <!-- Spoiler Warning -->
     <div class="container">
         <div class="spoiler-warning">
-            <h3><i class="fas fa-exclamation-triangle"  ></i> SPOILER WARNING</h3>
-            <p>This timeline contains only events from the preview pages. <br>  No plot twists, outcomes, or major revelations beyond the initial chapters are shown.</p>
+            <h3><i class="fas fa-exclamation-triangle" style="color: yellow;"></i> &nbsp; SPOILER WARNING</h3>
+            <p>This timeline contains only events from the preview pages. <br> No plot twists, outcomes, or major
+                revelations beyond the initial chapters are shown.</p>
         </div>
     </div>
-    
+
     <!-- Timeline -->
     <div class="container">
         <div class="timeline-container">
-            
+
             <!-- PART ONE -->
             <div class="timeline-item">
                 <div class="timeline-marker">
                     <i class="fas fa-home"></i>
                 </div>
                 <div class="timeline-item-content">
-                    <div class="timeline-part">PART ONE: Beginnings</div> 
+                    <div class="timeline-part">PART ONE: Beginnings</div>
                     <h3>Lydia's Life in Riverside</h3>
-                    <p>Lydia Nightshade lives with her aunt and uncle, feeling increasingly invisible after the birth of her cousin May. She attends Riverside Academy where she faces challenges both at home and school.</p>
+                    <p>Lydia Nightshade lives with her aunt and uncle, feeling increasingly invisible after the birth of
+                        her cousin May. She attends Riverside Academy where she faces challenges both at home and
+                        school.</p>
                     <div class="timeline-hint">A seemingly ordinary life with hidden depths</div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-marker">
                     <i class="fas fa-school"></i>
                 </div>
                 <div class="timeline-item-content">
                     <h3>The School Incident</h3>
-                    <p>A confrontation with teachers leads to unexpected consequences at Riverside Academy, forcing Lydia to discover abilities she never knew she had.</p>
+                    <p>A confrontation with teachers leads to unexpected consequences at Riverside Academy, forcing
+                        Lydia to discover abilities she never knew she had.</p>
                     <div class="timeline-hint">Sometimes the truth reveals itself in flames</div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-marker">
                     <i class="fas fa-tree"></i>
                 </div>
                 <div class="timeline-item-content">
                     <h3>The Forest Journey</h3>
-                    <p>Lydia's uncle takes her on a trip to the forest she's always wanted to visit, but the excursion takes an unexpected turn when they encounter something ancient and dangerous.</p>
+                    <p>Lydia's uncle takes her on a trip to the forest she's always wanted to visit, but the excursion
+                        takes an unexpected turn when they encounter something ancient and dangerous.</p>
                     <div class="timeline-hint">Not all family outings go as planned</div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-marker">
                     <i class="fas fa-shield-alt"></i>
                 </div>
                 <div class="timeline-item-content">
                     <h3>Arrival in Adrestia</h3>
-                    <p>After the forest incident, Lydia finds herself in a place unlike any she's known - Adrestia, a hidden sanctuary where she meets Alex and Felix who introduce her to a world beyond her imagination.</p>
+                    <p>After the forest incident, Lydia finds herself in a place unlike any she's known - Adrestia, a
+                        hidden sanctuary where she meets Alex and Felix who introduce her to a world beyond her
+                        imagination.</p>
                     <div class="timeline-hint">A new world reveals itself</div>
                 </div>
             </div>
-            
+
             <!-- PART TWO -->
             <div class="timeline-item">
                 <div class="timeline-marker">
@@ -488,44 +552,48 @@
                 <div class="timeline-item-content">
                     <span class="timeline-part">PART TWO: Discovery</span>
                     <h3>Learning the Truth</h3>
-                    <p>Lydia learns about the Galaxian universe, the thirty-two planets, and the system of magic called "tongues." She discovers she's not who she thought she was.</p>
+                    <p>Lydia learns about the Galaxian universe, the thirty-two planets, and the system of magic called
+                        "tongues." She discovers she's not who she thought she was.</p>
                     <div class="timeline-hint">Identity is more complex than it appears</div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-marker">
                     <i class="fas fa-users"></i>
                 </div>
                 <div class="timeline-item-content">
                     <h3>The Council Meeting Plan</h3>
-                    <p>Alex, Felix, and Lydia learn about an important Galaxian Council meeting happening on Ludor. They decide to sneak away from Adrestia to attend and learn what the Councillors are discussing.</p>
+                    <p>Alex, Felix, and Lydia learn about an important Galaxian Council meeting happening on Ludor. They
+                        decide to sneak away from Adrestia to attend and learn what the Councillors are discussing.</p>
                     <div class="timeline-hint">Some meetings are too important to miss</div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-marker">
                     <i class="fas fa-rocket"></i>
                 </div>
                 <div class="timeline-item-content">
                     <h3>Journey to Ludor</h3>
-                    <p>The trio takes the Aegis spaceship to travel to Ludor, navigating challenges along the way as they make their first interplanetary journey.</p>
+                    <p>The trio takes the Aegis spaceship to travel to Ludor, navigating challenges along the way as
+                        they make their first interplanetary journey.</p>
                     <div class="timeline-hint">Space travel isn't as smooth as it seems</div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-marker">
                     <i class="fas fa-landmark"></i>
                 </div>
                 <div class="timeline-item-content">
                     <h3>Galaxian Council</h3>
-                    <p>They manage to infiltrate the Council meeting and overhear discussions about important discoveries, including mention of the Zureyan Tablets.</p>
+                    <p>They manage to infiltrate the Council meeting and overhear discussions about important
+                        discoveries, including mention of the Zureyan Tablets.</p>
                     <div class="timeline-hint">Eavesdropping on the most powerful comes with risks</div>
                 </div>
             </div>
-            
+
             <!-- PART THREE -->
             <div class="timeline-item">
                 <div class="timeline-marker">
@@ -534,51 +602,55 @@
                 <div class="timeline-item-content">
                     <span class="timeline-part">PART THREE: Consequences</span>
                     <h3>Unexpected Detour</h3>
-                    <p>After the Council meeting, the trio faces complications that force them to make an unplanned stop on a different planet, extending their journey beyond what they anticipated.</p>
+                    <p>After the Council meeting, the trio faces complications that force them to make an unplanned stop
+                        on a different planet, extending their journey beyond what they anticipated.</p>
                     <div class="timeline-hint">Not all destinations are planned</div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-marker">
                     <i class="fas fa-tools"></i>
                 </div>
                 <div class="timeline-item-content">
                     <h3>Seeking Help</h3>
-                    <p>To continue their journey home, they need to repair their ship, which leads them to seek assistance from an unexpected source with the skills they need.</p>
+                    <p>To continue their journey home, they need to repair their ship, which leads them to seek
+                        assistance from an unexpected source with the skills they need.</p>
                     <div class="timeline-hint">Sometimes help comes from unexpected places</div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-marker">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="timeline-item-content">
                     <h3>Unraveling Mysteries</h3>
-                    <p>As they work on their return journey, Lydia begins to piece together clues about her past and the true nature of events that have shaped her life.</p>
+                    <p>As they work on their return journey, Lydia begins to piece together clues about her past and the
+                        true nature of events that have shaped her life.</p>
                     <div class="timeline-hint">The past is never truly forgotten</div>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-marker">
                     <i class="fas fa-question"></i>
                 </div>
                 <div class="timeline-item-content">
                     <h3>Preparing for What's Next</h3>
-                    <p>With new revelations and tools at their disposal, the trio prepares for the next phase of their journey, aware that greater challenges likely await them.</p>
+                    <p>With new revelations and tools at their disposal, the trio prepares for the next phase of their
+                        journey, aware that greater challenges likely await them.</p>
                     <div class="timeline-hint">Every ending is a new beginning</div>
                 </div>
             </div>
-            
+
         </div>
-        
+
         <div style="text-align: center; margin: 50px 0;">
             <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Main Site</a>
         </div>
     </div>
-    
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -589,14 +661,14 @@
             </div>
         </div>
     </footer>
-    
+
     <script>
         // Add animation to timeline items as they scroll into view
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -605,25 +677,25 @@
                 }
             });
         }, observerOptions);
-        
+
         // Apply initial styles and observe each timeline item
         document.querySelectorAll('.timeline-item-content').forEach((item, index) => {
             item.style.opacity = '0';
             item.style.transform = 'translateY(20px)';
             item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             item.style.transitionDelay = (index * 0.1) + 's';
-            
+
             observer.observe(item);
         });
-        
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -636,7 +708,7 @@
         // --- CUSTOM CURSOR LOGIC ---
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
-        
+
         window.addEventListener('mousemove', (e) => {
             const posX = e.clientX;
             const posY = e.clientY;
@@ -654,4 +726,5 @@
     </script>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
