@@ -3,7 +3,7 @@
     --primary-red: #c91313c9;
 
     --dark-red: #b30000;
-    --bg-color: #050505;
+    --bg-color: #000000;
     --text-color: #e0e0e0;
     --font-heading: 'Orbitron', sans-serif;
     --font-body: 'Montserrat', sans-serif;
@@ -43,6 +43,8 @@ body {
     background-position: 0 0, 40px 60px, 130px 270px;
     scroll-behavior: smooth;
     padding-top: var(--header-height);
+    display: flex;
+    flex-direction: column;
 }
 
 :root {
@@ -1262,9 +1264,9 @@ select {
 }
 
 /* Footer */
-footer {
-    background-color: var(--dark-black);
-    padding: 80px 0 30px;
+footer { 
+    background: linear-gradient(90deg, #0e0d0d, #0a0a0a);
+    padding: 30px 0 0px;
     border-top: 1px solid rgba(192, 0, 0, 0.2);
     position: relative;
 }
@@ -1283,7 +1285,7 @@ footer::before {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .footer-col h3 {
