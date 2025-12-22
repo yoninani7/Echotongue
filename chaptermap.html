@@ -26,10 +26,7 @@
             --color-primary-gold: #b1afab;
             --color-text-dark: #b1afab;
             --color-surface-white: rgba(146, 136, 136, 0.2);
-            --color-muted-text: #666666;
-
-
-
+            --color-muted-text: #666666; 
             /* Typography */
             --font-serif: 'Montserrat', sans-serif;
         }
@@ -45,12 +42,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px 40px;
-        }
-
-        
-        
- 
-
+        } 
 
         /* Navigation Tabs */
         .tabs {
@@ -93,7 +85,7 @@
         }
 
         .chapter-card {
-            background: var(--color-surface-white);
+            background: linear-gradient(160deg, #202020, rgba(10, 10, 10, 0.808));
             border-radius: 8px;
             padding: 25px;
             border: 1px solid #2a2a3a;
@@ -103,7 +95,7 @@
         }
 
         .chapter-card:hover {
-            border-color: #3a3a4a;
+            border-color: #3a3a4a 2px solid;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
@@ -138,44 +130,48 @@
         }
 
         /* Part Dividers */
+
+        .parted{
+            background: linear-gradient(160deg, #0a0a0a, #161616);
+            color: #e0e0e0;
+            
+            padding: 20px 20px;
+            border-bottom-left-radius: 10px;
+        }
         .part-divider {
-            text-align: center;
-            margin-top: 20px;
+            text-align: center; 
             position: relative;
         }
 
         .part-divider h2 {
-            font-family: var(--font-serif);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            font-size: 1.7rem;
-            color: #e4e2e2;
-            display: inline-block;  
-            position: relative; 
-            font-weight: 500;
-            z-index: 1;
+            font-family: var(--font-body);
+            font-size: 1.9rem;
+            font-weight: 650;
+            color: #e0e0e0f5;
+            margin-bottom: 18px;
+            line-height: 0.9;
             letter-spacing: 2px;
+            text-transform: uppercase;
+
+            text-decoration: underline;
+            text-underline-offset: 10px;
+            text-decoration-thickness: 4px;
+            text-decoration-color: #ffffffc9;
         }
 
-        .part-divider::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: #531b1b;
-            z-index: 0;
-        }
+
+
+         
 
         /* Part Summary */
         .part-summary {
-            background: var(--color-surface-white);
+            background: linear-gradient(160deg, #161616, #0a0a0a);
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 40px;
+            margin-top: 10px;
             border-left: 5px solid transparent;
-            border-image: linear-gradient(to bottom, transparent, #ff0000, transparent) 6;
+            border-image: linear-gradient(to bottom, transparent, #ff0202, transparent) 6;
         }
 
         .part-summary h3 {
@@ -222,7 +218,7 @@
         @media (max-width: 768px) {
             .container {
                 padding: 80px 15px 30px;
-            } 
+            }
 
             .chapter-grid {
                 grid-template-columns: 1fr;
@@ -328,12 +324,15 @@
 
 
     <div class="container">
-        
+
 
         <!-- Part One -->
-        <div class="part-divider">
+         <div class="parted">
+            <div class="part-divider">
             <h2>Part One: Foundation</h2>
         </div>
+         </div>
+        
 
         <div class="part-summary">
             <h3>The Beginning of the Journey</h3>
