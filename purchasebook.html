@@ -261,174 +261,178 @@
             padding-top: 0px;
         }
 
-        /* Container Layout */
-        /* Professional Dark Theme Layout */
-    .h_gallery_layout {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 50px;
-        /* Deep dark gradient for a premium feel */
-        background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
-        border-radius: 20px;
-        margin: 40px auto;
-        padding: 60px 50px;
-        max-width: 1200px;
-        border: 1px solid #333;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-        text-decoration: none;
-        transition: all 0.4s ease;
-        overflow: hidden;
-    }
-
-    .h_gallery_layout:hover {
-        border-color: #555;
-        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
-    }
-
-    /* Image Section */
-    .h_visual_side {
-        flex: 0 0 auto;
-    }
-
-    .h_book_img {
-        max-width: 200px;
-        height: auto;
-        border-radius: 4px 10px 10px 4px;
-        /* Dramatic red glow to match the cover */
-        box-shadow: 
-            0 0 20px rgba(161, 10, 10, 0.2),
-            15px 20px 40px rgba(0,0,0,0.6);
-        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .h_gallery_layout:hover .h_book_img {
-        transform: scale(1.05) rotate(-2deg);
-        box-shadow: 0 0 40px rgba(161, 10, 10, 0.4);
-    }
-
-    /* Text Content */
-    .h_text_side {
-        flex: 1;
-        text-align: left;
-    }
-
-    .h_meta_tags {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 15px;
-    }
-
-    .h_tag {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.65rem;
-        font-weight: 700;
-        padding: 5px 12px;
-        background: #252525;
-        color: #999;
-        border-radius: 4px;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-    }
-
-    .h_tag.highlight {
-        background: rgba(161, 10, 10, 0.2);
-        color: #ff4d4d;
-        border: 1px solid rgba(161, 10, 10, 0.3);
-    }
-
-    .h_main_title {
-        font-family: 'Cinzel Decorative', serif;
-        font-size: 2.8rem;
-        font-weight: 900;
-        margin: 0;
-        /* Metallic silver/white look */
-        background: linear-gradient(to bottom, #ffffff, #b3b3b3);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        letter-spacing: 2px;
-        line-height: 1.1;
-    }
-
-    .h_sub_heading {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.85rem;
-        font-weight: 400;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        color: #777;
-        margin: 10px 0 20px 0;
-    }
-
-    .h_accent_line {
-        width: 50px;
-        height: 2px;
-        background: #c5a47e; /* Gold accent stays as it looks great on dark */
-        margin-bottom: 25px;
-    }
-
-    .h_body_text {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.95rem;
-        line-height: 1.8;
-        color: #bbb;
-        margin-bottom: 35px;
-    }
-
-    .h_warning_label {
-        color: #d60404;
-        letter-spacing: 3px;
-        font-weight: 800;
-        font-size:17px;
-        font-family: 'Cinzel', serif;
-        text-transform: uppercase;
-        margin-right: 5px;
-    }
-
-    /* Action Button */
-    .h_buy_btn {
-       padding: 9px 14px;
-    background: radial-gradient(100% 120% at 50% 0%, #df0211 0%, #500D11 100%);
-    color: #fdfdfd;
-    border-radius: 100px;
-    border: none;
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.7px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    text-align: center;
-    display: inline-flex;
-    align-items: center;
-    }
-
-    .h_buy_btn:hover {
-        background: #d60404;
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(161, 10, 10, 0.4);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
+        /* Container Layout */ 
         .h_gallery_layout {
-            flex-direction: column;
-            text-align: center;
-            padding: 40px 20px;
-            margin: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            /* Deep dark gradient for a premium feel */
+            background: linear-gradient(145deg, #1a1a1a, #070707);
+            border-radius: 20px;
+            margin: 40px auto;
+            padding: 60px 50px;
+            max-width: 1200px;
+            border: 1px solid #333;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+            transition: all 0.4s ease;
+            overflow: hidden;
         }
 
+        .h_gallery_layout:hover {
+            border-color: #555;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Image Section */
+        .h_visual_side {
+            flex: 0 0 auto;
+            background-color: rgba(235, 234, 234, 0.904); 
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .h_book_img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 4px 10px 10px 4px;
+            /* Dramatic red glow to match the cover */
+            box-shadow:
+                0 0 20px rgba(161, 10, 10, 0.2),
+                15px 20px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .h_gallery_layout:hover .h_book_img {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 0 40px rgba(161, 10, 10, 0.4);
+        }
+
+        /* Text Content */
         .h_text_side {
+            flex: 1;
+            text-align: left;
+        }
+
+        .h_meta_tags {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .h_tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            background: #252525;
+            color: #999;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .h_tag.highlight {
+            background: rgba(161, 10, 10, 0.2);
+            color: #ff4d4d;
+            border: 1px solid rgba(161, 10, 10, 0.3);
         }
 
         .h_main_title {
-            font-size: 2.2rem;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin: 0;
+            /* Metallic silver/white look */
+            background: linear-gradient(to bottom, #ffffff, #b3b3b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            line-height: 1.1;
         }
-    }
+
+        .h_sub_heading {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #777;
+            margin: 10px 0 20px 0;
+        }
+
+        .h_accent_line {
+            width: 50px;
+            height: 2px;
+            background: #c5a47e;
+            /* Gold accent stays as it looks great on dark */
+            margin-bottom: 25px;
+        }
+
+        .h_body_text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #bbb;
+            margin-bottom: 35px;
+        }
+
+        .h_warning_label {
+            color: #d60404;
+            letter-spacing: 3px;
+            font-weight: 800;
+            font-size: 17px;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            margin-right: 5px;
+        }
+
+        /* Action Button */
+        .h_buy_btn {
+            padding: 9px 14px;
+            background: radial-gradient(100% 120% at 50% 0%, #df0211 0%, #500D11 100%);
+            color: #fdfdfd;
+            border-radius: 100px;
+            border: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .h_buy_btn:hover {
+            background: #960303;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(161, 10, 10, 0.4);
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .h_gallery_layout {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+                margin: 15px;
+            }
+
+            .h_text_side {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .h_main_title {
+                font-size: 2.2rem;
+            }
+        }
     </style>
 </head>
 
@@ -487,37 +491,37 @@
     <div class="cursor-outline"></div>
 
 
-   <a href="#stores" class="h_gallery_layout">
-    <div class="h_visual_side">
-        <div class="h_image_frame">
-            <img src="assets/front.png" alt="ECHOTONGUE" class="h_book_img">
+    <a href="#stores" class="h_gallery_layout">
+        <div class="h_visual_side">
+            <div class="h_image_frame">
+                <img src="assets/front.png" alt="ECHOTONGUE" class="h_book_img">
+            </div>
         </div>
-    </div>
-    
-    <div class="h_text_side">
-        <div class="h_meta_tags">
-            <span class="h_tag highlight">Science Fiction</span>
-            <span class="h_tag">Now Available</span>
-        </div>
-        
-        <h2 class="h_main_title">ECHOTONGUE</h2>
-        <h3 class="h_sub_heading">By Hermona N. Zeleke</h3>
-        
-        <div class="h_accent_line"></div>
-        
-        <p class="h_body_text">
-            <span class="h_warning_label">Warning:</span>
-            This book has been known to cause 'one more chapter' syndrome. 
-            It may lead to the sudden ghosting of friends and responsibilities. 
-            If you're hiding just to finish a scene, don't worry — the plot is much 
-            more interesting than whatever you were supposed to be doing anyway.
-        </p>
 
-        <button class="h_buy_btn">
-            <i class="fas fa-shopping-cart"></i> &nbsp; BUY BOOK NOW
-        </button>
-    </div>
-</a>
+        <div class="h_text_side">
+            <div class="h_meta_tags">
+                <span class="h_tag highlight">Science Fiction</span>
+                <span class="h_tag">Now Available</span>
+            </div>
+
+            <h2 class="h_main_title">ECHOTONGUE</h2>
+            <h3 class="h_sub_heading">By Hermona N. Zeleke</h3>
+
+            <div class="h_accent_line"></div>
+
+            <p class="h_body_text">
+                <span class="h_warning_label">Warning:</span>
+                This book has been known to cause 'one more chapter' syndrome.
+                It may lead to the sudden ghosting of friends and responsibilities.
+                If you're hiding just to finish a scene, don't worry — the plot is much
+                more interesting than whatever you were supposed to be doing anyway.
+            </p>
+
+            <button class="h_buy_btn">
+                <i class="fas fa-shopping-cart"></i> &nbsp; BUY BOOK NOW
+            </button>
+        </div>
+    </a>
     <a href="#stores" style="text-decoration: none;">
         <h3 class="section-title" id="stores" style="margin-top: 20px; font-size: 1.8rem;">Now available on &nbsp;&nbsp;
             <i class="fas fa-arrow-down"></i>
@@ -705,7 +709,7 @@
                             </p>
                         </div>
 
-                        <!-- Form - Configure action for your email handler -->
+                        <!-- Form -->
 
                         <form target="_blank" action="https://formsubmit.co/yonsbreak7@gmail.com" method="POST">
 
@@ -745,31 +749,13 @@
                             </div>
 
                         </form>
-                        <!-- Loading State -->
-                        <div class="r_loading" id="r_loading">
-                            <div class="r_loader"></div>
-                            <p>Preparing your review for email...</p>
-                        </div>
+                         
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Email Submission Modal -->
-    <div class="r_email-modal" id="r_emailModal">
-        <div class="r_modal-content">
-            <div class="r_modal-icon">
-                <i class="fas fa-envelope"></i>
-            </div>
-            <h2 class="r_modal-title">Review Submitted</h2>
-            <p class="r_modal-text">
-                Your review has been prepared and your email client is opening. Please send the email to submit your
-                review.
-                We'll add it to our collection once we receive it.
-            </p>
-            <button class="r_modal-btn" id="r_closeModal">Continue Browsing</button>
-        </div>
-    </div>
+     
 
     <script src="assets/js/script.js"></script>
     <script>
