@@ -1265,7 +1265,7 @@ select {
 
 /* Footer */
 footer { 
-    background: linear-gradient(90deg, #0e0d0d, #0a0a0a);
+    background: linear-gradient(90deg, #000000ef, #0808089d);
     padding: 30px 0 0px;
     border-top: 1px solid rgba(192, 0, 0, 0.2);
     position: relative;
@@ -1622,14 +1622,11 @@ footer::before {
     margin: 40px 0;
 }
 
-/* World Section */
-
+/* World Section */ 
 .world-content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-
-
+    gap: 30px; 
 }
 
 .world-item {
