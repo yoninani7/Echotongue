@@ -40,7 +40,7 @@
         }
 
         #main-nav {
-    background: rgba(10, 10, 10, 0.8);
+            background: rgba(10, 10, 10, 0.8);
             padding-bottom: 0px;
             padding-top: 0px;
         }
@@ -51,8 +51,8 @@
             line-height: 1.6;
             overflow-x: hidden;
             padding-top: 80px;
-    display: flex;
-    flex-direction: column;
+            display: flex;
+            flex-direction: column;
         }
 
         h1,
@@ -71,7 +71,7 @@
             padding: 0 20px;
         }
 
-         
+
         .liner {
             content: ' ';
             position: absolute;
@@ -82,7 +82,7 @@
             background-color: var(--primary-red);
         }
 
-         
+
 
         /* Timeline */
         .timeline-container {
@@ -100,7 +100,7 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: linear-gradient(to bottom, var(--accent-silver), var(--accent-red));
+            background: rgba(143, 142, 142, 0.8);
             transform: translateX(-50%);
             z-index: 0;
         }
@@ -120,7 +120,7 @@
         }
 
         .timeline-item-content {
-            
+
             background: linear-gradient(160deg, #161616, #0a0a0a);
             border-radius: 10px;
             padding: 25px;
@@ -166,7 +166,8 @@
         .timeline-part {
             position: absolute;
             left: 0px;
-            background-color: rgba(212, 55, 55, 0.1);
+
+            background: linear-gradient(0deg, #0a0a0a, rgba(70, 2, 6, 0.5));
             padding: 10px 30px;
             border-radius: 5px;
             display: inline-block;
@@ -197,8 +198,8 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: var(--accent-red);
-            border: 4px solid var(--accent-red);
+            background: linear-gradient(0deg, rgba(10, 10, 10, 0.95), rgba(156, 4, 11, 0.8));
+            backdrop-filter: blur(10px);
             z-index: 3;
             display: flex;
             align-items: center;
@@ -216,21 +217,18 @@
         }
 
         .timeline-hint {
-            font-style: italic;
             color: rgba(192, 192, 192, 0.7);
             font-size: 0.9rem;
             border-left: 2px solid var(--accent-silver);
-            padding-left: 30px;
+            padding: 5px;
             margin-top: 10px;
-            background-color: rgba(124, 8, 8, 0.048);
+            background: linear-gradient(0deg, rgba(29, 6, 7, 0.582));
         }
 
         .spoiler-warning {
             padding: 20px;
-            background: rgba(80, 13, 17, 0.4);
+            background: linear-gradient(0deg, #0a0a0a, rgba(161, 3, 14, 0.5));
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(223, 2, 17, 0.3);
-            border-bottom: 3px solid #aaaaaa;
             /* Accented left border */
             border-radius: 4px;
             font-family: 'Cinzel', serif;
@@ -242,21 +240,21 @@
         }
 
         .spoiler-warning:hover {
-            background: rgba(124, 3, 11, 0.4);
+            background: linear-gradient(0deg, #0a0a0a, rgba(161, 3, 14, 0.651));
             padding-left: 17px;
             /* Slight shift effect */
         }
 
         .spoiler-warning h3 {
             color: #fdfdfd;
-            font-size: 16px;
+            font-size: 19px;
             margin: 0 0 5px 0;
             text-transform: uppercase;
         }
 
         .spoiler-warning p {
             color: #b0b0b0;
-            font-size: 12px;
+            font-size: 14px;
             margin: 0;
         }
 
@@ -333,7 +331,7 @@
                 margin-bottom: 15px;
             }
 
-            
+
         }
 
         /* Header - Chapter Map */
@@ -366,20 +364,20 @@
         }
 
         .story-header {
-           text-align: center;
+            text-align: center;
             margin-bottom: 40px;
             padding: 20px 20px;
             background: linear-gradient(160deg, #161616, #0a0a0a);
-            color: #e0e0e0; 
+            color: #e0e0e0;
             border-radius: 20px;
             box-shadow: rgb(110, 110, 110) 0 0 0px 0px;
             border: 1px solid rgba(14, 2, 2, 0.753);
             position: relative;
             z-index: 2;
- 
+
             max-width: 1100px;
             border-radius: 20px;
-             margin: 0 auto;
+            margin: 0 auto;
         }
 
         .liner {
@@ -393,7 +391,7 @@
         }
 
         .story-name {
-            font-family: var(--font-body);
+            font-family: 'Cinzel', serif;
             font-size: 1.9rem;
             font-weight: 650;
             color: rgb(240, 236, 236);
@@ -401,12 +399,13 @@
             line-height: 0.9;
 
         }
-         .story-bio {
+
+        .story-bio {
             font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: rgba(255, 255, 255, 0.884);
-            max-width: 900px;  
-            line-height: 1.8; 
-            margin: 0 auto; 
+            max-width: 900px;
+            line-height: 1.8;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -473,10 +472,11 @@
             <h1 class="story-name">The story timeline</h1>
             <div class="liner"></div><br>
             <p class="story-bio">
-                Follow the journey through key events without spoilers. <br> This timeline only covers what's revealed
-                in
-                the
-                story preview.
+                Trace the journey through the defining moments that shaped this world’s fate.
+
+This timeline follows a path revealed in the opening preview.
+
+Experience the story’s foundation while being spoiler-free.
             </p>
         </div>
     </div>
