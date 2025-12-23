@@ -26,19 +26,20 @@
             --color-primary-gold: #b1afab;
             --color-text-dark: #b1afab;
             --color-surface-white: rgba(146, 136, 136, 0.2);
-            --color-muted-text: #666666; 
+            --color-muted-text: #666666;
             /* Typography */
             --font-serif: 'Montserrat', sans-serif;
         }
 
-        
- 
+        body {
+            display: flex;
+            flex-direction: column;
+        }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px 40px;
-        } 
+        }
 
         /* Navigation Tabs */
         .tabs {
@@ -126,20 +127,20 @@
         }
 
         /* Part Dividers */
-
-        .parted{
+        .parted {
             background: linear-gradient(160deg, #0a0a0a, #161616);
             color: #e0e0e0;
-            
             padding: 20px 20px;
             border-bottom-left-radius: 10px;
+            margin-top: 30px;
         }
+
         .part-divider {
-            text-align: center; 
+            text-align: center;
             position: relative;
         }
 
-        .part-divider h2 {  
+        .part-divider h2 {
             font-family: 'Cinzel', serif;
             font-size: 1.9rem;
             font-weight: 650;
@@ -153,7 +154,7 @@
             text-decoration-thickness: 4px;
             text-decoration-color: #ffffffc9;
         }
- 
+
         /* Part Summary */
         .part-summary {
             background: linear-gradient(160deg, #161616, #0a0a0a);
@@ -170,7 +171,6 @@
             color: #d7d7d79d;
             margin-bottom: 15px;
             font-weight: 700;
-
         }
 
         .part-meta {
@@ -201,9 +201,6 @@
             color: #e8e8e8;
             font-weight: 600;
         }
-
-
-
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -312,19 +309,13 @@
     <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
-
-
     <div class="container">
-
-
         <!-- Part One -->
-         <div class="parted">
+        <div class="parted">
             <div class="part-divider">
-            <h2>Part One: Foundation</h2>
+                <h2>Part One: Foundation</h2>
+            </div>
         </div>
-         </div>
-        
-
         <div class="part-summary">
             <h3>The Beginning of the Journey</h3>
             <p>Fourteen chapters establishing characters and setting the story in motion.</p>
@@ -343,23 +334,21 @@
                 </div>
             </div>
         </div>
-
         <div class="tabs">
             <button class="tab-btn active" data-pov="all">All Chapters</button>
             <button class="tab-btn" data-pov="lydia">Lydia's Chapters</button>
             <button class="tab-btn" data-pov="alex">Alex's Chapters</button>
             <button class="tab-btn" data-pov="felix">Felix's Chapters</button>
         </div>
-
         <div class="chapter-grid" id="part1-chapters">
             <!-- Chapters will be inserted by JavaScript -->
         </div>
-
         <!-- Part Two -->
-        <div class="part-divider">
-            <h2>Part Two: Expansion</h2>
+        <div class="parted">
+            <div class="part-divider">
+                <h2>Part Two: Expansion</h2>
+            </div>
         </div>
-
         <div class="part-summary">
             <h3>The Journey Continues</h3>
             <p>Fifteen chapters as the story expands to new locations and perspectives.</p>
@@ -378,16 +367,15 @@
                 </div>
             </div>
         </div>
-
         <div class="chapter-grid" id="part2-chapters">
             <!-- Chapters will be inserted by JavaScript -->
         </div>
-
         <!-- Part Three -->
-        <div class="part-divider">
-            <h2>Part Three: Resolution</h2>
+        <div class="parted">
+            <div class="part-divider">
+                <h2>Part Three: Resolution</h2>
+            </div>
         </div>
-
         <div class="part-summary">
             <h3>Building Toward Conclusion</h3>
             <p>Fifteen chapters bringing the story toward its current point (preview).</p>
@@ -406,59 +394,10 @@
                 </div>
             </div>
         </div>
-
         <div class="chapter-grid" id="part3-chapters">
             <!-- Chapters will be inserted by JavaScript -->
-        </div> 
-    </div>
-<!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>Echotongue</h3>
-                    <p style="color: #aaa;">The epic space fantasy novel by Hermona Zeleke. Journey across thirty-two
-                        planets in a universe where language is power and ancient secrets await discovery.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Explore</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#about">About the book </a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="Timeline.html">Timeline</a></li>
-                        <li><a href="chaptermap.html">Chapter Map</a></li>
-                        <li><a href="purchasebook.html">Buy book</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Copyright</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Connect</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Telegram</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Whatsapp</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Hermona Zeleke. ECHOTONGUE: The Zureyan Tablets is a work of fiction. All rights
-                    reserved.</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;"> <strong>ISBN(PB):</strong> 979-8-89604-275-4 &nbsp; |
-                    &nbsp; <strong>ISBN(HB): </strong> 979-8-89604-276-1</p>
-                <p> Designed by <a
-                        style="font-family: 'Cinzel Decorative', serif; font-weight: 800;text-decoration: none; color:#d1cece; cursor: pointer;margin-bottom: 0 rem;"
-                        href="https://yonikass.netlify.app/" target="_blank">Yonatan Kassahun</a></p>
-            </div>
         </div>
-    </footer>
+    </div>
     <script>
         // Chapter data from the table of contents (pages 3-5)
         const chapters = {
@@ -513,34 +452,28 @@
                 { number: 44, title: "Lydia Nightshade", pov: "lydia", page: 207 }
             ]
         };
-
         // POV color mapping (matching original design)
         const povColors = {
             lydia: "red", // gold
             alex: "yellow",
             felix: "green"  // teal
         };
-
         // POV full names
         const povNames = {
             lydia: "Lydia Nightshade",
             alex: "Alex Gardener",
             felix: "Felix Darth"
         };
-
         // Render chapters for a part
         function renderChapters(partId, chaptersArray) {
             const container = document.getElementById(partId);
             if (!container) return;
-
             container.innerHTML = '';
-
             chaptersArray.forEach((chapter, index) => {
                 const card = document.createElement('div');
                 card.className = 'chapter-card';
                 card.style.setProperty('--order', index);
                 card.dataset.pov = chapter.pov;
-
                 card.innerHTML = `
                     <div class="chapter-number">${chapter.number}</div>
                     <div class="chapter-pov" style="border-left: 3px solid ${povColors[chapter.pov]}">
@@ -554,11 +487,9 @@
                         ${getPOVDescription(chapter.pov)}
                     </div>
                 `;
-
                 container.appendChild(card);
             });
         }
-
         // Get POV description
         function getPOVDescription(pov) {
             const descriptions = {
@@ -568,11 +499,9 @@
             };
             return descriptions[pov] || "Character perspective";
         }
-
         // Filter chapters by POV
         function filterChapters(pov) {
             const allCards = document.querySelectorAll('.chapter-card');
-
             allCards.forEach(card => {
                 if (pov === 'all' || card.dataset.pov === pov) {
                     card.style.display = 'block';
@@ -588,22 +517,18 @@
                 }
             });
         }
-
         // Mobile navigation functionality
         function initMobileNav() {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileCloseBtn = document.getElementById('mobile-close-btn');
             const mobileNav = document.getElementById('mobile-nav');
-
             if (mobileMenuBtn && mobileCloseBtn && mobileNav) {
                 mobileMenuBtn.addEventListener('click', () => {
                     mobileNav.classList.add('active');
                 });
-
                 mobileCloseBtn.addEventListener('click', () => {
                     mobileNav.classList.remove('active');
                 });
-
                 // Close mobile nav when clicking on a link
                 const mobileLinks = mobileNav.querySelectorAll('a');
                 mobileLinks.forEach(link => {
@@ -613,11 +538,9 @@
                 });
             }
         }
-
         // Scroll to top functionality
         function initScrollTop() {
             const scrollTopBtn = document.getElementById('scroll-top');
-
             if (scrollTopBtn) {
                 window.addEventListener('scroll', () => {
                     if (window.pageYOffset > 300) {
@@ -626,7 +549,6 @@
                         scrollTopBtn.style.display = 'none';
                     }
                 });
-
                 scrollTopBtn.addEventListener('click', () => {
                     window.scrollTo({
                         top: 0,
@@ -635,14 +557,12 @@
                 });
             }
         }
-
         // Initialize everything
         document.addEventListener('DOMContentLoaded', () => {
             // Render all chapters
             renderChapters('part1-chapters', chapters.part1);
             renderChapters('part2-chapters', chapters.part2);
             renderChapters('part3-chapters', chapters.part3);
-
             // Setup tab filtering
             const tabButtons = document.querySelectorAll('.tab-btn');
             tabButtons.forEach(button => {
@@ -650,13 +570,11 @@
                     // Update active state
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
-
                     // Filter chapters
                     const pov = button.dataset.pov;
                     filterChapters(pov);
                 });
             });
-
             // Add subtle hover effects
             const cards = document.querySelectorAll('.chapter-card');
             cards.forEach(card => {
@@ -664,18 +582,15 @@
                     const pov = card.dataset.pov;
                     card.style.borderColor = povColors[pov];
                 });
-
                 card.addEventListener('mouseleave', () => {
                     card.style.borderColor = '#2a2a3a';
                 });
             });
-
             // Add keyboard navigation for tabs
             document.addEventListener('keydown', (e) => {
                 const activeTab = document.querySelector('.tab-btn.active');
                 const tabs = Array.from(tabButtons);
                 const currentIndex = tabs.indexOf(activeTab);
-
                 if (e.key === 'ArrowRight') {
                     const nextIndex = (currentIndex + 1) % tabs.length;
                     tabs[nextIndex].click();
@@ -686,7 +601,6 @@
                     tabs[prevIndex].focus();
                 }
             });
-
             // Initialize mobile nav and scroll top
             initMobileNav();
             initScrollTop();
@@ -694,15 +608,12 @@
         // --- CUSTOM CURSOR LOGIC ---
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
-
         window.addEventListener('mousemove', (e) => {
             const posX = e.clientX;
             const posY = e.clientY;
-
             // Dot follows instantly
             cursorDot.style.left = `${posX}px`;
             cursorDot.style.top = `${posY}px`;
-
             // Outline follows with slight delay (animation in CSS)
             cursorOutline.animate({
                 left: `${posX}px`,
@@ -710,8 +621,55 @@
             }, { duration: 1000, fill: "forwards" });
         });
     </script>
-
     <script src="assets/js/script.js"></script>
 </body>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Echotongue</h3>
+                <p style="color: #aaa;">The epic space fantasy novel by Hermona Zeleke. Journey across thirty-two
+                    planets in a universe where language is power and ancient secrets await discovery.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About the book </a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="Timeline.html">Timeline</a></li>
+                    <li><a href="chaptermap.html">Chapter Map</a></li>
+                    <li><a href="purchasebook.html">Buy book</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Copyright</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Telegram</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Whatsapp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Hermona Zeleke. ECHOTONGUE: The Zureyan Tablets is a work of fiction. All rights
+                reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;"> <strong>ISBN(PB):</strong> 979-8-89604-275-4 &nbsp; |
+                &nbsp; <strong>ISBN(HB): </strong> 979-8-89604-276-1</p>
+            <p> Designed by <a
+                    style="font-family: 'Cinzel Decorative', serif; font-weight: 800;text-decoration: none; color:#d1cece; cursor: pointer;margin-bottom: 0 rem;"
+                    href="https://yonikass.netlify.app/" target="_blank">Yonatan Kassahun</a></p>
+        </div>
+    </div>
+</footer>
 
 </html>
