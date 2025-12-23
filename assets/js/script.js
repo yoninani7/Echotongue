@@ -474,16 +474,17 @@ function handleTimelineProgress() {
 
     progressLine.style.height = `${progress}%`;
 }
+ 
+document.querySelector('form').addEventListener('submit', function(e) {
+    const ratingInput = document.getElementById('r_rating');
+    const ratingHint = document.querySelector('.r_rating-hint'); 
+    const ratinadsfgInput = document.getElementById('r_rating');
+    const ratiadsfngHint = document.querySelector('.r_rating-hint'); 
 
-// Listen for scroll events
-// window.addEventListener('scroll', handleTimelineProgress);
-// // Also run it on load to catch current position
-// window.addEventListener('load', handleTimelineProgress);
-
-//  function revealSpoiler(element) {
-//     // Add the 'revealed' class to trigger CSS transitions
-//     if (!element.classList.contains('revealed')) {
-//         element.classList.add('revealed');
-         
-//     }
-// }
+    // Check if the rating value is empty
+    if (!ratingInput.value) {
+        // Prevent form submission
+        e.preventDefault();  
+        showNotification(`Provide your rating`);
+    }
+}); 
