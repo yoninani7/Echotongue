@@ -485,6 +485,6 @@ document.querySelector('form').addEventListener('submit', function(e) {
     if (!ratingInput.value) {
         // Prevent form submission
         e.preventDefault();  
-        showNotification(`Provide your rating`);
+        showNotification(`★ Provide your rating `);
     }
 }); 
