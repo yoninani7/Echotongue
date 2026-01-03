@@ -3,7 +3,7 @@
     --primary-red: #c91313c9;
 
     --dark-red: #b30000;
-    --bg-color: #000000;
+    --bg-color: #000000fc;
     --text-color: #e0e0e0;
     --font-heading: 'Orbitron', sans-serif;
     --font-body: 'Montserrat', sans-serif;
@@ -49,7 +49,7 @@ body {
 
 :root {
     --text-main: #ffffff;
-    --text-dim: rgba(255, 255, 255, 0.6);
+    --text-dim: rgba(255, 255, 255, 0.877);
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -373,7 +373,7 @@ nav.scrolled {
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.6rem;
+    gap: 1.6rem;
     align-items: center;
     width: 100%;
     max-width: 1200px;
@@ -492,12 +492,13 @@ h1 {
 .btn-outline {
     background: transparent;
     border: 2px solid var(--primary-red);
-    color: var(--text-light);
+    color: var(--text-light); 
 }
 
-.btn-outline:hover {
-    background-color: var(--primary-red);
-    color: var(--text-white);
+.btn-outline:hover { 
+    background: radial-gradient(100% 120% at 50% 0%, #df0211 0%, #500D11 100%); 
+    box-shadow: 0 15px 30px rgba(192, 0, 0, 0.3);
+    border: 2px solid #500D11;
 }
 
 .social-proof {
@@ -1372,7 +1373,7 @@ footer::before {
 .cinzel {
     font-family: 'Cinzel Decorative', serif;
     font-weight: 900;
-    font-size: 28px;
+    font-size: 25px;
     color: #ffffff;
     text-transform: uppercase;
     text-decoration: none;
@@ -3076,7 +3077,7 @@ body.hovering .cursor-outline {
     animation: fade-in-up 6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.3s;
     background: linear-gradient(to right, #29292971, transparent); 
     padding: 5px;
-    margin-top: 5px;
+    margin-top: 9px;
 }
 
 /* The Anchor Line - Made it slightly thicker for impact */
