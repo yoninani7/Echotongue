@@ -668,7 +668,7 @@
         </div>
     </div>
 
-    <footer>
+    <footer style="margin-top:40px;">
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
