@@ -565,7 +565,7 @@
                 </div>
             </li>
             <li><a href="index.html #author">Author</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.php">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
         </ul>
@@ -584,7 +584,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html #about">About the book</a></li>
             <li><a href="index.html #author">Author</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.php">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
             <br>
@@ -681,7 +681,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="#about">About the book </a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="blog.php">Blog</a></li>
                         <li><a href="Timeline.html">Timeline</a></li>
                         <li><a href="chaptermap.html">Chapter Map</a></li>
                         <li><a href="purchasebook.html">Buy book</a></li>
