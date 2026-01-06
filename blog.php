@@ -623,11 +623,11 @@
                
                 <!-- <div class="thoughts-feed" id="thoughtsFeed"></div> -->
                  <?php
-        // --- DATABASE CONNECTION ---
-        $host = 'localhost';
-        $username = 'dsintevr_echotongue';
-        $password = 'aEZ6gWB2EQDgjsZehKGN';
-        $database = 'dsintevr_echotongue';
+                // --- DATABASE CONNECTION ---
+                $host = 'localhost';
+                $username = 'dsintevr_echotongue';
+                $password = 'aEZ6gWB2EQDgjsZehKGN';
+                $database = 'dsintevr_echotongue';
 
         $conn = new mysqli($host, $username, $password, $database);
         if ($conn->connect_error) {
