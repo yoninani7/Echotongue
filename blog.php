@@ -654,14 +654,14 @@
                 $image_id = $row['id'];
                 $thought_date = $row['thought_date'];
                 $thought_text = $row['thought_text'];
-
+                $formatted_date = date("F j, Y g:i A", strtotime($row['thought_date']));
                 // Display the image
                  echo '<span class="new-indicator">Latest</span>
                     <div class="timeline-hit-area"></div>
                     <div class="timeline-container"> <div class="timeline-dot"></div></div>
                     <div class="thought-content">
                         <div class="thought-date">
-                            <i class="far fa-clock"></i>'.$thought_date .'
+                            <i class="far fa-clock"></i>'.$formatted_date .'
                         </div>
                         <p class="thought-text">'.$thought_text .'</p>
                          
