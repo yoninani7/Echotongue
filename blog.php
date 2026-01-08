@@ -881,6 +881,5 @@
         setTimeout(updateTimelineHeight, 500);
     </script>
     <script src="assets/js/script.js"></script>
-</body>
-
+</body> 
 </html>
