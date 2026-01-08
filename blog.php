@@ -276,7 +276,7 @@
             height: 16px;
 
             /* Matches the top-section color of the gradient */
-            background: #1a1a1a;
+            background: #1a1a1a; 
 
             border-left: 1px solid #4a453e;
             border-bottom: 1px solid #4a453e;
@@ -544,6 +544,17 @@
 
             background: rgba(10, 10, 10, 0.8);
         }
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.1);
+        }
     </style>
 </head>
 
@@ -658,8 +669,12 @@
 
                
             }
-        } else {
-            echo "No images found.";
+        } else { 
+            echo ' <div class="empty-state">
+                        <i class="fas fa-pen-nib"></i>
+                        <h3>No Thoughts Published Yet</h3>
+                        <p>Here you will witness behind the scenes and thoughts of author.</p>
+                    </div>';
         }
 
         $conn->close();
