@@ -555,6 +555,13 @@
             margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.1);
         }
+        .no-thoughts {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-style: italic;
+}
     </style>
 </head>
 
@@ -613,75 +620,85 @@
 
 
 
-    <!-- Author's Thoughts Feed -->
-    <div class="authors-thoughts">
-        <div class="thoughts-container">
-            <!-- Header -->
-            <div class="thoughts-header">
-                <h1 class="author-name">Author's Corner</h1>
-                <div class="liner"></div><br>
-                <p class="author-bio">
-                    Sharing glimpses from the writing desk, moments of inspiration, and reflections on the creative
-                    journey. <br>
-                    Each thought is a snapshot from the quiet hours where stories are born.
-                </p>
-            </div>
-            <!-- Timeline -->
-            <div class="timeline-wrapper">
-                <div class="timeline-line"></div>
-                <div class="timeline-progress" id="timelineProgress"></div>
+  <!-- Author's Thoughts Feed -->
+<div class="authors-thoughts">
+    <div class="thoughts-container">
+        <!-- Header -->
+        <div class="thoughts-header">
+            <h1 class="author-name">Author's Corner</h1>
+            <div class="liner"></div><br>
+            <p class="author-bio">
+                Sharing glimpses from the writing desk, moments of inspiration, and reflections on the creative
+                journey. <br>
+                Each thought is a snapshot from the quiet hours where stories are born.
+            </p>
+        </div>
+        <!-- Timeline -->
+        <div class="timeline-wrapper">
+            <div class="timeline-line"></div>
+            <div class="timeline-progress" id="timelineProgress"></div>
+            
+            <!-- Add the thoughts-feed container -->
+            <div class="thoughts-feed" id="thoughtsFeed">
+             <!-- Add the thoughts-feed container -->
+<div class="thoughts-feed" id="thoughtsFeed">
+    <?php
+    // Database connection with utf8mb4
+    $host = 'localhost';
+    $username = 'dsintevr_echotongue';
+    $password = 'aEZ6gWB2EQDgjsZehKGN';
+    $database = 'dsintevr_echotongue';
 
-               
-                <!-- <div class="thoughts-feed" id="thoughtsFeed"></div> -->
-                 <?php
-                // --- DATABASE CONNECTION ---
-                $host = 'localhost';
-                $username = 'dsintevr_echotongue';
-                $password = 'aEZ6gWB2EQDgjsZehKGN';
-                $database = 'dsintevr_echotongue';
+    $conn = new mysqli($host, $username, $password, $database);
+    
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
+    // Set charset to utf8mb4 for emoji support
+    $conn->set_charset("utf8mb4");
 
-        $conn = new mysqli($host, $username, $password, $database);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+    // Retrieve thoughts from the database, ordered by date (newest first)
+    $sql = "SELECT * FROM authors_thoughts ORDER BY thought_date DESC";
+    $result = $conn->query($sql);
 
-        // Retrieve images from the database
-        $sql = "SELECT * FROM authors_thoughts ";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $image_id = $row['id'];
-                $thought_date = $row['thought_date'];
-                $thought_text = $row['thought_text'];
-                $formatted_date = date("F j, Y g:i A", strtotime($row['thought_date']));
-                // Display the image
-                 echo '<span class="new-indicator">Latest</span>
-                    <div class="timeline-hit-area"></div>
-                    <div class="timeline-container"> <div class="timeline-dot"></div></div>
-                    <div class="thought-content">
-                        <div class="thought-date">
-                            <i class="far fa-clock"></i>'.$formatted_date .'
-                        </div>
-                        <p class="thought-text">'.$thought_text .'</p>
-                         
-                    </div>';
-
-               
+    if ($result->num_rows > 0) {
+        $index = 0;
+        while ($row = $result->fetch_assoc()) {
+            $thought_date = htmlspecialchars($row['thought_date'], ENT_QUOTES, 'UTF-8');
+            $thought_text = htmlspecialchars($row['thought_text'], ENT_QUOTES, 'UTF-8');
+            
+            // Only mark the first (latest) entry as "Latest"
+            $is_new = ($index == 0) ? true : false;
+            
+            echo '<div class="thought-entry" style="animation-delay: '.($index * 0.15).'s;" data-index="'.$index.'">';
+            
+            if ($is_new) {
+                echo '<span class="new-indicator">Latest</span>';
             }
-        } else { 
-            echo ' <div class="empty-state">
-                        <i class="fas fa-pen-nib"></i>
-                        <h3>No Thoughts Published Yet</h3>
-                        <p>Here you will witness behind the scenes and thoughts of author.</p>
-                    </div>';
+            
+            echo '<div class="timeline-hit-area"></div>';
+            echo '<div class="timeline-container"><div class="timeline-dot"></div></div>';
+            echo '<div class="thought-content">';
+            echo '<div class="thought-date"><i class="far fa-clock"></i> '.$thought_date.'</div>';
+            echo '<p class="thought-text">'.$thought_text.'</p>';
+            echo '</div>';
+            echo '</div>';
+            
+            $index++;
         }
+    } else {
+        echo '<div class="no-thoughts">No thoughts yet. Check back soon!</div>';
+    }
 
-        $conn->close();
-        ?>
+    $conn->close();
+    ?>
+</div>
             </div>
         </div>
     </div>
+</div>
 
     <footer style="margin-top:40px;">
         <div class="container">
@@ -841,44 +858,134 @@
         }
         // Initialize on load
         document.addEventListener('DOMContentLoaded', renderThoughts);
-        // Update timeline height dynamically
-        function updateTimelineHeight() {
-            const timeline = document.getElementById('timelineLine');
-            const feed = document.querySelector('.thoughts-feed');
-            if (timeline && feed) {
-                const feedHeight = feed.offsetHeight;
-                timeline.style.height = `${feedHeight + 50}px`;
-            }
+         // Update timeline height dynamically
+    function updateTimelineHeight() {
+        const timeline = document.getElementById('timelineLine');
+        const feed = document.getElementById('thoughtsFeed');
+        if (timeline && feed) {
+            const feedHeight = feed.offsetHeight;
+            timeline.style.height = `${feedHeight + 50}px`;
         }
-        // Initialize timeline and update on resize
-        window.addEventListener('load', () => {
-            updateTimelineHeight();
-            // Add initial animation to timeline
-            const timeline = document.getElementById('timelineLine');
-            if (timeline) {
-                timeline.style.opacity = '0';
-                setTimeout(() => {
-                    timeline.style.transition = 'opacity 0.8s ease, height 0.3s ease';
-                    timeline.style.opacity = '1';
-                }, 300);
+    }
+
+    // Update timeline progress on scroll
+    function updateTimelineProgress() {
+        const timelineProgress = document.getElementById('timelineProgress');
+        const thoughtsFeed = document.getElementById('thoughtsFeed');
+        if (timelineProgress && thoughtsFeed) {
+            const feedRect = thoughtsFeed.getBoundingClientRect();
+            const feedTop = feedRect.top;
+            const feedHeight = feedRect.height;
+            
+            let progress = 0;
+            if (feedTop < 0) {
+                progress = Math.min(100, (-feedTop / feedHeight) * 100);
             }
-        });
-        window.addEventListener('resize', updateTimelineHeight);
-        // Add smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+            timelineProgress.style.height = `${progress}%`;
+        }
+    }
+
+    // Add event listeners to thought entries
+    function attachThoughtEvents() {
+        const thoughtEntries = document.querySelectorAll('.thought-entry');
+        const timelineLine = document.getElementById('timelineLine');
+        
+        thoughtEntries.forEach(thoughtElement => {
+            const hitArea = thoughtElement.querySelector('.timeline-hit-area');
+            const dot = thoughtElement.querySelector('.timeline-dot');
+            const content = thoughtElement.querySelector('.thought-content');
+            const newIndicator = thoughtElement.querySelector('.new-indicator');
+
+            // Hover effect for the timeline line
+            if (hitArea && timelineLine) {
+                hitArea.addEventListener('mouseenter', function () {
+                    const rect = thoughtElement.getBoundingClientRect();
+                    const timelineRect = timelineLine.getBoundingClientRect();
+                    const position = ((rect.top - timelineRect.top) / timelineRect.height) * 100;
+                    timelineLine.style.background = `linear-gradient(to bottom, 
+                        transparent 0%,
+                        var(--secondary-color) ${Math.max(0, position - 5)}%,
+                        var(--accent-color) ${position}%,
+                        var(--secondary-color) ${Math.min(100, position + 5)}%,
+                        transparent 100%)`;
+                });
+
+                hitArea.addEventListener('mouseleave', function () {
+                    // Reset timeline to original gradient
+                    setTimeout(() => {
+                        timelineLine.style.background = 'rgba(255, 255, 255, 0.1)';
+                    }, 100);
+                });
+            }
+
+            // Click handler for thought entries
+            thoughtElement.addEventListener('click', function (e) {
+                if (!e.target.closest('a')) {
+                    if (content) {
+                        content.style.transform = 'scale(0.98)';
+                        setTimeout(() => {
+                            content.style.transform = '';
+                        }, 200);
+                    }
+                    
+                    // Mark as read
+                    if (newIndicator) {
+                        newIndicator.style.opacity = '0.5';
+                        newIndicator.textContent = 'READ';
+                        setTimeout(() => {
+                            newIndicator.style.display = 'none';
+                        }, 1000);
+                    }
+                    
+                    // Ripple effect on the timeline dot
+                    if (dot) {
+                        dot.style.boxShadow = '0 0 0 8px rgba(139, 90, 43, 0.3)';
+                        setTimeout(() => {
+                            dot.style.boxShadow = '';
+                        }, 500);
+                    }
                 }
             });
         });
-        // Update timeline height after all thoughts are loaded
-        setTimeout(updateTimelineHeight, 500);
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', function() {
+        updateTimelineHeight();
+        updateTimelineProgress();
+        attachThoughtEvents();
+        
+        // Add initial animation to timeline
+        const timelineLine = document.querySelector('.timeline-line');
+        if (timelineLine) {
+            timelineLine.style.opacity = '0';
+            setTimeout(() => {
+                timelineLine.style.transition = 'opacity 0.8s ease, height 0.3s ease';
+                timelineLine.style.opacity = '1';
+            }, 300);
+        }
+    });
+
+    // Update on resize and scroll
+    window.addEventListener('resize', updateTimelineHeight);
+    window.addEventListener('scroll', updateTimelineProgress);
+
+    // Add smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Update timeline height after all thoughts are loaded
+    setTimeout(updateTimelineHeight, 500);
     </script>
     <script src="assets/js/script.js"></script>
 </body> 
