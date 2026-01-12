@@ -521,10 +521,10 @@
             <h2>Join the Echotongue Community</h2>
             <p>Subscribe to receive exclusive content, behind-the-scenes insights, and updates about the Echotongue
                 series.</p>
-            <form class="newsletter-form" id="newsletter-form"  action="https://formsubmit.co/yonsbreak7@gmail.com" method="POST"> 
-                <input name="Email" type="email" placeholder="Enter your email address" required>
-                <button type="submit" class="btn">Subscribe</button>
-            </form>
+            <form class="newsletter-form" id="newsletter-form" action="subscribe_newsletter.php" method="POST">
+    <input name="Email" type="email" placeholder="Enter your email address" required>
+    <button type="submit" class="btn">Subscribe</button>
+</form>
         </div>
     </section>
     <!-- Footer -->
@@ -576,6 +576,40 @@
         </div>
     </footer>
     <script src="assets/js/script.js"></script>
+    <script>
+document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    var form = this;
+    var button = form.querySelector('button');
+    var originalText = button.innerHTML;
+    
+    // Show loading
+    button.innerHTML = 'Subscribing...';
+    button.disabled = true;
+    
+    // Submit
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message);
+
+        if (data.success) {
+            form.reset();
+        }
+        button.innerHTML = originalText;
+        button.disabled = false;
+    })
+    .catch(error => {
+       console.log('Error: Please try again');
+        button.innerHTML = originalText;
+        button.disabled = false;
+    });
+});
+</script>
 </body>
 
 </html>

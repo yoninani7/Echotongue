@@ -1,18 +1,39 @@
 <?php
 session_start();
 
-// Database connection (use the same credentials as your dashboard)
+// Generate CSRF token if not exists
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+// Database connection
 $host = 'localhost';
 $username = 'root';
 $password = '';
 $database = 'echotongue';
 
-try {
-    $conn = new mysqli($host, $username, $password, $database);
-    $conn->set_charset("utf8mb4");
-} catch (Exception $e) {
-    die("Database connection failed.");
+// Create connection
+$conn = new mysqli($host, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    $response = ['success' => false, 'message' => 'Database connection failed.'];
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit();
 }
+
+// Create database if it doesn't exist
+$createDb = "CREATE DATABASE IF NOT EXISTS `$database` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci";
+if (!$conn->query($createDb)) {
+    $response = ['success' => false, 'message' => 'Failed to create database.'];
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit();
+}
+
+// Select the database
+$conn->select_db($database);
 
 // Function to sanitize input
 function sanitizeInput($data) {
@@ -23,6 +44,14 @@ function sanitizeInput($data) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Verify CSRF token
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        $response = ['success' => false, 'message' => 'Security token invalid. Please try again.'];
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit();
+    }
+    
     // Get and sanitize form data
     $name = sanitizeInput($_POST['name'] ?? '');
     $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
@@ -32,56 +61,102 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate data
     $errors = [];
     
-    if (empty($name) || strlen($name) < 2) {
-        $errors[] = 'Name must be at least 2 characters long.';
-    }
-    
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    // Name validation
+    if (empty($name)) {
+        $errors[] = 'Name is required.';
+    }   
+    // Email validation
+    if (empty($email)) {
+        $errors[] = 'Email is required.';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = 'Please enter a valid email address.';
+    } 
+    
+    // Message validation
+    if (empty($message)) {
+        $errors[] = 'Message is required.';
+    }  
+    
+    // Rating validation
+    if (empty($rating) || $rating < 1 || $rating > 5) {
+        $errors[] = 'Please select a valid rating (1-5 stars).';
     }
     
-    if (empty($message) || strlen($message) < 10) {
-        $errors[] = 'Review must be at least 10 characters long.';
-    }
-    
-    if ($rating < 1 || $rating > 5) {
-        $errors[] = 'Please select a valid rating.';
-    }
+    // Prepare response
+    $response = [];
     
     // If no errors, save to database
     if (empty($errors)) {
         try {
+            // Create feedbacks table if it doesn't exist
+            $createTable = "CREATE TABLE IF NOT EXISTS feedbacks (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(100) NOT NULL,
+                email VARCHAR(150) NOT NULL,
+                message TEXT NOT NULL,
+                rating INT NOT NULL,
+                status VARCHAR(20) DEFAULT 'pending',
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+            
+            if (!$conn->query($createTable)) {
+                throw new Exception("Failed to create table.");
+            }
+            
+            // Prepare and execute insert statement
             $stmt = $conn->prepare("INSERT INTO feedbacks (name, email, message, rating, status) VALUES (?, ?, ?, ?, 'pending')");
+            if (!$stmt) {
+                throw new Exception("Prepare failed.");
+            }
+            
             $stmt->bind_param("sssi", $name, $email, $message, $rating);
             
             if ($stmt->execute()) {
-                // Success - redirect back with success message
-                $_SESSION['feedback_success'] = 'Thank you for your feedback! Your review has been submitted.';
-                header('Location: ' . $_SERVER['HTTP_REFERER'] . '#review-form');
-                exit();
+                // Success
+                $response = [
+                    'success' => true,
+                    'message' => 'Thank you for your feedback! <br> Your review has been submitted.',
+                    'insert_id' => $conn->insert_id
+                ];
+                
+                // Store in session for page reload (optional)
+                $_SESSION['feedback_success'] = $response['message'];
+                
+                // Generate new CSRF token
+                $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             } else {
                 throw new Exception('Failed to save feedback.');
             }
+            
+            $stmt->close();
+            
         } catch (Exception $e) {
-            $errors[] = 'An error occurred. Please try again later.';
+            error_log("Database error: " . $e->getMessage());
+            $response = [
+                'success' => false,
+                'message' => 'An error occurred while saving your feedback. Please try again later.'
+            ];
         }
+    } else {
+        $response = [
+            'success' => false,
+            'errors' => $errors
+        ];
     }
     
-    // If there are errors, store them in session and redirect back
-    if (!empty($errors)) {
-        $_SESSION['feedback_errors'] = $errors;
-        $_SESSION['form_data'] = [
-            'name' => $name,
-            'email' => $email,
-            'message' => $message,
-            'rating' => $rating
-        ];
-        header('Location: ' . $_SERVER['HTTP_REFERER'] . '#review-form');
-        exit();
-    }
+    // Close database connection
+    $conn->close();
+    
+    // Return JSON response
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit();
+    
 } else {
-    // Not a POST request, redirect to home
-    header('Location: index.php');
+    // Not a POST request
+    $response = ['success' => false, 'message' => 'Invalid request method.'];
+    header('Content-Type: application/json');
+    echo json_encode($response);
     exit();
 }
 ?>

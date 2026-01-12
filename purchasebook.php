@@ -1,3 +1,24 @@
+<?php
+session_start();
+
+// Generate CSRF token if not exists
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+// Clear form data after displaying (to prevent showing old data on refresh)
+$form_name = isset($_SESSION['form_data']['name']) ? htmlspecialchars($_SESSION['form_data']['name']) : '';
+$form_email = isset($_SESSION['form_data']['email']) ? htmlspecialchars($_SESSION['form_data']['email']) : '';
+$form_message = isset($_SESSION['form_data']['message']) ? htmlspecialchars($_SESSION['form_data']['message']) : '';
+$form_rating = isset($_SESSION['form_data']['rating']) ? $_SESSION['form_data']['rating'] : '0';
+
+// Store feedback messages before clearing
+$feedback_success = isset($_SESSION['feedback_success']) ? $_SESSION['feedback_success'] : null;
+$feedback_errors = isset($_SESSION['feedback_errors']) ? $_SESSION['feedback_errors'] : null;
+
+// Clear session data after storing
+unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback_errors']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -439,7 +460,58 @@
             .h_main_title {
                 font-size: 2.2rem;
             }
-        }
+        } 
+/* Notification Styles */
+.custom-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10000;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    animation: slideIn 0.3s ease;
+}
+
+.custom-notification.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.custom-notification.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.custom-notification i {
+    font-size: 1.2rem;
+}
+
+.close-notification {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    color: inherit;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
     </style>
 </head>
 
@@ -454,7 +526,7 @@
                 <a href="javascript:void(0)">About <i class="fas fa-chevron-down" style="font-size: 0.9rem; "></i></a>
                 <div class="dropdown">
                     <a href="index.html #about">About the book</a>
-                    <a href="index.html #world">What’s inside?</a>
+                    <a href="index.html #world">What's inside?</a>
                     <a href="index.html #universe">The universe</a>
                     <a href="index.html #preview">Edition features</a>
                     <a href="index.html #magic">Dialects</a>
@@ -645,11 +717,11 @@
                                         imaginative
                                         world-building, engaging characters, and suspenseful narrative.
 
-                                        What’s most impressive is the natural dialogue and smooth pacing, rare qualities
+                                        What's most impressive is the natural dialogue and smooth pacing, rare qualities
                                         for
                                         such a young writer. This story is not only a great read for children but also
                                         for
-                                        adults who appreciate fresh, inventive storytelling. Overall, it’s a testament
+                                        adults who appreciate fresh, inventive storytelling. Overall, it's a testament
                                         to
                                         youthful creativity and a highly recommended read for fans of fantasy and
                                         adventure.
@@ -683,9 +755,9 @@
                                     </div>
 
                                     <p class="r_review-text">
-                                        I can’t believe the eleven years old girl write such an imaginable book. It is
+                                        I can't believe the eleven years old girl write such an imaginable book. It is
                                         very
-                                        interesting and very difficult to stop reading. I can’t wait to read the next
+                                        interesting and very difficult to stop reading. I can't wait to read the next
                                         book
                                         from her.
                                     </p>
@@ -703,8 +775,8 @@
                         </div>
                     </div>
 
-                    <!-- Right: Review Form -->
-                    <div class="r_review-form-container">
+                   <!-- Right: Review Form -->
+<div class="r_review-form-container" id="review-form">
     <div class="r_form-header">
         <div class="r_form-icon">
             <i class="fas fa-pen-nib"></i>
@@ -715,25 +787,30 @@
             surprised you, what stayed with you.
         </p>
     </div>
+ 
 
     <!-- Form -->
     <form action="submit_feedback.php" method="POST" id="feedbackForm">
-        <!-- Add CSRF token if needed -->
-        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?? ''; ?>">
+        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
         
         <div class="r_form-group">
             <label class="r_form-label" for="r_reviewTitle">Your name <strong style="color: red;">*</strong></label>
-            <input type="text" id="r_reviewTitle" name="name" class="r_form-input" placeholder="Enter your name" required>
+            <input type="text" id="r_reviewTitle" name="name" class="r_form-input" 
+                   value="<?php echo $form_name; ?>"
+                   placeholder="Enter your name" required>
         </div>
 
         <div class="r_form-group">
             <label class="r_form-label" for="email">Your Email <strong style="color: red;">*</strong></label>
-            <input type="email" id="email" name="email" class="r_form-input" placeholder="Enter your email" required>
+            <input type="email" id="email" name="email" class="r_form-input"
+                   value="<?php echo $form_email; ?>"
+                   placeholder="Enter your email" required>
         </div>
 
         <div class="r_form-group">
             <label class="r_form-label" for="r_reviewText">Your Review <strong style="color: red;">*</strong></label>
-            <textarea id="r_reviewText" name="message" class="r_form-textarea" style="resize: none;" placeholder="Share your honest thoughts..." required></textarea>
+            <textarea id="r_reviewText" name="message" class="r_form-textarea" style="resize: none;" 
+                      placeholder="Share your honest thoughts..." required rows="4"><?php echo $form_message; ?></textarea>
         </div>
 
         <label class="r_form-label">Your Rating <strong style="color: red;">*</strong></label>
@@ -745,14 +822,19 @@
                 <span class="r_star" data-value="2">☆</span>
                 <span class="r_star" data-value="1">☆</span>
             </div>
-            <input type="hidden" id="r_rating" name="rating" value="" required>
-            <div class="r_rating-hint">I am watching you ! <i class="fa-solid fa-face-grin-beam" style="color: rgba(253, 253, 253, 0.863);"></i></div>
+            <input type="hidden" id="r_rating" name="rating" 
+                   value="<?php echo $form_rating; ?>" required>
+            <div class="r_rating-hint">Select a rating from 1 to 5 stars</div>
         </div>
 
         <div class="r_submit-container">
             <button type="submit" class="r_submit-btn" id="r_submitBtn">
-                <i class="fas fa-paperclip" style="font-size:24px;"></i> Publish your review
+                <i class="fas fa-paper-plane"></i>  <span id="btn-text">Submit your Review</span>
             </button>
+            <div id="r_loading" style="display: none; margin-top: 10px;">
+                <i class="fas fa-spinner fa-spin"></i> Submitting...
+            </div>
+            <div id="notification-container"></div>
         </div>
     </form>
 </div>
@@ -814,152 +896,264 @@
 
 
     <script src="assets/js/script.js"></script>
-    <script>
-        // Initialize star rating
-        document.addEventListener('DOMContentLoaded', function () {
-            const r_stars = document.querySelectorAll('.r_star');
-            const r_ratingInput = document.getElementById('r_rating');
+<script>
+    // Initialize star rating
+    document.addEventListener('DOMContentLoaded', function () {
+        const r_stars = document.querySelectorAll('.r_star');
+        const r_ratingInput = document.getElementById('r_rating');
+        const form_rating = '<?php echo $form_rating; ?>';
 
-            r_stars.forEach(r_star => {
-                r_star.addEventListener('click', function () {
-                    const value = this.getAttribute('data-value');
-                    r_ratingInput.value = value;
-
-                    // Update star display
-                    r_stars.forEach(s => {
-                        const starValue = s.getAttribute('data-value');
-                        if (starValue <= value) {
-                            s.classList.add('selected');
-                            s.textContent = '★';
-                        } else {
-                            s.classList.remove('selected');
-                            s.textContent = '☆';
-                        }
-                    });
-                });
-
-                // Hover effects
-                r_star.addEventListener('mouseover', function () {
-                    const value = this.getAttribute('data-value');
-                    r_stars.forEach(s => {
-                        const starValue = s.getAttribute('data-value');
-                        if (starValue <= value) {
-                            s.style.color = '#c91313';
-                            s.style.transform = 'scale(1.2)';
-                        }
-                    });
-                });
-
-                r_star.addEventListener('mouseout', function () {
-                    const currentRating = r_ratingInput.value;
-                    r_stars.forEach(s => {
-                        const starValue = s.getAttribute('data-value');
-                        s.style.transform = '';
-                        if (currentRating === '0' || starValue > currentRating) {
-                            s.style.color = '';
-                        }
-                    });
-                });
-            });
-
-            // Form submission handler
-            const r_form = document.getElementById('r_reviewForm');
-            const r_submitBtn = document.getElementById('r_submitBtn');
-            const r_loading = document.getElementById('r_loading');
-            const r_emailModal = document.getElementById('r_emailModal');
-            const r_closeModal = document.getElementById('r_closeModal');
-
-            r_form.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                // Validate required fields
-                const r_name = document.getElementById('r_name').value.trim();
-                const r_email = document.getElementById('r_email').value.trim();
-                const r_title = document.getElementById('r_reviewTitle').value.trim();
-                const r_rating = r_ratingInput.value;
-                const r_text = document.getElementById('r_reviewText').value.trim();
-
-                if (!r_name || !r_email || !r_title || r_rating === '0' || !r_text) {
-                    alert('Please fill in all required fields and select a rating.');
-                    return;
+        // Set initial star display based on form data
+        if (form_rating > 0) {
+            r_stars.forEach(s => {
+                const starValue = s.getAttribute('data-value');
+                if (starValue <= form_rating) {
+                    s.classList.add('selected');
+                    s.textContent = '★';
+                    s.style.color = '#c91313';
                 }
-
-                // Validate email format
-                const r_emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!r_emailRegex.test(r_email)) {
-                    alert('Please enter a valid email address.');
-                    return;
-                }
-
-                // Show loading state
-                r_submitBtn.style.display = 'none';
-                r_loading.classList.add('active');
-
-                // Prepare email content
-                const r_subject = `Book Review: ${r_title}`;
-                const r_body = `Name: ${r_name}%0D%0AEmail: ${r_email}%0D%0ARating: ${r_rating}/5 stars%0D%0A%0D%0AReview Title: ${r_title}%0D%0A%0D%0AReview:%0D%0A${r_text}%0D%0A%0D%0A---%0D%0AThis review was submitted via the book review form.`;
-
-                // Update form action with email content
-                r_form.action = `mailto:your-email@example.com?subject=${encodeURIComponent(r_subject)}&body=${encodeURIComponent(r_body)}`;
-
-                // Simulate processing delay
-                setTimeout(() => {
-                    // Hide loading, show modal
-                    r_loading.classList.remove('active');
-
-                    // Show modal
-                    r_emailModal.classList.add('active');
-
-                    // Submit form to open email client
-                    r_form.submit();
-                }, 1500);
             });
+            r_ratingInput.value = form_rating;
+        }
 
-            // Close modal
-            r_closeModal.addEventListener('click', function () {
-                r_emailModal.classList.remove('active');
-                r_submitBtn.style.display = 'flex';
+        r_stars.forEach(r_star => {
+            r_star.addEventListener('click', function () {
+                const value = this.getAttribute('data-value');
+                r_ratingInput.value = value;
 
-                // Reset form
-                r_form.reset();
+                // Update star display
                 r_stars.forEach(s => {
-                    s.classList.remove('selected');
-                    s.textContent = '☆';
-                    s.style.color = '';
-                });
-                r_ratingInput.value = '0';
-            });
-
-            // Close modal on background click
-            r_emailModal.addEventListener('click', function (e) {
-                if (e.target === r_emailModal) {
-                    r_emailModal.classList.remove('active');
-                    r_submitBtn.style.display = 'flex';
-                }
-            });
-
-
-
-            // Add subtle scroll animation
-            const r_reviewCards = document.querySelectorAll('.r_review-card');
-            const r_observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                    const starValue = s.getAttribute('data-value');
+                    if (starValue <= value) {
+                        s.classList.add('selected');
+                        s.textContent = '★';
+                        s.style.color = '#c91313';
+                    } else {
+                        s.classList.remove('selected');
+                        s.textContent = '☆';
+                        s.style.color = '';
                     }
                 });
-            }, { threshold: 0.1 });
+            });
 
-            r_reviewCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                r_observer.observe(card);
+            // Hover effects
+            r_star.addEventListener('mouseover', function () {
+                const value = this.getAttribute('data-value');
+                r_stars.forEach(s => {
+                    const starValue = s.getAttribute('data-value');
+                    if (starValue <= value) {
+                        s.style.color = '#c91313';
+                        s.style.transform = 'scale(1.2)';
+                    }
+                });
+            });
+
+            r_star.addEventListener('mouseout', function () {
+                const currentRating = r_ratingInput.value;
+                r_stars.forEach(s => {
+                    const starValue = s.getAttribute('data-value');
+                    s.style.transform = '';
+                    if (currentRating === '0' || starValue > currentRating) {
+                        if (!s.classList.contains('selected')) {
+                            s.style.color = '';
+                        }
+                    }
+                });
             });
         });
-    </script>
 
+        // Form submission with button state management
+        const feedbackForm = document.getElementById('feedbackForm');
+        if (feedbackForm) {
+            feedbackForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const form = this;
+                const submitBtn = document.getElementById('r_submitBtn');
+                const btnText = document.getElementById('btn-text');
+                const originalBtnHTML = submitBtn.innerHTML;
+                const originalBtnText = btnText.textContent;
+                const originalBtnStyle = submitBtn.style.cssText;
+                
+                // Step 1: Set to LOADING state
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.7';
+                submitBtn.style.cursor = 'not-allowed';
+                submitBtn.style.background = '#6c757d';
+                btnText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                
+                // Create FormData object
+                const formData = new FormData(form);
+                
+                // Submit via fetch API
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Step 2: Set to SUCCESS state
+                        submitBtn.style.background = '#28a745';
+                        submitBtn.style.borderColor = '#28a745';
+                        btnText.innerHTML = 'Review submitted !';
+                        
+                        // Clear the form
+                        form.reset();
+                        
+                        // Reset stars
+                        r_stars.forEach(s => {
+                            s.classList.remove('selected');
+                            s.textContent = '☆';
+                            s.style.color = '';
+                        });
+                        r_ratingInput.value = '0';
+                        
+                        // Show success message
+                        showNotification('success', data.message);
+                        
+                        // Step 3: Hide button after 1 second
+                        setTimeout(() => {
+                            submitBtn.style.opacity = '0';
+                            submitBtn.style.transform = 'scale(0.8)';
+                            submitBtn.style.transition = 'all 0.5s ease';
+                            
+                            // Step 4: Reset and show button again after another 5 seconds
+                            setTimeout(() => {
+                                submitBtn.disabled = false;
+                                submitBtn.style.cssText = originalBtnStyle;
+                                submitBtn.innerHTML = originalBtnHTML;
+                                submitBtn.style.opacity = '1';
+                                submitBtn.style.transform = 'scale(1)';
+                                submitBtn.style.display = 'inline-flex';
+                                submitBtn.style.alignItems = 'center';
+                            }, 1000);
+                        }, 1000);
+                        
+                    } else {
+                        // Show error message
+                        if (data.errors) {
+                            showNotification('error', data.errors.join('<br>'));
+                        } else {
+                            showNotification('error', data.message);
+                        }
+                        
+                        // Reset button
+                        submitBtn.disabled = false;
+                        submitBtn.style.cssText = originalBtnStyle;
+                        submitBtn.innerHTML = originalBtnHTML;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    
+                    // Show error message
+                    showNotification('error', 'Network error. Please try again.');
+                    
+                    // Reset button
+                    submitBtn.disabled = false;
+                    submitBtn.style.cssText = originalBtnStyle;
+                    submitBtn.innerHTML = originalBtnHTML;
+                });
+            });
+        }
+
+        // Function to show notifications
+        function showNotification(type, message) {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.custom-notification');
+            existingNotifications.forEach(notif => notif.remove());
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `custom-notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                <span>${message}</span>
+                <button class="close-notification">&times;</button>
+            `;
+            
+            // Add styles
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                background: ${type === 'success' ? '#d4edda' : '#f8d7da'};
+                color: ${type === 'success' ? '#155724' : '#721c24'};
+                border: 1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'};
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                z-index: 10000;
+                max-width: 400px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                animation: slideIn 0.3s ease;
+            `;
+            
+            // Add close button functionality
+            notification.querySelector('.close-notification').onclick = () => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            };
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+            
+            document.body.appendChild(notification);
+            
+            // Add CSS animations
+            if (!document.querySelector('#notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notification-styles';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                    .close-notification {
+                        background: none;
+                        border: none;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        padding: 0;
+                        margin-left: 10px;
+                        color: inherit;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        // Add subtle scroll animation
+        const r_reviewCards = document.querySelectorAll('.r_review-card');
+        const r_observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        r_reviewCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            r_observer.observe(card);
+        });
+    });
+</script>
     <script>
         // Simple scroll to top functionality
         const scrollTopBtn = document.getElementById('scroll-top');
