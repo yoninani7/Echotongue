@@ -843,11 +843,11 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
         </div>
     </section>
     <!-- Footer -->
-    <footer>
-        <div class="containear" style=" width: 90%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;">
+      <footer>
+            <div class="containear" style=" width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;">
             <div class="footer-container">
                 <div class="footer-col">
                     <h3>Echotongue</h3>
@@ -858,35 +858,35 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
                     <h3>Explore</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="#about">About the book </a></li>
-                        <li><a href="blog.php">Blog</a></li>
+                        <li><a href="#about">About the book </a></li> 
                         <li><a href="Timeline.html">Timeline</a></li>
                         <li><a href="chaptermap.html">Chapter Map</a></li>
                         <li><a href="purchasebook.html">Buy book</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Legal</h3>
+                    <h3>Connect</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Copyright</a></li>
+                        <li><a href="https://t.me/+447949325039">Telegram</a></li>
+                        <li><a href="https://www.instagram.com/echotongue2013/">Instagram</a></li>
+                        <li><a href="https://wa.me/+447949325039">Whatsapp</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Connect</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Telegram</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Whatsapp</a></li>
+                    <h3>Copyright</h3>
+                    <ul class="footer-links"> 
+                       <li> <div style="margin-top: 10px; font-size: 0.8rem;"> <strong>ISBN(PB):</strong> 979-8-89604-275-4 </div> </li>
+                       <li> <div style="margin-top: 10px; font-size: 0.8rem;"> <strong>ISBN(HB):</strong> 979-8-89604-276-1 </div> </li>
                     </ul>
+                  <div> 
+            
+                </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Hermona Zeleke. ECHOTONGUE: The Zureyan Tablets is a work of fiction. All rights
-                    reserved.</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;"> <strong>ISBN(PB):</strong> 979-8-89604-275-4 &nbsp; |
-                    &nbsp; <strong>ISBN(HB): </strong> 979-8-89604-276-1</p>
+                <p> ECHOTONGUE: The Zureyan Tablets is a work of fiction. All rights
+                    reserved. &copy; 2025 Hermona Zeleke.</p>
+                
                 <p> Designed by <a
                         style="font-family: 'Cinzel Decorative', serif; font-weight: 800;text-decoration: none; color:#d1cece; cursor: pointer;margin-bottom: 0 rem;"
                         href="https://yonikass.netlify.app/" target="_blank">Yonatan Kassahun</a></p>
