@@ -519,27 +519,27 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
 
     <!-- Fixed TRANSPARENT Navigation Bar -->
     <nav id="main-nav">
-        <a href="index.html" class="cinzel">ECHOTONGUE</a>
+        <a href="index.php" class="cinzel">ECHOTONGUE</a>
         <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li class="has-dropdown">
                 <a href="javascript:void(0)">About <i class="fas fa-chevron-down" style="font-size: 0.9rem; "></i></a>
                 <div class="dropdown">
-                    <a href="index.html #about">About the book</a>
-                    <a href="index.html #world">What's inside?</a>
-                    <a href="index.html #universe">The universe</a>
-                    <a href="index.html #preview">Edition features</a>
-                    <a href="index.html #magic">Dialects</a>
-                    <a href="index.html #characters"> Main Characters</a>
+                    <a href="index.php #about">About the book</a>
+                    <a href="index.php #world">What's inside?</a>
+                    <a href="index.php #universe">The universe</a>
+                    <a href="index.php #preview">Edition features</a>
+                    <a href="index.php #magic">Dialects</a>
+                    <a href="index.php #characters"> Main Characters</a>
                 </div>
             </li>
-            <li><a href="index.html #author">Author</a></li>
+            <li><a href="index.php #author">Author</a></li>
             <li><a href="blog.php">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
         </ul>
         <div class="nav-actions">
-            <a href="purchasebook.html" class="btn-nav">
+            <a href="purchasebook.php" class="btn-nav">
                 <i class="fas fa-book-open"></i> &nbsp;&nbsp; <span> Purchase Book</span>
             </a>
             <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -550,14 +550,14 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
     <!-- Mobile Navigation - Hidden by default -->
     <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html #about">About the book</a></li>
-            <li><a href="index.html #author">Author</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="index.php #about">About the book</a></li>
+            <li><a href="index.php #author">Author</a></li>
             <li><a href="blog.php">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
             <br>
-            <li><a href="purchasebook.html" class="btn-nav" style="color: white; font-size: large;"> <i class="fas fa-book-open"></i>
+            <li><a href="purchasebook.php" class="btn-nav" style="color: white; font-size: large;"> <i class="fas fa-book-open"></i>
                     Purchase Book</a></li>
         </ul>
     </div>
@@ -857,11 +857,11 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
                 <div class="footer-col">
                     <h3>Explore</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="#about">About the book </a></li> 
                         <li><a href="Timeline.html">Timeline</a></li>
                         <li><a href="chaptermap.html">Chapter Map</a></li>
-                        <li><a href="purchasebook.html">Buy book</a></li>
+                        <li><a href="purchasebook.php">Buy book</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

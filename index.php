@@ -25,9 +25,9 @@
 <body>
     <!-- Fixed TRANSPARENT Navigation Bar -->
     <nav id="main-nav">
-        <a href="index.html" class="cinzel">ECHOTONGUE</a>
+        <a href="index.php" class="cinzel">ECHOTONGUE</a>
         <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li class="has-dropdown">
                 <a href="javascript:void(0)">About <i class="fas fa-chevron-down" style="font-size: 0.9rem; "></i></a>
                 <div class="dropdown">
@@ -45,7 +45,7 @@
             <li><a href="chaptermap.html">Chapter Map</a></li>
         </ul>
         <div class="nav-actions">
-            <a href="purchasebook.html" class="btn-nav">
+            <a href="purchasebook.php" class="btn-nav">
                 <i class="fas fa-book-open"></i> &nbsp;&nbsp; <span> Purchase Book</span>
             </a>
             <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -56,14 +56,14 @@
     <!-- Mobile Navigation - Hidden by default -->
     <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="#about">About the book</a></li>
             <li><a href="#author">Author</a></li>
             <li><a href="blog.php">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
             <br>
-            <li><a href="purchasebook.html" class="btn-nav" style="color: white; font-size: large; "> <i class="fas fa-book-open"></i>
+            <li><a href="purchasebook.php" class="btn-nav" style="color: white; font-size: large; "> <i class="fas fa-book-open"></i>
                     Purchase Book</a></li>
         </ul>
     </div>
@@ -199,7 +199,7 @@
 
                     <!-- Your new cliffhanger content ends here -->
                 </article>
-                <a href="purchasebook.html" class="premium-cta">
+                <a href="purchasebook.php" class="premium-cta">
                     <span class="cta-text">Continue Reading</span>
                 </a>
             </div>
@@ -407,7 +407,7 @@
                             style="text-decoration: none; color: white;">melaaddis@yahoo.com</a>
                     </div>
                 </div>
-                <a href="purchasebook.html" style="text-decoration: none; color: rgba(255, 255, 255, 0.877);">
+                <a href="purchasebook.php" style="text-decoration: none; color: rgba(255, 255, 255, 0.877);">
                     <div class="contact-card">
                         <div class="card-content">
                             <div class="contact-icon">
@@ -419,7 +419,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="purchasebook.html" style="text-decoration: none; color: rgba(255, 255, 255, 0.877);">
+                <a href="purchasebook.php" style="text-decoration: none; color: rgba(255, 255, 255, 0.877);">
                     <div class="contact-card">
                         <div class="card-content">
                             <div class="contact-icon">
@@ -539,11 +539,11 @@
                 <div class="footer-col">
                     <h3>Explore</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="#about">About the book </a></li> 
                         <li><a href="Timeline.html">Timeline</a></li>
                         <li><a href="chaptermap.html">Chapter Map</a></li>
-                        <li><a href="purchasebook.html">Buy book</a></li>
+                        <li><a href="purchasebook.php">Buy book</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
