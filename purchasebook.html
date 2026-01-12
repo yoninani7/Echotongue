@@ -705,59 +705,57 @@
 
                     <!-- Right: Review Form -->
                     <div class="r_review-form-container">
-                        <div class="r_form-header">
-                            <div class="r_form-icon">
-                                <i class="fas fa-pen-nib"></i>
-                            </div>
-                            <h2 class="r_form-title">Share Your Thoughts</h2>
-                            <p class="r_form-subtitle">
-                                Your perspective matters. Share your experience with this book—what moved you, what
-                                surprised you, what stayed with you.
-                            </p>
-                        </div>
+    <div class="r_form-header">
+        <div class="r_form-icon">
+            <i class="fas fa-pen-nib"></i>
+        </div>
+        <h2 class="r_form-title">Share Your Thoughts</h2>
+        <p class="r_form-subtitle">
+            Your perspective matters. Share your experience with this book—what moved you, what
+            surprised you, what stayed with you.
+        </p>
+    </div>
 
-                        <!-- Form -->
+    <!-- Form -->
+    <form action="submit_feedback.php" method="POST" id="feedbackForm">
+        <!-- Add CSRF token if needed -->
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?? ''; ?>">
+        
+        <div class="r_form-group">
+            <label class="r_form-label" for="r_reviewTitle">Your name <strong style="color: red;">*</strong></label>
+            <input type="text" id="r_reviewTitle" name="name" class="r_form-input" placeholder="Enter your name" required>
+        </div>
 
-                        <form target="_blank" action="https://formsubmit.co/yonsbreak7@gmail.com" method="POST">
+        <div class="r_form-group">
+            <label class="r_form-label" for="email">Your Email <strong style="color: red;">*</strong></label>
+            <input type="email" id="email" name="email" class="r_form-input" placeholder="Enter your email" required>
+        </div>
 
-                            <div class="r_form-group">
-                                <label class="r_form-label" for="r_reviewTitle">Your name <strong
-                                        style="color: red;">*</strong></label>
-                                <input type="text" id="r_reviewTitle" name="r_reviewTitle" class="r_form-input"
-                                    placeholder="Enter your name" required>
-                            </div>
+        <div class="r_form-group">
+            <label class="r_form-label" for="r_reviewText">Your Review <strong style="color: red;">*</strong></label>
+            <textarea id="r_reviewText" name="message" class="r_form-textarea" style="resize: none;" placeholder="Share your honest thoughts..." required></textarea>
+        </div>
 
-                            <div class="r_form-group">
-                                <label class="r_form-label" for="r_reviewText">Your Review <strong
-                                        style="color: red;">*</strong></label>
-                                <textarea id="r_reviewText" name="r_reviewText" class="r_form-textarea"
-                                    style="resize: none;" placeholder="Share your honest thoughts..."
-                                    required></textarea>
-                            </div>
+        <label class="r_form-label">Your Rating <strong style="color: red;">*</strong></label>
+        <div class="r_rating-container">
+            <div class="r_star-rating" id="r_starRating">
+                <span class="r_star" data-value="5">☆</span>
+                <span class="r_star" data-value="4">☆</span>
+                <span class="r_star" data-value="3">☆</span>
+                <span class="r_star" data-value="2">☆</span>
+                <span class="r_star" data-value="1">☆</span>
+            </div>
+            <input type="hidden" id="r_rating" name="rating" value="" required>
+            <div class="r_rating-hint">I am watching you ! <i class="fa-solid fa-face-grin-beam" style="color: rgba(253, 253, 253, 0.863);"></i></div>
+        </div>
 
-                            <label class="r_form-label">Your Rating <strong style="color: red;">*</strong></label>
-                            <div class="r_rating-container">
-                                <div class="r_star-rating" id="r_starRating">
-                                    <span class="r_star" data-value="5">☆</span>
-                                    <span class="r_star" data-value="4">☆</span>
-                                    <span class="r_star" data-value="3">☆</span>
-                                    <span class="r_star" data-value="2">☆</span>
-                                    <span class="r_star" data-value="1">☆</span>
-                                </div>
-                                <input type="hidden" id="r_rating" name="r_rating" value="" required>
-                                <div class="r_rating-hint">I am watching you ! <i class="fa-solid fa-face-grin-beam"
-                                        style="color: rgba(253, 253, 253, 0.863);"></i></div>
-                            </div>
-
-                            <div class="r_submit-container">
-                                <button type="submit" class="r_submit-btn" id="r_submitBtn">
-                                    <i class="fas fa-paperclip" style="font-size:24px;"></i> Publish your review
-                                </button>
-                            </div>
-
-                        </form>
-
-                    </div>
+        <div class="r_submit-container">
+            <button type="submit" class="r_submit-btn" id="r_submitBtn">
+                <i class="fas fa-paperclip" style="font-size:24px;"></i> Publish your review
+            </button>
+        </div>
+    </form>
+</div>
                 </div>
             </div>
         </div>
