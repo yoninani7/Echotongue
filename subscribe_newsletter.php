@@ -1,19 +1,6 @@
 <?php
-// Simple newsletter subscription handler
-// Database credentials
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'echotongue';
-
-// Connect to database
-$conn = new mysqli($host, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die(json_encode(['success' => false, 'message' => 'Database error']));
-}
-
+ 
+include 'db.php'; 
 // Get email from POST
 $email = isset($_POST['Email']) ? trim($_POST['Email']) : '';
 
