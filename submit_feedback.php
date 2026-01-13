@@ -1,27 +1,12 @@
 <?php
 session_start();
 
-// Generate CSRF token if not exists
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
+// // Generate CSRF token if not exists
+// if (empty($_SESSION['csrf_token'])) {
+//     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+// }
 
-// Database connection
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'echotongue';
-
-// Create connection
-$conn = new mysqli($host, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-    $response = ['success' => false, 'message' => 'Database connection failed.'];
-    header('Content-Type: application/json');
-    echo json_encode($response);
-    exit();
-}
+include 'db.php'; 
 
 // Create database if it doesn't exist
 $createDb = "CREATE DATABASE IF NOT EXISTS `$database` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci";
@@ -45,12 +30,12 @@ function sanitizeInput($data) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verify CSRF token
-    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-        $response = ['success' => false, 'message' => 'Security token invalid. Please try again.'];
-        header('Content-Type: application/json');
-        echo json_encode($response);
-        exit();
-    }
+    // if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+    //     $response = ['success' => false, 'message' => 'Security token invalid. Please try again.'];
+    //     header('Content-Type: application/json');
+    //     echo json_encode($response);
+    //     exit();
+    // }
     
     // Get and sanitize form data
     $name = sanitizeInput($_POST['name'] ?? '');
@@ -122,8 +107,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Store in session for page reload (optional)
                 $_SESSION['feedback_success'] = $response['message'];
                 
-                // Generate new CSRF token
-                $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+                // // Generate new CSRF token
+                // $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             } else {
                 throw new Exception('Failed to save feedback.');
             }
