@@ -508,9 +508,9 @@
                     </div>
                 </div>
                 <div class="author-social">
-                    <a href="https://www.instagram.com/echotongue2013/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://t.me/+447949325039"><i class="fab fa-telegram"></i></a>
-                    <a href="https://wa.me/+447949325039"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/echotongue2013/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/+447949325039" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/+447949325039" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -549,9 +549,9 @@
                 <div class="footer-col">
                     <h3>Connect</h3>
                     <ul class="footer-links">
-                        <li><a href="https://t.me/+447949325039">Telegram</a></li>
-                        <li><a href="https://www.instagram.com/echotongue2013/">Instagram</a></li>
-                        <li><a href="https://wa.me/+447949325039">Whatsapp</a></li>
+                        <li><a href="https://t.me/+447949325039" target="_blank">Telegram</a></li>
+                        <li><a href="https://www.instagram.com/echotongue2013/" target="_blank">Instagram</a></li>
+                        <li><a href="https://wa.me/+447949325039" target="_blank">Whatsapp</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
