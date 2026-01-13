@@ -645,9 +645,9 @@
     <?php
     // Database connection with utf8mb4
     $host = 'localhost';
-    $username = 'dsintevr_echotongue';
-    $password = 'aEZ6gWB2EQDgjsZehKGN';
-    $database = 'dsintevr_echotongue';
+    $username = 'root';
+    $password = '';
+    $database = 'echotongue';
 
     $conn = new mysqli($host, $username, $password, $database);
     
@@ -701,7 +701,7 @@
     </div>
 </div>
 
-   <footer style="margin-top:40px;">
+   <footer >
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
@@ -722,9 +722,9 @@
                 <div class="footer-col">
                     <h3>Connect</h3>
                     <ul class="footer-links">
-                        <li><a href="https://t.me/+447949325039">Telegram</a></li>
-                        <li><a href="https://www.instagram.com/echotongue2013/">Instagram</a></li>
-                        <li><a href="https://wa.me/+447949325039">Whatsapp</a></li>
+                        <li><a href="https://t.me/+447949325039" target="_blank">Telegram</a></li>
+                        <li><a href="https://www.instagram.com/echotongue2013/" target="_blank">Instagram</a></li>
+                        <li><a href="https://wa.me/+447949325039" target="_blank">Whatsapp</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
