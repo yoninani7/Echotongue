@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-// Generate CSRF token if not exists
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
+// // Generate CSRF token if not exists
+// if (empty($_SESSION['csrf_token'])) {
+//     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+// }
 
 // Clear form data after displaying (to prevent showing old data on refresh)
 $form_name = isset($_SESSION['form_data']['name']) ? htmlspecialchars($_SESSION['form_data']['name']) : '';
@@ -824,7 +824,8 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
             </div>
             <input type="hidden" id="r_rating" name="rating" 
                    value="<?php echo $form_rating; ?>" required>
-            <div class="r_rating-hint">Select a rating from 1 to 5 stars</div>
+            <div class="r_rating-hint">I am watching you ! <i class="fa-solid fa-face-grin-beam"
+                                        style="color: rgba(253, 253, 253, 0.863);"></i></div>
         </div>
 
         <div class="r_submit-container">
