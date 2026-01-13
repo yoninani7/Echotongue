@@ -641,60 +641,45 @@
             <!-- Add the thoughts-feed container -->
             <div class="thoughts-feed" id="thoughtsFeed">
              <!-- Add the thoughts-feed container -->
-<div class="thoughts-feed" id="thoughtsFeed">
-    <?php
-    // Database connection with utf8mb4
-    $host = 'localhost';
-    $username = 'root';
-    $password = '';
-    $database = 'echotongue';
+            <div class="thoughts-feed" id="thoughtsFeed">
+            <?php 
+            include 'db.php'; 
+            // Retrieve thoughts from the database
+            $sql = "SELECT * FROM authors_thoughts ORDER BY thought_date DESC";
+            $result = $conn->query($sql);
 
-    $conn = new mysqli($host, $username, $password, $database);
-    
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    
-    // Set charset to utf8mb4 for emoji support
-    $conn->set_charset("utf8mb4");
-
-    // Retrieve thoughts from the database, ordered by date (newest first)
-    $sql = "SELECT * FROM authors_thoughts ORDER BY thought_date DESC";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        $index = 0;
-        while ($row = $result->fetch_assoc()) {
-            $thought_date = htmlspecialchars($row['thought_date'], ENT_QUOTES, 'UTF-8');
-            $thought_text = htmlspecialchars($row['thought_text'], ENT_QUOTES, 'UTF-8'); 
-            $formatted_date = date('F j, Y g:i A', strtotime($thought_date)); 
-            
-            // Only mark the first (latest) entry as "Latest"
-            $is_new = ($index == 0) ? true : false;
-            
-            echo '<div class="thought-entry" style="animation-delay: '.($index * 0.15).'s;" data-index="'.$index.'">';
-            
-            if ($is_new) {
-                echo '<span class="new-indicator">Latest</span>';
+            if ($result && $result->num_rows > 0) {
+                $index = 0;
+                while ($row = $result->fetch_assoc()) {
+                    $thought_date = htmlspecialchars($row['thought_date'], ENT_QUOTES, 'UTF-8');
+                    $thought_text = htmlspecialchars($row['thought_text'], ENT_QUOTES, 'UTF-8'); 
+                    $formatted_date = date('F j, Y g:i A', strtotime($thought_date)); 
+                    
+                    $is_new = ($index == 0);
+                    
+                    echo '<div class="thought-entry" style="animation-delay: '.($index * 0.15).'s;" data-index="'.$index.'">';
+                    
+                    if ($is_new) {
+                        echo '<span class="new-indicator">Latest</span>';
+                    }
+                    
+                    echo '<div class="timeline-hit-area"></div>';
+                    echo '<div class="timeline-container"><div class="timeline-dot"></div></div>';
+                    echo '<div class="thought-content">';
+                    echo '<div class="thought-date"><i class="far fa-clock"></i> '.$formatted_date.'</div>';
+                    echo '<p class="thought-text">'.$thought_text.'</p>';
+                    echo '</div>';
+                    echo '</div>';
+                    
+                    $index++;
+                }
+            } else {
+                echo '<div class="no-thoughts">No thoughts yet. Check back soon!</div>';
             }
-            
-            echo '<div class="timeline-hit-area"></div>';
-            echo '<div class="timeline-container"><div class="timeline-dot"></div></div>';
-            echo '<div class="thought-content">';
-            echo '<div class="thought-date"><i class="far fa-clock"></i> '.$formatted_date.'</div>';
-            echo '<p class="thought-text">'.$thought_text.'</p>';
-            echo '</div>';
-            echo '</div>';
-            
-            $index++;
-        }
-    } else {
-        echo '<div class="no-thoughts">No thoughts yet. Check back soon!</div>';
-    }
 
-    $conn->close();
-    ?>
+            // Close connection at the very end
+            $conn->close();
+            ?>
 </div>
             </div>
         </div>
