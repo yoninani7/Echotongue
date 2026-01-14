@@ -144,7 +144,7 @@ function setupEventListeners() {
         newsletterForm.addEventListener('submit', function (e) {
             e.preventDefault();
             const email = this.querySelector('input').value;
-            showNotification(`Thank you for subscribing with ${email}!`);
+            showNotification(`Thank you for subscribing with ${email} !`);
             this.reset();
         });
     }
@@ -381,22 +381,31 @@ function scrollToContent() {
 // Show notification
 function showNotification(message) {
     const notification = document.createElement('div');
-    notification.className = 'notification';
+    notification.className = 'notification';   
     notification.textContent = message;
+
     notification.style.cssText = `
-            position: fixed;
-            top: 120px;
-            right: 20px;
-            background-color: var(--primary-black);
-            color: white;
-            padding: 20px 30px;
-            border-radius: 5px;
-            z-index: 1002;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            animation: slideIn 0.3s ease;
-            max-width: 400px;
-            font-weight: 600;
-            border-left: 5px solid var(--primary-red);
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    padding: 30px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+    max-width: 420px;
+    font-family: var(--f-ui); /* Orbitron */
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgba(5, 5, 5, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 5px solid rgb(31, 187, 0);
+    color: #fff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    transition: all 0.5s var(--ease);
         `;
 
     document.body.appendChild(notification);
@@ -474,17 +483,4 @@ function handleTimelineProgress() {
 
     progressLine.style.height = `${progress}%`;
 }
- 
-document.querySelector('form').addEventListener('submit', function(e) {
-    const ratingInput = document.getElementById('r_rating');
-    const ratingHint = document.querySelector('.r_rating-hint'); 
-    const ratinadsfgInput = document.getElementById('r_rating');
-    const ratiadsfngHint = document.querySelector('.r_rating-hint'); 
-
-    // Check if the rating value is empty
-    if (!ratingInput.value) {
-        // Prevent form submission
-        e.preventDefault();  
-        showNotification(`★ Provide your rating `);
-    }
-}); 
+  
