@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-// // Generate CSRF token if not exists
-// if (empty($_SESSION['csrf_token'])) {
-//     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-// }
+// Generate CSRF token if not exists
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 
 // Clear form data after displaying (to prevent showing old data on refresh)
 $form_name = isset($_SESSION['form_data']['name']) ? htmlspecialchars($_SESSION['form_data']['name']) : '';
@@ -461,56 +461,70 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
                 font-size: 2.2rem;
             }
         } 
-/* Notification Styles */
+/* Notification Styles */ 
 .custom-notification {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 15px 20px;
-    border-radius: 5px;
+    top: 30px;
+    right: 30px;
+    padding: 20px 25px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    z-index: 10000;
-    max-width: 400px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    animation: slideIn 0.3s ease;
+    gap: 15px;
+    z-index: 1000;
+    max-width: 420px;
+    font-family: var(--f-ui); /* Orbitron */
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgba(5, 5, 5, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    transition: all 0.5s var(--ease);
 }
 
 .custom-notification.success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    border-left: 4px solid #28a745;
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.15), 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .custom-notification.error {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+    border-left: 4px solid var(--red);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.15), 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .custom-notification i {
     font-size: 1.2rem;
 }
 
+.custom-notification.success i { color:#28a745; }
+.custom-notification.error i { color: var(--red); }
+
 .close-notification {
     background: none;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     cursor: pointer;
     padding: 0;
-    margin-left: 10px;
-    color: inherit;
+    margin-left: 15px;
+    color: rgba(255,255,255,0.3);
+    transition: color 0.3s;
+}
+
+.close-notification:hover {
+    color: #fff;
 }
 
 @keyframes slideIn {
-    from { transform: translateX(100%); opacity: 0; }
+    from { transform: translateX(120%); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes slideOut {
     from { transform: translateX(0); opacity: 1; }
-    to { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(120%); opacity: 0; }
 }
     </style>
 </head>
@@ -1059,83 +1073,49 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
             });
         }
 
-        // Function to show notifications
-        function showNotification(type, message) {
-            // Remove existing notifications
-            const existingNotifications = document.querySelectorAll('.custom-notification');
-            existingNotifications.forEach(notif => notif.remove());
-            
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `custom-notification ${type}`;
-            notification.innerHTML = `
-                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-                <span>${message}</span>
-                <button class="close-notification">&times;</button>
-            `;
-            
-            // Add styles
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 15px 20px;
-                background: ${type === 'success' ? '#d4edda' : '#f8d7da'};
-                color: ${type === 'success' ? '#155724' : '#721c24'};
-                border: 1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'};
-                border-radius: 5px;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                z-index: 10000;
-                max-width: 400px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                animation: slideIn 0.3s ease;
-            `;
-            
-            // Add close button functionality
-            notification.querySelector('.close-notification').onclick = () => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
-            };
-            
-            // Auto remove after 5 seconds
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => notification.remove(), 300);
-                }
-            }, 5000);
-            
-            document.body.appendChild(notification);
-            
-            // Add CSS animations
-            if (!document.querySelector('#notification-styles')) {
-                const style = document.createElement('style');
-                style.id = 'notification-styles';
-                style.textContent = `
-                    @keyframes slideIn {
-                        from { transform: translateX(100%); opacity: 0; }
-                        to { transform: translateX(0); opacity: 1; }
-                    }
-                    @keyframes slideOut {
-                        from { transform: translateX(0); opacity: 1; }
-                        to { transform: translateX(100%); opacity: 0; }
-                    }
-                    .close-notification {
-                        background: none;
-                        border: none;
-                        font-size: 1.2rem;
-                        cursor: pointer;
-                        padding: 0;
-                        margin-left: 10px;
-                        color: inherit;
-                    }
-                `;
-                document.head.appendChild(style);
-            }
+      function showNotification(type, message) {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.custom-notification');
+    existingNotifications.forEach(notif => {
+        notif.style.animation = 'slideOut 0.3s ease forwards';
+        setTimeout(() => notif.remove(), 300);
+    });
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `custom-notification ${type}`;
+    
+    // Set Icon based on type
+    const icon = type === 'success' ? 'fa-circle-check' : 'fa-triangle-exclamation';
+    
+    notification.innerHTML = `
+        <i class="fa-solid ${icon}"></i>
+        <div class="notification-content">
+            <div style="font-weight: 900; margin-bottom: 2px;">${type === 'success' ? 'System Success' : 'System Error'}</div>
+            <div style="opacity: 0.8; font-family: 'Montserrat', sans-serif; text-transform: none;">${message}</div>
+        </div>
+        <button class="close-notification">&times;</button>
+    `;
+    
+    // Set entrance animation
+    notification.style.animation = 'slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+    
+    // Add close button functionality
+    notification.querySelector('.close-notification').onclick = () => {
+        notification.style.animation = 'slideOut 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+        setTimeout(() => notification.remove(), 400);
+    };
+    
+    // Auto remove after 6 seconds
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.style.animation = 'slideOut 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+            setTimeout(() => notification.remove(), 400);
         }
-
+    }, 6000);
+    
+    document.body.appendChild(notification);
+}
         // Add subtle scroll animation
         const r_reviewCards = document.querySelectorAll('.r_review-card');
         const r_observer = new IntersectionObserver((entries) => {
