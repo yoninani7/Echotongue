@@ -423,26 +423,13 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container newsletter-container">
-            <h2>Join the Echotongue Community</h2>
-            <p>Subscribe to receive exclusive content and updates about the Echotongue series.</p>
-            <form class="newsletter-form" id="newsletter-form" action="subscribe_newsletter.php" method="POST">
-                <input name="Email" type="email" placeholder="Enter your email address" required aria-label="Email Address">
-                <button type="submit" class="btn">Subscribe</button>
-            </form>
-        </div>
-    </section>
-            <div style="text-align: center; margin: 60px auto; font-family: 'Segoe UI', Roboto, sans-serif;">
-    <a href="purchasebook.php" style="
+          <div style="text-align: center; margin-top: 30px; font-family: 'Segoe UI', Roboto, sans-serif;">
+    <a href="purchasebook.php#wisewords" style="
         text-decoration: none; 
         display: inline-block; 
         padding: 40px 60px; 
         border-radius: 12px; 
-        background: #1a1a1a; 
+        background: linear-gradient(145deg, #131212af, #070707da);
         border: 1px solid #333;
         box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         transition: all 0.3s ease-in-out;"
@@ -455,6 +442,21 @@
         </h2>
     </a>
 </div>
+    </section>
+
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container newsletter-container">
+            <h2>Join the Echotongue Community</h2>
+            <p>Subscribe to receive exclusive content and updates about the Echotongue series.</p>
+            <form class="newsletter-form" id="newsletter-form" action="subscribe_newsletter.php" method="POST">
+                <input name="Email" type="email" placeholder="Enter your email address" required aria-label="Email Address">
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+          
     <!-- Footer -->
     <footer>
         <div class="container">
