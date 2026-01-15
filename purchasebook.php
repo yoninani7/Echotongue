@@ -25,7 +25,26 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECHOTONGUE - Official Site</title>
+    
+    <!-- SEO PRIMARY TAGS -->
+    <title>Buy ECHOTONGUE: The Zureyan Tablets | Purchase by Hermona N. Zeleke</title>
+    <meta name="description" content="Get your copy of ECHOTONGUE: The Zureyan Tablets. Available now on Amazon, Walmart, Waterstones, Everand, and Dick Smith. Discover the epic space fantasy novel today.">
+    <meta name="keywords" content="Buy Echotongue, Hermona Zeleke Book, Purchase Zureyan Tablets, Science Fiction Novel, Amazon Books, Walmart Books, Space Fantasy Purchase">
+    <link rel="canonical" href="https://echotongue.com/purchasebook.php" />
+
+    <!-- OPEN GRAPH / FACEBOOK (SOCIAL SEO) -->
+    <meta property="og:type" content="book">
+    <meta property="og:url" content="https://echotongue.com/purchasebook.php">
+    <meta property="og:title" content="Purchase ECHOTONGUE: The Zureyan Tablets">
+    <meta property="og:description" content="Don't miss the epic journey. Secure your edition of ECHOTONGUE from your favorite global retailers.">
+    <meta property="og:image" content="https://echotongue.com/assets/front.png">
+
+    <!-- TWITTER SEO -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Buy ECHOTONGUE by Hermona N. Zeleke">
+    <meta name="twitter:description" content="Now available globally on Amazon, Walmart, and Waterstones.">
+    <meta name="twitter:image" content="https://echotongue.com/assets/front.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="assets/echologo.png" sizes="32x32" type="image/x-icon">
@@ -43,6 +62,28 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 
+    <!-- SCHEMA.ORG STRUCTURED DATA (HEAVY SEO BOOST) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "ECHOTONGUE: The Zureyan Tablets",
+      "image": "https://echotongue.com/assets/front.png",
+      "description": "An epic space fantasy novel where language is power and ancient secrets await discovery.",
+      "brand": {
+        "@type": "Brand",
+        "name": "ECHOTONGUE"
+      },
+      "sku": "9798896042754",
+      "offers": {
+        "@type": "AggregateOffer",
+        "url": "https://echotongue.com/purchasebook.php",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "offerCount": "5"
+      }
+    }
+    </script>
     <style>
         :root {
             --red: #ff0000;
@@ -790,17 +831,17 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
                     </div>
 
                    <!-- Right: Review Form -->
-<div class="r_review-form-container" id="review-form">
-    <div class="r_form-header">
-        <div class="r_form-icon">
-            <i class="fas fa-pen-nib"></i>
-        </div>
-        <h2 class="r_form-title">Share Your Thoughts</h2>
-        <p class="r_form-subtitle">
-            Your perspective matters. Share your experience with this book—what moved you, what
-            surprised you, what stayed with you.
-        </p>
-    </div>
+        <div class="r_review-form-container" id="review-form">
+            <div class="r_form-header">
+                <div class="r_form-icon">
+                    <i class="fas fa-pen-nib"></i>
+                </div>
+                <h2 class="r_form-title">Share Your Thoughts</h2>
+                <p class="r_form-subtitle">
+                    Your perspective matters. Share your experience with this book - what moved you, what
+                    surprised you, what stayed with you.
+                </p>
+            </div>
  
 
     <!-- Form -->
