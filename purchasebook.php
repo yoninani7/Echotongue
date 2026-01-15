@@ -701,9 +701,10 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
         </a>
     </div>
     </div>
+    <div id="wisewords"> </div>
     <section>
         <!-- Review Section -->
-        <div class="r_review-section">
+        <div class="r_review-section" id="wisewords">
             <div class="r_container">
                 <!-- Content -->
                 <div class="r_review-content">
