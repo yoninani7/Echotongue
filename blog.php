@@ -4,7 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECHOTONGUE - Official Site</title>
+    
+    <!-- SEO PRIMARY TAGS -->
+    <title>Author's Corner | ECHOTONGUE - Space Fantasy by Hermona Zeleke</title>
+    <meta name="description" content="Step into the Author's Corner of ECHOTONGUE. Read reflections on world-building, writing updates, and the creative journey behind the Zureyan Tablets by Hermona Zeleke.">
+    <meta name="keywords" content="ECHOTONGUE, Hermona Zeleke, Space Fantasy, Zureyan Tablets, Author Blog, Science Fiction Writing, World Building">
+    <link rel="canonical" href="https://echotongue.com/blog.php" />
+
+    <!-- OPEN GRAPH / FACEBOOK -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://echotongue.com/blog.php">
+    <meta property="og:title" content="Author's Corner | ECHOTONGUE Official">
+    <meta property="og:description" content="Glimpses from the writing desk and reflections on the ECHOTONGUE universe.">
+    <meta property="og:image" content="https://echotongue.com/assets/echologo.png">
+
+    <!-- TWITTER SEO -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Author's Corner | ECHOTONGUE">
+    <meta property="twitter:description" content="Reflections on the creative journey of the ECHOTONGUE universe.">
+    <meta property="twitter:image" content="https://echotongue.com/assets/echologo.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="assets/echologo.png" sizes="32x32" type="image/x-icon">
@@ -38,27 +57,17 @@
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
         }
 
-
-
         body {
             background-image: url(assets/leaves.png);
             scroll-behavior: smooth;
             animation: twinkle 10s infinite secondary;
-    display: flex;
-    flex-direction: column;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Optional: Gentle pulse to make stars "shimmer" */
         @keyframes twinkle {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.8;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
         .authors-thoughts {
@@ -67,14 +76,12 @@
             margin-top: 20px;
         }
 
-        /* Main container */
         .thoughts-container {
             max-width: 1100px;
             margin: 0 auto;
             position: relative;
         }
 
-        /* Enhanced header */
         .thoughts-header {
             text-align: center;
             margin-bottom: 40px;
@@ -99,16 +106,13 @@
         }
 
         .author-name {
-            
-    font-family: 'Cinzel', serif;
+            font-family: 'Cinzel', serif;
             font-size: 1.9rem;
             font-weight: 650;
             color: rgb(240, 236, 236);
             margin-bottom: 18px;
             line-height: 0.9;
-
         }
-
 
         .author-bio {
             font-size: clamp(0.9rem, 2vw, 1.1rem);
@@ -118,13 +122,11 @@
             margin: 0 auto;
         }
 
-        /* Timeline Container */
         .timeline-wrapper {
             position: relative;
             padding-left: 80px;
         }
 
-        /* The background 'track' (The line that is always there) */
         .timeline-line {
             position: absolute;
             left: 30px;
@@ -132,49 +134,30 @@
             bottom: 0;
             width: 3px;
             background: rgba(255, 255, 255, 0.1);
-            /* Very faint white */
             z-index: 1;
         }
 
-        /* The 'active' line that follows your scroll */
         .timeline-progress {
             position: absolute;
             left: 30px;
             top: 0;
             width: 3px;
-            background: linear-gradient(to bottom,
-                    #2e0202,
-                    /* Dark Goldenrod */
-                    #800404,
-                    /* Deep Burgundy */
-                    #990909, #990909, #990909, #990909,
-                    /* Blood Red */
-                    white);
+            background: linear-gradient(to bottom, #2e0202, #800404, #990909, #990909, #990909, #990909, white);
             box-shadow: 0 0 15px #990909;
             z-index: 2;
             height: 0%;
-            /* Starts at 0, JS will update this */
             transition: height 0.1s ease-out;
-            /* Smooth growth */
         }
 
-        /* Hover effect for timeline line when thought entry is hovered */
         .thought-entry:hover~.timeline-line {
-            background: linear-gradient(to bottom,
-                    transparent 0%,
-                    var(--secondary-color) 10%,
-                    var(--accent-color) 50%,
-                    var(--secondary-color) 90%,
-                    transparent 100%);
+            background: linear-gradient(to bottom, transparent 0%, var(--secondary-color) 10%, var(--accent-color) 50%, var(--secondary-color) 90%, transparent 100%);
         }
 
-        /* Thoughts Feed */
         .thoughts-feed {
             position: relative;
             z-index: 2;
         }
 
-        /* Thought entries */
         .thought-entry {
             position: relative;
             margin-bottom: 50px;
@@ -191,8 +174,6 @@
             }
         }
 
-        /* Timeline Dot - Enhanced hover effect */
-        /* Add this to center the timeline-dot within its parent container */
         .timeline-container {
             display: flex;
             justify-content: center;
@@ -221,12 +202,10 @@
             transition: var(--transition);
         }
 
-        /* Timeline dot glow effect on hover */
         .thought-entry:hover .timeline-dot {
             transform: rotate(135deg) scale(1.3);
             border-color: rgb(167, 0, 0);
-            box-shadow: 0 0 0 4px rgba(192, 187, 183, 0.1),
-                0 0 0 8px rgba(139, 90, 43, 0.05);
+            box-shadow: 0 0 0 4px rgba(192, 187, 183, 0.1), 0 0 0 8px rgba(139, 90, 43, 0.05);
         }
 
         .thought-entry:hover .timeline-dot::after {
@@ -234,7 +213,6 @@
             background: var(--accent-color);
         }
 
-        /* Create a larger invisible hit area for timeline interaction */
         .timeline-hit-area {
             position: absolute;
             left: 20px;
@@ -245,28 +223,19 @@
             cursor: pointer;
         }
 
-        /* Container for the thought box */
         .thought-content {
             position: relative;
-            /* Professional Deep Charcoal Gradient */
             background: linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 100%);
             color: #e0e0e0;
-
-            /* Muted Bronze/Gold Border */
             border: 1px solid #4a453e;
             border-radius: 12px;
             padding: 24px;
-
-            /* Layered shadows for depth */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-
-            /* Clean typography */
             font-family: 'Inter', -apple-system, sans-serif;
             line-height: 1.6;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* The Smooth Arrow */
         .thought-content::before {
             content: '';
             position: absolute;
@@ -274,31 +243,20 @@
             top: 30px;
             width: 16px;
             height: 16px;
-
-            /* Matches the top-section color of the gradient */
             background: #1a1a1a; 
-
             border-left: 1px solid #4a453e;
             border-bottom: 1px solid #4a453e;
-
-            /* Creates the smooth "point" */
             transform: rotate(45deg);
             border-bottom-left-radius: 4px;
-
-            /* Ensures it sits behind text but above shadows */
             z-index: 1;
         }
 
-        /* Hover Effect */
         .thought-content:hover {
             border-color: #ac0202;
-            /* Highlights the border to a richer gold */
             transform: translateX(4px);
-            /* Subtle shift to indicate interactivity */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
-        /* Date styling */
         .thought-date {
             display: inline-flex;
             align-items: center;
@@ -313,7 +271,6 @@
             transition: var(--transition);
         }
 
-        /* Thought text */
         .thought-text {
             font-size: clamp(1rem, 2vw, 1.2rem);
             line-height: 1.7;
@@ -336,9 +293,6 @@
             line-height: 1;
         }
 
-
-
-        /* New indicator */
         .new-indicator {
             position: absolute;
             right: -10px;
@@ -354,235 +308,145 @@
             z-index: 4;
         }
 
-
-        /* Responsive Design */
         @media (max-width: 992px) {
-            .timeline-wrapper {
-                padding-left: 70px;
-            }
-
-            .timeline-line {
-                left: 35px;
-            }
-
-            .timeline-dot {
-                left: 32px;
-            }
-
-            .timeline-hit-area {
-                left: 15px;
-                width: 35px;
-            }
+            .timeline-wrapper { padding-left: 70px; }
+            .timeline-line { left: 35px; }
+            .timeline-dot { left: 32px; }
+            .timeline-hit-area { left: 15px; width: 35px; }
         }
 
-        @media (max-width: 768px) {
-            .authors-thoughts {
-                padding: 80px 15px 40px;
-            }
-
-            .timeline-wrapper {
-                padding-left: 50px;
-            }
-
-            .timeline-line {
-                left: 25px;
-            }
-
-            .timeline-dot {
-                left: 22px;
-                width: 12px;
-                height: 12px;
-            }
-
-            .timeline-hit-area {
-                left: 10px;
-                width: 30px;
-            }
-
-            .thought-content {
-                margin-left: 15px;
-                padding: 20px;
-            }
-
-            .thought-content::before {
-                left: -9px;
-                border-width: 9px 9px 9px 0;
-            }
-
-            .thought-content::after {
-                left: -10px;
-                border-width: 10px 10px 10px 0;
-            }
-
-            #main-nav {
-                padding: 12px 20px;
-                width: 95%;
-            }
-
-            .nav-brand {
-                font-size: 1.2rem;
-            }
-
-            .btn-nav span {
-                display: none;
-            }
-
-            .btn-nav {
-                padding: 10px;
-            }
+        @media (max-width: 768px) { 
+            .timeline-wrapper { padding-left: 50px; }
+            .timeline-line { left: 25px; }
+            .timeline-dot { left: 22px; width: 12px; height: 12px; }
+            .timeline-hit-area { left: 10px; width: 30px; }
+            .thought-content { margin-left: 15px; padding: 20px; }
+            #main-nav { padding: 12px 20px; width: 95%; }
+            .nav-brand { font-size: 1.2rem; }
+            .btn-nav span { display: none; }
+            .btn-nav { padding: 10px; }
         }
 
-        @media (max-width: 480px) {
-            .authors-thoughts {
-                padding: 70px 10px 30px;
-            }
-
-            .thoughts-header {
-                padding: 30px 15px;
-                margin-bottom: 40px;
-            }
-
-            .timeline-wrapper {
-                padding-left: 40px;
-            }
-
-            .timeline-line {
-                left: 20px;
-            }
-
-            .timeline-dot {
-                left: 17px;
-                width: 10px;
-                height: 10px;
-            }
-
-            .timeline-hit-area {
-                left: 8px;
-                width: 25px;
-            }
-
-            .thought-entry {
-                margin-bottom: 35px;
-            }
-
-            .thought-content {
-                padding: 18px;
-                margin-left: 10px;
-            }
-
-            .thought-text {
-                padding-left: 15px;
-                font-size: 1rem;
-            }
-
-            .thought-text::before {
-                font-size: 2.5rem;
-                top: -10px;
-            }
-
-            .thought-content::before {
-                left: -8px;
-                top: 18px;
-                border-width: 8px 8px 8px 0;
-            }
-
-            .thought-content::after {
-                left: -9px;
-                top: 17px;
-                border-width: 9px 9px 9px 0;
-            }
-
-            #main-nav {
-                padding: 10px 15px;
-                border-radius: 30px;
-            }
-
-            .nav-brand {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .timeline-wrapper {
-                padding-left: 35px;
-            }
-
-            .timeline-line {
-                left: 17px;
-            }
-
-            .timeline-dot {
-                left: 14px;
-            }
-
-            .timeline-hit-area {
-                left: 6px;
-                width: 20px;
-            }
-
-            .thought-content {
-                padding: 15px;
-            }
-
-            .thought-date {
-                font-size: 0.75rem;
-                padding: 5px 12px;
-            }
-
-
-        }
-
-        /* Touch device optimizations */
-        @media (hover: none) {
-            .thought-entry:hover .timeline-dot {
-                transform: rotate(45deg) scale(1);
-                box-shadow: none;
-            }
-        }
-
-        #main-nav {
-
-            background: rgba(10, 10, 10, 0.8);
-        }
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #666;
-        }
-
-        .empty-state i {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.1);
-        }
-        .no-thoughts {
+        #main-nav { background: rgba(10, 10, 10, 0.8); }
+     .no-thoughts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    padding: 60px;
+    font-family: -apple-system, "Inter", "Segoe UI", sans-serif;
     text-align: center;
-    padding: 40px;
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    font-style: italic;
+    
+    /* Glassmorphism: Needs a dark or colorful background behind it */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.status-dot {
+    display: inline-block; /* Ensures it sits nicely next to text */
+    width: 0.75em;
+    height: 0.75em;
+    background-color: #b60202; 
+    border-radius: 50%;
+    
+    /* Use margin-bottom sparingly; layout is usually better 
+       handled by the parent container's gap or padding */
+    margin-bottom: 2rem; 
+    
+    /* Position relative is fine, but only keep it if 
+       you have absolute children inside the dot */
+    position: relative;
+}
+
+/* Smoother Pulse Ring */
+.status-dot::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    animation: pulse 2.5s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    z-index: -1;
+}
+
+.main-text {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    font-weight: 500;
+    color: #ffffff; /* Works best on dark backgrounds */
+    letter-spacing: -0.02em;
+    margin: 0;
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+.sub-text {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-top: 16px;
+    font-weight: 400;
+    opacity: 0; /* Starts hidden for the animation */
+    animation: fadeIn 1.2s ease-out 0.4s forwards; /* Delayed reveal */
+}
+
+/* Keyframes Refined */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+        filter: blur(8px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+        filter: blur(0); 
+    }
 }
     </style>
 </head>
 
 <body>
-    <!-- Fixed TRANSPARENT Navigation Bar -->
+    <!-- Hidden JSON-LD for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "ECHOTONGUE Author's Corner",
+      "author": {
+        "@type": "Person",
+        "name": "Hermona Zeleke"
+      },
+      "description": "Reflections and insights from the author of ECHOTONGUE.",
+      "url": "https://echotongue.com/blog.php"
+    }
+    </script>
+
+    <!-- Navigation -->
     <nav id="main-nav">
         <a href="index.php" class="cinzel">ECHOTONGUE</a>
         <ul class="nav-links" id="nav-links">
             <li><a href="index.php">Home</a></li>
             <li class="has-dropdown">
-                <a href="javascript:void(0)">About <i class="fas fa-chevron-down" style="font-size: 0.9rem; "></i></a>
+                <a href="javascript:void(0)" aria-haspopup="true">About <i class="fas fa-chevron-down" style="font-size: 0.9rem; "></i></a>
                 <div class="dropdown">
-                    <a href="index.php #about">About the book</a>
-                    <a href="index.php #world">What’s inside?</a>
-                    <a href="index.php #universe">The universe</a>
-                    <a href="index.php #preview">Edition features</a>
-                    <a href="index.php #magic">Dialects</a>
-                    <a href="index.php #characters"> Main Characters</a>
+                    <a href="index.php#about">About the book</a>
+                    <a href="index.php#world">What’s inside?</a>
+                    <a href="index.php#universe">The universe</a>
+                    <a href="index.php#preview">Edition features</a>
+                    <a href="index.php#magic">Dialects</a>
+                    <a href="index.php#characters"> Main Characters</a>
                 </div>
             </li>
-            <li><a href="index.php #author">Author</a></li>
+            <li><a href="index.php#author">Author</a></li>
             <li><a href="blog.php">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
@@ -591,102 +455,90 @@
             <a href="purchasebook.php" class="btn-nav">
                 <i class="fas fa-book-open"></i> &nbsp;&nbsp; <span> Purchase Book</span>
             </a>
-            <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Navigation Menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
-    <!-- Mobile Navigation - Hidden by default -->
+
+    <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;">
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="index.php #about">About the book</a></li>
-            <li><a href="index.php #author">Author</a></li>
+            <li><a href="index.php#about">About the book</a></li>
+            <li><a href="index.php#author">Author</a></li>
             <li><a href="blog.php">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
             <br>
-            <li><a href="purchasebook.php" class="btn-nav" style="color: white; font-size: large;"> <i class="fas fa-book-open"></i>
-                    Purchase Book</a></li>
+            <li><a href="purchasebook.php" class="btn-nav" style="color: white; font-size: large;"> <i class="fas fa-book-open"></i> Purchase Book</a></li>
         </ul>
     </div>
+
     <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scroll-top">
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
         <i class="fas fa-chevron-up"></i>
     </button>
-    <!-- Custom Cursor Elements -->
+        <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
+    <!-- Author's Thoughts Feed -->
+    <div class="authors-thoughts">
+        <div class="thoughts-container">
+            <div class="thoughts-header">
+                <h1 class="author-name">Author's Corner</h1>
+                <div class="liner"></div><br>
+                <p class="author-bio">
+                    Sharing glimpses from the writing desk, moments of inspiration, and reflections on the creative
+                    journey. <br>
+                    Each thought is a snapshot from the quiet hours where stories are born.
+                </p>
+            </div>
 
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+                <div class="timeline-progress" id="timelineProgress"></div>
+                
+                <div class="thoughts-feed" id="thoughtsFeed">
+                    <?php 
+                    include 'db.php'; 
+                    $sql = "SELECT * FROM authors_thoughts ORDER BY thought_date DESC";
+                    $result = $conn->query($sql);
 
-  <!-- Author's Thoughts Feed -->
-<div class="authors-thoughts">
-    <div class="thoughts-container">
-        <!-- Header -->
-        <div class="thoughts-header">
-            <h1 class="author-name">Author's Corner</h1>
-            <div class="liner"></div><br>
-            <p class="author-bio">
-                Sharing glimpses from the writing desk, moments of inspiration, and reflections on the creative
-                journey. <br>
-                Each thought is a snapshot from the quiet hours where stories are born.
-            </p>
-        </div>
-        <!-- Timeline -->
-        <div class="timeline-wrapper">
-            <div class="timeline-line"></div>
-            <div class="timeline-progress" id="timelineProgress"></div>
-            
-            <!-- Add the thoughts-feed container -->
-            <div class="thoughts-feed" id="thoughtsFeed">
-             <!-- Add the thoughts-feed container -->
-            <div class="thoughts-feed" id="thoughtsFeed">
-            <?php 
-            include 'db.php'; 
-            // Retrieve thoughts from the database
-            $sql = "SELECT * FROM authors_thoughts ORDER BY thought_date DESC";
-            $result = $conn->query($sql);
-
-            if ($result && $result->num_rows > 0) {
-                $index = 0;
-                while ($row = $result->fetch_assoc()) {
-                    $thought_date = htmlspecialchars($row['thought_date'], ENT_QUOTES, 'UTF-8');
-                    $thought_text = htmlspecialchars($row['thought_text'], ENT_QUOTES, 'UTF-8'); 
-                    $formatted_date = date('F j, Y g:i A', strtotime($thought_date)); 
-                    
-                    $is_new = ($index == 0);
-                    
-                    echo '<div class="thought-entry" style="animation-delay: '.($index * 0.15).'s;" data-index="'.$index.'">';
-                    
-                    if ($is_new) {
-                        echo '<span class="new-indicator">Latest</span>';
-                    }
-                    
-                    echo '<div class="timeline-hit-area"></div>';
-                    echo '<div class="timeline-container"><div class="timeline-dot"></div></div>';
-                    echo '<div class="thought-content">';
-                    echo '<div class="thought-date"><i class="far fa-clock"></i> '.$formatted_date.'</div>';
-                    echo '<p class="thought-text">'.$thought_text.'</p>';
-                    echo '</div>';
-                    echo '</div>';
-                    
-                    $index++;
-                }
-            } else {
-                echo '<div class="no-thoughts">No thoughts yet. Check back soon!</div>';
-            }
-
-            // Close connection at the very end
-            $conn->close();
-            ?>
-</div>
+                    if ($result && $result->num_rows > 0) {
+                        $index = 0;
+                        while ($row = $result->fetch_assoc()) {
+                            $thought_date = htmlspecialchars($row['thought_date'], ENT_QUOTES, 'UTF-8');
+                            $thought_text = htmlspecialchars($row['thought_text'], ENT_QUOTES, 'UTF-8'); 
+                            $formatted_date = date('F j, Y g:i A', strtotime($thought_date)); 
+                            $is_new = ($index == 0);
+                            
+                            echo '<div class="thought-entry" style="animation-delay: '.($index * 0.15).'s;" data-index="'.$index.'">';
+                            if ($is_new) { echo '<span class="new-indicator">Latest</span>'; }
+                            echo '<div class="timeline-hit-area"></div>';
+                            echo '<div class="timeline-container"><div class="timeline-dot"></div></div>';
+                            echo '<div class="thought-content">';
+                            echo '<div class="thought-date"><i class="far fa-clock"></i> '.$formatted_date.'</div>';
+                            echo '<p class="thought-text">'.$thought_text.'</p>';
+                            echo '</div>';
+                            echo '</div>';
+                            $index++;
+                        }
+                    } else {
+                       echo '<div class="no-thoughts">
+        <span class="status-dot"></span>
+        <p class="main-text">The feed is currently quiet.</p>
+        <p class="sub-text">New updates will appear here automatically.</p>
+      </div>';}
+                    $conn->close();
+                    ?>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-   <footer >
+    <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
@@ -707,9 +559,9 @@
                 <div class="footer-col">
                     <h3>Connect</h3>
                     <ul class="footer-links">
-                        <li><a href="https://t.me/+447949325039" target="_blank">Telegram</a></li>
-                        <li><a href="https://www.instagram.com/echotongue2013/" target="_blank">Instagram</a></li>
-                        <li><a href="https://wa.me/+447949325039" target="_blank">Whatsapp</a></li>
+                        <li><a href="https://t.me/+447949325039" target="_blank" rel="noopener">Telegram</a></li>
+                        <li><a href="https://www.instagram.com/echotongue2013/" target="_blank" rel="noopener">Instagram</a></li>
+                        <li><a href="https://wa.me/+447949325039" target="_blank" rel="noopener">Whatsapp</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -718,24 +570,16 @@
                        <li> <div style="margin-top: 10px; font-size: 0.8rem;"> <strong>ISBN(PB):</strong> 979-8-89604-275-4 </div> </li>
                        <li> <div style="margin-top: 10px; font-size: 0.8rem;"> <strong>ISBN(HB):</strong> 979-8-89604-276-1 </div> </li>
                     </ul>
-                  <div> 
-            
-                </div>
                 </div>
             </div>
             <div class="copyright">
-                <p> ECHOTONGUE: The Zureyan Tablets is a work of fiction. All rights
-                    reserved. &copy; 2025 Hermona Zeleke.</p>
-                
-                <p> Designed by <a
-                        style="font-family: 'Cinzel Decorative', serif; font-weight: 800;text-decoration: none; color:#d1cece; cursor: pointer;margin-bottom: 0 rem;"
-                        href="https://yonikass.netlify.app/" target="_blank">Yonatan Kassahun</a></p>
+                <p> ECHOTONGUE: The Zureyan Tablets is a work of fiction. All rights reserved. &copy; 2025 Hermona Zeleke.</p>
+                <p> Designed by <a style="font-family: 'Cinzel Decorative', serif; font-weight: 800;text-decoration: none; color:#d1cece; cursor: pointer;" href="https://yonikass.netlify.app/" target="_blank" rel="noopener">Yonatan Kassahun</a></p>
             </div>
         </div>
     </footer>
+
     <script>
-         
-         // Update timeline height dynamically
     function updateTimelineHeight() {
         const timeline = document.getElementById('timelineLine');
         const feed = document.getElementById('thoughtsFeed');
@@ -745,7 +589,6 @@
         }
     }
 
-    // Update timeline progress on scroll
     function updateTimelineProgress() {
         const timelineProgress = document.getElementById('timelineProgress');
         const thoughtsFeed = document.getElementById('thoughtsFeed');
@@ -753,7 +596,6 @@
             const feedRect = thoughtsFeed.getBoundingClientRect();
             const feedTop = feedRect.top;
             const feedHeight = feedRect.height;
-            
             let progress = 0;
             if (feedTop < 0) {
                 progress = Math.min(100, (-feedTop / feedHeight) * 100);
@@ -762,10 +604,9 @@
         }
     }
 
-    // Add event listeners to thought entries
     function attachThoughtEvents() {
         const thoughtEntries = document.querySelectorAll('.thought-entry');
-        const timelineLine = document.getElementById('timelineLine');
+        const timelineLine = document.querySelector('.timeline-line');
         
         thoughtEntries.forEach(thoughtElement => {
             const hitArea = thoughtElement.querySelector('.timeline-hit-area');
@@ -773,66 +614,42 @@
             const content = thoughtElement.querySelector('.thought-content');
             const newIndicator = thoughtElement.querySelector('.new-indicator');
 
-            // Hover effect for the timeline line
             if (hitArea && timelineLine) {
                 hitArea.addEventListener('mouseenter', function () {
                     const rect = thoughtElement.getBoundingClientRect();
                     const timelineRect = timelineLine.getBoundingClientRect();
                     const position = ((rect.top - timelineRect.top) / timelineRect.height) * 100;
-                    timelineLine.style.background = `linear-gradient(to bottom, 
-                        transparent 0%,
-                        var(--secondary-color) ${Math.max(0, position - 5)}%,
-                        var(--accent-color) ${position}%,
-                        var(--secondary-color) ${Math.min(100, position + 5)}%,
-                        transparent 100%)`;
+                    timelineLine.style.background = `linear-gradient(to bottom, transparent 0%, var(--secondary-color) ${Math.max(0, position - 5)}%, var(--accent-color) ${position}%, var(--secondary-color) ${Math.min(100, position + 5)}%, transparent 100%)`;
                 });
-
                 hitArea.addEventListener('mouseleave', function () {
-                    // Reset timeline to original gradient
-                    setTimeout(() => {
-                        timelineLine.style.background = 'rgba(255, 255, 255, 0.1)';
-                    }, 100);
+                    setTimeout(() => { timelineLine.style.background = 'rgba(255, 255, 255, 0.1)'; }, 100);
                 });
             }
 
-            // Click handler for thought entries
             thoughtElement.addEventListener('click', function (e) {
                 if (!e.target.closest('a')) {
                     if (content) {
                         content.style.transform = 'scale(0.98)';
-                        setTimeout(() => {
-                            content.style.transform = '';
-                        }, 200);
+                        setTimeout(() => { content.style.transform = ''; }, 200);
                     }
-                    
-                    // Mark as read
                     if (newIndicator) {
                         newIndicator.style.opacity = '0.5';
                         newIndicator.textContent = 'READ';
-                        setTimeout(() => {
-                            newIndicator.style.display = 'none';
-                        }, 1000);
+                        setTimeout(() => { newIndicator.style.display = 'none'; }, 1000);
                     }
-                    
-                    // Ripple effect on the timeline dot
                     if (dot) {
                         dot.style.boxShadow = '0 0 0 8px rgba(139, 90, 43, 0.3)';
-                        setTimeout(() => {
-                            dot.style.boxShadow = '';
-                        }, 500);
+                        setTimeout(() => { dot.style.boxShadow = ''; }, 500);
                     }
                 }
             });
         });
     }
 
-    // Initialize on load
     document.addEventListener('DOMContentLoaded', function() {
         updateTimelineHeight();
         updateTimelineProgress();
         attachThoughtEvents();
-        
-        // Add initial animation to timeline
         const timelineLine = document.querySelector('.timeline-line');
         if (timelineLine) {
             timelineLine.style.opacity = '0';
@@ -843,25 +660,8 @@
         }
     });
 
-    // Update on resize and scroll
     window.addEventListener('resize', updateTimelineHeight);
     window.addEventListener('scroll', updateTimelineProgress);
-
-    // Add smooth scroll for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Update timeline height after all thoughts are loaded
     setTimeout(updateTimelineHeight, 500);
     </script>
     <script src="assets/js/script.js"></script>
