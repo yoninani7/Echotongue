@@ -436,7 +436,25 @@
             </form>
         </div>
     </section>
-
+            <div style="text-align: center; margin: 60px auto; font-family: 'Segoe UI', Roboto, sans-serif;">
+    <a href="purchasebook.php" style="
+        text-decoration: none; 
+        display: inline-block; 
+        padding: 40px 60px; 
+        border-radius: 12px; 
+        background: #1a1a1a; 
+        border: 1px solid #333;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        transition: all 0.3s ease-in-out;"
+        onmouseover="this.style.borderColor='#ff0000'; this.style.transform='scale(1.02)';"
+        onmouseout="this.style.borderColor='#333'; this.style.transform='scale(1)';"
+    >
+        <span style="display: block; color: #ff0000; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 15px;">Verified Testimonials</span>
+        <h2 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 300; letter-spacing: -0.5px;">
+            Join the readers <span style="color: #ff0000; font-weight: 700; border-bottom: 2px solid #ff0000;">obsessed</span> with this story →
+        </h2>
+    </a>
+</div>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -469,6 +487,7 @@
                        <li><div style="margin-top: 10px; font-size: 0.8rem;"><strong>ISBN(HB):</strong> 979-8-89604-276-1</div></li>
                     </ul>
                 </div>
+              
             </div>
             <div class="copyright">
                 <p>&copy; 2025 Hermona Zeleke. All rights reserved.</p>

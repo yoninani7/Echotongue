@@ -20,8 +20,36 @@
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     --header-height: 80px;
     --header-shrink-height: 70px;
+} 
+
+/* For Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+    width: 18px;  
 }
 
+/* The background of the scrollbar area */
+::-webkit-scrollbar-track {
+    background: #0a0a0a; /* Matches a dark theme background */
+}
+
+/* The draggable handle */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #990202 0%, #990202 100%); 
+    border-radius: 20px;
+    border: 2px solid #0a0a0a;  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #990202d0; /* Lighter gold when interacting */
+    cursor: pointer;
+}
+
+/* Firefox Support */
+html {
+    scrollbar-width: auto;
+    scrollbar-color: #990202 #0a0a0a; /* thumb color | track color */
+}
 * {
     margin: 0;
     padding: 0;
