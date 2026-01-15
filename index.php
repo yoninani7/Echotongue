@@ -10,18 +10,18 @@
     <meta name="description" content="Official site for ECHOTONGUE: The Zureyan Tablets. Discover an epic YA fantasy/sci-fi universe of 32 planets, magic-infused dialects, and the journey of Lydia Nightshade.">
     <meta name="keywords" content="Echotongue, Hermona Zeleke, The Zureyan Tablets, YA Fantasy Books, Sci-Fi Magic, Space Fantasy Novel, Galaxian Universe, Adrestia">
     <meta name="author" content="Hermona N. Zeleke">
-    <link rel="canonical" href="https://yourdomain.com/index.php">
+    <link rel="canonical" href="https://echotongue.com/index.php">
 
     <!-- OPEN GRAPH / FACEBOOK / WHATSAPP -->
     <meta property="og:type" content="book">
-    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:url" content="https://echotongue.com/">
     <meta property="og:title" content="ECHOTONGUE | The Zureyan Tablets Official Site">
     <meta property="og:description" content="In a corrupted universe of 32 planets, language is power. Join the journey into the Galaxian Universe.">
     <meta property="og:image" content="assets/bookreflect.png">
 
     <!-- TWITTER -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yourdomain.com/">
+    <meta property="twitter:url" content="https://echotongue.com/">
     <meta property="twitter:title" content="ECHOTONGUE | The Zureyan Tablets Official Site">
     <meta property="twitter:description" content="In a corrupted universe of 32 planets, language is power. Join the journey into the Galaxian Universe.">
     <meta property="twitter:image" content="assets/bookreflect.png">
