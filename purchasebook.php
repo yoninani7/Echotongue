@@ -693,7 +693,7 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
             <span class="label">UK/ International</span>
             <div class="buy-btn">Buy book on dick smith </div>
         </a>
-        <a href="#" target="_blank" class="rift">
+        <a href=""  class="rift">
             <img src="" alt="">
             <span class="label">Direct Origin</span>
             <h2 class="title">Partner <br> bookstores</h2>
