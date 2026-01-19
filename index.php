@@ -26,7 +26,7 @@
     <meta property="twitter:description" content="In a corrupted universe of 32 planets, language is power. Join the journey into the Galaxian Universe.">
     <meta property="twitter:image" content="assets/bookreflect.webp">
 
-    <!-- JSON-LD SCHEMA MARKUP (Rich Snippets for Google) -->
+    <!-- JSON-LD SCHEMA MARKUP -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -57,15 +57,31 @@
     <link rel="icon" href="assets/echologo.webp" sizes="32x32" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/echologo.webp">
 
-    <!-- FONTS & STYLES -->
+    <!-- PERFORMANCE: PRECONNECTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- PERFORMANCE: OPTIMIZED GOOGLE FONTS -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap" media="print" onload="this.media='all'">
+
+    <!-- PERFORMANCE: OPTIMIZED FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+
+    <!-- PERFORMANCE: OPTIMIZED MAIN STYLESHEET -->
+    <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- FALLBACKS (If user has JavaScript disabled) -->
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </noscript>
+
+    <!-- VERIFICATION TAGS -->
     <meta name="google-site-verification" content="yMtja3H9hlzNpH1uJvhygA4j5SSc8KIayqh_XiSX2JA" />
-</head> 
+</head>
 
 <body>
     <!-- Fixed Navigation -->
