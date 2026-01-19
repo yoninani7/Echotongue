@@ -37,18 +37,18 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
     <meta property="og:url" content="https://echotongue.com/purchasebook.php">
     <meta property="og:title" content="Purchase ECHOTONGUE: The Zureyan Tablets">
     <meta property="og:description" content="Don't miss the epic journey. Secure your edition of ECHOTONGUE from your favorite global retailers.">
-    <meta property="og:image" content="https://echotongue.com/assets/front.png">
+    <meta property="og:image" content="https://echotongue.com/assets/front.webp">
 
     <!-- TWITTER SEO -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Buy ECHOTONGUE by Hermona N. Zeleke">
     <meta name="twitter:description" content="Now available globally on Amazon, Walmart, and Waterstones.">
-    <meta name="twitter:image" content="https://echotongue.com/assets/front.png">
+    <meta name="twitter:image" content="https://echotongue.com/assets/front.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="assets/echologo.png" sizes="32x32" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/echologo.png">
+    <link rel="icon" href="assets/echologo.webp" sizes="32x32" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/echologo.webp">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&display=swap"
         rel="stylesheet">
@@ -68,7 +68,7 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
       "@context": "https://schema.org/",
       "@type": "Product",
       "name": "ECHOTONGUE: The Zureyan Tablets",
-      "image": "https://echotongue.com/assets/front.png",
+      "image": "https://echotongue.com/assets/front.webp",
       "description": "An epic space fantasy novel where language is power and ancient secrets await discovery.",
       "brand": {
         "@type": "Brand",
@@ -628,7 +628,7 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
     <a href="#stores" class="h_gallery_layout">
         <div class="h_visual_side">
             <div class="h_image_frame">
-                <img src="assets/front.png" alt="ECHOTONGUE" class="h_book_img">
+                <img src="assets/front.webp" alt="ECHOTONGUE" class="h_book_img">
             </div>
         </div>
 
@@ -663,18 +663,18 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
     </a>
     <div class="container">
         <a href="https://www.amazon.co.uk/dp/B0FQXX1F9B/ref" target="_blank" class="rift">
-            <img src="assets/amazon.png" style="width: 200px;">
+            <img src="assets/amazon.webp" style="width: 200px;">
             <span class="label">Global delivery</span>
             <div class="buy-btn">Buy book on Amazon </div>
         </a>
         <a href="https://www.walmart.com/ip/Echotongue-The-Zureyan-Tablets-Paperback-9798896042938/18356422505?classType=REGULAR"
             target="_blank" class="rift">
-            <img src="assets/walmart.png" style="width: 200px;">
+            <img src="assets/walmart.webp" style="width: 200px;">
             <span class="label">UK/ International</span>
             <div class="buy-btn">Buy book on Walmart </div>
         </a>
         <a href="https://www.waterstones.com/author/hermona-n-zeleke/10239986" target="_blank" class="rift">
-            <img src="assets/waterstones.png" style="width: 200px;">
+            <img src="assets/waterstones.webp" style="width: 200px;">
             <span class="label">UK/ International</span>
             <div class="buy-btn">Buy book on Waterstones </div>
         </a>
@@ -682,14 +682,14 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
 
     <div class="container" style="margin-top: 30px;">
         <a href="https://www.everand.com/book/925094085/Echotongue-The-Zureyan-Tablets" target="_blank" class="rift">
-            <img src="assets/everand.png" style="width: 200px;">
+            <img src="assets/everand.webp" style="width: 200px;">
             <span class="label">Global delivery</span>
             <div class="buy-btn">Buy book on Everand </div>
         </a>
 
         <a href="https://www.dicksmith.com.au/da/buy/the-nile-echotongue-9798896042938/?ssid=201.7c4666db-7427-4926-b0ed-fc585b6c4ae0&click_id=7KDNCdhNDvAHBfpwQ6wBtAnJpLPdo9tYElb27focHwbzTRpBs6rfE0uO8RbIjnAAyBSEvfR46ZU-gV2tuWS-VlnB1HABrwO9nA1h3oNYVMPsp_ZfLGg5UMjQbqzi_rAKoGk9SaoxrkmnKLOxKc1QLY2ASRqhcNrhDp6qZmvBZzDlQD_QNBhPAkujMKTFoOPsrMJwOndh3TTxkI6wnB3cu6qTp_vVKRHGqDdPtsDFlCIMZ2biyHcWNFsQIsxoZPjbeWXNa3ehe437-GsCwO-DMx2vaK89K7Fb4_cctGse7OqUCwIPdjNOfjoAMcvbZYoA2ZeMBruO1KcRxoVEe0LTQnjIX60qGPlPYrAwIH9AzXDLcEVrB9Jw752vnHHbf33Rpqp58VYDV3zLrdK6c4XRpg227c1kvPupDEopljp6imcX2HLw7HCkNPmg2BWVxbAOtk9O_hAIO-E-5iLF0dxhWQT05eCqS1I1XnjL6tFLzJKf6MWKpvdfcEc24hVh-q_XlgeoU8HuQek8k40GJhKUOuEYeLUXeYU2HT1vSI_-aNOFIVdtiuaJl_8Ti8iMVQ5a53dIN5iEyzrer8NKgLSvGviPk7VF5ruwEqVPfPXoMIBfuM424KnEDTh9zA%3D%3D"
             target="_blank" class="rift">
-            <img src="assets/dicksmith.png" style="width: 200px;">
+            <img src="assets/dicksmith.webp" style="width: 200px;">
             <span class="label">UK/ International</span>
             <div class="buy-btn">Buy book on dick smith </div>
         </a>

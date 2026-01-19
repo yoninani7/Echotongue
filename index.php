@@ -17,14 +17,14 @@
     <meta property="og:url" content="https://echotongue.com/">
     <meta property="og:title" content="ECHOTONGUE | The Zureyan Tablets Official Site">
     <meta property="og:description" content="In a corrupted universe of 32 planets, language is power. Join the journey into the Galaxian Universe.">
-    <meta property="og:image" content="assets/bookreflect.png">
+    <meta property="og:image" content="assets/bookreflect.webp">
 
     <!-- TWITTER -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://echotongue.com/">
     <meta property="twitter:title" content="ECHOTONGUE | The Zureyan Tablets Official Site">
     <meta property="twitter:description" content="In a corrupted universe of 32 planets, language is power. Join the journey into the Galaxian Universe.">
-    <meta property="twitter:image" content="assets/bookreflect.png">
+    <meta property="twitter:image" content="assets/bookreflect.webp">
 
     <!-- JSON-LD SCHEMA MARKUP (Rich Snippets for Google) -->
     <script type="application/ld+json">
@@ -54,8 +54,8 @@
     </script>
 
     <!-- FAVICONS -->
-    <link rel="icon" href="assets/echologo.png" sizes="32x32" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/echologo.png">
+    <link rel="icon" href="assets/echologo.webp" sizes="32x32" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/echologo.webp">
 
     <!-- FONTS & STYLES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -122,7 +122,7 @@
         <div class="hero-container">
             <div class="book-wrapper">
                 <div class="badge"><i class="fas fa-star"></i> First Edition</div>
-                <img src="assets/bookreflect.png" alt="ECHOTONGUE: The Zureyan Tablets Book Cover by Hermona Zeleke" class="book-img">
+                <img src="assets/bookreflect.webp" alt="ECHOTONGUE: The Zureyan Tablets Book Cover by Hermona Zeleke" class="book-img" fetchpriority="high" loading="eager"> 
             </div>
 
             <div class="hero-content" style="z-index: 10;">
@@ -215,7 +215,7 @@
             </div>
             <div class="book-content">
                 <div class="book-cover">
-                    <img src="assets/about.png" alt="Discover the Galaxian Universe in Echotongue" class="book-cover-img">
+                    <img src="assets/about.webp" alt="Discover the Galaxian Universe in Echotongue" class="book-cover-img">
                 </div>
                 <div class="book-info">
                     <h3>A Journey Across Galaxies</h3>
@@ -258,7 +258,7 @@
                     <p>The governing body of the known Universe, overseeing the thirty-two planets.</p>
                 </div>
                 <div class="world-item">
-                    <div class="world-icon"><img src="assets/stone.png" style="width: 80px;" alt="The Zureyan Tablets Artifact"></div>
+                    <div class="world-icon"><img src="assets/stone.webp" style="width: 80px;" alt="The Zureyan Tablets Artifact"></div>
                     <h3>Zureyan Tablets</h3>
                     <p>Ancient stone tablets holding the secrets of the Universe's past, present, and future.</p>
                 </div>
@@ -287,12 +287,12 @@
     </div>
 
     <!-- Book Preview -->
-    <section class="book-preview" id="preview" style="background-image: url(assets/leaves.png);">
+    <section class="book-preview" id="preview" style="background-image: url(assets/leaves.webp);">
         <div class="container preview-container">
             <div class="book-cover-3d">
                 <div class="book-spine"></div>
                 <div class="book-pages"></div>
-                <img src="assets/front.png" alt="Echotongue First Edition Hardcover" class="cover-3d">
+                <img src="assets/front.webp" alt="Echotongue First Edition Hardcover" class="cover-3d">
             </div>
             <div class="preview-content">
                 <h2 class="section-title">First Edition Features</h2>
@@ -333,7 +333,7 @@
     </section>
 
     <!-- Characters Section -->
-    <section class="characters" id="characters" style="background-image: url(assets/leaves.png);">
+    <section class="characters" id="characters" style="background-image: url(assets/leaves.webp);">
         <div class="container">
             <h2 class="section-title">Main Characters</h2>
             <div class="characters-container" id="characters-container"></div>
@@ -389,10 +389,10 @@
         </div>
     </section>
      <!-- Author Section -->
-    <section class="author" id="author" style="background-image: url(assets/leaves.png);">
+    <section class="author" id="author" style="background-image: url(assets/leaves.webp);">
         <div class="container author-container">
             <div class="author-img">
-                <img src="assets/author.png" alt="Author S.E. Blackwood">
+                <img src="assets/author.webp" alt="Author S.E. Blackwood">
             </div>
             <div class="author-info">
                 <h2>About the Author</h2>

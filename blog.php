@@ -16,18 +16,18 @@
     <meta property="og:url" content="https://echotongue.com/blog.php">
     <meta property="og:title" content="Author's Corner | ECHOTONGUE Official">
     <meta property="og:description" content="Glimpses from the writing desk and reflections on the ECHOTONGUE universe.">
-    <meta property="og:image" content="https://echotongue.com/assets/echologo.png">
+    <meta property="og:image" content="https://echotongue.com/assets/echologo.webp">
 
     <!-- TWITTER SEO -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Author's Corner | ECHOTONGUE">
     <meta property="twitter:description" content="Reflections on the creative journey of the ECHOTONGUE universe.">
-    <meta property="twitter:image" content="https://echotongue.com/assets/echologo.png">
+    <meta property="twitter:image" content="https://echotongue.com/assets/echologo.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="assets/echologo.png" sizes="32x32" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/echologo.png">
+    <link rel="icon" href="assets/echologo.webp" sizes="32x32" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/echologo.webp">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&display=swap"
         rel="stylesheet">
@@ -58,7 +58,7 @@
         }
 
         body {
-            background-image: url(assets/leaves.png);
+            background-image: url(assets/leaves.webp);
             scroll-behavior: smooth;
             animation: twinkle 10s infinite secondary;
             display: flex;
