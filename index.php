@@ -64,6 +64,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <meta name="google-site-verification" content="yMtja3H9hlzNpH1uJvhygA4j5SSc8KIayqh_XiSX2JA" />
 </head> 
 
 <body>
