@@ -74,7 +74,7 @@
         <ul class="nav-links" id="nav-links">
             <li><a href="index.php">Home</a></li>
             <li class="has-dropdown">
-                <a href="javascript:void(0)" aria-haspopup="true">About <i class="fas fa-chevron-down" style="font-size: 0.9rem;"></i></a>
+                <a aria-haspopup="true">About <i class="fas fa-chevron-down" style="font-size: 0.9rem;"></i></a>
                 <div class="dropdown">
                     <a href="#about">About the book</a>
                     <a href="#world">What’s inside?</a>
