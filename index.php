@@ -8,9 +8,9 @@
     <!-- PRIMARY SEO -->
     <title>ECHOTONGUE | Official Site | The Zureyan Tablets by Hermona Zeleke</title>
     <meta name="description" content="Official site for ECHOTONGUE: The Zureyan Tablets. Discover an epic YA fantasy/sci-fi universe of 32 planets, magic-infused dialects, and the journey of Lydia Nightshade.">
-    <meta name="keywords" content="Echotongue, Hermona Zeleke, The Zureyan Tablets, Lydia Nightshade, Alex Gardener, Felix Darth, YA Fantasy Books, Space Fantasy Novel, Galaxian Universe, Adrestia, Zureyan Myth, The Beyond magic, Galaxian Council, Taurconis monster, Sci-Fi Magic, Elemental Wielders, Ancient Tongues, Spathus sword, D.O.C.B, Ludor planet">
-    <meta name="author" content="Hermona N. Zeleke">
-    <link rel="canonical" href="https://echotongue.com/index.php">
+    <meta name="keywords" content="Echotongue, Hermona Zeleke, Zureyan Tablets, YA Space Fantasy Novel, Sci-Fi Magic, The Beyond magic, Galaxian Universe, Elemental Wielders">
+   <meta name="author" content="Hermona N. Zeleke">
+    <link rel="canonical" href="https://echotongue.com">
 
     <!-- OPEN GRAPH / FACEBOOK / WHATSAPP -->
     <meta property="og:type" content="book">
@@ -140,6 +140,7 @@
             <div class="book-wrapper">
                 <div class="badge"><i class="fas fa-star"></i> First Edition</div>
                 <img src="assets/bookreflect.webp" alt="ECHOTONGUE: The Zureyan Tablets Book Cover by Hermona Zeleke" class="book-img" fetchpriority="high" loading="eager"> 
+                               
             </div>
 
             <div class="hero-content" style="z-index: 10;">
