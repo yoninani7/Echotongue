@@ -71,7 +71,8 @@
 
     <!-- PERFORMANCE: OPTIMIZED MAIN STYLESHEET -->
     <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
+    <link rel="preload" href="assets/bookreflect.webp" as="image"> 
+    <script src="assets/js/script.js" defer></script>
     <!-- FALLBACKS (If user has JavaScript disabled) -->
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap">
@@ -411,7 +412,7 @@
     <section class="author" id="author" style="background-image: url(assets/leaves.webp);">
         <div class="container author-container">
             <div class="author-img">
-                <img src="assets/author.webp" alt="Author Hermona N. Zeleke">
+                <img src="assets/author.webp" alt="Author Hermona N. Zeleke ">
             </div>
             <div class="author-info">
                 <h2>About the Author</h2>
@@ -517,7 +518,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/script.js"></script>
+    <!-- <script src="assets/js/script.js"></script> -->
     <script>
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
