@@ -139,8 +139,8 @@
         <div class="hero-container">
             <div class="book-wrapper">
                 <div class="badge"><i class="fas fa-star"></i> First Edition</div>
-                <img src="assets/bookreflect.webp" alt="ECHOTONGUE: The Zureyan Tablets Book Cover by Hermona Zeleke" class="book-img" fetchpriority="high" loading="eager"> 
-                               
+               <img src="assets/bookreflect.webp" alt="ECHOTONGUE Book Cover" class="book-img" 
+     width="400" height="600" fetchpriority="high" loading="eager">               
             </div>
 
             <div class="hero-content" style="z-index: 10;">
@@ -233,7 +233,8 @@
             </div>
             <div class="book-content">
                 <div class="book-cover">
-                    <img src="assets/about.webp" alt="Discover the Galaxian Universe in Echotongue" class="book-cover-img">
+                    <img src="assets/about.webp" alt="Discover the Galaxian Universe" class="book-cover-img" 
+     width="500" height="700" loading="lazy">
                 </div>
                 <div class="book-info">
                     <h3>A Journey Across Galaxies</h3>
@@ -276,7 +277,7 @@
                     <p>The governing body of the known Universe, overseeing the thirty-two planets.</p>
                 </div>
                 <div class="world-item">
-                    <div class="world-icon"><img src="assets/stone.webp" style="width: 80px;" alt="The Zureyan Tablets Artifact"></div>
+                    <div class="world-icon"><img src="assets/stone.webp" width="80" height="80" alt="The Zureyan Tablets" loading="lazy"></div>
                     <h3>Zureyan Tablets</h3>
                     <p>Ancient stone tablets holding the secrets of the Universe's past, present, and future.</p>
                 </div>
@@ -410,7 +411,7 @@
     <section class="author" id="author" style="background-image: url(assets/leaves.webp);">
         <div class="container author-container">
             <div class="author-img">
-                <img src="assets/author.webp" alt="Author S.E. Blackwood">
+                <img src="assets/author.webp" alt="Author Hermona N. Zeleke">
             </div>
             <div class="author-info">
                 <h2>About the Author</h2>
