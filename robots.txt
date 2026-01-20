@@ -1,3 +1,4 @@
 User-agent: *
+Disallow: 
 Disallow: /cgi-bin/
-Sitemap: https://echotongue.com/sitemap.xml
+Sitemap: https://dsintertravel.com/sitemap.xml
