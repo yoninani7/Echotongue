@@ -2982,7 +2982,9 @@ textarea {
 }
 
 @media (max-width: 768px) {
-
+    .newsletter-form .btn{
+        max-width: 100%;
+    }
     .r_review-section {
         padding: 60px 20px;
     }
