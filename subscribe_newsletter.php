@@ -41,6 +41,16 @@ $insert = $conn->prepare("INSERT INTO newsletter (email) VALUES (?)");
 $insert->bind_param("s", $email);
 
 if ($insert->execute()) {
+    // 1. Change this to YOUR personal email
+$admin_email = "yonsbreak7@gmail.com"; 
+
+// 2. Ensure this matches your domain from the screenshot
+$headers = "From: echotouo@echotongue.com\r\n"; 
+$headers .= "Reply-To: echotouo@echotongue.com\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8";
+
+// This sends the actual email
+mail($admin_email, "New Subscriber", "You have a new signup: $email", $headers);
     echo json_encode(['success' => true, 'message' => 'Subscribed successfully!']);
 } else {
     echo json_encode(['success' => false, 'message' => 'Subscription failed']);
