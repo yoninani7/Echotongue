@@ -1,147 +1,87 @@
 <?php
 session_start();
 
-// // Generate CSRF token if not exists
-// if (empty($_SESSION['csrf_token'])) {
-//     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-// }
+// 1. Configuration
+$botToken = "8582285370:AAFDpxcjM60sO3ow68ic_jPBZr5dLYvpajw";  
+$adminChatIds = ["401878710","1252493044","5752908330"];
 
 include 'db.php'; 
 
-// Create database if it doesn't exist
+// Database/Table setup
 $createDb = "CREATE DATABASE IF NOT EXISTS `$database` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci";
-if (!$conn->query($createDb)) {
-    $response = ['success' => false, 'message' => 'Failed to create database.'];
-    header('Content-Type: application/json');
-    echo json_encode($response);
-    exit();
-}
-
-// Select the database
+$conn->query($createDb);
 $conn->select_db($database);
 
-// Function to sanitize input
 function sanitizeInput($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
-    return $data;
+    return htmlspecialchars(stripslashes(trim($data)), ENT_QUOTES, 'UTF-8');
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Verify CSRF token
-    // if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-    //     $response = ['success' => false, 'message' => 'Security token invalid. Please try again.'];
-    //     header('Content-Type: application/json');
-    //     echo json_encode($response);
-    //     exit();
-    // }
     
-    // Get and sanitize form data
-    $name = sanitizeInput($_POST['name'] ?? '');
-    $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
-    $message = sanitizeInput($_POST['message'] ?? '');
-    $rating = filter_var($_POST['rating'] ?? 0, FILTER_VALIDATE_INT);
-    
-    // Validate data
-    $errors = [];
-    
-    // Name validation
-    if (empty($name)) {
-        $errors[] = 'Name is required.';
-    }   
-    // Email validation
-    if (empty($email)) {
-        $errors[] = 'Email is required.';
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = 'Please enter a valid email address.';
-    } 
-    
-    // Message validation
-    if (empty($message)) {
-        $errors[] = 'Message is required.';
-    }  
-    
-    // Rating validation
-    if (empty($rating) || $rating < 1 || $rating > 5) {
-        $errors[] = 'Please select a valid rating (1-5 stars).';
+    // CSRF Check (Recommended for your hero page security)
+    /*
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        echo json_encode(['success' => false, 'message' => 'Security token invalid.']);
+        exit();
     }
+    */
+
+    $name    = sanitizeInput($_POST['name'] ?? '');
+    $email   = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
+    $message = sanitizeInput($_POST['message'] ?? '');
+    $rating  = filter_var($_POST['rating'] ?? 0, FILTER_VALIDATE_INT);
     
-    // Prepare response
-    $response = [];
-    
-    // If no errors, save to database
+    $errors = [];
+    if (empty($name)) $errors[] = 'Name is required.';
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Valid email required.';
+    if (empty($message)) $errors[] = 'Message is required.';
+    if ($rating < 1 || $rating > 5) $errors[] = 'Select a rating (1-5).';
+
     if (empty($errors)) {
         try {
-            // Create feedbacks table if it doesn't exist
+            // Ensure table exists
             $createTable = "CREATE TABLE IF NOT EXISTS feedbacks (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(100) NOT NULL,
-                email VARCHAR(150) NOT NULL,
-                message TEXT NOT NULL,
-                rating INT NOT NULL,
-                status VARCHAR(20) DEFAULT 'pending',
+                name VARCHAR(100), email VARCHAR(150), message TEXT,
+                rating INT, status VARCHAR(20) DEFAULT 'pending',
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+            ) ENGINE=InnoDB;";
+            $conn->query($createTable);
             
-            if (!$conn->query($createTable)) {
-                throw new Exception("Failed to create table.");
-            }
-            
-            // Prepare and execute insert statement
-            $stmt = $conn->prepare("INSERT INTO feedbacks (name, email, message, rating, status) VALUES (?, ?, ?, ?, 'pending')");
-            if (!$stmt) {
-                throw new Exception("Prepare failed.");
-            }
-            
+            $stmt = $conn->prepare("INSERT INTO feedbacks (name, email, message, rating) VALUES (?, ?, ?, ?)");
             $stmt->bind_param("sssi", $name, $email, $message, $rating);
             
             if ($stmt->execute()) {
-                // Success
-                $response = [
-                    'success' => true,
-                    'message' => 'Thank you for your feedback! <br> Your review has been submitted.',
-                    'insert_id' => $conn->insert_id
-                ];
                 
-                // Store in session for page reload (optional)
-                $_SESSION['feedback_success'] = $response['message'];
-                
-                // // Generate new CSRF token
-                // $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+                // --- TELEGRAM NOTIFICATION START ---
+                $notifyMsg = "🌟 *New Feedback Received!*\n\n";
+                $notifyMsg .= "*Name:* $name\n";
+                $notifyMsg .= "*Email:* $email\n";
+                $notifyMsg .= "*Rating:* $rating / 5 ⭐\n\n";
+                $notifyMsg .= "*Message:*\n$message";
+
+                // Loop through all admin chat IDs
+                foreach ($adminChatIds as $id) {
+                    $telegramUrl = "https://api.telegram.org/bot$botToken/sendMessage?chat_id=$id&parse_mode=Markdown&text=" . urlencode($notifyMsg);
+                    @file_get_contents($telegramUrl);
+                }
+                // --- TELEGRAM NOTIFICATION END ---
+
+                echo json_encode([
+                    'success' => true, 
+                    'message' => 'Thank you! Your review has been submitted.'
+                ]);
             } else {
-                throw new Exception('Failed to save feedback.');
+                throw new Exception('DB Insert failed.');
             }
-            
             $stmt->close();
-            
         } catch (Exception $e) {
-            error_log("Database error: " . $e->getMessage());
-            $response = [
-                'success' => false,
-                'message' => 'An error occurred while saving your feedback. Please try again later.'
-            ];
+            echo json_encode(['success' => false, 'message' => 'Server error. Please try later.']);
         }
     } else {
-        $response = [
-            'success' => false,
-            'errors' => $errors
-        ];
+        echo json_encode(['success' => false, 'errors' => $errors]);
     }
-    
-    // Close database connection
     $conn->close();
-    
-    // Return JSON response
-    header('Content-Type: application/json');
-    echo json_encode($response);
-    exit();
-    
-} else {
-    // Not a POST request
-    $response = ['success' => false, 'message' => 'Invalid request method.'];
-    header('Content-Type: application/json');
-    echo json_encode($response);
     exit();
 }
 ?>
