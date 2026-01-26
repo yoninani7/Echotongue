@@ -1,61 +1,65 @@
 <?php
- 
 include 'db.php'; 
-// Get email from POST
-$email = isset($_POST['Email']) ? trim($_POST['Email']) : '';
 
-// Basic validation
-if (empty($email)) {
-    die(json_encode(['success' => false, 'message' => 'Email is required']));
-}
+// Configuration
+$botToken = "8582285370:AAFDpxcjM60sO3ow68ic_jPBZr5dLYvpajw"; 
+$adminChatIds = ["401878710","1252493044","5752908330"];  
 
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    die(json_encode(['success' => false, 'message' => 'Invalid email']));
-}
+// 1. Normalize input to always be an array
+// This handles both a single string 'Email' or an array of emails
+$input = isset($_POST['Email']) ? $_POST['Email'] : '';
+$emails = is_array($input) ? $input : [$input];
 
-// Create table if it doesn't exist (id, email, date only)
-$createTable = "CREATE TABLE IF NOT EXISTS newsletter (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255) NOT NULL,
-    date_subscribed TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)";
+$results = [
+    'success' => [],
+    'errors'  => []
+];
 
-$conn->query($createTable);
-
-// Check if email already exists
+// 2. Prepare statements once (Better Performance)
 $check = $conn->prepare("SELECT id FROM newsletter WHERE email = ?");
-$check->bind_param("s", $email);
-$check->execute();
-$check->store_result();
-
-if ($check->num_rows > 0) {
-    echo json_encode(['success' => false, 'message' => 'Already subscribed']);
-    $check->close();
-    $conn->close();
-    exit();
-}
-$check->close();
-
-// Insert new subscriber
 $insert = $conn->prepare("INSERT INTO newsletter (email) VALUES (?)");
-$insert->bind_param("s", $email);
 
-if ($insert->execute()) {
-    // 1. Change this to YOUR personal email
-$admin_email = "yonsbreak7@gmail.com"; 
+foreach ($emails as $email) {
+    $email = trim($email);
 
-// 2. Ensure this matches your domain from the screenshot
-$headers = "From: echotouo@echotongue.com\r\n"; 
-$headers .= "Reply-To: echotouo@echotongue.com\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8";
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $results['errors'][] = "Invalid email: $email";
+        continue;
+    }
 
-// This sends the actual email
-mail($admin_email, "New Subscriber", "You have a new signup: $email", $headers);
-    echo json_encode(['success' => true, 'message' => 'Subscribed successfully!']);
-} else {
-    echo json_encode(['success' => false, 'message' => 'Subscription failed']);
+    // Check for existing
+    $check->bind_param("s", $email);
+    $check->execute();
+    $check->store_result();
+
+    if ($check->num_rows > 0) {
+        $results['errors'][] = "Already subscribed: $email";
+    } else {
+        // Insert new
+        $insert->bind_param("s", $email);
+        if ($insert->execute()) {
+            $results['success'][] = $email;
+
+            // 3. Notify all Telegram Admins
+            $message = "📢 New Subscriber: $email";
+            foreach ($adminChatIds as $chatId) {
+                $telegramUrl = "https://api.telegram.org/bot$botToken/sendMessage?chat_id=$chatId&text=" . urlencode($message);
+                @file_get_contents($telegramUrl);
+            }
+        } else {
+            $results['errors'][] = "DB Error for: $email";
+        }
+    }
 }
 
+// 4. Final Response
+$check->close();
 $insert->close();
 $conn->close();
+
+echo json_encode([
+    'status' => count($results['success']) > 0 ? 'success' : 'failed',
+    'added' => $results['success'],
+    'failed' => $results['errors']
+]);
 ?>
