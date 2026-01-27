@@ -4,30 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- PRIMARY SEO -->
     <title>ECHOTONGUE | Official Site | The Zureyan Tablets by Hermona Zeleke</title>
-    <meta name="description"
-        content="Official site for ECHOTONGUE: The Zureyan Tablets. Discover an epic YA fantasy/sci-fi universe of 32 planets, magic-infused dialects, and the journey of Lydia Nightshade.">
-    <meta name="keywords"
-        content="Echotongue, Hermona Zeleke, Zureyan Tablets, YA Space Fantasy Novel, Sci-Fi Magic, The Beyond magic, Galaxian Universe, Elemental Wielders">
-    <meta name="author" content="Hermona N. Zeleke">
+    <meta name="description" content="Official site for ECHOTONGUE: The Zureyan Tablets. Discover an epic YA fantasy/sci-fi universe of 32 planets, magic-infused dialects, and the journey of Lydia Nightshade.">
+    <meta name="keywords" content="Echotongue, Hermona Zeleke, Zureyan Tablets, YA Space Fantasy Novel, Sci-Fi Magic, The Beyond magic, Galaxian Universe, Elemental Wielders">
+   <meta name="author" content="Hermona N. Zeleke">
     <link rel="canonical" href="https://echotongue.com">
 
     <!-- OPEN GRAPH / FACEBOOK / WHATSAPP -->
     <meta property="og:type" content="book">
     <meta property="og:url" content="https://echotongue.com/">
     <meta property="og:title" content="ECHOTONGUE | The Zureyan Tablets Official Site">
-    <meta property="og:description"
-        content="In a corrupted universe of 32 planets, language is power. Join the journey into the Galaxian Universe.">
+    <meta property="og:description" content="In a corrupted universe of 32 planets, language is power. Join the journey into the Galaxian Universe.">
     <meta property="og:image" content="assets/bookreflect.webp">
 
     <!-- TWITTER -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://echotongue.com/">
     <meta property="twitter:title" content="ECHOTONGUE | The Zureyan Tablets Official Site">
-    <meta property="twitter:description"
-        content="In a corrupted universe of 32 planets, language is power. Join the journey into the Galaxian Universe.">
+    <meta property="twitter:description" content="In a corrupted universe of 32 planets, language is power. Join the journey into the Galaxian Universe.">
     <meta property="twitter:image" content="assets/bookreflect.webp">
 
     <!-- JSON-LD SCHEMA MARKUP -->
@@ -67,24 +63,19 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- PERFORMANCE: OPTIMIZED GOOGLE FONTS -->
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap"
-        media="print" onload="this.media='all'">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap" media="print" onload="this.media='all'">
 
     <!-- PERFORMANCE: OPTIMIZED FONTAWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
     <!-- PERFORMANCE: OPTIMIZED MAIN STYLESHEET -->
     <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="assets/bookreflect.webp" as="image">
+    <link rel="preload" href="assets/bookreflect.webp" as="image"> 
     <script src="assets/js/script.js" defer></script>
     <!-- FALLBACKS (If user has JavaScript disabled) -->
     <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@700;900&family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="assets/css/styles.css">
     </noscript>
@@ -135,8 +126,7 @@
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
             <br>
-            <li><a href="purchasebook.php" class="btn-nav" style="color: white; font-size: large;"> <i
-                        class="fas fa-book-open"></i> Purchase Book</a></li>
+            <li><a href="purchasebook.php" class="btn-nav" style="color: white; font-size: large;"> <i class="fas fa-book-open"></i> Purchase Book</a></li>
         </ul>
     </div>
 
@@ -150,24 +140,23 @@
         <div class="hero-container">
             <div class="book-wrapper">
                 <div class="badge"><i class="fas fa-star"></i> First Edition</div>
-                <img src="assets/bookreflect.webp" alt="ECHOTONGUE Book Cover" class="book-img" width="400" height="600"
-                    fetchpriority="high" loading="eager">
+               <img src="assets/bookreflect.webp" alt="ECHOTONGUE Book Cover" class="book-img" 
+     width="400" height="600" fetchpriority="high" loading="eager">               
             </div>
 
             <div class="hero-content" style="z-index: 10;">
                 <div class="status">
                     <i class="fas fa-sun"></i> AVAILABLE NOW
                 </div>
-
+                
                 <h1 class="glitch-title" data-text="ECHOTONGUE" style="margin-bottom: 0px; z-index: 10;">ECHOTONGUE</h1>
-
+                
                 <div style="letter-spacing: 2px; font-size: 12px;">
-                    THE ZUREYAN TABLETS
+                    THE ZUREYAN TABLETS 
                 </div>
 
                 <p class="synopsis">
-                    In a corrupted universe of thirty-two planets and magic-infused dialects, survival becomes a
-                    question of escape or extinction.
+                    In a corrupted universe of thirty-two planets and magic-infused dialects, survival becomes a question of escape or extinction.
                 </p>
 
                 <div class="cta-group">
@@ -182,8 +171,7 @@
                 <div class="social-proof">
                     <div class="rating">
                         <span class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </span> &nbsp; 5/5 Rating
                     </div>
                     <div class="divider"></div>
@@ -191,7 +179,7 @@
                         Author : <strong>HERMONA N. ZELEKE</strong>
                     </div>
                 </div>
-
+                
                 <div class="series-tracker">
                     <div class="tracker-accent"></div>
                     <div class="tracker-data">
@@ -200,7 +188,7 @@
                             <span class="tracker-dot"></span>
                         </div>
                         <div class="tracker-main">
-                            <span class="tracker-title">Book II: The Zureyan Chronicles </span>
+                            <span class="tracker-title">Book II: The Zureyan Chronicles </span> 
                         </div>
                     </div>
                 </div>
@@ -217,23 +205,16 @@
                 <header class="book-header">
                     <p class="series-subtitle">An Exclusive Sneak Peek</p>
                     <h2 class="book-title" id="modal-title">Echotongue</h2>
-                    <div class="title-separator"><span class="line"></span><span class="diamond"></span><span
-                            class="line"></span></div>
+                    <div class="title-separator"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
                     <h3 class="chapter-title">The Zureyan Tablets From chapter 2 : Page 8 ...</h3>
                 </header>
                 <article class="manuscript-body">
-                    <p class="prose"><strong style="font-family: 'Cinzel Decorative',serif; font-size: 50px;">I</strong>
-                        was about to reply when that same howl tore through the forest again — low, ancient... wrong.
-                    </p>
+                    <p class="prose"><strong style="font-family: 'Cinzel Decorative',serif; font-size: 50px;">I</strong> was about to reply when that same howl tore through the forest again — low, ancient... wrong.</p>
                     <p class="prose">My gaze snapped to the window-wall beside me, and I frowned.</p>
-                    <p class="prose">‘That goddamn beast hasn’t moved for days,’ Felix muttered, eyes narrowed at the
-                        tree line.</p>
+                    <p class="prose">‘That goddamn beast hasn’t moved for days,’ Felix muttered, eyes narrowed at the tree line.</p>
                     <p class="prose">I was wondering the same thing.</p>
-                    <p class="prose">‘I’ve been trying to convince Eseus to send a troop out,’ I said quietly. ‘Our
-                        border’s strong, but...’ I trailed off.</p>
-                    <p class="prose">Felix shook his head before I could finish. ‘Eseus is right to hold back. That
-                        thing’s dangerous—we don’t know what it is. We can’t risk sending children to vanish into fog to
-                        satisfy curiosity.’</p>
+                    <p class="prose">‘I’ve been trying to convince Eseus to send a troop out,’ I said quietly. ‘Our border’s strong, but...’ I trailed off.</p>
+                    <p class="prose">Felix shook his head before I could finish. ‘Eseus is right to hold back. That thing’s dangerous—we don’t know what it is. We can’t risk sending children to vanish into fog to satisfy curiosity.’</p>
                     <p class="prose emphasis">Something bad was coming to Adrestia.</p>
                     <p class="prose emphasis">Something &nbsp;&nbsp; very &nbsp;&nbsp; bad.</p>
                 </article>
@@ -249,38 +230,22 @@
         <div class="container">
             <div class="asection-title">
                 <h1 class="section-title">About the Book</h1>
-                <h3 style="font-weight: 500;">Discover the epic tale that spans across planets, blending fantasy and
-                    science fiction in a unique universe.</h3>
+                <h3 style="font-weight: 500;">Discover the epic tale that spans across planets, blending fantasy and science fiction in a unique universe.</h3>
             </div>
             <div class="book-content">
                 <div class="book-cover">
-                    <img src="assets/about.webp" alt="Discover the Galaxian Universe" class="book-cover-img" width="500"
-                        height="700" loading="lazy">
+                    <img src="assets/about.webp" alt="Discover the Galaxian Universe" class="book-cover-img" 
+     width="500" height="700" loading="lazy">
                 </div>
                 <div class="book-info">
                     <h3>A Journey Across Galaxies</h3>
-                    <p>ECHOTONGUE: The Zureyan Tablets follows the story of <strong>Lydia Nightshade</strong>, a girl
-                        who discovers she's not who she thought she was. After a mysterious incident at her school, she
-                        finds herself in <strong>Adrestia</strong>, a hidden "planet" on Earth.</p>
-                    <p>Joined by Alex Gardener and Felix Darth, Lydia embarks on a dangerous journey across planets to
-                        uncover the truth about the mysterious Zureyan Tablets.</p>
+                    <p>ECHOTONGUE: The Zureyan Tablets follows the story of <strong>Lydia Nightshade</strong>, a girl who discovers she's not who she thought she was. After a mysterious incident at her school, she finds herself in <strong>Adrestia</strong>, a hidden "planet" on Earth.</p>
+                    <p>Joined by Alex Gardener and Felix Darth, Lydia embarks on a dangerous journey across planets to uncover the truth about the mysterious Zureyan Tablets.</p>
                     <div class="book-details">
-                        <div class="detail-item">
-                            <h4>Genre</h4>
-                            <p>Young Adult Fantasy / Sci-Fi</p>
-                        </div>
-                        <div class="detail-item">
-                            <h4>Themes</h4>
-                            <p>Identity, Magic, Friendship</p>
-                        </div>
-                        <div class="detail-item">
-                            <h4>Setting</h4>
-                            <p>Earth & 32 Galaxian Planets</p>
-                        </div>
-                        <div class="detail-item">
-                            <h4>Pages</h4>
-                            <p>200+ pages</p>
-                        </div>
+                        <div class="detail-item"><h4>Genre</h4><p>Young Adult Fantasy / Sci-Fi</p></div>
+                        <div class="detail-item"><h4>Themes</h4><p>Identity, Magic, Friendship</p></div>
+                        <div class="detail-item"><h4>Setting</h4><p>Earth & 32 Galaxian Planets</p></div>
+                        <div class="detail-item"><h4>Pages</h4><p>200+ pages</p></div>
                     </div>
                 </div>
             </div>
@@ -300,14 +265,12 @@
                 <div class="world-item">
                     <div class="world-icon"><i class="fas fa-globe-americas"></i></div>
                     <h3>Adrestia</h3>
-                    <p>The only "planet" in the Universe that exists on Earth itself, hidden from mortal eyes. A
-                        sanctuary for Galaxians.</p>
+                    <p>The only "planet" in the Universe that exists on Earth itself, hidden from mortal eyes. A sanctuary for Galaxians.</p>
                 </div>
                 <div class="world-item">
                     <div class="world-icon"><i class="fas fa-language"></i></div>
                     <h3>Tongues</h3>
-                    <p>Ancient languages that channel magic. Each planet has its own tongue with unique elemental
-                        powers.</p>
+                    <p>Ancient languages that channel magic. Each planet has its own tongue with unique elemental powers.</p>
                 </div>
                 <div class="world-item">
                     <div class="world-icon"><i class="fas fa-users"></i></div>
@@ -315,8 +278,7 @@
                     <p>The governing body of the known Universe, overseeing the thirty-two planets.</p>
                 </div>
                 <div class="world-item">
-                    <div class="world-icon"><img src="assets/stone.webp" width="80" height="80"
-                            alt="The Zureyan Tablets" loading="lazy"></div>
+                    <div class="world-icon"><img src="assets/stone.webp" width="80" height="80" alt="The Zureyan Tablets" loading="lazy"></div>
                     <h3>Zureyan Tablets</h3>
                     <p>Ancient stone tablets holding the secrets of the Universe's past, present, and future.</p>
                 </div>
@@ -326,8 +288,7 @@
                     <p>Magical beings from across the planets, from Pegasus to dangerous Taurconis.</p>
                 </div>
                 <div class="world-item">
-                    <div class="world-icon" style="animation: float 0.6s ease-in-out infinite;"><i
-                            class="fas fa-rocket"></i></div>
+                    <div class="world-icon" style="animation: float 0.6s ease-in-out infinite;"><i class="fas fa-rocket"></i></div>
                     <h3>Interplanetary Travel</h3>
                     <p>Advanced spacecraft like the Aegis that travel between planets in minutes.</p>
                 </div>
@@ -340,8 +301,7 @@
         <div class="background-image"></div>
         <div class="container about-content">
             <h2 class="section-title">The Galaxian Universe</h2>
-            <p class="about-description">Explore the key worlds of the Echotongue universe. Each planet has its own
-                unique environment, culture, and magical dialect.</p>
+            <p class="about-description">Explore the key worlds of the Echotongue universe. Each planet has its own unique environment, culture, and magical dialect.</p>
             <div class="planets-grid" id="planets-grid"></div>
         </div>
     </div>
@@ -356,9 +316,7 @@
             </div>
             <div class="preview-content">
                 <h2 class="section-title">First Edition Features</h2>
-                <p><strong>Echotongue</strong> is not just a book—it's an immersive experience into a universe where
-                    language is power. This edition contains exclusive content drawn from the rich world of the 32
-                    planets.</p>
+                <p><strong>Echotongue</strong> is not just a book—it's an immersive experience into a universe where language is power. This edition contains exclusive content drawn from the rich world of the 32 planets.</p>
                 <div style="margin-top: 40px;">
                     <h3>Inside the World</h3>
                     <p>The book follows the story of Lydia Nightshade, a girl who discovers she's not who she thought
@@ -383,16 +341,12 @@
         <div class="container magic-container">
             <div class="radar-scan">
                 <div class="radar-beam"></div>
-                <div class="blip b1"></div>
-                <div class="blip b2"></div>
-                <div class="blip b3"></div>
+                <div class="blip b1"></div><div class="blip b2"></div><div class="blip b3"></div>
             </div>
             <div class="magic-content">
                 <h2 class="section-title">Magic-Infused Dialects</h2>
-                <p>In the Echotongue universe, language is literally power. Each planet has its own "tongue" - a dialect
-                    infused with magical properties.</p>
-                <p>Lydia Nightshade possesses a rare gift: the ability to use the legendary <strong>Echotongue</strong>
-                    - a language powerful enough to challenge the Beyond itself.</p>
+                <p>In the Echotongue universe, language is literally power. Each planet has its own "tongue" - a dialect infused with magical properties.</p>
+                <p>Lydia Nightshade possesses a rare gift: the ability to use the legendary <strong>Echotongue</strong> - a language powerful enough to challenge the Beyond itself.</p>
                 <div class="dialects-grid" id="dialects-grid"></div>
             </div>
         </div>
@@ -451,10 +405,10 @@
                     </div>
                 </a>
             </div>
-
+          
         </div>
     </section>
-    <!-- Author Section -->
+     <!-- Author Section -->
     <section class="author" id="author" style="background-image: url(assets/leaves.webp);">
         <div class="container author-container">
             <div class="author-img">
@@ -483,15 +437,14 @@
                     </div>
                 </div>
                 <div class="author-social">
-                    <a href="https://www.instagram.com/echotongue2013/" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://t.me/+447949325039" target="_blank"><i class="fab fa-telegram"></i></a>
-                    <a href="https://wa.me/+447949325039" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/echotongue2013/" target="_blank" aria-label="Follow EchoTongue on Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/+447949325039" target="_blank" aria-label="Contact me on Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/+447949325039" target="_blank" aria-label="Chat with me on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 30px; font-family: 'Segoe UI', Roboto, sans-serif;">
-            <a href="purchasebook.php#wisewords" style="
+          <div style="text-align: center; margin-top: 30px; font-family: 'Segoe UI', Roboto, sans-serif;">
+    <a href="purchasebook.php#wisewords" style="
         text-decoration: none; 
         display: inline-block; 
         padding: 40px 60px; 
@@ -500,18 +453,15 @@
         border: 1px solid #333;
         box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         transition: all 0.3s ease-in-out;"
-                onmouseover="this.style.borderColor='#ff0000'; this.style.transform='scale(1.02)';"
-                onmouseout="this.style.borderColor='#333'; this.style.transform='scale(1)';">
-                <span
-                    style="display: block; color: #ff0000; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 15px;">Verified
-                    Testimonials</span>
-                <h2 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 300; letter-spacing: -0.5px;">
-                    Join the readers <span
-                        style="color: #ff0000; font-weight: 700; border-bottom: 2px solid #ff0000;">obsessed</span> with
-                    this story →
-                </h2>
-            </a>
-        </div>
+        onmouseover="this.style.borderColor='#ff0000'; this.style.transform='scale(1.02)';"
+        onmouseout="this.style.borderColor='#333'; this.style.transform='scale(1)';"
+    >
+        <span style="display: block; color: #ff0000; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 15px;">Verified Testimonials</span>
+        <h2 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 300; letter-spacing: -0.5px;">
+            Join the readers <span style="color: #ff0000; font-weight: 700; border-bottom: 2px solid #ff0000;">obsessed</span> with this story →
+        </h2>
+    </a>
+</div>
     </section>
 
 
@@ -521,27 +471,25 @@
             <h2>Join the Echotongue Community</h2>
             <p>Subscribe to receive exclusive content and updates about the Echotongue series.</p>
             <form class="newsletter-form" id="newsletter-form" action="subscribe_newsletter.php" method="POST">
-                <input name="Email" type="email" placeholder="Enter your email address" required
-                    aria-label="Email Address">
+                <input name="Email" type="email" placeholder="Enter your email address" required aria-label="Email Address">
                 <button type="submit" class="btn">Subscribe</button>
             </form>
         </div>
     </section>
-
+          
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
                     <h3>Echotongue</h3>
-                    <p style="color: #aaa;">The epic space fantasy novel by Hermona Zeleke. Journey across thirty-two
-                        planets in a universe where language is power.</p>
+                    <p style="color: #aaa;">The epic space fantasy novel by Hermona Zeleke. Journey across thirty-two planets in a universe where language is power.</p>
                 </div>
                 <div class="footer-col">
                     <h3>Explore</h3>
                     <ul class="footer-links">
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="#about">About the book</a></li>
+                        <li><a href="#about">About the book</a></li> 
                         <li><a href="Timeline.html">Timeline</a></li>
                         <li><a href="purchasebook.php">Buy book</a></li>
                     </ul>
@@ -549,39 +497,30 @@
                 <div class="footer-col">
                     <h3>Connect</h3>
                     <ul class="footer-links">
-                        <li><a href="https://t.me/+447949325039" target="_blank" rel="noopener">Telegram</a></li>
-                        <li><a href="https://www.instagram.com/echotongue2013/" target="_blank"
-                                rel="noopener">Instagram</a></li>
-                        <li><a href="https://wa.me/+447949325039" target="_blank" rel="noopener">Whatsapp</a></li>
+                        <li><a href="https://t.me/+447949325039" target="_blank" rel="noopener" aria-label="Contact me on Telegram">Telegram</a></li>
+                        <li><a href="https://www.instagram.com/echotongue2013/" target="_blank" rel="noopener"aria-label="Follow EchoTongue on Instagram">Instagram</a></li>
+                        <li><a href="https://wa.me/+447949325039" target="_blank" rel="noopener" aria-label="Chat with me on WhatsApp">Whatsapp</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Copyright</h3>
-                    <ul class="footer-links">
-                        <li>
-                            <div style="margin-top: 10px; font-size: 0.8rem;"><strong>ISBN(PB):</strong>
-                                979-8-89604-275-4</div>
-                        </li>
-                        <li>
-                            <div style="margin-top: 10px; font-size: 0.8rem;"><strong>ISBN(HB):</strong>
-                                979-8-89604-276-1</div>
-                        </li>
+                    <ul class="footer-links"> 
+                       <li><div style="margin-top: 10px; font-size: 0.8rem;"><strong>ISBN(PB):</strong> 979-8-89604-275-4</div></li>
+                       <li><div style="margin-top: 10px; font-size: 0.8rem;"><strong>ISBN(HB):</strong> 979-8-89604-276-1</div></li>
                     </ul>
                 </div>
-
+              
             </div>
             <div class="copyright">
                 <p>&copy; 2025 Hermona Zeleke. All rights reserved.</p>
-                <p>Designed by <a
-                        style="font-family: 'Cinzel Decorative', serif; font-weight: 800; text-decoration: none; color:#d1cece;"
-                        href="https://yonikass.netlify.app/" target="_blank" rel="noopener">Yonatan Kassahun</a></p>
+                <p>Designed by <a style="font-family: 'Cinzel Decorative', serif; font-weight: 800; text-decoration: none; color:#d1cece;" href="https://yonikass.netlify.app/" target="_blank" rel="noopener">Yonatan Kassahun</a></p>
             </div>
         </div>
     </footer>
 
     <!-- <script src="assets/js/script.js"></script> -->
     <script>
-        document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             var form = this;
             var button = form.querySelector('button');
@@ -589,18 +528,17 @@
             button.innerHTML = 'Subscribing...';
             button.disabled = true;
             fetch(form.action, { method: 'POST', body: new FormData(form) })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) form.reset();
-                    button.innerHTML = originalText;
-                    button.disabled = false;
-                })
-                .catch(error => {
-                    button.innerHTML = originalText;
-                    button.disabled = false;
-                });
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) form.reset();
+                button.innerHTML = originalText;
+                button.disabled = false;
+            })
+            .catch(error => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
         });
     </script>
 </body>
-
 </html>
