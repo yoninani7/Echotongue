@@ -661,21 +661,30 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
         </h3>
     </a>
     <div class="container">
-        <a href="https://www.amazon.co.uk/dp/B0FQXX1F9B/ref" target="_blank" class="rift">
-            <img src="assets/amazon.webp" style="width: 200px;">
-            <span class="label">Global delivery</span>
-            <div class="buy-btn">Buy book on Amazon </div>
-        </a>
+       <a href="https://www.amazon.com/Echotongue-Zureyan-Hermona-N-Zeleke/dp/B0FQY7Q2CT" target="_blank" class="rift">
+    <img src="assets/amazon.webp" style="width: 200px;">
+    <span class="label">
+        <img src="assets/us.png" width="40" alt="USA Flag" style="vertical-align: middle; margin-right: 8px;">
+        US & Global
+    </span>
+    <div class="buy-btn">Buy on Amazon.com</div>
+</a>
+
+<br> <a href="https://www.amazon.co.uk/dp/B0FQXX1F9B/ref" target="_blank" class="rift">
+    <img src="assets/amazon.webp" style="width: 200px;">
+    <span class="label">
+        <img src="assets/gb.png" width="40" alt="UK Flag" style="vertical-align: middle; margin-right: 8px;">
+        UK & Europe
+    </span>
+    <div class="buy-btn">Buy on Amazon.co.uk</div>
+</a>
         <a href="https://www.walmart.com/ip/Echotongue-The-Zureyan-Tablets-Paperback-9798896042938/18356422505?classType=REGULAR"
-            target="_blank" class="rift">
+            target="_blank" class="rift" >
+            
             <img src="assets/walmart.webp" style="width: 200px;">
-            <span class="label">UK/ International</span>
+            
+            <span class="label" style="margin-top:20px;"> <img src="assets/gb.png" width="40" alt="UK Flag" style="vertical-align: middle; margin-right: 8px;">UK/ International</span>
             <div class="buy-btn">Buy book on Walmart </div>
-        </a>
-        <a href="https://www.waterstones.com/author/hermona-n-zeleke/10239986" target="_blank" class="rift">
-            <img src="assets/waterstones.webp" style="width: 200px;">
-            <span class="label">UK/ International</span>
-            <div class="buy-btn">Buy book on Waterstones </div>
         </a>
     </div>
 
@@ -686,18 +695,17 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
             <div class="buy-btn">Buy book on Everand </div>
         </a>
 
+        <a href="https://www.waterstones.com/author/hermona-n-zeleke/10239986" target="_blank" class="rift">
+            <img src="assets/waterstones.webp" style="width: 200px;">
+            <span class="label"> <img src="assets/gb.png" width="40" alt="UK Flag" style="vertical-align: middle; margin-right: 8px;"> UK/ International</span>
+            <div class="buy-btn">Buy book on Waterstones </div>
+        </a>
         <a href="https://www.dicksmith.com.au/da/buy/the-nile-echotongue-9798896042938/?ssid=201.7c4666db-7427-4926-b0ed-fc585b6c4ae0&click_id=7KDNCdhNDvAHBfpwQ6wBtAnJpLPdo9tYElb27focHwbzTRpBs6rfE0uO8RbIjnAAyBSEvfR46ZU-gV2tuWS-VlnB1HABrwO9nA1h3oNYVMPsp_ZfLGg5UMjQbqzi_rAKoGk9SaoxrkmnKLOxKc1QLY2ASRqhcNrhDp6qZmvBZzDlQD_QNBhPAkujMKTFoOPsrMJwOndh3TTxkI6wnB3cu6qTp_vVKRHGqDdPtsDFlCIMZ2biyHcWNFsQIsxoZPjbeWXNa3ehe437-GsCwO-DMx2vaK89K7Fb4_cctGse7OqUCwIPdjNOfjoAMcvbZYoA2ZeMBruO1KcRxoVEe0LTQnjIX60qGPlPYrAwIH9AzXDLcEVrB9Jw752vnHHbf33Rpqp58VYDV3zLrdK6c4XRpg227c1kvPupDEopljp6imcX2HLw7HCkNPmg2BWVxbAOtk9O_hAIO-E-5iLF0dxhWQT05eCqS1I1XnjL6tFLzJKf6MWKpvdfcEc24hVh-q_XlgeoU8HuQek8k40GJhKUOuEYeLUXeYU2HT1vSI_-aNOFIVdtiuaJl_8Ti8iMVQ5a53dIN5iEyzrer8NKgLSvGviPk7VF5ruwEqVPfPXoMIBfuM424KnEDTh9zA%3D%3D"
             target="_blank" class="rift">
             <img src="assets/dicksmith.webp" style="width: 200px;">
-            <span class="label">UK/ International</span>
+            <span class="label"> <img src="assets/gb.png" width="40" alt="UK Flag" style="vertical-align: middle; margin-right: 8px;">  UK/ International</span>
             <div class="buy-btn">Buy book on dick smith </div>
-        </a>
-        <a href=""  class="rift">
-            <img src="" alt="">
-            <span class="label">Direct Origin</span>
-            <h2 class="title">Partner <br> bookstores</h2>
-            <div class="buy-btn">Visit book store </div>
-        </a>
+        </a> 
     </div>
     </div>
     <div id="wisewords"> </div>
