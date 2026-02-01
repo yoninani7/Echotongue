@@ -570,8 +570,7 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
     </style>
 </head>
 
-<body>
-
+<body> 
     <!-- Fixed TRANSPARENT Navigation Bar -->
     <nav id="main-nav">
         <a href="index.php" class="cinzel">ECHOTONGUE</a>
@@ -580,15 +579,15 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
             <li class="has-dropdown">
                 <a href="javascript:void(0)">About <i class="fas fa-chevron-down" style="font-size: 0.9rem; "></i></a>
                 <div class="dropdown">
-                    <a href="index.php #about">About the book</a>
-                    <a href="index.php #world">What's inside?</a>
-                    <a href="index.php #universe">The universe</a>
-                    <a href="index.php #preview">Edition features</a>
-                    <a href="index.php #magic">Dialects</a>
-                    <a href="index.php #characters"> Main Characters</a>
+                    <a href="index.php#about">About the book</a>
+                    <a href="index.php#world">What's inside?</a>
+                    <a href="index.php#universe">The universe</a>
+                    <a href="index.php#preview">Edition features</a>
+                    <a href="index.php#magic">Dialects</a>
+                    <a href="index.php#characters"> Main Characters</a>
                 </div>
             </li>
-            <li><a href="index.php #author">Author</a></li>
+            <li><a href="index.php#author">Author</a></li>
             <li><a href="blog.php">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
@@ -606,8 +605,8 @@ unset($_SESSION['form_data'], $_SESSION['feedback_success'], $_SESSION['feedback
     <div class="mobile-nav" id="mobile-nav" style="margin-top: 50px; float: right;">
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="index.php #about">About the book</a></li>
-            <li><a href="index.php #author">Author</a></li>
+            <li><a href="index.php#about">About the book</a></li>
+            <li><a href="index.php#author">Author</a></li>
             <li><a href="blog.php">Blog</a></li>
             <li><a href="Timeline.html">Timeline</a></li>
             <li><a href="chaptermap.html">Chapter Map</a></li>
